@@ -1,0 +1,125 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const articles = [
+  { title: '¿Qué es la domótica y por qué la necesitas?', cat: 'Guía', time: '5 min', date: 'Dic 2024', desc: 'Descubre cómo la automatización del hogar puede transformar tu calidad de vida y cuánto puedes ahorrar en energía.', img: '/img/photo-1558618666-fcd25c85cd64.jpg' },
+  { title: 'Cómo ahorrar hasta un 40% en tu factura eléctrica', cat: 'Energía', time: '7 min', date: 'Nov 2024', desc: 'Estrategias prácticas con domótica para reducir el consumo eléctrico en el hogar sin sacrificar el confort.', img: '/img/photo-1559302504-64aae6ca6890.jpg' },
+  { title: 'Seguridad en el hogar inteligente: qué debes saber', cat: 'Seguridad', time: '6 min', date: 'Oct 2024', desc: 'Guía completa sobre los sistemas de seguridad domóticos: cámaras, alarmas, cerraduras y cómo integrarlos.', img: '/img/photo-1585771724684-38269d6639fd.jpg' },
+  { title: 'Domótica para empresas: ROI y casos de éxito', cat: 'Empresas', time: '8 min', date: 'Sep 2024', desc: 'Analizamos el retorno de inversión de la automatización en oficinas y locales comerciales con ejemplos reales.', img: '/img/photo-1497366216548-37526070297c.jpg' },
+  { title: 'Protocolo KNX vs sistemas inalámbricos: ¿cuál elegir?', cat: 'Tecnología', time: '9 min', date: 'Ago 2024', desc: 'Comparativa técnica entre los principales protocolos de domótica para ayudarte a tomar la mejor decisión.', img: '/img/photo-1612178537253-bccd437b730e.jpg' },
+  { title: 'Iluminación inteligente: más allá de encender y apagar', cat: 'Iluminación', time: '5 min', date: 'Jul 2024', desc: 'Cómo las escenas de luz y la automatización cambian por completo la experiencia en tu hogar.', img: '/img/photo-1565814329452-e1efa11c5b89.jpg' },
+];
+
+const faqs = [
+  { q: '¿Necesito hacer obras para instalar domótica?', a: 'No necesariamente. Disponemos de sistemas inalámbricos (Z-Wave, Zigbee, Wi-Fi) que se instalan sin necesidad de cablear. Son ideales para viviendas ya construidas. Para obras nuevas, recomendamos sistemas cableados como KNX por su mayor estabilidad y prestaciones.' },
+  { q: '¿Cuánto cuesta instalar domótica en un hogar?', a: 'El precio varía según el tamaño del hogar y los sistemas a integrar. Una instalación básica para un piso de 80 m² con iluminación, clima y seguridad puede partir desde 2.500€. Realizamos visitas gratuitas y presupuestos sin compromiso.' },
+  { q: '¿Funciona si no tengo conexión a Internet?', a: 'Sí. Nuestros sistemas funcionan en red local (sin depender de la nube), por lo que si falla la conexión a Internet, la domótica sigue funcionando perfectamente dentro del hogar.' },
+  { q: '¿Es compatible con Alexa, Google Home y Apple HomeKit?', a: 'Sí. Todos nuestros sistemas son compatibles con los principales asistentes de voz y plataformas de hogar inteligente. También ofrecemos integración con plataformas propias para mayor privacidad.' },
+  { q: '¿Qué pasa si hay un fallo en el sistema?', a: 'Contamos con soporte técnico 24/7. Muchos problemas se resuelven de forma remota en minutos. Para incidencias que requieren intervención presencial, garantizamos respuesta en menos de 24 horas en el área de Barcelona.' },
+  { q: '¿Puedo ampliar el sistema en el futuro?', a: 'Absolutamente. Diseñamos todos los sistemas pensando en la escalabilidad. Puedes empezar con un sistema básico e ir añadiendo funcionalidades según tus necesidades y presupuesto.' },
+];
+---
+
+<Layout
+  title="Blog y Guías de Domótica en Barcelona"
+  description="Artículos, guías prácticas y FAQs sobre domótica y hogar inteligente. Aprende sobre automatización, ahorro energético, smart home y las últimas tendencias en tecnología del hogar en Barcelona."
+>
+
+  <!-- HERO -->
+  <section class="py-32 bg-slate-900 border-b border-slate-800 text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-4">Centro de recursos</p>
+      <h1 class="text-5xl sm:text-6xl font-extrabold text-white mb-6">Blog y guías</h1>
+      <p class="text-xl text-slate-300">Todo lo que necesitas saber sobre domótica, automatización y hogares inteligentes.</p>
+    </div>
+  </section>
+
+  <!-- ARTICLES -->
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-14 fade-up">
+        <div>
+          <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-2">Últimos artículos</p>
+          <h2 class="text-3xl font-bold text-white">Aprende sobre domótica</h2>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {articles.map((a, i) => (
+          <article class="group bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-sky-500/40 transition-all duration-300 fade-up" style={`transition-delay:${i*70}ms`}>
+            <div class="relative h-44 overflow-hidden">
+              <img src={a.img} alt={a.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+              <span class="absolute top-3 left-3 px-2.5 py-1 bg-sky-500/90 text-white text-xs font-semibold rounded-lg">{a.cat}</span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+                <span>{a.date}</span>
+                <span>·</span>
+                <span>{a.time} lectura</span>
+              </div>
+              <h3 class="text-white font-semibold text-lg leading-snug mb-3 group-hover:text-sky-400 transition-colors">{a.title}</h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-4">{a.desc}</p>
+              <div class="flex items-center gap-2 text-sky-500 text-sm font-medium">
+                <span>Leer artículo</span>
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="py-24 bg-slate-900 border-t border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">Preguntas frecuentes</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white">Resolvemos tus dudas</h2>
+      </div>
+      <div class="space-y-4" id="faq-list">
+        {faqs.map((faq, i) => (
+          <div class="faq-item border border-slate-700 rounded-2xl overflow-hidden fade-up" style={`transition-delay:${i*60}ms`}>
+            <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left bg-slate-800/50 hover:bg-slate-800 transition-colors">
+              <span class="text-white font-semibold pr-4">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-sky-400 flex-shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-answer hidden px-6 py-5 bg-slate-900 border-t border-slate-800">
+              <p class="text-slate-400 leading-relaxed">{faq.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-slate-950 border-t border-slate-800">
+    <div class="max-w-3xl mx-auto px-4 text-center fade-up">
+      <h2 class="text-3xl font-bold text-white mb-4">¿Tienes más preguntas?</h2>
+      <p class="text-slate-400 mb-8">Nuestro equipo está disponible para resolver cualquier duda y ayudarte a planificar tu proyecto.</p>
+      <a href="/contacto" class="inline-block px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/25 hover:scale-105">
+        Hablar con un experto
+      </a>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const answer = item?.querySelector('.faq-answer');
+      const icon = btn.querySelector('.faq-icon');
+      const isOpen = !answer?.classList.contains('hidden');
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
+      document.querySelectorAll('.faq-icon').forEach(ic => ic.classList.remove('rotate-180'));
+      if (!isOpen) {
+        answer?.classList.remove('hidden');
+        icon?.classList.add('rotate-180');
+      }
+    });
+  });
+</script>

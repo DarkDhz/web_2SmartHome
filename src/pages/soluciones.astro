@@ -1,0 +1,376 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const solutions = [
+  {
+    id: 'iluminacion',
+    num: '01',
+    title: 'Iluminación inteligente',
+    tagline: 'La luz perfecta, siempre automática',
+    scenario: 'Llegas a casa. El pasillo se ilumina solo al 40%. Di «modo película» y el salón se oscurece en segundos.',
+    img: '/img/photo-1586023492125-27b2c045efd7.jpg',
+    imgAlt: 'Salón moderno con iluminación ambiental inteligente ajustada desde app',
+    desc: 'Olvídate de los interruptores. La luz se adapta automáticamente a cada momento del día: detecta tu presencia, responde a la luz natural y crea la atmósfera perfecta sin que tengas que hacer nada.',
+    benefits: [
+      'Hasta 60% de ahorro en iluminación',
+      'Escenas automáticas por hora del día',
+      'Se apaga sola cuando no hay nadie',
+      'Compatible con cualquier tipo de bombilla',
+    ],
+    ui: { label: 'Salón · Modo cena', value: '35%', bar: 35, color: 'bg-amber-400' },
+  },
+  {
+    id: 'clima',
+    num: '02',
+    title: 'Control climático',
+    tagline: 'El confort que se adelanta a ti',
+    scenario: 'Antes de que suene el despertador, la calefacción ya ha llevado el dormitorio a 21°C. Sin que hayas hecho nada.',
+    img: '/img/photo-1600607687939-ce8a6c25118c.jpg',
+    imgAlt: 'Termostato inteligente en pared de hogar moderno con control remoto',
+    desc: 'El termostato aprende tus horarios y se ajusta solo. La casa ya está a la temperatura perfecta cuando llegas, y se apaga en cuanto te vas. Sin que tengas que recordarlo nunca.',
+    benefits: [
+      'Hasta 30% de ahorro en calefacción y refrigeración',
+      'Precalentamiento automático antes de llegar',
+      'Apagado total al salir de casa',
+      'Control por zonas independientes',
+    ],
+    ui: { label: 'Dormitorio · Activo', value: '21°C', bar: 70, color: 'bg-sky-400' },
+  },
+  {
+    id: 'seguridad',
+    num: '03',
+    title: 'Seguridad y videovigilancia',
+    tagline: 'Tu hogar vigilado, estés donde estés',
+    scenario: 'Recibes una notificación en el móvil. Abres la app y ves en vídeo quién llama a tu puerta. Abres con un toque.',
+    img: 'https://images.pexels.com/photos/6667681/pexels-photo-6667681.jpeg?auto=compress&cs=tinysrgb&w=900',
+    imgAlt: 'Mensajero con paquete llamando al videoportero de una vivienda',
+    desc: 'Estés en la oficina, de viaje o de vacaciones, tu hogar está bajo control. Cámaras, detectores y cerraduras integrados en una sola app para ver, hablar y abrir desde cualquier lugar.',
+    benefits: [
+      'Alertas en tiempo real en tu móvil',
+      'Vídeo HD con visión nocturna',
+      'Abre la puerta desde cualquier lugar',
+      'Historial de entradas con foto y hora',
+    ],
+    ui: { label: '🔔 Movimiento detectado', value: 'Puerta · Ahora', bar: 100, color: 'bg-red-400' },
+  },
+  {
+    id: 'persianas',
+    num: '04',
+    title: 'Persianas y cortinas',
+    tagline: 'La luz natural, a tu ritmo',
+    scenario: 'Cada mañana a las 8h las persianas suben solas. Por la tarde, se cierran un 60% para evitar el calor sin oscurecer.',
+    img: '/img/photo-1580587771525-78b9dba3b914.jpg',
+    imgAlt: 'Dormitorio luminoso con persianas motorizadas que se abren con luz natural',
+    desc: 'Las persianas trabajan solas: suben al amanecer, se ajustan según la posición del sol y se cierran al anochecer. O con un simple toque. O diciéndolo en voz alta.',
+    benefits: [
+      'Automatización según la posición del sol',
+      'Mejora el aislamiento térmico hasta un 15%',
+      'Control por voz, app o programación',
+      'Sin obras en modelos inalámbricos',
+    ],
+    ui: { label: 'Salón · Bajando', value: '70%', bar: 70, color: 'bg-slate-300' },
+  },
+  {
+    id: 'audio',
+    num: '05',
+    title: 'Audio y vídeo multiroom',
+    tagline: 'La música te sigue por casa',
+    scenario: 'Empiezas una canción en la cocina. Al entrar al salón, la música ya suena ahí. Sin tocar nada.',
+    img: '/img/photo-1545671913-b89ac1b4ac10.jpg',
+    imgAlt: 'Altavoz inteligente en salón moderno con control de música por voz',
+    desc: 'La música que te gusta, en la habitación donde estás, al volumen que quieres. Sin interrupciones, sin apps complicadas, sin cables visibles. Solo disfruta.',
+    benefits: [
+      'Música sincronizada en todas las estancias',
+      'Compatible con Spotify, Apple Music y más',
+      'Control por voz con Google Home y Alexa',
+      'Instalación discreta, empotrada o en superficie',
+    ],
+    ui: { label: '♪ Toda la casa · 42%', value: 'The Weeknd', bar: 42, color: 'bg-purple-400' },
+  },
+  {
+    id: 'energia',
+    num: '06',
+    title: 'Gestión energética',
+    tagline: 'Ahorra sin pensar en ello',
+    scenario: 'El sistema detecta que el precio de la luz está bajo. Arranca el lavavajillas y carga el coche automáticamente.',
+    img: '/img/photo-1473341304170-971dccb5ac1e.jpg',
+    imgAlt: 'Monitorización de consumo energético del hogar en tiempo real',
+    desc: 'La gestión energética trabaja en silencio: activa los electrodomésticos en horas baratas, maximiza el autoconsumo si tienes placas solares y te muestra exactamente en qué se va la luz.',
+    benefits: [
+      'Activación automática en horas valle',
+      'Monitorización en tiempo real por circuito',
+      'Integración con instalación solar fotovoltaica',
+      'Informes mensuales de consumo',
+    ],
+    ui: { label: 'Ahorro hoy', value: '−38%', bar: 62, color: 'bg-green-400' },
+  },
+  {
+    id: 'acceso',
+    num: '07',
+    title: 'Control de acceso',
+    tagline: 'Sin llaves. Solo tu móvil',
+    scenario: 'Tu hijo llega del colegio. Te llega la notificación, le abres desde el trabajo. Sin llaves que perder.',
+    img: '/img/photo-1558002038-1055907df827.jpg',
+    imgAlt: 'Smartphone abriendo cerradura inteligente Nuki en puerta de entrada',
+    desc: 'Tu móvil es la llave. Abre el portón del garaje antes de llegar, deja entrar a alguien cuando no estás, crea códigos temporales para la limpieza o las visitas. Todo con un toque.',
+    benefits: [
+      'Apertura por app, huella dactilar o código',
+      'Videoportero con imagen en el móvil',
+      'Códigos temporales para visitas y personal',
+      'Historial de accesos con foto y hora',
+    ],
+    ui: { label: 'Puerta principal', value: '🔓 Abierta', bar: 100, color: 'bg-green-400' },
+  },
+  {
+    id: 'jardin',
+    num: '08',
+    title: 'Automatización de jardín',
+    tagline: 'El jardín perfecto, sin esfuerzo',
+    scenario: 'Va a llover esta tarde. El sistema lo detecta y cancela el riego automáticamente. Tú no tienes ni que mirarlo.',
+    img: '/img/photo-1416879595882-3373a0480b5b.jpg',
+    imgAlt: 'Jardín bien cuidado con sistema de riego automático inteligente',
+    desc: 'El riego consulta la previsión del tiempo y los sensores de humedad del suelo antes de activarse. Tu jardín siempre está en su punto sin que tengas que recordar nada.',
+    benefits: [
+      'Hasta 50% de ahorro en agua',
+      'Se cancela solo si va a llover',
+      'Programación por zonas y tipo de planta',
+      'Control remoto desde la app',
+    ],
+    ui: { label: '💧 Riego cancelado', value: 'Lluvia prevista', bar: 0, color: 'bg-sky-400' },
+  },
+];
+
+const controls = [
+  {
+    icon: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z',
+    label: 'Desde la app',
+    desc: 'Un toque en el móvil controla cualquier sistema de la casa, desde cualquier lugar del mundo.',
+    img: '/img/photo-1512941937669-90a1b58e7e9c.jpg',
+    imgAlt: 'Persona controlando el hogar desde su smartphone',
+  },
+  {
+    icon: 'M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z',
+    label: 'Con la voz',
+    desc: 'Compatible con Google Home, Amazon Alexa y Siri. Di lo que quieres y listo.',
+    img: '/img/photo-1512446816042-444d641267d4.jpg',
+    imgAlt: 'Altavoz inteligente respondiendo a comandos de voz en el hogar',
+  },
+  {
+    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+    label: 'Automáticamente',
+    desc: 'Programas y rutinas que trabajan solos las 24h. Sin que tengas que intervenir nunca.',
+    img: '/img/photo-1558618666-fcd25c85cd64.jpg',
+    imgAlt: 'Hogar inteligente con automatización funcionando sin intervención humana',
+  },
+];
+
+const timeline = [
+  { time: '07:00', icon: '🌅', title: 'Buenos días', desc: 'Las persianas suben suavemente. Las luces se encienden al 20%. La calefacción lleva ya 30 min a 21°C.' },
+  { time: '08:15', icon: '🚪', title: 'Sales de casa', desc: 'Detecta que todo el mundo se ha ido. Apaga luces, baja termostatos, activa alarma. Un toque, cero preocupaciones.' },
+  { time: '18:30', icon: '🏠', title: 'Llegada', desc: 'El sistema ya sabe que estás a 5 min. La temperatura ideal te espera. Las luces de bienvenida, encendidas.' },
+  { time: '22:00', icon: '🌙', title: 'Modo noche', desc: 'Con un «buenas noches» o un toque: persianas abajo, luces apagadas, temperatura reducida, alarma activa.' },
+];
+---
+
+<Layout
+  title="Soluciones de Domótica en Barcelona"
+  description="Catálogo completo de soluciones de domótica en Barcelona: iluminación inteligente, control climático, seguridad 360°, persianas motorizadas, audio multiroom y gestión energética. Instalamos en toda el área metropolitana."
+>
+
+  <!-- HERO -->
+  <section class="relative min-h-[75vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="/img/photo-1556742049-0cfed4f6a45d.jpg"
+        alt="Persona controlando su hogar inteligente desde el sofá con un smartphone"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/40"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <div class="max-w-2xl">
+        <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-4">Todo bajo control</p>
+        <h1 class="text-5xl sm:text-6xl font-extrabold text-white leading-tight mb-6">
+          La tecnología que trabaja
+          <span class="block text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-cyan-300">
+            para ti
+          </span>
+        </h1>
+        <p class="text-xl text-slate-300 leading-relaxed mb-10">
+          No tienes que aprender nada nuevo. Solo disfrutar de un hogar que entiende lo que necesitas antes de que lo pidas.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/contacto" class="inline-flex items-center justify-center gap-2 px-7 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/30 hover:scale-105">
+            Solicitar presupuesto gratis
+          </a>
+          <a href="#iluminacion" class="inline-flex items-center justify-center gap-2 px-7 py-4 bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold rounded-2xl transition-all">
+            Ver soluciones
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTROL METHODS -->
+  <section class="py-20 bg-slate-900 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 fade-up">
+        <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">Facilidad de uso</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Tres formas de controlar todo</h2>
+        <p class="text-slate-400 max-w-xl mx-auto">Como prefiera cada persona. Todo funciona con los tres métodos a la vez.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {controls.map((c, i) => (
+          <div class="group relative rounded-3xl overflow-hidden fade-up" style={`transition-delay:${i*100}ms`}>
+            <div class="h-56 overflow-hidden">
+              <img src={c.img} alt={c.imgAlt} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-9 h-9 rounded-xl bg-sky-500/20 border border-sky-500/30 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d={c.icon}/>
+                  </svg>
+                </div>
+                <h3 class="text-white font-bold text-lg">{c.label}</h3>
+              </div>
+              <p class="text-slate-300 text-sm leading-relaxed">{c.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS LIST -->
+  {solutions.map((sol, i) => (
+    <section id={sol.id} class={`py-24 ${i % 2 === 0 ? 'bg-slate-950' : 'bg-slate-900'} border-t border-slate-800`}>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class={`grid grid-cols-1 lg:grid-cols-2 gap-14 items-center ${i % 2 !== 0 ? 'lg:grid-flow-dense' : ''}`}>
+
+          <!-- Text column -->
+          <div class={`fade-up ${i % 2 !== 0 ? 'lg:col-start-2' : ''}`}>
+            <p class="text-sky-500 font-bold text-xs uppercase tracking-widest mb-2">{sol.num}</p>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-2">{sol.title}</h2>
+            <p class="text-sky-400 font-medium mb-6">{sol.tagline}</p>
+
+            <!-- Scenario callout -->
+            <div class="flex items-start gap-3 bg-sky-500/8 border border-sky-500/20 rounded-2xl p-5 mb-7">
+              <div class="w-8 h-8 rounded-full bg-sky-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-sky-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                </svg>
+              </div>
+              <p class="text-slate-200 text-sm leading-relaxed italic">"{sol.scenario}"</p>
+            </div>
+
+            <p class="text-slate-400 leading-relaxed mb-7">{sol.desc}</p>
+
+            <ul class="space-y-3 mb-9">
+              {sol.benefits.map(b => (
+                <li class="flex items-center gap-3 text-sm text-slate-300">
+                  <svg class="w-4 h-4 text-sky-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  {b}
+                </li>
+              ))}
+            </ul>
+
+            <a href="/contacto" class="inline-flex items-center gap-2 px-6 py-3 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-xl transition-all shadow-lg shadow-sky-500/25">
+              Solicitar presupuesto
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <!-- Image column with UI overlay -->
+          <div class={`relative rounded-3xl overflow-hidden shadow-2xl fade-up ${i % 2 !== 0 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
+            <img
+              src={sol.img}
+              alt={sol.imgAlt}
+              class="w-full h-80 lg:h-[460px] object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
+
+            <!-- App UI widget overlay -->
+            <div class="absolute bottom-5 left-5 right-5 sm:right-auto sm:w-56">
+              <div class="bg-slate-900/90 backdrop-blur-md border border-white/10 rounded-2xl p-4 shadow-2xl">
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0"></span>
+                    <span class="text-slate-400 text-xs truncate">{sol.ui.label}</span>
+                  </div>
+                  <svg class="w-4 h-4 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/></svg>
+                </div>
+                <div class="text-white font-bold text-xl mb-3">{sol.ui.value}</div>
+                <div class="h-1.5 bg-slate-700 rounded-full overflow-hidden">
+                  <div class={`h-full rounded-full transition-all duration-1000 ${sol.ui.color}`} style={`width: ${sol.ui.bar}%`}></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Solution number badge -->
+            <div class="absolute top-5 right-5 w-12 h-12 rounded-2xl bg-sky-500/90 backdrop-blur flex items-center justify-center">
+              <span class="text-white font-bold text-sm">{sol.num}</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- DAY IN THE LIFE -->
+  <section class="py-24 bg-slate-900 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">Así funciona</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Un día con 2SmartHome</h2>
+        <p class="text-slate-400 max-w-xl mx-auto">La domótica no interrumpe tu vida. La simplifica. Así luce un día normal cuando todo trabaja junto.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {timeline.map((t, i) => (
+          <div class="relative bg-slate-800/50 border border-slate-700 rounded-2xl p-6 fade-up" style={`transition-delay:${i*80}ms`}>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-3xl">{t.icon}</span>
+              <div>
+                <div class="text-sky-400 text-sm font-bold">{t.time}</div>
+                <div class="text-white font-semibold text-sm">{t.title}</div>
+              </div>
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed">{t.desc}</p>
+            {i < 3 && (
+              <div class="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-10">
+                <svg class="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-slate-950 border-t border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 text-center fade-up">
+      <div class="p-12 bg-gradient-to-br from-sky-500/10 via-slate-900 to-slate-900 border border-sky-500/20 rounded-3xl">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">¿No sabes por dónde empezar?</h2>
+        <p class="text-slate-400 mb-8 max-w-xl mx-auto">
+          Cuéntanos tu espacio y tus hábitos. En 30 minutos te diseñamos un sistema a medida y te decimos cuánto cuesta.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contacto" class="inline-block px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/25 hover:scale-105">
+            Consulta gratuita sin compromiso
+          </a>
+          <a href="/proyectos" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold rounded-2xl transition-all">
+            Ver proyectos reales
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>

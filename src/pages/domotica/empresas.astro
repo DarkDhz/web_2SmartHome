@@ -1,0 +1,141 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const sectors = [
+  { icon: '🏢', title: 'Oficinas y coworkings', desc: 'Gestión inteligente de iluminación, clima y accesos para maximizar la productividad y reducir costes operativos.' },
+  { icon: '🏨', title: 'Hoteles y apartamentos', desc: 'Control centralizado por habitación, check-in digital y optimización automática del consumo energético.' },
+  { icon: '🏬', title: 'Locales comerciales', desc: 'Sistemas de control de aforo, iluminación de escaparate programada y gestión remota desde cualquier lugar.' },
+  { icon: '🏭', title: 'Naves industriales', desc: 'Automatización de iluminación, climatización y accesos para grandes superficies con máximo ahorro.' },
+  { icon: '🏥', title: 'Centros sanitarios', desc: 'Entornos controlados para clínicas y centros médicos con monitorización continua y protocolos de seguridad.' },
+  { icon: '🎓', title: 'Centros educativos', desc: 'Gestión eficiente de aulas y espacios comunes con control horario y optimización del confort de los alumnos.' },
+];
+
+const benefits = [
+  { value: 'Hasta 40%', label: 'Reducción factura eléctrica' },
+  { value: 'Gestión remota', label: 'Desde cualquier dispositivo' },
+  { value: 'Escalable', label: 'Crece con tu empresa' },
+  { value: 'ROI positivo', label: 'En menos de 3 años' },
+];
+---
+
+<Layout
+  title="Domótica para Empresas en Barcelona"
+  description="Automatización inteligente para oficinas, hoteles, locales y naves industriales en Barcelona, 22@, Hospitalet, Cornellà y área metropolitana. Reduce costes energéticos hasta un 40% y mejora la productividad."
+>
+
+  <!-- HERO -->
+  <section class="relative py-36 flex items-center overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/img/photo-1497366811353-6870744d04b2.jpg" alt="Domótica para empresas" class="w-full h-full object-cover"/>
+      <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-950/30"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <nav class="flex items-center gap-2 text-sm text-slate-500 mb-6">
+          <a href="/domotica" class="hover:text-slate-300 transition-colors">Domótica</a>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <span class="text-slate-400">Empresas</span>
+        </nav>
+        <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-4">Soluciones corporativas</p>
+        <h1 class="text-5xl sm:text-6xl font-extrabold text-white leading-tight mb-6">
+          Edificios que<br/><span class="text-sky-400">trabajan mejor</span>
+        </h1>
+        <p class="text-xl text-slate-300 leading-relaxed mb-8">
+          Sistemas de automatización para empresas que reducen costes, mejoran la productividad y ofrecen una experiencia superior a empleados y clientes.
+        </p>
+        <div class="flex gap-4">
+          <a href="/contacto" class="px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/25 hover:scale-105">
+            Solicitar auditoría
+          </a>
+          <a href="/proyectos" class="px-8 py-4 border border-slate-600 hover:border-sky-500 text-white rounded-2xl transition-all">
+            Ver proyectos
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="py-16 bg-slate-900 border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+        {benefits.map((b, i) => (
+          <div class="fade-up" style={`transition-delay:${i*80}ms`}>
+            <div class="text-2xl font-extrabold text-sky-400 mb-1">{b.value}</div>
+            <div class="text-slate-400 text-sm">{b.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTORS -->
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">Sectores</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Soluciones para cada sector</h2>
+        <p class="text-slate-400 max-w-2xl mx-auto">Cada tipo de negocio tiene necesidades específicas. Diseñamos sistemas a medida para cada sector.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sectors.map((s, i) => (
+          <div class="p-7 bg-slate-900 border border-slate-800 hover:border-sky-500/40 rounded-2xl transition-all duration-300 fade-up" style={`transition-delay:${i*70}ms`}>
+            <div class="text-4xl mb-4">{s.icon}</div>
+            <h3 class="text-white font-semibold text-lg mb-2">{s.title}</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY FOR BUSINESS -->
+  <section class="py-24 bg-slate-900 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="rounded-3xl overflow-hidden shadow-2xl fade-up">
+          <img src="/img/photo-1522071820081-009f0129c71c.jpg" alt="Equipo trabajando en oficina inteligente" class="w-full h-[480px] object-cover"/>
+        </div>
+        <div class="fade-up">
+          <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">Ventajas competitivas</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Invierte una vez,<br/>ahorra cada mes</h2>
+          <p class="text-slate-400 leading-relaxed mb-8">
+            La domótica empresarial no es un gasto, es una inversión con retorno medible. Nuestros clientes recuperan la inversión en menos de 3 años gracias al ahorro energético y la mejora en eficiencia operativa.
+          </p>
+          <div class="space-y-4">
+            {[
+              'Reducción de hasta el 40% en consumo eléctrico',
+              'Gestión centralizada de múltiples localizaciones',
+              'Informes detallados de consumo y eficiencia',
+              'Integración con sistemas ERP y BMS existentes',
+              'Mantenimiento predictivo para evitar averías',
+              'Escalabilidad para el crecimiento de tu negocio',
+            ].map(item => (
+              <div class="flex items-center gap-3">
+                <div class="w-5 h-5 rounded-full bg-sky-500/20 border border-sky-500/40 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-3 h-3 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <span class="text-slate-300 text-sm">{item}</span>
+              </div>
+            ))}
+          </div>
+          <a href="/contacto" class="inline-block mt-10 px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-lg shadow-sky-500/25">
+            Solicitar auditoría energética
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-slate-950 border-t border-slate-800">
+    <div class="max-w-3xl mx-auto px-4 text-center fade-up">
+      <h2 class="text-3xl font-bold text-white mb-4">¿Tu empresa lista para el futuro?</h2>
+      <p class="text-slate-400 mb-8">Analizamos gratuitamente tu negocio y te mostramos cuánto puedes ahorrar con domótica.</p>
+      <a href="/contacto" class="inline-block px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/25 hover:scale-105">
+        Pedir análisis gratuito
+      </a>
+    </div>
+  </section>
+
+</Layout>

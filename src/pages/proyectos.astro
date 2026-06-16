@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  { title: 'Vivienda de lujo en Pedralbes', cat: 'Residencial', size: '400 m²', year: '2024', desc: 'Automatización completa de una vivienda unifamiliar de alto standing: iluminación escénica, climatización por zonas, seguridad perimetral, audio multiroom y control de acceso integrado.', img: '/img/photo-1600210492493-0946911123ea.jpg', tags: ['Iluminación', 'Clima', 'Seguridad', 'Audio'] },
+  { title: 'Oficinas corporativas en 22@', cat: 'Corporativo', size: '1.200 m²', year: '2024', desc: 'Sistema de gestión inteligente para tres plantas de oficinas: control de iluminación por presencia, climatización por zonas y horarios, y control de acceso con tarjeta RFID.', img: '/img/photo-1497366216548-37526070297c.jpg', tags: ['Iluminación', 'Clima', 'Acceso'] },
+  { title: 'Hotel Boutique en el Born', cat: 'Hostelería', size: '35 hab.', year: '2023', desc: 'Plataforma centralizada de domótica hotelera con gestión individual de cada habitación, check-in digital, sistema de entretenimiento y optimización energética.', img: '/img/photo-1566073771259-6a8506099945.jpg', tags: ['Gestión hotelera', 'Energía', 'Acceso'] },
+  { title: 'Chalet en la Sierra de Collserola', cat: 'Residencial', size: '280 m²', year: '2023', desc: 'Domótica residencial con especial atención al exterior: riego automatizado, iluminación de jardín, videoportero y sistema de seguridad perimetral con cámaras.', img: '/img/photo-1600585154340-be6161a56a0c.jpg', tags: ['Seguridad', 'Jardín', 'Acceso'] },
+  { title: 'Restaurante en el Eixample', cat: 'Hostelería', size: '350 m²', year: '2023', desc: 'Sistema de domótica gastronómica con escenas de iluminación por servicio, música ambiente adaptativa y control climático por zonas de sala y cocina.', img: '/img/photo-1414235077428-338989a2e8c0.jpg', tags: ['Iluminación', 'Audio', 'Clima'] },
+  { title: 'Centro logístico en Zona Franca', cat: 'Industrial', size: '5.000 m²', year: '2022', desc: 'Automatización industrial con detección de presencia, control horario de iluminación LED y sistema de gestión energética con monitorización en tiempo real.', img: '/img/photo-1586528116311-ad8dd3c8310d.jpg', tags: ['Energía', 'Iluminación'] },
+];
+
+const cats = ['Todos', 'Residencial', 'Corporativo', 'Hostelería', 'Industrial'];
+---
+
+<Layout
+  title="Proyectos de Domótica en Barcelona"
+  description="Proyectos reales de domótica realizados en Barcelona y área metropolitana: viviendas de lujo en Pedralbes, oficinas en el 22@, hoteles en el Born y más. Más de 500 instalaciones completadas."
+>
+
+  <!-- HERO -->
+  <section class="relative py-32 bg-slate-900 overflow-hidden border-b border-slate-800">
+    <div class="absolute inset-0 opacity-20">
+      <img src="/img/photo-1600210492493-0946911123ea.jpg" alt="" class="w-full h-full object-cover"/>
+      <div class="absolute inset-0 bg-slate-900"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-4">Nuestro portfolio</p>
+      <h1 class="text-5xl sm:text-6xl font-extrabold text-white mb-6">Proyectos realizados</h1>
+      <p class="text-xl text-slate-300 max-w-2xl mx-auto">
+        Más de 500 instalaciones completadas. Cada proyecto es único, diseñado y ejecutado a medida para cada cliente.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROJECTS GRID -->
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Filter tabs -->
+      <div class="flex flex-wrap gap-3 mb-14 fade-up" id="filter-tabs">
+        {cats.map(cat => (
+          <button
+            data-filter={cat}
+            class={`filter-btn px-5 py-2 rounded-xl text-sm font-medium transition-all ${cat === 'Todos' ? 'bg-sky-500 text-white' : 'bg-slate-800 text-slate-400 hover:text-white border border-slate-700 hover:border-sky-500/50'}`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+        {projects.map((p, i) => (
+          <article class="project-card group bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-sky-500/40 transition-all duration-300 fade-up" data-cat={p.cat} style={`transition-delay:${i*80}ms`}>
+            <div class="relative h-52 overflow-hidden">
+              <img src={p.img} alt={p.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+              <span class="absolute top-4 left-4 px-3 py-1 bg-sky-500/90 text-white text-xs font-semibold rounded-full">{p.cat}</span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                <span>{p.size}</span>
+                <span>·</span>
+                <span>{p.year}</span>
+              </div>
+              <h3 class="text-white font-semibold text-lg mb-3 group-hover:text-sky-400 transition-colors">{p.title}</h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-4">{p.desc}</p>
+              <div class="flex flex-wrap gap-2">
+                {p.tags.map(tag => (
+                  <span class="px-2.5 py-1 bg-slate-800 border border-slate-700 text-slate-400 text-xs rounded-lg">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-slate-900 border-t border-slate-800">
+    <div class="max-w-3xl mx-auto px-4 text-center fade-up">
+      <h2 class="text-3xl font-bold text-white mb-4">Tu proyecto, el siguiente</h2>
+      <p class="text-slate-400 mb-8">Cuéntanos tu idea y diseñamos la solución perfecta para tu espacio.</p>
+      <a href="/contacto" class="inline-block px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/25 hover:scale-105">
+        Hablar con un experto
+      </a>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.project-card');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      buttons.forEach(b => {
+        b.classList.remove('bg-sky-500', 'text-white');
+        b.classList.add('bg-slate-800', 'text-slate-400', 'border', 'border-slate-700');
+      });
+      btn.classList.add('bg-sky-500', 'text-white');
+      btn.classList.remove('bg-slate-800', 'text-slate-400', 'border', 'border-slate-700');
+
+      cards.forEach(card => {
+        if (filter === 'Todos' || card.dataset.cat === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

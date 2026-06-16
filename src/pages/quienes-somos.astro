@@ -1,0 +1,145 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const team = [
+  { name: 'Marc Puig', role: 'CEO y Fundador', bio: '15 años de experiencia en automatización industrial y domótica. Ingeniero en Electrónica por la UPC.', img: '/img/photo-1507003211169-0a1dd7228f2d.jpg' },
+  { name: 'Anna Martínez', role: 'Directora Técnica', bio: 'Especialista en sistemas KNX y Z-Wave. Certificada por la asociación KNX internacional.', img: '/img/photo-1494790108377-be9c29b29330.jpg' },
+  { name: 'Jordi Ferrer', role: 'Jefe de Proyectos', bio: 'Experto en integración de sistemas audiovisuales y gestión energética en edificios comerciales.', img: '/img/photo-1472099645785-5658abf4ff4e.jpg' },
+  { name: 'Laura Soler', role: 'Diseñadora de Experiencia', desc: 'Responsable de que cada instalación sea intuitiva y adaptada al estilo de vida del cliente.', img: '/img/photo-1438761681033-6461ffad8d80.jpg' },
+];
+
+const values = [
+  { icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z', title: 'Calidad sin compromiso', desc: 'Solo trabajamos con fabricantes líderes: Philips Hue, Somfy, Ajax, KNX, Fibaro y Loxone.' },
+  { icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z', title: 'Orientados al cliente', desc: 'Acompañamos a cada cliente desde el primer contacto hasta años después de la instalación.' },
+  { icon: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z', title: 'Privacidad y seguridad', desc: 'Sistemas locales que no dependen de servidores externos. Tus datos permanecen en tu hogar.' },
+  { icon: 'M13 10V3L4 14h7v7l9-11h-7z', title: 'Eficiencia energética', desc: 'Cada instalación está diseñada para reducir el consumo y minimizar el impacto ambiental.' },
+];
+
+const certifications = ['KNX Partner', 'Loxone Partner', 'Somfy Expert', 'Ajax Systems', 'Fibaro Certified', 'Philips Hue Pro'];
+---
+
+<Layout
+  title="Quiénes Somos – 2SmartHome Barcelona"
+  description="Conoce al equipo de 2SmartHome, empresa de domótica con más de 10 años de experiencia en Barcelona y área metropolitana. Ingenieros especializados en automatización residencial y empresarial."
+>
+
+  <!-- HERO -->
+  <section class="relative py-36 overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/img/photo-1522071820081-009f0129c71c.jpg" alt="Equipo 2SmartHome" class="w-full h-full object-cover"/>
+      <div class="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/70 to-slate-950"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-4">El equipo</p>
+      <h1 class="text-5xl sm:text-6xl font-extrabold text-white mb-6">Quiénes somos</h1>
+      <p class="text-xl text-slate-300 max-w-2xl mx-auto">
+        Somos un equipo de ingenieros y técnicos apasionados por la tecnología y comprometidos con mejorar la vida de nuestros clientes.
+      </p>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="fade-up">
+          <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">Nuestra historia</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Más de una década transformando hogares</h2>
+          <div class="space-y-4 text-slate-400 leading-relaxed">
+            <p>2SmartHome nació en Barcelona en 2014 con una misión clara: hacer que la tecnología de automatización del hogar fuera accesible y útil para cualquier persona, no solo para los más tecnológicos.</p>
+            <p>Durante más de una década, hemos completado más de 500 instalaciones en hogares, oficinas, hoteles y espacios comerciales. Cada proyecto nos ha enseñado algo nuevo y nos ha permitido perfeccionar nuestra metodología.</p>
+            <p>Nuestro objetivo no es solo instalar tecnología, sino acompañarte: entender cómo vives, cómo trabajas y cómo queremos que tu espacio te facilite la vida. Eso es lo que nos diferencia.</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4 fade-up">
+          <div class="rounded-2xl overflow-hidden">
+            <img src="/img/photo-1600585154340-be6161a56a0c.jpg" alt="" class="w-full h-52 object-cover"/>
+          </div>
+          <div class="rounded-2xl overflow-hidden mt-8">
+            <img src="/img/photo-1556909114-f6e7ad7d3136.jpg" alt="" class="w-full h-52 object-cover"/>
+          </div>
+          <div class="rounded-2xl overflow-hidden -mt-8">
+            <img src="/img/photo-1565814329452-e1efa11c5b89.jpg" alt="" class="w-full h-52 object-cover"/>
+          </div>
+          <div class="rounded-2xl overflow-hidden">
+            <img src="/img/photo-1497366216548-37526070297c.jpg" alt="" class="w-full h-52 object-cover"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="py-24 bg-slate-900 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">Lo que nos guía</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white">Nuestros valores</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {values.map((v, i) => (
+          <div class="p-7 bg-slate-800/50 border border-slate-700 rounded-2xl fade-up" style={`transition-delay:${i*80}ms`}>
+            <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d={v.icon}/>
+              </svg>
+            </div>
+            <h3 class="text-white font-semibold mb-2">{v.title}</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">El equipo</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white">Las personas detrás de 2SmartHome</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {team.map((m, i) => (
+          <div class="group text-center fade-up" style={`transition-delay:${i*80}ms`}>
+            <div class="w-32 h-32 rounded-2xl overflow-hidden mx-auto mb-5 border-2 border-slate-700 group-hover:border-sky-500/60 transition-colors">
+              <img src={m.img} alt={m.name} class="w-full h-full object-cover"/>
+            </div>
+            <h3 class="text-white font-semibold text-lg">{m.name}</h3>
+            <p class="text-sky-400 text-sm font-medium mb-3">{m.role}</p>
+            <p class="text-slate-400 text-sm leading-relaxed">{m.bio}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="py-20 bg-slate-900 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 fade-up">
+        <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">Certificaciones</p>
+        <h2 class="text-2xl font-bold text-white">Partners y certificaciones oficiales</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-4 fade-up">
+        {certifications.map(cert => (
+          <div class="px-6 py-3 bg-slate-800 border border-slate-700 rounded-xl text-slate-300 text-sm font-medium hover:border-sky-500/50 hover:text-sky-400 transition-all">
+            {cert}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-slate-950 border-t border-slate-800">
+    <div class="max-w-3xl mx-auto px-4 text-center fade-up">
+      <h2 class="text-3xl font-bold text-white mb-4">¿Hablamos?</h2>
+      <p class="text-slate-400 mb-8">Nos encantaría conocer tu proyecto y ayudarte a hacerlo realidad.</p>
+      <a href="/contacto" class="inline-block px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/25 hover:scale-105">
+        Contactar con el equipo
+      </a>
+    </div>
+  </section>
+
+</Layout>

@@ -1,0 +1,186 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+  noIndex?: boolean;
+}
+
+const SITE_URL = 'https://www.2smarthome.es';
+const SITE_NAME = '2SmartHome';
+const DEFAULT_IMAGE = `${SITE_URL}/og-default.jpg`;
+
+const {
+  title,
+  description = 'Empresa de domótica en Barcelona. Automatizamos hogares y empresas en Barcelona, Hospitalet, Sant Cugat, Badalona y toda el área metropolitana. Presupuesto gratuito.',
+  image = DEFAULT_IMAGE,
+  canonical = new URL(Astro.url.pathname, SITE_URL).href,
+  noIndex = false,
+} = Astro.props;
+
+const fullTitle = `${title} | ${SITE_NAME}`;
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+  "@id": `${SITE_URL}/#organization`,
+  "name": "2SmartHome",
+  "alternateName": "2SmartHome Domótica Barcelona",
+  "description": "Empresa especializada en domótica e instalaciones inteligentes en Barcelona y área metropolitana. Automatización de hogares y empresas, iluminación inteligente, control climático, seguridad y gestión energética.",
+  "url": SITE_URL,
+  "logo": {
+    "@type": "ImageObject",
+    "url": `${SITE_URL}/favicon.svg`
+  },
+  "image": DEFAULT_IMAGE,
+  "telephone": "+34930000000",
+  "email": "info@2smarthome.es",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "C/ Provença 246, 3º 2ª",
+    "addressLocality": "Barcelona",
+    "postalCode": "08008",
+    "addressRegion": "Cataluña",
+    "addressCountry": "ES"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.3922,
+    "longitude": 2.1637
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "09:00",
+    "closes": "18:00"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Barcelona" },
+    { "@type": "City", "name": "L'Hospitalet de Llobregat" },
+    { "@type": "City", "name": "Badalona" },
+    { "@type": "City", "name": "Terrassa" },
+    { "@type": "City", "name": "Sabadell" },
+    { "@type": "City", "name": "Mataró" },
+    { "@type": "City", "name": "Santa Coloma de Gramenet" },
+    { "@type": "City", "name": "Cornellà de Llobregat" },
+    { "@type": "City", "name": "Sant Boi de Llobregat" },
+    { "@type": "City", "name": "El Prat de Llobregat" },
+    { "@type": "City", "name": "Rubí" },
+    { "@type": "City", "name": "Viladecans" },
+    { "@type": "City", "name": "Gavà" },
+    { "@type": "City", "name": "Castelldefels" },
+    { "@type": "City", "name": "Esplugues de Llobregat" },
+    { "@type": "City", "name": "Sant Cugat del Vallès" },
+    { "@type": "City", "name": "Cerdanyola del Vallès" },
+    { "@type": "City", "name": "Granollers" },
+    { "@type": "City", "name": "Mollet del Vallès" },
+    { "@type": "City", "name": "Sitges" },
+    { "@type": "City", "name": "Vilanova i la Geltrú" },
+    { "@type": "City", "name": "Premià de Mar" },
+    { "@type": "City", "name": "Montgat" },
+    { "@type": "City", "name": "Sant Adrià de Besòs" },
+    { "@type": "AdministrativeArea", "name": "Área Metropolitana de Barcelona" }
+  ],
+  "serviceType": [
+    "Domótica residencial",
+    "Domótica empresarial",
+    "Automatización del hogar",
+    "Iluminación inteligente",
+    "Control climático inteligente",
+    "Seguridad inteligente",
+    "Control de acceso",
+    "Gestión energética",
+    "Persianas motorizadas",
+    "Smart home"
+  ],
+  "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Transferencia bancaria, tarjeta de crédito",
+  "sameAs": [
+    "https://www.linkedin.com/company/2smarthome",
+    "https://www.instagram.com/2smarthome"
+  ]
+};
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary SEO -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="domótica Barcelona, hogar inteligente Barcelona, automatización hogar Barcelona, smart home Barcelona, instalación domótica Barcelona, domótica Hospitalet, domótica Sant Cugat, domótica Badalona, control inteligente hogar, iluminación inteligente Barcelona, seguridad inteligente Barcelona, gestión energética Barcelona, automatización empresas Barcelona" />
+    <meta name="author" content="2SmartHome" />
+    <meta name="robots" content={noIndex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- GEO / Local SEO -->
+    <meta name="geo.region" content="ES-CT" />
+    <meta name="geo.placename" content="Barcelona, Cataluña, España" />
+    <meta name="geo.position" content="41.385064;2.173403" />
+    <meta name="ICBM" content="41.385064, 2.173403" />
+    <meta name="DC.title" content={fullTitle} />
+    <meta name="DC.description" content={description} />
+    <meta name="DC.language" content="es" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@2smarthome" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD: LocalBusiness + Organization -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+
+    <style>
+      html { scroll-behavior: smooth; }
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: #020617; }
+      ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+      ::-webkit-scrollbar-thumb:hover { background: #475569; }
+      .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+      .fade-up.visible { opacity: 1; transform: translateY(0); }
+    </style>
+  </head>
+  <body class="bg-slate-950 text-white antialiased font-sans">
+    <Header />
+    <main class="pt-20">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      const obs = new IntersectionObserver(
+        entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+        { threshold: 0.1 }
+      );
+      document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+    </script>
+  </body>
+</html>

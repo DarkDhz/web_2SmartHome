@@ -1,0 +1,132 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Domótica en Barcelona – Hogares y Empresas"
+  description="Soluciones de domótica en Barcelona y área metropolitana: Hospitalet, Badalona, Sant Cugat, Terrassa y Sabadell. Automatización residencial y empresarial inteligente, eficiente y conectada."
+>
+
+  <!-- HERO -->
+  <section class="relative py-32 flex items-center overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/img/photo-1586023492125-27b2c045efd7.jpg" alt="Domótica" class="w-full h-full object-cover"/>
+      <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-950/50"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-4">Domótica</p>
+        <h1 class="text-5xl sm:text-6xl font-extrabold text-white leading-tight mb-6">
+          Espacios que<br/><span class="text-sky-400">piensan por ti</span>
+        </h1>
+        <p class="text-xl text-slate-300 leading-relaxed mb-8">
+          La domótica integra tecnología en tu hogar o empresa para automatizar tareas, mejorar la seguridad, optimizar el consumo energético y aumentar tu confort.
+        </p>
+        <div class="flex gap-4">
+          <a href="/domotica/hogares" class="px-6 py-3 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-xl transition-all shadow-lg shadow-sky-500/25">Para hogares</a>
+          <a href="/domotica/empresas" class="px-6 py-3 border border-slate-600 hover:border-sky-500 text-white rounded-xl transition-all">Para empresas</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUÉ ES -->
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">La tecnología al servicio de tu vida</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">¿Qué es la domótica?</h2>
+        <p class="text-slate-400 max-w-3xl mx-auto leading-relaxed">
+          La domótica es el conjunto de sistemas que permiten controlar y automatizar los elementos de un hogar o edificio: iluminación, clima, seguridad, persianas, electrodomésticos y mucho más. Todo desde una sola app o mediante rutinas automáticas.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+        {[
+          { icon: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z', title: 'Control desde el móvil', desc: 'Gestiona tu hogar o empresa desde cualquier lugar con una aplicación intuitiva.' },
+          { icon: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15', title: 'Rutinas automáticas', desc: 'Programa acciones que se ejecuten solas: apagar luces al salir, regular el clima al volver.' },
+          { icon: 'M13 10V3L4 14h7v7l9-11h-7z', title: 'Ahorro energético', desc: 'Reduce tu factura hasta un 40% gracias a la optimización inteligente del consumo.' },
+        ].map((item, i) => (
+          <div class="text-center p-8 bg-slate-900 border border-slate-800 rounded-2xl fade-up" style={`transition-delay:${i*100}ms`}>
+            <div class="w-14 h-14 rounded-2xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center mx-auto mb-5">
+              <svg class="w-7 h-7 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d={item.icon}/>
+              </svg>
+            </div>
+            <h3 class="text-white font-semibold text-lg mb-3">{item.title}</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Two paths -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Hogares -->
+        <a href="/domotica/hogares" class="group relative rounded-3xl overflow-hidden fade-up">
+          <img src="/img/photo-1600210492493-0946911123ea.jpg" alt="Hogares inteligentes" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-8">
+            <span class="px-3 py-1 bg-sky-500/20 border border-sky-500/40 text-sky-400 text-xs font-semibold rounded-full">Residencial</span>
+            <h3 class="text-white text-2xl font-bold mt-3 mb-2">Hogares inteligentes</h3>
+            <p class="text-slate-300 text-sm mb-4">Para viviendas que quieren más confort, seguridad y ahorro energético.</p>
+            <div class="flex items-center gap-2 text-sky-400 font-medium text-sm">
+              <span>Descubrir</span>
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </a>
+
+        <!-- Empresas -->
+        <a href="/domotica/empresas" class="group relative rounded-3xl overflow-hidden fade-up" style="transition-delay:120ms">
+          <img src="/img/photo-1497366216548-37526070297c.jpg" alt="Empresas inteligentes" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-8">
+            <span class="px-3 py-1 bg-sky-500/20 border border-sky-500/40 text-sky-400 text-xs font-semibold rounded-full">Corporativo</span>
+            <h3 class="text-white text-2xl font-bold mt-3 mb-2">Soluciones para empresas</h3>
+            <p class="text-slate-300 text-sm mb-4">Optimiza la gestión de oficinas, hoteles, locales y edificios comerciales.</p>
+            <div class="flex items-center gap-2 text-sky-400 font-medium text-sm">
+              <span>Descubrir</span>
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="py-24 bg-slate-900 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">Nuestro proceso</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white">De la idea a la realidad</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { n: '01', title: 'Consulta gratuita', desc: 'Analizamos tus necesidades y objetivos sin compromiso.' },
+          { n: '02', title: 'Diseño personalizado', desc: 'Creamos un proyecto a medida con los mejores sistemas del mercado.' },
+          { n: '03', title: 'Instalación profesional', desc: 'Nuestro equipo técnico instala y configura todo sin molestias.' },
+          { n: '04', title: 'Soporte continuo', desc: 'Te acompañamos con mantenimiento y asistencia 24/7.' },
+        ].map((step, i) => (
+          <div class="relative p-7 bg-slate-800/50 border border-slate-700 rounded-2xl fade-up" style={`transition-delay:${i*80}ms`}>
+            <div class="text-5xl font-extrabold text-slate-800 mb-4 select-none">{step.n}</div>
+            <h3 class="text-white font-semibold text-lg mb-2">{step.title}</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-slate-950 border-t border-slate-800">
+    <div class="max-w-3xl mx-auto px-4 text-center fade-up">
+      <h2 class="text-3xl font-bold text-white mb-4">¿Por dónde empezamos?</h2>
+      <p class="text-slate-400 mb-8">Cuéntanos tu proyecto y te ofreceremos la solución más adecuada.</p>
+      <a href="/contacto" class="inline-block px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/25 hover:scale-105">
+        Solicitar consulta gratuita
+      </a>
+    </div>
+  </section>
+
+</Layout>
