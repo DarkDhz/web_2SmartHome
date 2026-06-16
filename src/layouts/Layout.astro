@@ -13,6 +13,7 @@ interface Props {
 const SITE_URL = 'https://www.2smarthome.es';
 const SITE_NAME = '2SmartHome';
 const DEFAULT_IMAGE = `${SITE_URL}/og-default.jpg`;
+const LOGO_IMAGE = `${SITE_URL}/img/logo-navbar.png`;
 
 const {
   title,
@@ -34,7 +35,7 @@ const localBusinessSchema = {
   "url": SITE_URL,
   "logo": {
     "@type": "ImageObject",
-    "url": `${SITE_URL}/favicon.svg`
+    "url": LOGO_IMAGE
   },
   "image": DEFAULT_IMAGE,
   "telephone": "+34930000000",
@@ -112,7 +113,10 @@ const localBusinessSchema = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- Primary SEO -->
