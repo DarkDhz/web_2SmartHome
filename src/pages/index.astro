@@ -26,7 +26,7 @@ const stats = [
 
 <Layout
   title="Empresa de Domótica en Barcelona"
-  description="Especialistas en domótica e instalaciones inteligentes en Barcelona y área metropolitana. Automatizamos hogares y empresas en Eixample, Sarrià, Sant Cugat, Hospitalet y toda la provincia. Presupuesto gratuito."
+  description="Domótica en Barcelona para hogares y empresas. Automatiza iluminación, climatización, seguridad y energía con soluciones a medida."
 >
 
   <!-- HERO -->
@@ -48,7 +48,7 @@ const stats = [
           Explorar soluciones
         </a>
         <a href="/contacto" class="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold rounded-2xl transition-all duration-200">
-          Solicitar presupuesto
+          Pedir presupuesto inicial
         </a>
       </div>
     </div>
@@ -83,7 +83,7 @@ const stats = [
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {solutions.map((s, i) => (
-          <a href={s.href} class="group p-7 bg-slate-900 border border-slate-800 rounded-2xl hover:border-sky-500/50 hover:bg-slate-800/60 transition-all duration-300 fade-up" style={`transition-delay:${i*70}ms`}>
+          <article class="group p-7 bg-slate-900 border border-slate-800 rounded-2xl hover:border-sky-500/50 hover:bg-slate-800/60 transition-all duration-300 fade-up" style={`transition-delay:${i*70}ms`}>
             <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center mb-5">
               <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d={s.icon}/>
@@ -91,11 +91,11 @@ const stats = [
             </div>
             <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-sky-400 transition-colors">{s.label}</h3>
             <p class="text-slate-400 text-sm leading-relaxed mb-5">{s.desc}</p>
-            <div class="flex items-center gap-2 text-sky-500 text-sm font-medium">
-              <span>Saber más</span>
+            <a href={s.href} class="inline-flex items-center gap-2 text-sky-500 text-sm font-medium">
+              <span>Ver {s.label}</span>
               <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </div>
-          </a>
+            </a>
+          </article>
         ))}
       </div>
       <div class="text-center mt-12 fade-up">
@@ -116,13 +116,13 @@ const stats = [
           <h2 class="text-3xl sm:text-4xl font-bold text-white">Proyectos destacados</h2>
         </div>
         <a href="/proyectos" class="flex-shrink-0 inline-flex items-center gap-2 text-slate-400 hover:text-sky-400 transition-colors text-sm font-medium">
-          Ver todos
+          Ver proyectos destacados
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </a>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {projects.map((p, i) => (
-          <a href="/proyectos" class="group rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 fade-up" style={`transition-delay:${i*100}ms`}>
+          <article class="group rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 fade-up" style={`transition-delay:${i*100}ms`}>
             <div class="relative h-52 overflow-hidden">
               <img src={p.img} alt={p.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
               <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
@@ -130,9 +130,13 @@ const stats = [
             </div>
             <div class="p-6">
               <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-sky-400 transition-colors">{p.title}</h3>
-              <p class="text-slate-400 text-sm leading-relaxed">{p.desc}</p>
+              <p class="text-slate-400 text-sm leading-relaxed mb-4">{p.desc}</p>
+              <a href="/proyectos" class="inline-flex items-center gap-2 text-sky-500 text-sm font-medium">
+                Ver proyecto {p.cat.toLowerCase()}
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </a>
             </div>
-          </a>
+          </article>
         ))}
       </div>
     </div>
@@ -171,7 +175,7 @@ const stats = [
           </ul>
           <div class="mt-10 flex gap-4">
             <a href="/quienes-somos" class="px-6 py-3 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-xl transition-colors shadow-lg shadow-sky-500/25">Conocer el equipo</a>
-            <a href="/proyectos" class="px-6 py-3 border border-slate-700 hover:border-sky-500/50 text-slate-300 hover:text-white rounded-xl transition-all">Ver proyectos</a>
+            <a href="/proyectos" class="px-6 py-3 border border-slate-700 hover:border-sky-500/50 text-slate-300 hover:text-white rounded-xl transition-all">Ver casos reales</a>
           </div>
         </div>
         <div class="relative fade-up">
@@ -199,7 +203,7 @@ const stats = [
         <p class="text-slate-400 mb-8 max-w-xl mx-auto">Contacta con nuestros expertos para un asesoramiento personalizado y un presupuesto sin compromiso.</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="/contacto" class="px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/30 hover:scale-105">
-            Solicitar presupuesto
+            Solicitar propuesta a medida
           </a>
           <a href="tel:+34930000000" class="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold rounded-2xl transition-all">
             Llamar ahora
