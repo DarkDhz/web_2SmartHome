@@ -15,6 +15,7 @@ const SITE_URL = 'https://www.2smarthome.es';
 const SITE_NAME = '2SmartHome';
 const DEFAULT_IMAGE = `${SITE_URL}/og-default.jpg`;
 const LOGO_IMAGE = `${SITE_URL}/img/logo-navbar.png`;
+const GOOGLE_MAPS_URL = 'https://www.google.es/maps/place/2SmartHome/@41.4506426,2.2458014,17z/data=!3m1!4b1!4m6!3m5!1s0xab2d40321309cb1d:0xbef6271c31a9e354!8m2!3d41.4506386!4d2.2483763!16s%2Fg%2F11yvvpdd3y';
 
 const {
   title,
@@ -34,25 +35,26 @@ const localBusinessSchema = {
   "alternateName": "2SmartHome Domótica Barcelona",
   "description": "Empresa especializada en domótica e instalaciones inteligentes en Barcelona y área metropolitana. Automatización de hogares y empresas, iluminación inteligente, control climático, seguridad y gestión energética.",
   "url": SITE_URL,
+  "hasMap": GOOGLE_MAPS_URL,
   "logo": {
     "@type": "ImageObject",
     "url": LOGO_IMAGE
   },
   "image": DEFAULT_IMAGE,
-  "telephone": "+34930000000",
+  "telephone": "+34660877744",
   "email": "info@2smarthome.es",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "C/ Provença 246, 3º 2ª",
-    "addressLocality": "Barcelona",
-    "postalCode": "08008",
+    "streetAddress": "Carrer de Francesc Layret",
+    "addressLocality": "Badalona",
+    "postalCode": "08911",
     "addressRegion": "Cataluña",
     "addressCountry": "ES"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 41.3922,
-    "longitude": 2.1637
+    "latitude": 41.4506386,
+    "longitude": 2.2483763
   },
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
@@ -103,8 +105,11 @@ const localBusinessSchema = {
   "currenciesAccepted": "EUR",
   "paymentAccepted": "Transferencia bancaria, tarjeta de crédito",
   "sameAs": [
-    "https://www.linkedin.com/company/2smarthome",
-    "https://www.instagram.com/2smarthome"
+    "https://x.com/2SmartHomeES",
+    "https://www.tiktok.com/@2smarthomees?lang=es-419",
+    "https://www.facebook.com/people/2SmartHome/61586422361510/",
+    "https://www.linkedin.com/company/2smarthomees/",
+    "https://www.instagram.com/2smarthome.es/"
   ]
 };
 ---
@@ -130,9 +135,9 @@ const localBusinessSchema = {
 
     <!-- GEO / Local SEO -->
     <meta name="geo.region" content="ES-CT" />
-    <meta name="geo.placename" content="Barcelona, Cataluña, España" />
-    <meta name="geo.position" content="41.385064;2.173403" />
-    <meta name="ICBM" content="41.385064, 2.173403" />
+    <meta name="geo.placename" content="Badalona, Cataluña, España" />
+    <meta name="geo.position" content="41.4506386;2.2483763" />
+    <meta name="ICBM" content="41.4506386, 2.2483763" />
     <meta name="DC.title" content={fullTitle} />
     <meta name="DC.description" content={description} />
     <meta name="DC.language" content="es" />
@@ -151,7 +156,7 @@ const localBusinessSchema = {
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@2smarthome" />
+    <meta name="twitter:site" content="@2SmartHomeES" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />

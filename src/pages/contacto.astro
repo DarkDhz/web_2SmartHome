@@ -1,10 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const googleMapsUrl = 'https://www.google.es/maps/place/2SmartHome/@41.4506426,2.2458014,17z/data=!3m1!4b1!4m6!3m5!1s0xab2d40321309cb1d:0xbef6271c31a9e354!8m2!3d41.4506386!4d2.2483763!16s%2Fg%2F11yvvpdd3y';
 ---
 
 <Layout
   title="Contacto – Presupuesto de Domótica en Barcelona"
-  description="Solicita un presupuesto gratuito para tu proyecto de domótica en Barcelona y área metropolitana. Visita de diagnóstico sin compromiso. Respondemos en menos de 24 horas. C/ Provença 246, Barcelona."
+  description="Solicita un presupuesto gratuito para tu proyecto de domótica en Barcelona y área metropolitana. Visita de diagnóstico sin compromiso. Respondemos en menos de 24 horas. Carrer de Francesc Layret, Badalona."
 >
 
   <!-- HERO -->
@@ -37,7 +39,7 @@ import Layout from '../layouts/Layout.astro';
               </div>
               <div>
                 <div class="text-white font-semibold mb-1">Teléfono</div>
-                <a href="tel:+34930000000" class="text-slate-400 hover:text-sky-400 transition-colors">+34 93 000 00 00</a>
+                <a href="tel:+34660877744" class="text-slate-400 hover:text-sky-400 transition-colors">+34 660 877 744</a>
                 <div class="text-slate-500 text-xs mt-1">Lun–Vie 9:00–18:00</div>
               </div>
             </div>
@@ -59,8 +61,8 @@ import Layout from '../layouts/Layout.astro';
               </div>
               <div>
                 <div class="text-white font-semibold mb-1">Oficina</div>
-                <div class="text-slate-400 text-sm">C/ Provença 246, 3º 2ª</div>
-                <div class="text-slate-400 text-sm">08008 Barcelona</div>
+                <div class="text-slate-400 text-sm">Carrer de Francesc Layret</div>
+                <div class="text-slate-400 text-sm">08911 Badalona, Barcelona</div>
               </div>
             </div>
           </div>
@@ -147,8 +149,8 @@ import Layout from '../layouts/Layout.astro';
     <div class="h-72 bg-slate-800 flex items-center justify-center">
       <div class="text-center">
         <svg class="w-12 h-12 text-sky-500 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-        <p class="text-slate-400 font-medium">C/ Provença 246, 3º 2ª · 08008 Barcelona</p>
-        <a href="https://maps.google.com" target="_blank" rel="noopener" class="mt-3 inline-block text-sky-400 hover:text-sky-300 text-sm transition-colors">
+        <p class="text-slate-400 font-medium">Carrer de Francesc Layret · 08911 Badalona, Barcelona</p>
+        <a href={googleMapsUrl} target="_blank" rel="noopener" class="mt-3 inline-block text-sky-400 hover:text-sky-300 text-sm transition-colors">
           Ver en Google Maps →
         </a>
       </div>
