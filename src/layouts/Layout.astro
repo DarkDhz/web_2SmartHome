@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
   title: string;
@@ -162,6 +163,9 @@ const localBusinessSchema = {
 
     <!-- JSON-LD: LocalBusiness + Organization -->
     <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+
+    <!-- Vercel Analytics -->
+    <Analytics />
 
     <style>
       html { scroll-behavior: smooth; }
