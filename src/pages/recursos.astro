@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 
 const articles = [
+  { title: 'KNX vs Home Assistant: diferencias, ventajas y cuál elegir', cat: 'Tecnología', time: '9 min', date: 'Jun 2026', desc: 'Comparamos KNX y Home Assistant desde la fiabilidad, el coste, la flexibilidad y la integración para ayudarte a decidir la mejor base de tu smart home.', img: '/blog_imgs/knx-vs-home-assistant.png' },
   { title: 'Domótica para empresas: eficiencia, ahorro y control total', cat: 'Empresas', time: '8 min', date: 'Jun 2026', desc: 'Descubre cómo la automatización mejora oficinas, locales y espacios corporativos con más eficiencia, seguridad y control energético.', img: '/blog_imgs/domotica_para_empresas.jpg' },
   { title: '7 errores comunes en domótica que debes evitar', cat: 'Guía', time: '6 min', date: 'Jun 2026', desc: 'Los fallos más habituales al planificar una instalación domótica y cómo evitarlos para conseguir un sistema fiable, escalable y cómodo.', img: '/blog_imgs/7errorescomunes.png' },
   { title: '¿Vale la pena invertir en una casa inteligente? ROI y beneficios reales', cat: 'Inversión', time: '7 min', date: 'Jun 2026', desc: 'Analizamos el retorno de la inversión en una smart home: ahorro energético, confort, seguridad y valor añadido para la vivienda.', img: '/blog_imgs/valelapenaladomotica.png' },
@@ -43,9 +44,13 @@ const faqs = [
           <h2 class="text-3xl font-bold text-white">Aprende sobre domótica</h2>
         </div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {articles.map((a, i) => (
-          <article class="group bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-sky-500/40 transition-all duration-300 fade-up" style={`transition-delay:${i*70}ms`}>
+          <article
+            class={`article-card group bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-sky-500/40 transition-all duration-300 fade-up ${i >= 6 ? 'hidden' : ''}`}
+            style={`transition-delay:${(i % 6)*70}ms`}
+            data-article-index={i}
+          >
             <div class="relative h-44 overflow-hidden">
               <img src={a.img} alt={a.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
               <span class="absolute top-3 left-3 px-2.5 py-1 bg-sky-500/90 text-white text-xs font-semibold rounded-lg">{a.cat}</span>
@@ -58,14 +63,36 @@ const faqs = [
               </div>
               <h3 class="text-white font-semibold text-lg leading-snug mb-3 group-hover:text-sky-400 transition-colors">{a.title}</h3>
               <p class="text-slate-400 text-sm leading-relaxed mb-4">{a.desc}</p>
-              <div class="flex items-center gap-2 text-sky-500 text-sm font-medium">
-                <span>Leer artículo</span>
-                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-              </div>
+              {a.href ? (
+                <a href={a.href} class="flex items-center gap-2 text-sky-500 text-sm font-medium">
+                  <span>Leer artículo</span>
+                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </a>
+              ) : (
+                <div class="flex items-center gap-2 text-sky-500 text-sm font-medium">
+                  <span>Leer artículo</span>
+                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </div>
+              )}
             </div>
           </article>
         ))}
       </div>
+      {articles.length > 6 && (
+        <div class="mt-12 text-center fade-up">
+          <button
+            id="load-more-articles"
+            type="button"
+            class="inline-flex items-center gap-2 px-7 py-3 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-xl transition-all shadow-lg shadow-sky-500/25 hover:scale-105"
+            data-step="6"
+          >
+            <span>Ver más artículos</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+        </div>
+      )}
     </div>
   </section>
 
@@ -108,6 +135,22 @@ const faqs = [
 </Layout>
 
 <script>
+  const loadMoreArticles = document.getElementById('load-more-articles');
+  const articleCards = Array.from(document.querySelectorAll('.article-card'));
+  loadMoreArticles?.addEventListener('click', () => {
+    const step = Number(loadMoreArticles.dataset.step || 6);
+    const visibleCount = articleCards.filter(card => !card.classList.contains('hidden')).length;
+
+    articleCards.slice(visibleCount, visibleCount + step).forEach(card => {
+      card.classList.remove('hidden');
+      card.classList.add('visible');
+    });
+
+    if (visibleCount + step >= articleCards.length) {
+      loadMoreArticles.closest('div')?.classList.add('hidden');
+    }
+  });
+
   document.querySelectorAll('.faq-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
