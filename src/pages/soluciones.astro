@@ -259,7 +259,7 @@ const timeline = [
         {controls.map((c, i) => (
           <div class="group relative rounded-3xl overflow-hidden fade-up" style={`transition-delay:${i*100}ms`}>
             <div class="h-56 overflow-hidden">
-              <Image src={getImg(c.img)} alt={c.imgAlt} width={800} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <Image src={getImg(c.img)} alt={c.imgAlt} width={800} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
             </div>
             <div class="absolute bottom-0 left-0 right-0 p-6">
@@ -327,6 +327,7 @@ const timeline = [
               alt={sol.imgAlt}
               width={1200}
               class="w-full h-80 lg:h-[460px] object-cover"
+              loading="lazy"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
 

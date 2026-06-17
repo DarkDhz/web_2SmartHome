@@ -88,7 +88,7 @@ const breadcrumbSchema = {
             data-article-index={i}
           >
             <div class="relative h-44 overflow-hidden">
-              <Image src={getImg(a.img)} alt={a.title} width={600} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <Image src={getImg(a.img)} alt={a.title} width={600} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
               <span class="absolute top-3 left-3 px-2.5 py-1 bg-sky-500/90 text-white text-xs font-semibold rounded-lg">{a.cat}</span>
             </div>
             <div class="p-6">
