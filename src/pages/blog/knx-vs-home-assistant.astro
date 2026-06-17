@@ -3,139 +3,126 @@ import BlogPost from '../../layouts/BlogPost.astro';
 ---
 
 <BlogPost
-  title="KNX vs Home Assistant: diferencias, ventajas y cuál elegir"
-  description="Comparamos KNX y Home Assistant desde la fiabilidad, el coste, la flexibilidad y la integración para ayudarte a decidir la mejor base de tu smart home."
+  title="Home Assistant: la plataforma de domótica que instalamos en todos nuestros proyectos"
+  description="Descubre por qué Home Assistant es la plataforma que 2SmartHome elige para todas sus instalaciones: control local, privacidad, más de 3.000 integraciones y sin dependencia de ningún proveedor."
   cat="Tecnología"
   date="Jun 2026"
-  time="9 min"
-  img="/blog_imgs/knx-vs-home-assistant.png"
+  time="8 min"
+  img="/blog_imgs/logo-ha-post.png"
   cta={{
-    eyebrow: 'Decide con criterio técnico',
-    title: 'Te ayudamos a elegir entre KNX, Home Assistant o una solución híbrida',
-    text: 'Revisamos tu proyecto, presupuesto y necesidades de fiabilidad para recomendarte la arquitectura domótica más adecuada.',
-    button: 'Consultar la mejor tecnología',
+    eyebrow: 'Domótica profesional con Home Assistant',
+    title: 'Te instalamos Home Assistant adaptado a tu vivienda o negocio',
+    text: 'Revisamos tu proyecto, dispositivos y necesidades para diseñar una instalación de Home Assistant que funcione desde el primer día.',
+    button: 'Consultar mi instalación',
   }}
 >
 
   <p>
-    Cuando planificas una instalación de domótica, una de las primeras decisiones que debes tomar es elegir la plataforma tecnológica sobre la que construir todo el sistema. Entre las opciones más consolidadas del mercado encontramos <strong>KNX</strong>, el estándar europeo por excelencia con más de 30 años de historia, y <strong>Home Assistant</strong>, la plataforma de código abierto que ha ganado millones de seguidores en todo el mundo. Cada una tiene sus puntos fuertes, y la elección correcta depende del tipo de proyecto, el presupuesto disponible y las prioridades del usuario.
+    Cuando planificas una instalación de domótica, la elección de la plataforma tecnológica lo condiciona todo: qué dispositivos puedes usar, cómo de flexible es el sistema, si depende de servidores externos y cuánto cuesta mantenerlo a lo largo del tiempo. En <strong>2SmartHome</strong> hemos evaluado las distintas opciones del mercado y nuestra apuesta clara es <strong>Home Assistant</strong>: la plataforma de código abierto que combina potencia profesional, control local total y libertad de integración sin coste de licencias.
   </p>
-
-  <h2>¿Qué es KNX?</h2>
-  <p>
-    KNX es un protocolo de comunicación estándar e internacional (ISO/IEC 14543) diseñado específicamente para instalaciones eléctricas inteligentes en edificios. Nació en 1990 de la unión de tres estándares europeos y hoy cuenta con más de 500 fabricantes de hardware compatibles: Schneider Electric, ABB, Siemens, Jung, Gira y cientos más.
-  </p>
-  <p>
-    La comunicación se realiza a través del bus KNX, que puede ser cableado (par trenzado), mediante radiofrecuencia (KNX RF) o a través de la red eléctrica (powerline). El estándar cableado es el más utilizado en instalaciones profesionales por su robustez y ausencia de interferencias.
-  </p>
-  <ul>
-    <li>Cualquier dispositivo KNX es compatible con cualquier otro, independientemente del fabricante.</li>
-    <li>La inteligencia reside en el hardware, sin depender de ningún servidor central.</li>
-    <li>Funciona sin conexión a Internet, con plena autonomía local.</li>
-    <li>Escala desde pisos de 60 m² hasta edificios corporativos con miles de puntos de control.</li>
-  </ul>
 
   <h2>¿Qué es Home Assistant?</h2>
   <p>
-    Home Assistant (HA) es un software de domótica de código abierto que se instala en una Raspberry Pi, un mini PC o un NAS dedicado. Actúa como controlador central y es capaz de integrar más de 3.000 dispositivos de distintos fabricantes y protocolos: Zigbee, Z-Wave, Wi-Fi, MQTT, Bluetooth, y también el propio KNX.
+    Home Assistant (HA) es un software de domótica de código abierto que se instala en un servidor local —un mini PC dedicado, un NAS o un dispositivo como el Home Assistant Green o Yellow— y actúa como el cerebro de toda la instalación. Es capaz de integrar más de 3.000 dispositivos de distintos fabricantes y protocolos: Zigbee, Z-Wave, Wi-Fi, MQTT, Bluetooth, Matter y muchos más.
   </p>
   <p>
-    Su fortaleza reside en la comunidad y la flexibilidad: al ser open source, existe una enorme cantidad de integraciones y automatizaciones disponibles. Se actualiza constantemente y permite crear escenas muy complejas con relativa facilidad, incluso sin conocimientos de programación.
+    Al ser open source, cuenta con una comunidad activa de millones de usuarios en todo el mundo que desarrolla integraciones, automatizaciones y mejoras de forma continua. Se actualiza cada mes con nuevas funcionalidades y correcciones, y permite crear desde automatizaciones sencillas hasta sistemas muy complejos con dashboards personalizados.
   </p>
   <ul>
-    <li>Sin coste de licencias ni suscripciones: es software libre y de código abierto.</li>
-    <li>Compatible con la mayoría de dispositivos del mercado, con más de 3.000 integraciones disponibles.</li>
-    <li>Permite crear dashboards y automatizaciones muy avanzadas con alta personalización.</li>
-    <li>Depende de un servidor central: si cae, las automatizaciones dejan de funcionar.</li>
+    <li>Sin coste de licencias ni suscripciones: software libre mantenido por una comunidad global.</li>
+    <li>Compatible con más de 3.000 dispositivos de marcas y protocolos distintos.</li>
+    <li>Funciona completamente en local: sin Internet, sin servidores de terceros, sin suscripciones cloud.</li>
+    <li>Escala desde un piso pequeño hasta una instalación comercial con cientos de dispositivos.</li>
+    <li>Dashboards y automatizaciones totalmente personalizables según cada proyecto.</li>
   </ul>
 
-  <h2>Fiabilidad y redundancia</h2>
+  <h2>Por qué elegimos Home Assistant y no sistemas propietarios</h2>
   <p>
-    En términos de fiabilidad, KNX tiene una ventaja estructural significativa: la inteligencia está distribuida en el propio bus. Cada actuador KNX contiene su propia lógica programada, por lo que si el software de visualización o un controlador central falla, la instalación sigue funcionando. Un interruptor KNX apaga o enciende la luz aunque no haya conexión a Internet ni ningún servidor activo.
+    El mercado de la domótica está lleno de plataformas cerradas que prometen facilidad de uso pero te encierran en un ecosistema: si el fabricante cierra, cambia los precios o simplemente deja de dar soporte, tu instalación queda obsoleta o deja de funcionar. Home Assistant rompe con este modelo por diseño.
   </p>
-  <p>
-    Home Assistant, en cambio, es un sistema centralizado. Si el servidor se reinicia o hay un corte de luz breve, puede haber momentos de inactividad. Esto se mitiga con hardware de calidad, sistemas UPS (alimentación ininterrumpida) y backups automáticos, pero requiere más atención técnica.
-  </p>
+  <ul>
+    <li>Sin dependencia de ningún proveedor: el sistema es tuyo y funciona aunque el fabricante de cualquier dispositivo desaparezca.</li>
+    <li>Sin cuentas en servidores externos: todos los datos de tu hogar se quedan en tu red local.</li>
+    <li>Sin tarifas de mantenimiento anuales ni coste por añadir nuevos dispositivos.</li>
+    <li>Libertad total para integrar cualquier marca o protocolo sin pagar licencias adicionales.</li>
+  </ul>
   <blockquote>
-    <p>Para instalaciones profesionales donde la fiabilidad es crítica —hoteles, clínicas, edificios de lujo— KNX sigue siendo el estándar de referencia indiscutible.</p>
+    <p>Un sistema propietario te da comodidad inicial a cambio de dependencia a largo plazo. Home Assistant te da control total desde el primer día y para siempre.</p>
   </blockquote>
 
-  <h2>Comparativa de costes</h2>
+  <h2>Control local y privacidad: el diferencial que más valoran nuestros clientes</h2>
   <p>
-    El coste es uno de los principales factores de decisión. KNX requiere una inversión inicial más elevada:
+    Home Assistant opera en tu red local. Esto significa que las automatizaciones se ejecutan aunque no haya conexión a Internet, que ningún dato de tus rutinas, horarios ni hábitos sale de tu casa, y que no dependes de que el servidor de ninguna empresa esté operativo para que tu hogar funcione.
   </p>
-  <ul>
-    <li>El cableado de bus KNX y los actuadores tienen un precio superior al material convencional.</li>
-    <li>La programación con ETS (Engineering Tool Software) requiere formación certificada.</li>
-    <li>Los dispositivos KNX suelen tener un precio premium respecto a alternativas Zigbee o Wi-Fi.</li>
-  </ul>
   <p>
-    Home Assistant permite construir una instalación muy capaz con una inversión mucho menor, especialmente combinado con dispositivos Zigbee de bajo coste. Sin embargo, en proyectos grandes, la gestión y mantenimiento de HA puede requerir más horas de trabajo técnico y conocimiento especializado.
+    Las cámaras se pueden configurar para grabar en un disco local sin subir nada a la nube. Los sensores de presencia procesan los datos internamente. El historial de consumo energético se guarda en tu servidor, no en el de una empresa americana o asiática. Para muchos de nuestros clientes en Barcelona, esto no es un detalle técnico: es una razón de peso para elegir HA.
+  </p>
+
+  <h2>Home Assistant para cualquier escala de proyecto</h2>
+  <p>
+    Una de las ventajas que más apreciamos en la práctica es que Home Assistant escala de forma natural. No necesitas cambiar de plataforma conforme crece la instalación:
   </p>
 
   <table>
     <thead>
       <tr>
-        <th>Criterio</th>
-        <th>KNX</th>
-        <th>Home Assistant</th>
+        <th>Tipo de proyecto</th>
+        <th>Configuración habitual</th>
+        <th>Resultado</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Inversión inicial</td>
-        <td>Alta</td>
-        <td>Baja-media</td>
+        <td>Piso sin obra (alquiler o reforma mínima)</td>
+        <td>HA + dispositivos Zigbee inalámbricos</td>
+        <td>Domótica completa sin tocar paredes</td>
       </tr>
       <tr>
-        <td>Fiabilidad</td>
-        <td>Muy alta</td>
-        <td>Alta (con buen hardware)</td>
+        <td>Vivienda con reforma parcial</td>
+        <td>HA + Zigbee + interruptores in-wall</td>
+        <td>Integración total con el cuadro eléctrico</td>
       </tr>
       <tr>
-        <td>Flexibilidad</td>
-        <td>Media</td>
-        <td>Muy alta</td>
+        <td>Obra nueva o reforma integral</td>
+        <td>HA + Matter + cableado estructurado</td>
+        <td>Sistema de alta fiabilidad y escalable</td>
       </tr>
       <tr>
-        <td>Integraciones</td>
-        <td>Estándar industrial</td>
-        <td>+3.000 dispositivos</td>
-      </tr>
-      <tr>
-        <td>Mantenimiento</td>
-        <td>Muy bajo</td>
-        <td>Medio (requiere updates)</td>
-      </tr>
-      <tr>
-        <td>Depende de Internet</td>
-        <td>No</td>
-        <td>Configurable (local)</td>
+        <td>Local comercial u oficina</td>
+        <td>HA + DALI + Zigbee + integración con accesos</td>
+        <td>Control centralizado, ahorro energético medible</td>
       </tr>
     </tbody>
   </table>
 
-  <h2>Flexibilidad e integración con terceros</h2>
+  <h2>Integraciones: conecta todo en un único panel</h2>
   <p>
-    Home Assistant gana claramente en número de integraciones. Si quieres conectar el robot aspirador, el coche eléctrico, la alarma, el termostato, las cámaras IP y el altavoz inteligente en un mismo panel de control, HA lo hace de forma natural y sin coste adicional.
+    Home Assistant integra de forma nativa el robot aspirador, el coche eléctrico, el sistema de alarma, los termostatos, las cámaras IP, los altavoces inteligentes, el sistema de audio distribuido, los medidores de consumo eléctrico y miles de dispositivos más, todo desde un único panel de control personalizable.
   </p>
   <p>
-    KNX, por diseño, está enfocado en la infraestructura eléctrica del edificio: iluminación, persianas, climatización, control de acceso y gestión energética. Su integración con dispositivos de consumo existe a través de módulos IP (KNX IP Router, módulos DALI, Modbus) pero es más compleja y costosa que en HA.
+    No hace falta una app por cada marca ni configurar reglas en cuatro plataformas distintas. Una sola automatización en HA puede encender la calefacción, bajar las persianas, apagar las luces del salón y enviarte una notificación al móvil, todo a la vez y sin depender de ningún servidor externo.
   </p>
 
-  <h2>¿Cuál elegir según tu caso?</h2>
+  <h2>Home Assistant no es solo para aficionados: instalación profesional</h2>
+  <p>
+    Existe la percepción de que Home Assistant es una plataforma para entusiastas técnicos que disfrutan configurando cosas ellos mismos. Eso puede ser cierto cuando se instala como hobby, pero una instalación profesional es una historia muy diferente.
+  </p>
+  <p>
+    En <strong>2SmartHome</strong> diseñamos, instalamos y configuramos Home Assistant de forma que el usuario final no necesita saber nada de tecnología para disfrutarlo. Las automatizaciones están pensadas para su vida real, la interfaz está personalizada para su hogar o negocio, y ofrecemos soporte técnico para cualquier incidencia posterior.
+  </p>
   <ul>
-    <li>KNX es la opción si priorizas la máxima fiabilidad, el proyecto es de mediana o gran envergadura y el cliente valora funcionar sin Internet.</li>
-    <li>Home Assistant encaja si tienes una vivienda existente sin posibilidad de obra, presupuesto ajustado y quieres integrar muchos dispositivos distintos.</li>
-    <li>Muchas instalaciones profesionales combinan ambos: KNX para la infraestructura eléctrica y Home Assistant como capa de visualización e integración con servicios externos.</li>
+    <li>Diseño previo del sistema: qué dispositivos, qué protocolos, qué automatizaciones y qué dashboard.</li>
+    <li>Instalación y configuración completa por nuestro equipo técnico.</li>
+    <li>Formación al usuario para que pueda gestionar el sistema desde su móvil o tablet sin dificultad.</li>
+    <li>Soporte local en Barcelona y área metropolitana con respuesta en menos de 24 horas.</li>
   </ul>
 
   <h2>Conclusión</h2>
   <p>
-    KNX y Home Assistant no son tecnologías opuestas sino complementarias. KNX es el estándar industrial, robusto y probado durante décadas, ideal para proyectos donde la fiabilidad es innegociable. Home Assistant es la plataforma flexible que democratiza la domótica, perfecta para quien quiere control y personalización a un coste razonable.
+    Home Assistant es hoy la plataforma de domótica más potente, flexible y respetuosa con la privacidad del mercado. Funciona para cualquier tamaño de proyecto, se integra con prácticamente cualquier dispositivo, no genera costes recurrentes de licencia y garantiza que el sistema siga funcionando a largo plazo independientemente de lo que ocurra con los fabricantes de dispositivos.
   </p>
   <p>
-    En <strong>2SmartHome</strong> trabajamos con ambas tecnologías y elegimos la más adecuada según las necesidades de cada proyecto. Si quieres que te asesoremos sobre la mejor opción para tu caso concreto, no dudes en contactarnos para una visita gratuita y sin compromiso.
+    En <strong>2SmartHome</strong> instalamos Home Assistant en todos nuestros proyectos, residenciales y comerciales. Si quieres saber qué podemos hacer por tu vivienda o negocio, contáctanos para una visita técnica gratuita y sin compromiso.
   </p>
 
 </BlogPost>

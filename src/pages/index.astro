@@ -86,7 +86,7 @@ const stats = [
           <article class="group p-7 bg-slate-900 border border-slate-800 rounded-2xl hover:border-sky-500/50 hover:bg-slate-800/60 transition-all duration-300 fade-up" style={`transition-delay:${i*70}ms`}>
             <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center mb-5">
               <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d={s.icon}/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d={s.label === 'Persianas y cortinas' ? 'M4 5h16M6 8h12M6 11h12M6 14h12M6 17h12M12 5v15m-3 0h6' : s.icon}/>
               </svg>
             </div>
             <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-sky-400 transition-colors">{s.label}</h3>
