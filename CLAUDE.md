@@ -128,3 +128,9 @@ Kept minimal and inline via `<script>` tags:
 - **Proyectos:** category filter (show/hide cards by `data-cat`)
 - **Recursos:** FAQ accordion + "load more" articles button
 - **Contacto:** async form submission with success/error states; reads `tipo`/`mensaje` query params on load
+
+### Deployment
+
+Hosted on **Vercel** (static output). `vercel.json` at the root contains 301 redirects from the old site's URL structure (e.g. `/que-es` → `/quienes-somos`, `/para-ti` → `/domotica/hogares`). When adding a new route that replaces an old one, add the redirect there.
+
+`public/robots.txt` references `https://www.2smarthome.es/sitemap-index.xml` — the sitemap is generated at build time by `@astrojs/sitemap`.
