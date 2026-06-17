@@ -203,12 +203,23 @@ const timeline = [
   { time: '18:30', icon: '🏠', title: 'Arribada', desc: 'El sistema ja sap que ets a 5 min. La temperatura ideal t\'espera. Les llums de benvinguda, enceses.' },
   { time: '22:00', icon: '🌙', title: 'Mode nit', desc: 'Amb un «bona nit» o un toc: persianes avall, llums apagades, temperatura reduïda, alarma activa.' },
 ];
+
+const SITE_URL = 'https://www.2smarthome.es';
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inici', item: `${SITE_URL}/ca` },
+    { '@type': 'ListItem', position: 2, name: 'Solucions', item: `${SITE_URL}/ca/soluciones` },
+  ],
+};
 ---
 
 <Layout
   title="Solucions de Domòtica a Barcelona"
   description="Catàleg complet de solucions de domòtica a Barcelona: il·luminació intel·ligent, control climàtic, seguretat 360°, persianes motoritzades, àudio multiroom i gestió energètica."
   lang="ca"
+  schemas={[breadcrumbSchema]}
 >
 
   <!-- HERO -->

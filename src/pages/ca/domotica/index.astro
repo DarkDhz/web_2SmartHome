@@ -11,18 +11,29 @@ const _msg = `Hola, m'agradaria una consulta sobre domòtica per al meu projecte
 · Superfície aproximada: [m²]
 · Quins sistemes m'interessen? [il·luminació / clima / seguretat / tot]`;
 const urlConsulta = `/ca/contacto?tipo=hogar-existente&mensaje=${encodeURIComponent(_msg)}#formulario`;
+
+const SITE_URL = 'https://www.2smarthome.es';
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inici', item: `${SITE_URL}/ca` },
+    { '@type': 'ListItem', position: 2, name: 'Domòtica', item: `${SITE_URL}/ca/domotica` },
+  ],
+};
 ---
 
 <Layout
   title="Domòtica a Barcelona – Llars i Empreses"
   description="Solucions de domòtica a Barcelona i àrea metropolitana: Hospitalet, Badalona, Sant Cugat, Terrassa i Sabadell. Automatització residencial i empresarial intel·ligent, eficient i connectada."
   lang="ca"
+  schemas={[breadcrumbSchema]}
 >
 
   <!-- HERO -->
   <section class="relative py-32 flex items-center overflow-hidden">
     <div class="absolute inset-0">
-      <Image src={getImg('/img/photo-1586023492125-27b2c045efd7.jpg')} alt="Sistema de domòtica instal·lat en habitatge modern de l'àrea metropolitana de Barcelona" width={1920} class="w-full h-full object-cover" />
+      <Image src={getImg('/img/photo-1586023492125-27b2c045efd7.jpg')} alt="Sistema de domòtica instal·lat en habitatge modern de l'àrea metropolitana de Barcelona" width={1920} class="w-full h-full object-cover" loading="eager" />
       <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-950/50"></div>
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,8 +46,8 @@ const urlConsulta = `/ca/contacto?tipo=hogar-existente&mensaje=${encodeURICompon
           La domòtica integra tecnologia a la teva llar o empresa per automatitzar tasques, millorar la seguretat, optimitzar el consum energètic i augmentar el teu confort.
         </p>
         <div class="flex gap-4">
-          <a href="/ca/domotica/hogares" class="px-6 py-3 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-xl transition-all shadow-lg shadow-sky-500/25">Per a llars</a>
-          <a href="/ca/domotica/empresas" class="px-6 py-3 border border-slate-600 hover:border-sky-500 text-white rounded-xl transition-all">Per a empreses</a>
+          <a href="/ca/domotica/hogares" aria-label="Domòtica per a llars: solucions residencials" class="px-6 py-3 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-xl transition-all shadow-lg shadow-sky-500/25">Per a llars</a>
+          <a href="/ca/domotica/empresas" aria-label="Domòtica per a empreses: solucions corporatives" class="px-6 py-3 border border-slate-600 hover:border-sky-500 text-white rounded-xl transition-all">Per a empreses</a>
         </div>
       </div>
     </div>

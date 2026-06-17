@@ -19,18 +19,29 @@ const projects = [
 ];
 
 const cats = ['Tots', 'Residencial', 'Hostaleria'];
+
+const SITE_URL = 'https://www.2smarthome.es';
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inici', item: `${SITE_URL}/ca` },
+    { '@type': 'ListItem', position: 2, name: 'Projectes', item: `${SITE_URL}/ca/proyectos` },
+  ],
+};
 ---
 
 <Layout
   title="Projectes de Domòtica a Barcelona"
   description="Projectes reals de domòtica realitzats a Barcelona i àrea metropolitana. Més de 100 instal·lacions completades."
   lang="ca"
+  schemas={[breadcrumbSchema]}
 >
 
   <!-- HERO -->
   <section class="relative py-32 bg-slate-900 overflow-hidden border-b border-slate-800">
     <div class="absolute inset-0 opacity-20">
-      <Image src={getImg('/img/photo-1600210492493-0946911123ea.jpg')} alt="Habitatge intel·ligent amb sistema de domòtica residencial" width={1920} class="w-full h-full object-cover" />
+      <Image src={getImg('/img/photo-1600210492493-0946911123ea.jpg')} alt="Habitatge intel·ligent amb sistema de domòtica residencial" width={1920} class="w-full h-full object-cover" loading="eager" />
       <div class="absolute inset-0 bg-slate-900"></div>
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

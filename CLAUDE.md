@@ -31,7 +31,7 @@ No test runner or linter is configured. TypeScript errors surface via `npm run b
 - Props: `title`, `description?`, `image?`, `canonical?`, `noIndex?`, `schemas?` (JSON-LD array), `lang?: 'es' | 'ca'`.
 - Injects `<html lang={lang}>`, Google Fonts (Inter), `src/styles/global.css`, Vercel Analytics/SpeedInsights, and `<CookieBanner>`.
 - Computes `esAlternate` / `caAlternate` URLs and emits `<link rel="alternate" hreflang>` tags.
-- Emits a `LocalBusiness` JSON-LD schema plus any extra `schemas[]` passed by the page.
+- Emits a `LocalBusiness` JSON-LD schema plus any extra `schemas[]` passed by the page. All main pages (domotica, soluciones, proyectos, quienes-somos and their `/ca/` equivalents) pass a `BreadcrumbList` schema via this prop. New main pages should do the same.
 - A floating WhatsApp button is rendered, with per-path message text hardcoded in `whatsappMessages`. This map contains **both ES and CA paths** (e.g. `/domotica` and `/ca/domotica`). When adding a new route, add both paths with appropriate language text.
 - The `.fade-up` animation class is defined here: an IntersectionObserver in an inline `<script>` adds `.visible` when elements scroll into view (opacity 0→1, translateY 28px→0).
 
@@ -91,7 +91,7 @@ Reusable patterns:
 
 ### Images
 
-Images live in `src/assets/img/` (hero, project photos) and `src/assets/blog_imgs/` (blog thumbnails). All pages use Astro's `<Image>` component from `astro:assets` for automatic WebP conversion and lazy loading.
+Images live in `src/assets/img/` (hero, project photos) and `src/assets/blog_imgs/` (blog thumbnails). All pages use Astro's `<Image>` component from `astro:assets` for automatic WebP conversion.
 
 Pages that need images use an eager glob map at the top of the frontmatter:
 ```typescript
@@ -101,6 +101,8 @@ const imgs = import.meta.glob<{ default: ImageMetadata }>('/src/assets/img/**', 
 const getImg = (src: string) => imgs[src.replace('/img/', '/src/assets/img/')]!.default;
 ```
 Then use `<Image src={getImg('/img/filename.jpg')} alt="..." width={800} />` in templates.
+
+**Loading strategy:** Hero images (first visible on load) must always have `loading="eager"`. All images below the fold must have `loading="lazy"`. Both attributes are always explicit — never rely on browser defaults.
 
 `BlogPost.astro` uses the same pattern with `/src/assets/blog_imgs/**`.
 
@@ -115,6 +117,7 @@ Then use `<Image src={getImg('/img/filename.jpg')} alt="..." width={800} />` in 
 - A skip link (`<a href="#main-content">`) is the first element in `<body>` in Layout.astro; the `<main>` tag carries `id="main-content"`.
 - The mobile menu button in Header.astro uses `aria-expanded` (toggled by the inline script) and `aria-controls="mobile-menu"`.
 - All new pages must pass `lang="ca"` to `<Layout>` — this drives `<html lang>`, hreflang alternates, the CookieBanner language, and the skip link text.
+- Repeated links with the same visible text (e.g. "Leer artículo" across a list of cards) must include `aria-label` with the item title so screen readers can distinguish them.
 
 ### Contact form
 

@@ -101,7 +101,7 @@ const breadcrumbSchema = {
               <h3 class="text-white font-semibold text-lg leading-snug mb-3 group-hover:text-sky-400 transition-colors">{a.title}</h3>
               <p class="text-slate-400 text-sm leading-relaxed mb-4">{a.desc}</p>
               {a.href ? (
-                <a href={a.href} class="flex items-center gap-2 text-sky-500 text-sm font-medium">
+                <a href={a.href} aria-label={`Llegir article: ${a.title}`} class="flex items-center gap-2 text-sky-500 text-sm font-medium">
                   <span>Llegir article</span>
                   <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 </a>

@@ -11,17 +11,28 @@ const _msg = `Hola, me gustaría una consulta sobre domótica para mi proyecto.
 · Superficie aproximada: [m²]
 · ¿Qué sistemas me interesan? [iluminación / clima / seguridad / todo]`;
 const urlConsulta = `/contacto?tipo=hogar-existente&mensaje=${encodeURIComponent(_msg)}#formulario`;
+
+const SITE_URL = 'https://www.2smarthome.es';
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE_URL}/` },
+    { '@type': 'ListItem', position: 2, name: 'Domótica', item: `${SITE_URL}/domotica` },
+  ],
+};
 ---
 
 <Layout
   title="Domótica en Barcelona – Hogares y Empresas"
   description="Soluciones de domótica en Barcelona y área metropolitana: Hospitalet, Badalona, Sant Cugat, Terrassa y Sabadell. Automatización residencial y empresarial inteligente, eficiente y conectada."
+  schemas={[breadcrumbSchema]}
 >
 
   <!-- HERO -->
   <section class="relative py-32 flex items-center overflow-hidden">
     <div class="absolute inset-0">
-      <Image src={getImg('/img/photo-1586023492125-27b2c045efd7.jpg')} alt="Sistema de domótica instalado en vivienda moderna del área metropolitana de Barcelona" width={1920} class="w-full h-full object-cover" />
+      <Image src={getImg('/img/photo-1586023492125-27b2c045efd7.jpg')} alt="Sistema de domótica instalado en vivienda moderna del área metropolitana de Barcelona" width={1920} class="w-full h-full object-cover" loading="eager" />
       <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-950/50"></div>
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,8 +45,8 @@ const urlConsulta = `/contacto?tipo=hogar-existente&mensaje=${encodeURIComponent
           La domótica integra tecnología en tu hogar o empresa para automatizar tareas, mejorar la seguridad, optimizar el consumo energético y aumentar tu confort.
         </p>
         <div class="flex gap-4">
-          <a href="/domotica/hogares" class="px-6 py-3 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-xl transition-all shadow-lg shadow-sky-500/25">Para hogares</a>
-          <a href="/domotica/empresas" class="px-6 py-3 border border-slate-600 hover:border-sky-500 text-white rounded-xl transition-all">Para empresas</a>
+          <a href="/domotica/hogares" aria-label="Domótica para hogares: soluciones residenciales" class="px-6 py-3 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-xl transition-all shadow-lg shadow-sky-500/25">Para hogares</a>
+          <a href="/domotica/empresas" aria-label="Domótica para empresas: soluciones corporativas" class="px-6 py-3 border border-slate-600 hover:border-sky-500 text-white rounded-xl transition-all">Para empresas</a>
         </div>
       </div>
     </div>

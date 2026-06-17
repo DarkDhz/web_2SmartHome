@@ -173,6 +173,16 @@ const _msgCtaSol = `Hola, no sé muy bien por dónde empezar con la domótica.
 · ¿Cuál es tu presupuesto aproximado?`;
 const urlCtaSol = `/contacto?tipo=hogar-existente&mensaje=${encodeURIComponent(_msgCtaSol)}#formulario`;
 
+const SITE_URL = 'https://www.2smarthome.es';
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE_URL}/` },
+    { '@type': 'ListItem', position: 2, name: 'Soluciones', item: `${SITE_URL}/soluciones` },
+  ],
+};
+
 const controls = [
   {
     icon: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z',
@@ -208,6 +218,7 @@ const timeline = [
 <Layout
   title="Soluciones de Domótica en Barcelona"
   description="Catálogo completo de soluciones de domótica en Barcelona: iluminación inteligente, control climático, seguridad 360°, persianas motorizadas, audio multiroom y gestión energética. Instalamos en toda el área metropolitana."
+  schemas={[breadcrumbSchema]}
 >
 
   <!-- HERO -->
