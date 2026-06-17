@@ -66,6 +66,8 @@ const monthMap: Record<string, string> = {
 const [mon, yr] = date.split(' ');
 const dateISO = `${yr}-${monthMap[mon] ?? '01'}-01`;
 const canonical = new URL(Astro.url.pathname, SITE_URL).href;
+const contactPath = lang === 'ca' ? '/ca/contacto' : '/contacto';
+const resourcesPath = lang === 'ca' ? '/ca/recursos' : '/recursos';
 const _imgMeta = getBlogImg(img);
 const _imgOpt = _imgMeta ? await getImage({ src: _imgMeta, format: 'jpeg', width: 1200 }) : null;
 const imageUrl = _imgOpt ? `${SITE_URL}${_imgOpt.src}` : `${SITE_URL}${img}`;
@@ -97,9 +99,6 @@ const breadcrumbSchema = {
     { '@type': 'ListItem', position: 3, name: title, item: canonical },
   ],
 };
-
-const contactPath = lang === 'ca' ? '/ca/contacto' : '/contacto';
-const resourcesPath = lang === 'ca' ? '/ca/recursos' : '/recursos';
 
 const finalCta = {
   eyebrow: ui.defaultCtaEyebrow,
