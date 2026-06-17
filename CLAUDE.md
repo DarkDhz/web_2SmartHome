@@ -66,12 +66,12 @@ No test runner or linter is configured. TypeScript errors surface via `npm run b
 
 ### Blog publishing checklist
 
-Adding a new blog post requires touching **four files**:
+Each blog post is a **static `.astro` file** (no dynamic route). Adding a new post requires creating/touching **four files**:
 
-1. `src/pages/blog/[slug].astro` — ES article, uses `<BlogPost>` layout (import path `../../layouts/BlogPost.astro`).
-2. `src/pages/ca/blog/[slug].astro` — CA article with `lang="ca"`, uses `<BlogPost>` (import path `../../../layouts/BlogPost.astro`).
-3. `src/pages/recursos.astro` — add an entry to the `articles` array (ES title/desc, href `/blog/[slug]`).
-4. `src/pages/ca/recursos.astro` — add an entry to the `articles` array (CA title/desc, href `/ca/blog/[slug]`).
+1. `src/pages/blog/[post-slug].astro` — **create** the ES article file; `<BlogPost>` import path is `../../layouts/BlogPost.astro`.
+2. `src/pages/ca/blog/[post-slug].astro` — **create** the CA article file with `lang="ca"`; import path is `../../../layouts/BlogPost.astro`.
+3. `src/pages/recursos.astro` — prepend an entry to the `articles` array (ES title/desc, `href: '/blog/[post-slug]'`).
+4. `src/pages/ca/recursos.astro` — prepend an entry to the `articles` array (CA title/desc, `href: '/ca/blog/[post-slug]'`).
 
 Blog images go in `src/assets/blog_imgs/`. The `img` prop on `<BlogPost>` is a string path like `/blog_imgs/filename.jpg` resolved at runtime by the eager glob in `BlogPost.astro`.
 
