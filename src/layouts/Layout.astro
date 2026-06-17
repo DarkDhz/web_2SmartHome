@@ -5,6 +5,9 @@ import Footer from '../components/Footer.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 import Analytics from '@vercel/analytics/astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
+import { getImage } from 'astro:assets';
+import defaultImgSrc from '../assets/img/principal-hero-img.jpeg';
+import logoSrc from '../assets/img/logo-navbar.png';
 
 interface Props {
   title: string;
@@ -18,8 +21,10 @@ interface Props {
 
 const SITE_URL = 'https://www.2smarthome.es';
 const SITE_NAME = '2SmartHome';
-const DEFAULT_IMAGE = `${SITE_URL}/img/principal-hero-img.jpeg`;
-const LOGO_IMAGE = `${SITE_URL}/img/logo-navbar.png`;
+const _defaultImgOpt = await getImage({ src: defaultImgSrc, format: 'jpeg', width: 1200 });
+const _logoOpt = await getImage({ src: logoSrc, format: 'png', width: 300 });
+const DEFAULT_IMAGE = `${SITE_URL}${_defaultImgOpt.src}`;
+const LOGO_IMAGE = `${SITE_URL}${_logoOpt.src}`;
 const GOOGLE_MAPS_URL = 'https://www.google.es/maps/place/2SmartHome/@41.4506426,2.2458014,17z/data=!3m1!4b1!4m6!3m5!1s0xab2d40321309cb1d:0xbef6271c31a9e354!8m2!3d41.4506386!4d2.2483763!16s%2Fg%2F11yvvpdd3y';
 
 const {

@@ -1,5 +1,10 @@
 ---
 import Layout from './Layout.astro';
+import { Image, getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+const blogImgs = import.meta.glob<{ default: ImageMetadata }>('/src/assets/blog_imgs/**', { eager: true });
+const getBlogImg = (src: string) => blogImgs[src.replace('/blog_imgs/', '/src/assets/blog_imgs/')]?.default;
 
 interface Props {
   title: string;
@@ -61,7 +66,9 @@ const monthMap: Record<string, string> = {
 const [mon, yr] = date.split(' ');
 const dateISO = `${yr}-${monthMap[mon] ?? '01'}-01`;
 const canonical = new URL(Astro.url.pathname, SITE_URL).href;
-const imageUrl = img.startsWith('http') ? img : `${SITE_URL}${img}`;
+const _imgMeta = getBlogImg(img);
+const _imgOpt = _imgMeta ? await getImage({ src: _imgMeta, format: 'jpeg', width: 1200 }) : null;
+const imageUrl = _imgOpt ? `${SITE_URL}${_imgOpt.src}` : `${SITE_URL}${img}`;
 
 const articleSchema = {
   '@context': 'https://schema.org',
@@ -152,7 +159,7 @@ const ctaHref = (finalCta.tipo || finalCta.mensaje)
   <div class="bg-slate-950 pt-8">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="overflow-hidden rounded-2xl border border-slate-800 h-64 sm:h-80 lg:h-[420px]">
-        <img src={img} alt={imgAlt} class="w-full h-full object-cover" loading="lazy" />
+        {_imgMeta && <Image src={_imgMeta} alt={imgAlt} width={1200} class="w-full h-full object-cover" loading="lazy" />}
       </div>
     </div>
   </div>

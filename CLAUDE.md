@@ -78,7 +78,20 @@ Reusable patterns:
 
 ### Images
 
-Local images are served from `public/img/` (hero, project photos) and `public/blog_imgs/` (blog thumbnails). All `<img>` tags reference these as root-relative paths (e.g. `/img/photo-1234.jpg`). No Astro image optimization is used.
+Images live in `src/assets/img/` (hero, project photos) and `src/assets/blog_imgs/` (blog thumbnails). All pages use Astro's `<Image>` component from `astro:assets` for automatic WebP conversion and lazy loading.
+
+Pages that need images use an eager glob map at the top of the frontmatter:
+```typescript
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+const imgs = import.meta.glob<{ default: ImageMetadata }>('/src/assets/img/**', { eager: true });
+const getImg = (src: string) => imgs[src.replace('/img/', '/src/assets/img/')]!.default;
+```
+Then use `<Image src={getImg('/img/filename.jpg')} alt="..." width={800} />` in templates.
+
+`BlogPost.astro` uses the same pattern with `/src/assets/blog_imgs/**`.
+
+`Layout.astro` uses `getImage()` to compute OG/schema URLs from the optimized images.
 
 ### Contact form
 

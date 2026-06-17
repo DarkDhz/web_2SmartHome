@@ -1,5 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+const imgs = import.meta.glob<{ default: ImageMetadata }>('/src/assets/img/**', { eager: true });
+const getImg = (src: string) => imgs[src.replace('/img/', '/src/assets/img/')]!.default;
 
 const _msgHero = `Hola, me gustaría recibir un presupuesto inicial.
 · Tipo de proyecto: [hogar / empresa]
@@ -44,7 +49,7 @@ const stats = [
   <!-- HERO -->
   <section class="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0">
-      <img src="/img/principal-hero-img.jpeg" alt="Sistema de domótica 2SmartHome en un salón inteligente" class="w-full h-full object-cover" loading="eager"/>
+      <Image src={getImg('/img/principal-hero-img.jpeg')} alt="Sistema de domótica 2SmartHome en un salón inteligente" width={1920} class="w-full h-full object-cover" loading="eager" />
       <div class="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-950/70 to-slate-950"></div>
     </div>
     <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center -translate-y-10 sm:-translate-y-14">
@@ -136,7 +141,7 @@ const stats = [
         {projects.map((p, i) => (
           <article class="group rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 fade-up" style={`transition-delay:${i*100}ms`}>
             <div class="relative h-52 overflow-hidden">
-              <img src={p.img} alt={p.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+              <Image src={getImg(p.img)} alt={p.title} width={800} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
               <span class="absolute top-4 left-4 px-3 py-1 bg-sky-500/90 text-white text-xs font-semibold rounded-full">{p.cat}</span>
             </div>
@@ -192,7 +197,7 @@ const stats = [
         </div>
         <div class="relative fade-up">
           <div class="rounded-3xl overflow-hidden shadow-2xl bg-slate-950">
-            <img src="/img/why-us-smart-panel.jpg" alt="Panel táctil de domótica integrado en cocina moderna" class="w-full h-[480px] object-cover object-center"/>
+            <Image src={getImg('/img/why-us-smart-panel.jpg')} alt="Panel táctil de domótica integrado en cocina moderna" width={1200} class="w-full h-[480px] object-cover object-center" />
           </div>
         </div>
       </div>

@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logoImg from '../assets/img/logo-navbar.png';
+
 const year = new Date().getFullYear();
 const pathname = Astro.url.pathname;
 const isCA = pathname.startsWith('/ca');
@@ -51,7 +54,7 @@ const t = isCA ? {
       <!-- Brand -->
       <div class="lg:col-span-2">
         <a href={isCA ? '/ca' : '/'} class="flex items-center gap-3 mb-6">
-          <img src="/img/logo-navbar.png" alt="Logo de 2SmartHome" class="h-14 w-28 sm:w-32 object-contain" />
+          <Image src={logoImg} alt="Logo de 2SmartHome" width={128} height={56} class="h-14 w-28 sm:w-32 object-contain" />
         </a>
         <p class="text-slate-400 leading-relaxed max-w-sm mb-8 text-sm">
           {t.tagline}

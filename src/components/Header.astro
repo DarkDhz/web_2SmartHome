@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logoImg from '../assets/img/logo-navbar.png';
+
 const pathname = Astro.url.pathname;
 const isCA = pathname.startsWith('/ca');
 const prefix = isCA ? '/ca' : '';
@@ -59,7 +62,7 @@ const t = isCA ? {
 
       <!-- Logo -->
       <a href={isCA ? '/ca' : '/'} class="flex items-center group flex-shrink-0" aria-label="2SmartHome">
-        <img src="/img/logo-navbar.png" alt="2SmartHome" class="h-12 w-32 sm:w-36 object-contain transition-opacity duration-200 group-hover:opacity-90" />
+        <Image src={logoImg} alt="2SmartHome" width={144} height={48} class="h-12 w-32 sm:w-36 object-contain transition-opacity duration-200 group-hover:opacity-90" />
       </a>
 
       <!-- Desktop Navigation -->

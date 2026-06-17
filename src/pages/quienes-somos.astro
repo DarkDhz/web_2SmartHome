@@ -1,5 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+const imgs = import.meta.glob<{ default: ImageMetadata }>('/src/assets/img/**', { eager: true });
+const getImg = (src: string) => imgs[src.replace('/img/', '/src/assets/img/')]!.default;
 
 const _msgQS = `Hola, me gustaría ponerme en contacto con vuestro equipo.
 · Mi proyecto: [describe brevemente]
@@ -24,7 +29,7 @@ const values = [
   <!-- HERO -->
   <section class="relative py-36 overflow-hidden">
     <div class="absolute inset-0">
-      <img src="/img/photo-1522071820081-009f0129c71c.jpg" alt="Equipo 2SmartHome" class="w-full h-full object-cover"/>
+      <Image src={getImg('/img/photo-1522071820081-009f0129c71c.jpg')} alt="Equipo 2SmartHome" width={1920} class="w-full h-full object-cover" />
       <div class="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/70 to-slate-950"></div>
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -51,16 +56,16 @@ const values = [
         </div>
         <div class="grid grid-cols-2 gap-4 fade-up">
           <div class="rounded-2xl overflow-hidden">
-            <img src="/img/photo-1600585154340-be6161a56a0c.jpg" alt="Vivienda moderna preparada para automatización domótica" class="w-full h-52 object-cover"/>
+            <Image src={getImg('/img/photo-1600585154340-be6161a56a0c.jpg')} alt="Vivienda moderna preparada para automatización domótica" width={800} class="w-full h-52 object-cover" />
           </div>
           <div class="rounded-2xl overflow-hidden mt-8">
-            <img src="/img/photo-1556909114-f6e7ad7d3136.jpg" alt="Cocina inteligente integrada en un hogar conectado" class="w-full h-52 object-cover"/>
+            <Image src={getImg('/img/photo-1556909114-f6e7ad7d3136.jpg')} alt="Cocina inteligente integrada en un hogar conectado" width={800} class="w-full h-52 object-cover" />
           </div>
           <div class="rounded-2xl overflow-hidden -mt-8">
-            <img src="/img/photo-1565814329452-e1efa11c5b89.jpg" alt="Espacio residencial con soluciones de confort automatizado" class="w-full h-52 object-cover"/>
+            <Image src={getImg('/img/photo-1565814329452-e1efa11c5b89.jpg')} alt="Espacio residencial con soluciones de confort automatizado" width={800} class="w-full h-52 object-cover" />
           </div>
           <div class="rounded-2xl overflow-hidden">
-            <img src="/img/photo-1497366216548-37526070297c.jpg" alt="Oficina con sistemas inteligentes de iluminación y climatización" class="w-full h-52 object-cover"/>
+            <Image src={getImg('/img/photo-1497366216548-37526070297c.jpg')} alt="Oficina con sistemas inteligentes de iluminación y climatización" width={800} class="w-full h-52 object-cover" />
           </div>
         </div>
       </div>

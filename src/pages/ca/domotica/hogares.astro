@@ -1,5 +1,10 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+const imgs = import.meta.glob<{ default: ImageMetadata }>('/src/assets/img/**', { eager: true });
+const getImg = (src: string) => imgs[src.replace('/img/', '/src/assets/img/')]!.default;
 
 const _msgVisita = `Hola, m'agradaria sol·licitar una visita gratuïta per al meu habitatge.
 · Tipus: [pis / xalet / apartament / altre]
@@ -31,7 +36,7 @@ const features = [
   <!-- HERO -->
   <section class="relative py-36 flex items-center overflow-hidden">
     <div class="absolute inset-0">
-      <img src="/img/photo-1600210492493-0946911123ea.jpg" alt="Automatització de llar intel·ligent a Barcelona sense obres, amb control des del mòbil" class="w-full h-full object-cover"/>
+      <Image src={getImg('/img/photo-1600210492493-0946911123ea.jpg')} alt="Automatització de llar intel·ligent a Barcelona sense obres, amb control des del mòbil" width={1920} class="w-full h-full object-cover" />
       <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-950/30"></div>
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -126,7 +131,7 @@ const features = [
           </div>
         </div>
         <div class="rounded-3xl overflow-hidden shadow-2xl fade-up">
-          <img src="/img/photo-1556909114-f6e7ad7d3136.jpg" alt="Tècnic de 2SmartHome instal·lant sistema domòtic sense fils en habitatge de Barcelona" class="w-full h-[520px] object-cover"/>
+          <Image src={getImg('/img/photo-1556909114-f6e7ad7d3136.jpg')} alt="Tècnic de 2SmartHome instal·lant sistema domòtic sense fils en habitatge de Barcelona" width={1200} class="w-full h-[520px] object-cover" />
         </div>
       </div>
     </div>

@@ -1,5 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+const blogImgs = import.meta.glob<{ default: ImageMetadata }>('/src/assets/blog_imgs/**', { eager: true });
+const getImg = (src: string) => blogImgs[src.replace('/blog_imgs/', '/src/assets/blog_imgs/')]!.default;
 
 const _msgRec = `Hola, tinc alguns dubtes sobre domòtica abans de decidir-me.
 · Tipus de projecte que tinc en ment: [llar / negoci]
@@ -84,7 +89,7 @@ const breadcrumbSchema = {
             data-article-index={i}
           >
             <div class="relative h-44 overflow-hidden">
-              <img src={a.img} alt={a.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+              <Image src={getImg(a.img)} alt={a.title} width={600} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               <span class="absolute top-3 left-3 px-2.5 py-1 bg-sky-500/90 text-white text-xs font-semibold rounded-lg">{a.cat}</span>
             </div>
             <div class="p-6">

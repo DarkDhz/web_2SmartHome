@@ -1,5 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+const imgs = import.meta.glob<{ default: ImageMetadata }>('/src/assets/img/**', { eager: true });
+const getImg = (src: string) => imgs[src.replace('/img/', '/src/assets/img/')]!.default;
 
 const solutions = [
   {
@@ -46,7 +51,7 @@ const solutions = [
     title: 'Seguridad y videovigilancia',
     tagline: 'Tu hogar vigilado, estés donde estés',
     scenario: 'Recibes una notificación en el móvil. Abres la app y ves en vídeo quién llama a tu puerta. Abres con un toque.',
-    img: 'https://images.pexels.com/photos/6667681/pexels-photo-6667681.jpeg?auto=compress&cs=tinysrgb&w=900',
+    img: '/img/photo-pexels-6667681.jpeg',
     imgAlt: 'Mensajero con paquete llamando al videoportero de una vivienda',
     desc: 'Estés en la oficina, de viaje o de vacaciones, tu hogar está bajo control. Cámaras, detectores y cerraduras integrados en una sola app para ver, hablar y abrir desde cualquier lugar.',
     benefits: [
@@ -208,9 +213,10 @@ const timeline = [
   <!-- HERO -->
   <section class="relative min-h-[75vh] flex items-center overflow-hidden">
     <div class="absolute inset-0">
-      <img
-        src="/img/photo-1556742049-0cfed4f6a45d.jpg"
+      <Image
+        src={getImg('/img/photo-1556742049-0cfed4f6a45d.jpg')}
         alt="Persona controlando su hogar inteligente desde el sofá con un smartphone"
+        width={1920}
         class="w-full h-full object-cover"
         loading="eager"
       />
@@ -253,7 +259,7 @@ const timeline = [
         {controls.map((c, i) => (
           <div class="group relative rounded-3xl overflow-hidden fade-up" style={`transition-delay:${i*100}ms`}>
             <div class="h-56 overflow-hidden">
-              <img src={c.img} alt={c.imgAlt} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+              <Image src={getImg(c.img)} alt={c.imgAlt} width={800} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
             </div>
             <div class="absolute bottom-0 left-0 right-0 p-6">
@@ -316,9 +322,10 @@ const timeline = [
 
           <!-- Image column with UI overlay -->
           <div class={`relative rounded-3xl overflow-hidden shadow-2xl fade-up ${i % 2 !== 0 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-            <img
-              src={sol.img}
+            <Image
+              src={getImg(sol.img)}
               alt={sol.imgAlt}
+              width={1200}
               class="w-full h-80 lg:h-[460px] object-cover"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>

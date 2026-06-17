@@ -1,5 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+const imgs = import.meta.glob<{ default: ImageMetadata }>('/src/assets/img/**', { eager: true });
+const getImg = (src: string) => imgs[src.replace('/img/', '/src/assets/img/')]!.default;
 
 const _msgAuditoria = `Hola, quisiéramos solicitar una auditoría de domótica para nuestro negocio.
 · Tipo de espacio: [oficinas / hotel / local comercial / nave industrial]
@@ -39,7 +44,7 @@ const benefits = [
   <!-- HERO -->
   <section class="relative py-36 flex items-center overflow-hidden">
     <div class="absolute inset-0">
-      <img src="/img/photo-1497366811353-6870744d04b2.jpg" alt="Domótica para oficinas y empresas en el área metropolitana de Barcelona: ahorro energético y control inteligente" class="w-full h-full object-cover"/>
+      <Image src={getImg('/img/photo-1497366811353-6870744d04b2.jpg')} alt="Domótica para oficinas y empresas en el área metropolitana de Barcelona: ahorro energético y control inteligente" width={1920} class="w-full h-full object-cover" />
       <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-950/30"></div>
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -107,7 +112,7 @@ const benefits = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div class="rounded-3xl overflow-hidden shadow-2xl fade-up">
-          <img src="/img/photo-1522071820081-009f0129c71c.jpg" alt="Equipo trabajando en oficina inteligente" class="w-full h-[480px] object-cover"/>
+          <Image src={getImg('/img/photo-1522071820081-009f0129c71c.jpg')} alt="Equipo trabajando en oficina inteligente" width={1200} class="w-full h-[480px] object-cover" />
         </div>
         <div class="fade-up">
           <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">Ventajas competitivas</p>
