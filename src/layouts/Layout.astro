@@ -57,6 +57,15 @@ const whatsappMessages: Record<string, string> = {
   '/quienes-somos': 'Hola 2SmartHome, vengo de la página Quiénes somos y quiero contactar con vosotros.',
   '/recursos': 'Hola 2SmartHome, vengo de la página de recursos y tengo una consulta.',
   '/contacto': 'Hola 2SmartHome, vengo de la página de contacto y quiero pedir información.',
+  '/ca': 'Hola 2SmartHome, vinc de la pàgina principal i vull informació sobre domòtica.',
+  '/ca/domotica': 'Hola 2SmartHome, m\'interessa conèixer les vostres solucions de domòtica.',
+  '/ca/domotica/hogares': 'Hola 2SmartHome, vull informació sobre domòtica per a la meva llar.',
+  '/ca/domotica/empresas': 'Hola 2SmartHome, vull informació sobre domòtica per a la meva empresa.',
+  '/ca/soluciones': 'Hola 2SmartHome, vinc de la pàgina de solucions i vull assessorament.',
+  '/ca/proyectos': 'Hola 2SmartHome, he vist els vostres projectes i vull parlar del meu.',
+  '/ca/quienes-somos': 'Hola 2SmartHome, vinc de la pàgina Qui som i vull contactar amb vosaltres.',
+  '/ca/recursos': 'Hola 2SmartHome, vinc de la pàgina de recursos i tinc una consulta.',
+  '/ca/contacto': 'Hola 2SmartHome, vinc de la pàgina de contacte i vull demanar informació.',
 };
 const normalizedPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 const whatsappMessage = whatsappMessages[normalizedPath] ?? whatsappMessages['/'];
