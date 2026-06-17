@@ -14,7 +14,7 @@ No test runner or linter is configured. TypeScript errors surface via `npm run b
 
 ## Architecture
 
-**Stack:** Astro 5 (static output) + Tailwind CSS (inline via `@astrojs/tailwind`-style class utilities, no config file) + `@astrojs/sitemap`.
+**Stack:** Astro 6 (static output) + Tailwind CSS 3 (`tailwind.config.mjs` extends the `sans` font to Inter) + `@astrojs/sitemap`. There is no `@astrojs/tailwind` integration; Tailwind is wired in via `src/styles/global.css` (`@tailwind base/components/utilities`) imported directly by `Layout.astro`.
 
 ### i18n — bilingual ES/CA
 
@@ -32,7 +32,7 @@ No test runner or linter is configured. TypeScript errors surface via `npm run b
 - Injects `<html lang={lang}>`, Google Fonts (Inter), `src/styles/global.css`, Vercel Analytics/SpeedInsights, and `<CookieBanner>`.
 - Computes `esAlternate` / `caAlternate` URLs and emits `<link rel="alternate" hreflang>` tags.
 - Emits a `LocalBusiness` JSON-LD schema plus any extra `schemas[]` passed by the page.
-- A floating WhatsApp button is rendered, with per-path message text hardcoded in `whatsappMessages`.
+- A floating WhatsApp button is rendered, with per-path message text hardcoded in `whatsappMessages`. This map contains **both ES and CA paths** (e.g. `/domotica` and `/ca/domotica`). When adding a new route, add both paths with appropriate language text.
 - The `.fade-up` animation class is defined here: an IntersectionObserver in an inline `<script>` adds `.visible` when elements scroll into view (opacity 0→1, translateY 28px→0).
 
 **`src/layouts/BlogPost.astro`** — wraps `<Layout>` for blog articles:
@@ -63,6 +63,17 @@ No test runner or linter is configured. TypeScript errors surface via `npm run b
 | `/privacidad` | `/ca/privacidad` |
 | `/aviso-legal` | `/ca/aviso-legal` |
 | `/cookies` | `/ca/cookies` |
+
+### Blog publishing checklist
+
+Adding a new blog post requires touching **four files**:
+
+1. `src/pages/blog/[slug].astro` — ES article, uses `<BlogPost>` layout (import path `../../layouts/BlogPost.astro`).
+2. `src/pages/ca/blog/[slug].astro` — CA article with `lang="ca"`, uses `<BlogPost>` (import path `../../../layouts/BlogPost.astro`).
+3. `src/pages/recursos.astro` — add an entry to the `articles` array (ES title/desc, href `/blog/[slug]`).
+4. `src/pages/ca/recursos.astro` — add an entry to the `articles` array (CA title/desc, href `/ca/blog/[slug]`).
+
+Blog images go in `src/assets/blog_imgs/`. The `img` prop on `<BlogPost>` is a string path like `/blog_imgs/filename.jpg` resolved at runtime by the eager glob in `BlogPost.astro`.
 
 ### Design System
 
