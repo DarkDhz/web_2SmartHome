@@ -134,6 +134,10 @@ Kept minimal and inline via `<script>` tags:
 - **Recursos:** FAQ accordion + "load more" articles button
 - **Contacto:** async form submission with success/error states; reads `tipo`/`mensaje` query params on load
 
+### GEO (Generative Engine Optimization)
+
+`public/llms.txt` — structured Markdown file for AI crawlers (ChatGPT, Perplexity, etc.), following the [llms.txt spec](https://llmstxt.org/). Keep it in sync when adding new pages or blog posts: update the pages list and append a new entry to the Blog section.
+
 ### Deployment
 
 Hosted on **Vercel** (static output). `vercel.json` at the root contains 301 redirects from the old site's URL structure (e.g. `/que-es` → `/quienes-somos`, `/para-ti` → `/domotica/hogares`). When adding a new route that replaces an old one, add the redirect there.

@@ -1,0 +1,75 @@
+# 2SmartHome
+
+> Empresa de domótica e integración de sistemas para hogares y empresas en Barcelona y área metropolitana. Instalaciones sin obras, sistemas locales (sin dependencia de nube), con garantía de 5 años y soporte 24/7.
+
+2SmartHome ofrece soluciones de automatización del hogar y edificios corporativos. Fundada en Barcelona en 2024, con más de 100 instalaciones completadas. Los sistemas son inalámbricos (no requieren obra), funcionan en local (privacidad garantizada) y permiten ahorros de hasta el 40% en energía.
+
+**Cobertura geográfica:** Barcelona, Badalona, Hospitalet de Llobregat, Sant Cugat del Vallès, Terrassa, Sabadell, Cornellà y área metropolitana de Barcelona.
+
+**Marcas utilizadas:** Shelly, Aqara, Sonoff, SMLight, Somfy, Ajax.
+
+**Plataformas compatibles:** Google Home, Amazon Alexa, Apple HomeKit / Siri.
+
+---
+
+## Páginas principales
+
+### Inicio
+- URL: https://www.2smarthome.es/
+- Resumen: Página principal. Presenta la propuesta de valor: hogar inteligente sin obras, control desde el móvil, ahorro energético. 6 soluciones clave: iluminación, clima, seguridad, persianas, gestión energética y control de accesos.
+
+### Domótica para hogares
+- URL: https://www.2smarthome.es/domotica/hogares
+- Resumen: Automatización residencial. Servicios: iluminación inteligente, control de clima, seguridad integrada, persianas motorizadas, audio multiroom, riego automático. Proceso: visita gratuita → propuesta personalizada → instalación rápida → formación y soporte 24/7.
+
+### Domótica para empresas
+- URL: https://www.2smarthome.es/domotica/empresas
+- Resumen: Automatización de oficinas, hoteles, locales comerciales y espacios industriales. Reducción de hasta el 40% en costes eléctricos, ROI en menos de 3 años, gestión remota y escalable.
+
+### Soluciones
+- URL: https://www.2smarthome.es/soluciones
+- Resumen: Catálogo completo de 8 soluciones: iluminación inteligente, control de clima, seguridad y videovigilancia, persianas motorizadas, audio/vídeo multiroom, gestión energética, control de accesos, automatización de jardín. Control por app, voz y rutinas automáticas.
+
+### Proyectos
+- URL: https://www.2smarthome.es/proyectos
+- Resumen: Proyectos destacados realizados. Incluye casa en Badalona (100 m²), apartamento en Barcelona (90 m²) y restaurante en el Eixample (350 m²). Más de 100 instalaciones completadas entre 2024 y 2025.
+
+### Quiénes somos
+- URL: https://www.2smarthome.es/quienes-somos
+- Resumen: Equipo de ingenieros y técnicos especializados en automatización residencial y corporativa. Fundada en Barcelona, 2024. Valores: calidad de componentes, privacidad (sistemas locales), eficiencia energética y atención al cliente.
+
+### Blog y recursos
+- URL: https://www.2smarthome.es/recursos
+- Resumen: Artículos, guías y FAQ sobre domótica. Cubre preguntas frecuentes sobre precio, instalación sin obras, compatibilidad con dispositivos existentes y dependencia de internet.
+
+### Contacto
+- URL: https://www.2smarthome.es/contacto
+- Resumen: Formulario de contacto para solicitar visita gratuita o presupuesto sin compromiso.
+
+---
+
+## Blog — artículos
+
+- [Cómo automatizar persianas sin cambiar el motor](https://www.2smarthome.es/blog/automatizar-persianas) — Guía práctica para motorizar persianas existentes con adaptadores inteligentes Shelly/Somfy. Sin obras.
+- [Domótica en un piso de Barcelona: guía completa](https://www.2smarthome.es/blog/hogar-inteligente-barcelona-piso) — Cómo instalar domótica en un piso de Barcelona sin obras ni permisos de comunidad.
+- [KNX vs Home Assistant: ¿cuál elegir?](https://www.2smarthome.es/blog/knx-vs-home-assistant) — Comparativa entre sistemas profesionales KNX y plataformas open-source como Home Assistant.
+- [Domótica para empresas: reduce costes sin grandes inversiones](https://www.2smarthome.es/blog/domotica-para-empresas) — Automatización para oficinas y negocios: control de clima, accesos y energía.
+- [7 errores comunes al instalar domótica](https://www.2smarthome.es/blog/7-errores-comunes-domotica) — Errores frecuentes en instalaciones DIY y cómo evitarlos con una instalación profesional.
+- [¿Vale la pena invertir en una casa inteligente?](https://www.2smarthome.es/blog/vale-la-pena-invertir-casa-inteligente) — Análisis de ROI: ahorro energético, revalorización del inmueble y calidad de vida.
+- [Domótica en Barcelona: qué tener en cuenta](https://www.2smarthome.es/blog/domotica-en-barcelona) — Guía específica para Barcelona: normativa de comunidades, instaladores locales, subvenciones.
+- [Iluminación perfecta en restaurantes](https://www.2smarthome.es/blog/ambiente-perfecto-restaurante-iluminacion) — Cómo diseñar la iluminación de un restaurante con escenas automáticas por franja horaria.
+- [La domótica como aliada en el día a día](https://www.2smarthome.es/blog/domotica-tecnologia-aliada-dia-a-dia) — Cómo las rutinas automatizadas mejoran la comodidad, seguridad y eficiencia cotidiana.
+
+---
+
+## Versión en catalán
+
+Todos los contenidos anteriores tienen traducción completa al catalán bajo el prefijo `/ca/`:
+- https://www.2smarthome.es/ca/
+- https://www.2smarthome.es/ca/domotica/hogares
+- https://www.2smarthome.es/ca/domotica/empresas
+- https://www.2smarthome.es/ca/soluciones
+- https://www.2smarthome.es/ca/proyectos
+- https://www.2smarthome.es/ca/quienes-somos
+- https://www.2smarthome.es/ca/recursos
+- https://www.2smarthome.es/ca/contacto
