@@ -1,0 +1,156 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const updated = '17 de juny de 2025';
+---
+
+<Layout
+  title="Política de Privacitat – 2SmartHome"
+  description="Política de privacitat de 2SmartHome. Informació sobre el tractament de dades personals d'acord amb el RGPD i la LOPDGDD."
+  noIndex={true}
+  lang="ca"
+>
+
+  <!-- HERO -->
+  <section class="py-24 bg-slate-900 border-b border-slate-800 text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-4">Legal</p>
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">Política de Privacitat</h1>
+      <p class="text-slate-400 text-sm">Darrera actualització: {updated}</p>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="py-20 bg-slate-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose-legal space-y-12">
+
+        <!-- 1 -->
+        <div class="fade-up">
+          <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 text-sm font-bold flex-shrink-0">1</span>
+            Responsable del tractament
+          </h2>
+          <div class="ml-11 bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-2 text-slate-400 text-sm leading-relaxed">
+            <p><span class="text-slate-300 font-medium">Raó social:</span> 2SmartHome</p>
+            <p><span class="text-slate-300 font-medium">Domicili:</span> Carrer de Francesc Layret, 70, 08911 Badalona (Barcelona)</p>
+            <p><span class="text-slate-300 font-medium">Telèfon:</span> +34 660 877 744</p>
+            <p><span class="text-slate-300 font-medium">Email de contacte:</span> <a href="mailto:info@2smarthome.es" class="text-sky-400 hover:underline">info@2smarthome.es</a></p>
+            <p><span class="text-slate-300 font-medium">Activitat:</span> Instal·lació i manteniment de sistemes de domòtica i automatització de la llar i l'empresa.</p>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="fade-up">
+          <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 text-sm font-bold flex-shrink-0">2</span>
+            Dades que recollim i finalitat
+          </h2>
+          <div class="ml-11 space-y-4 text-slate-400 text-sm leading-relaxed">
+            <p>Recollim únicament les dades necessàries per a les finalitats següents:</p>
+            <div class="space-y-3">
+              {[
+                { title: 'Gestió de consultes i pressupostos', desc: 'Nom, cognoms, email, telèfon i descripció del projecte que facilites a través del formulari de contacte. Base legal: execució de mesures precontractuals a petició de l\'interessat (art. 6.1.b RGPD).' },
+                { title: 'Enviament d\'informació comercial', desc: 'Amb el teu consentiment exprés, podem enviar-te novetats sobre els nostres serveis de domòtica. Pots revocar aquest consentiment en qualsevol moment. Base legal: consentiment (art. 6.1.a RGPD).' },
+                { title: 'Anàlisi estadística del lloc web', desc: 'Dades de navegació anonimitzades o seudonimitzades per millorar l\'experiència de l\'usuari. Base legal: interès legítim (art. 6.1.f RGPD).' },
+              ].map(item => (
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+                  <p class="text-slate-300 font-semibold mb-1">{item.title}</p>
+                  <p>{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="fade-up">
+          <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 text-sm font-bold flex-shrink-0">3</span>
+            Conservació de les dades
+          </h2>
+          <div class="ml-11 text-slate-400 text-sm leading-relaxed space-y-3">
+            <p>Les dades recollides mitjançant el formulari de contacte es conserven durant el temps necessari per tramitar la teva consulta o pressupost i, si escau, durant la relació contractual. Un cop finalitzada, les dades es bloquegen durant els terminis de prescripció legals aplicables.</p>
+            <p>Les dades tractades amb finalitats de comunicacions comercials es mantenen fins que retires el consentiment o sol·licites la seva supressió.</p>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="fade-up">
+          <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 text-sm font-bold flex-shrink-0">4</span>
+            Cessió de dades a tercers
+          </h2>
+          <div class="ml-11 text-slate-400 text-sm leading-relaxed space-y-3">
+            <p>2SmartHome no ven, lloga ni cedeix les teves dades a tercers amb finalitats comercials. Únicament podran accedir a les teves dades:</p>
+            <ul class="list-disc list-inside space-y-1 ml-2">
+              <li>Proveïdors de serveis tecnològics que actuen com a encarregats del tractament (allotjament, email transaccional), sota contracte i garanties adequades.</li>
+              <li>Les administracions públiques o forces i cossos de seguretat quan així ho exigeixi la legislació vigent.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="fade-up">
+          <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 text-sm font-bold flex-shrink-0">5</span>
+            Els teus drets
+          </h2>
+          <div class="ml-11 text-slate-400 text-sm leading-relaxed">
+            <p class="mb-4">D'acord amb el RGPD i la LOPDGDD pots exercir en qualsevol moment els drets següents:</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {[
+                { right: 'Accés', desc: 'Conèixer quines dades tenim sobre tu.' },
+                { right: 'Rectificació', desc: 'Corregir dades inexactes o incompletes.' },
+                { right: 'Supressió', desc: 'Sol·licitar l\'esborrat de les teves dades.' },
+                { right: 'Limitació', desc: 'Restringir el tractament en certs casos.' },
+                { right: 'Portabilitat', desc: 'Rebre les teves dades en format estructurat.' },
+                { right: 'Oposició', desc: 'Oposar-te al tractament basat en interès legítim.' },
+              ].map(item => (
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-start gap-3">
+                  <svg class="w-4 h-4 text-sky-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <div>
+                    <p class="text-slate-300 font-medium">{item.right}</p>
+                    <p class="text-xs mt-0.5">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p class="mt-4">Pots exercir aquests drets enviant un escrit a <a href="mailto:info@2smarthome.es" class="text-sky-400 hover:underline">info@2smarthome.es</a> indicant el dret que vols exercitar i adjuntant còpia del teu document d'identitat. Si consideres que el tractament vulnera els teus drets, pots presentar una reclamació davant l'<a href="https://www.aepd.es" target="_blank" rel="noopener" class="text-sky-400 hover:underline">Agència Espanyola de Protecció de Dades (AEPD)</a>.</p>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="fade-up">
+          <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 text-sm font-bold flex-shrink-0">6</span>
+            Seguretat
+          </h2>
+          <div class="ml-11 text-slate-400 text-sm leading-relaxed">
+            <p>2SmartHome aplica les mesures tècniques i organitzatives necessàries per garantir la seguretat de les teves dades i impedir-ne l'alteració, pèrdua, tractament o accés no autoritzat. La comunicació amb el nostre web està protegida mitjançant xifratge TLS/SSL.</p>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="fade-up">
+          <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 text-sm font-bold flex-shrink-0">7</span>
+            Canvis en aquesta política
+          </h2>
+          <div class="ml-11 text-slate-400 text-sm leading-relaxed">
+            <p>2SmartHome es reserva el dret a modificar aquesta política de privacitat per adaptar-la a novetats legislatives o a canvis en els nostres serveis. La data de darrera actualització s'indicarà sempre a l'inici del document.</p>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="fade-up mt-12 p-8 bg-slate-900 border border-slate-800 rounded-2xl text-center">
+          <p class="text-slate-400 text-sm mb-4">Tens alguna pregunta sobre el tractament de les teves dades?</p>
+          <a href="/ca/contacto" class="inline-block px-6 py-3 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-xl transition-all shadow-lg shadow-sky-500/25 text-sm">
+            Contacta'ns
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</Layout>

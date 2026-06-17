@@ -120,9 +120,9 @@ const t = isCA ? {
     <div class="py-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
       <p class="text-slate-500 text-sm">© {year} 2SmartHome. {t.rights}</p>
       <div class="flex items-center gap-6">
-        <a href="/privacidad" class="text-slate-500 hover:text-slate-300 text-sm transition-colors">{t.privacy}</a>
-        <a href="/aviso-legal" class="text-slate-500 hover:text-slate-300 text-sm transition-colors">{t.legal}</a>
-        <a href="/cookies" class="text-slate-500 hover:text-slate-300 text-sm transition-colors">{t.cookies}</a>
+        <a href={`${prefix}/privacidad`} class="text-slate-500 hover:text-slate-300 text-sm transition-colors">{t.privacy}</a>
+        <a href={`${prefix}/aviso-legal`} class="text-slate-500 hover:text-slate-300 text-sm transition-colors">{t.legal}</a>
+        <a href={`${prefix}/cookies`} class="text-slate-500 hover:text-slate-300 text-sm transition-colors">{t.cookies}</a>
       </div>
     </div>
   </div>

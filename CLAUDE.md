@@ -23,7 +23,7 @@ No test runner or linter is configured. TypeScript errors surface via `npm run b
 - **Spanish** pages live at root: `src/pages/*.astro`, `src/pages/domotica/`, `src/pages/blog/`.
 - **Catalan** pages mirror the same slug under `src/pages/ca/`: `src/pages/ca/*.astro`, `src/pages/ca/domotica/`, `src/pages/ca/blog/`.
 - Every page passes `lang="ca"` (or omits it, defaulting to `'es'`) to `<Layout>` and `<BlogPost>`.
-- Legal pages (`/privacidad`, `/aviso-legal`, `/cookies`) are Spanish-only; Catalan footer links point to the Spanish versions.
+- Legal pages have full Catalan equivalents under `/ca/`: `/ca/privacidad`, `/ca/aviso-legal`, `/ca/cookies`.
 
 ### Layouts
 
@@ -44,7 +44,7 @@ No test runner or linter is configured. TypeScript errors surface via `npm run b
 
 - **`Header.astro`** — locale-aware. Reads `Astro.url.pathname`; if it starts with `/ca`, sets `isCA=true` and `prefix='/ca'`. All nav links are `${prefix}/path`. Contains a language switcher pill (ES/CA). Mobile hamburger toggle via inline `<script>`.
 - **`Footer.astro`** — locale-aware with a bilingual `t` object. Footer links use `${prefix}/...`. Copyright year via `new Date().getFullYear()`.
-- **`CookieBanner.astro`** — GDPR cookie consent banner (Spanish-only text). Shown/hidden via inline script that reads/writes `localStorage`.
+- **`CookieBanner.astro`** — GDPR cookie consent banner. Accepts `lang?: 'es' | 'ca'` prop (passed from Layout) and renders bilingual text. Shown/hidden via inline script that reads/writes `localStorage` under key `cookie_consent`.
 
 ### Routing table
 
@@ -60,7 +60,9 @@ No test runner or linter is configured. TypeScript errors surface via `npm run b
 | `/recursos` | `/ca/recursos` |
 | `/contacto` | `/ca/contacto` |
 | `/blog/[slug]` | `/ca/blog/[slug]` |
-| `/privacidad`, `/aviso-legal`, `/cookies` | (Spanish only) |
+| `/privacidad` | `/ca/privacidad` |
+| `/aviso-legal` | `/ca/aviso-legal` |
+| `/cookies` | `/ca/cookies` |
 
 ### Design System
 
@@ -92,6 +94,16 @@ Then use `<Image src={getImg('/img/filename.jpg')} alt="..." width={800} />` in 
 `BlogPost.astro` uses the same pattern with `/src/assets/blog_imgs/**`.
 
 `Layout.astro` uses `getImage()` to compute OG/schema URLs from the optimized images.
+
+### Sitemap
+
+`@astrojs/sitemap` is configured in `astro.config.mjs` with i18n locale mapping (`es → es-ES`, `ca → ca-ES`). This generates `hreflang` alternate entries for every page in both locales automatically. Do not remove the `i18n` block from the sitemap config or CA pages will be excluded.
+
+### Accessibility
+
+- A skip link (`<a href="#main-content">`) is the first element in `<body>` in Layout.astro; the `<main>` tag carries `id="main-content"`.
+- The mobile menu button in Header.astro uses `aria-expanded` (toggled by the inline script) and `aria-controls="mobile-menu"`.
+- All new pages must pass `lang="ca"` to `<Layout>` — this drives `<html lang>`, hreflang alternates, the CookieBanner language, and the skip link text.
 
 ### Contact form
 
