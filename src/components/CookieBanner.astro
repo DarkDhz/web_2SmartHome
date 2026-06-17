@@ -1,20 +1,41 @@
 ---
+interface Props {
+  lang?: 'es' | 'ca';
+}
+const { lang = 'es' } = Astro.props;
+
+const t = lang === 'ca' ? {
+  title: 'Utilitzem galetes',
+  body: "Usem galetes pròpies i de tercers per analitzar l'ús del lloc i millorar la teva experiència. Pots acceptar-les totes o només les necessàries per al funcionament bàsic.",
+  moreInfo: 'Més informació',
+  moreInfoHref: '/cookies',
+  reject: 'Només necessàries',
+  accept: 'Acceptar totes',
+  ariaLabel: 'Avís de galetes',
+} : {
+  title: 'Utilizamos cookies',
+  body: 'Usamos cookies propias y de terceros para analizar el uso del sitio y mejorar tu experiencia. Puedes aceptar todas o solo las necesarias para el funcionamiento básico.',
+  moreInfo: 'Más info',
+  moreInfoHref: '/cookies',
+  reject: 'Solo necesarias',
+  accept: 'Aceptar todas',
+  ariaLabel: 'Aviso de cookies',
+};
 ---
 
 <div
   id="cookie-banner"
   class="fixed inset-x-0 bottom-0 z-[60] hidden"
   role="dialog"
-  aria-label="Aviso de cookies"
+  aria-label={t.ariaLabel}
 >
   <div class="m-4 sm:m-6 rounded-2xl bg-slate-900 border border-slate-700 shadow-2xl shadow-black/60 p-5 sm:p-6 max-w-2xl sm:mx-auto">
     <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
       <div class="flex-1 min-w-0">
-        <p class="text-white font-semibold text-sm mb-1">Utilizamos cookies</p>
+        <p class="text-white font-semibold text-sm mb-1">{t.title}</p>
         <p class="text-slate-400 text-sm leading-relaxed">
-          Usamos cookies propias y de terceros para analizar el uso del sitio y mejorar tu experiencia.
-          Puedes aceptar todas o solo las necesarias para el funcionamiento básico.
-          <a href="/cookies" class="text-sky-400 hover:text-sky-300 underline underline-offset-2 ml-1 whitespace-nowrap">Más info</a>
+          {t.body}
+          <a href={t.moreInfoHref} class="text-sky-400 hover:text-sky-300 underline underline-offset-2 ml-1 whitespace-nowrap">{t.moreInfo}</a>
         </p>
       </div>
       <div class="flex gap-3 shrink-0">
@@ -22,13 +43,13 @@
           id="cookie-reject"
           class="px-4 py-2 text-sm font-medium text-slate-300 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-xl transition-colors whitespace-nowrap"
         >
-          Solo necesarias
+          {t.reject}
         </button>
         <button
           id="cookie-accept"
           class="px-4 py-2 text-sm font-semibold text-white bg-sky-500 hover:bg-sky-400 rounded-xl shadow-lg shadow-sky-500/25 transition-colors whitespace-nowrap"
         >
-          Aceptar todas
+          {t.accept}
         </button>
       </div>
     </div>

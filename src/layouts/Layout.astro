@@ -202,7 +202,7 @@ const localBusinessSchema = {
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
     <!-- JSON-LD: LocalBusiness + Organization -->
     <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
@@ -225,8 +225,11 @@ const localBusinessSchema = {
     </style>
   </head>
   <body class="bg-slate-950 text-white antialiased font-sans">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-sky-500 focus:text-white focus:rounded-xl focus:font-semibold focus:shadow-lg">
+      {lang === 'ca' ? 'Saltar al contingut' : 'Saltar al contenido'}
+    </a>
     <Header />
-    <main class="pt-20">
+    <main id="main-content" class="pt-20">
       <slot />
     </main>
     <a
@@ -241,7 +244,7 @@ const localBusinessSchema = {
       </svg>
     </a>
     <Footer />
-    <CookieBanner />
+    <CookieBanner lang={lang} />
     <script>
       const obs = new IntersectionObserver(
         entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),

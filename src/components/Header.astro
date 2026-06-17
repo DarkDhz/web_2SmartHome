@@ -62,7 +62,7 @@ const t = isCA ? {
 
       <!-- Logo -->
       <a href={isCA ? '/ca' : '/'} class="flex items-center group flex-shrink-0" aria-label="2SmartHome">
-        <Image src={logoImg} alt="2SmartHome" width={144} height={48} class="h-12 w-32 sm:w-36 object-contain transition-opacity duration-200 group-hover:opacity-90" />
+        <Image src={logoImg} alt="2SmartHome" width={220} height={153} class="h-14 w-auto object-contain transition-opacity duration-200 group-hover:opacity-90" />
       </a>
 
       <!-- Desktop Navigation -->
@@ -129,7 +129,7 @@ const t = isCA ? {
       </nav>
 
       <!-- Mobile Menu Button -->
-      <button id="mobile-toggle" class="lg:hidden p-2 text-slate-400 hover:text-white transition-colors rounded-lg hover:bg-slate-800" aria-label={t.abrirMenu}>
+      <button id="mobile-toggle" class="lg:hidden p-2 text-slate-400 hover:text-white transition-colors rounded-lg hover:bg-slate-800" aria-label={t.abrirMenu} aria-expanded="false" aria-controls="mobile-menu">
         <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
@@ -175,7 +175,7 @@ const t = isCA ? {
 </header>
 
 <script>
-  const toggle = document.getElementById('mobile-toggle');
+  const toggle = document.getElementById('mobile-toggle') as HTMLButtonElement | null;
   const menu = document.getElementById('mobile-menu');
   const iconOpen = document.getElementById('icon-open');
   const iconClose = document.getElementById('icon-close');
@@ -183,5 +183,6 @@ const t = isCA ? {
     const hidden = menu?.classList.toggle('hidden');
     iconOpen?.classList.toggle('hidden', !hidden);
     iconClose?.classList.toggle('hidden', !!hidden);
+    toggle.setAttribute('aria-expanded', hidden ? 'false' : 'true');
   });
 </script>
