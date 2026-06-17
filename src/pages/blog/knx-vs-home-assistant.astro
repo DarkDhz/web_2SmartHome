@@ -1,0 +1,135 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+
+<BlogPost
+  title="KNX vs Home Assistant: diferencias, ventajas y cuál elegir"
+  description="Comparamos KNX y Home Assistant desde la fiabilidad, el coste, la flexibilidad y la integración para ayudarte a decidir la mejor base de tu smart home."
+  cat="Tecnología"
+  date="Jun 2026"
+  time="9 min"
+  img="/blog_imgs/knx-vs-home-assistant.png"
+>
+
+  <p>
+    Cuando planificas una instalación de domótica, una de las primeras decisiones que debes tomar es elegir la plataforma tecnológica sobre la que construir todo el sistema. Entre las opciones más consolidadas del mercado encontramos <strong>KNX</strong>, el estándar europeo por excelencia con más de 30 años de historia, y <strong>Home Assistant</strong>, la plataforma de código abierto que ha ganado millones de seguidores en todo el mundo. Cada una tiene sus puntos fuertes, y la elección correcta depende del tipo de proyecto, el presupuesto disponible y las prioridades del usuario.
+  </p>
+
+  <h2>¿Qué es KNX?</h2>
+  <p>
+    KNX es un protocolo de comunicación estándar e internacional (ISO/IEC 14543) diseñado específicamente para instalaciones eléctricas inteligentes en edificios. Nació en 1990 de la unión de tres estándares europeos y hoy cuenta con más de 500 fabricantes de hardware compatibles: Schneider Electric, ABB, Siemens, Jung, Gira y cientos más.
+  </p>
+  <p>
+    La comunicación se realiza a través del bus KNX, que puede ser cableado (par trenzado), mediante radiofrecuencia (KNX RF) o a través de la red eléctrica (powerline). El estándar cableado es el más utilizado en instalaciones profesionales por su robustez y ausencia de interferencias.
+  </p>
+  <ul>
+    <li>Cualquier dispositivo KNX es compatible con cualquier otro, independientemente del fabricante.</li>
+    <li>La inteligencia reside en el hardware, sin depender de ningún servidor central.</li>
+    <li>Funciona sin conexión a Internet, con plena autonomía local.</li>
+    <li>Escala desde pisos de 60 m² hasta edificios corporativos con miles de puntos de control.</li>
+  </ul>
+
+  <h2>¿Qué es Home Assistant?</h2>
+  <p>
+    Home Assistant (HA) es un software de domótica de código abierto que se instala en una Raspberry Pi, un mini PC o un NAS dedicado. Actúa como controlador central y es capaz de integrar más de 3.000 dispositivos de distintos fabricantes y protocolos: Zigbee, Z-Wave, Wi-Fi, MQTT, Bluetooth, y también el propio KNX.
+  </p>
+  <p>
+    Su fortaleza reside en la comunidad y la flexibilidad: al ser open source, existe una enorme cantidad de integraciones y automatizaciones disponibles. Se actualiza constantemente y permite crear escenas muy complejas con relativa facilidad, incluso sin conocimientos de programación.
+  </p>
+  <ul>
+    <li>Sin coste de licencias ni suscripciones: es software libre y de código abierto.</li>
+    <li>Compatible con la mayoría de dispositivos del mercado, con más de 3.000 integraciones disponibles.</li>
+    <li>Permite crear dashboards y automatizaciones muy avanzadas con alta personalización.</li>
+    <li>Depende de un servidor central: si cae, las automatizaciones dejan de funcionar.</li>
+  </ul>
+
+  <h2>Fiabilidad y redundancia</h2>
+  <p>
+    En términos de fiabilidad, KNX tiene una ventaja estructural significativa: la inteligencia está distribuida en el propio bus. Cada actuador KNX contiene su propia lógica programada, por lo que si el software de visualización o un controlador central falla, la instalación sigue funcionando. Un interruptor KNX apaga o enciende la luz aunque no haya conexión a Internet ni ningún servidor activo.
+  </p>
+  <p>
+    Home Assistant, en cambio, es un sistema centralizado. Si el servidor se reinicia o hay un corte de luz breve, puede haber momentos de inactividad. Esto se mitiga con hardware de calidad, sistemas UPS (alimentación ininterrumpida) y backups automáticos, pero requiere más atención técnica.
+  </p>
+  <blockquote>
+    <p>Para instalaciones profesionales donde la fiabilidad es crítica —hoteles, clínicas, edificios de lujo— KNX sigue siendo el estándar de referencia indiscutible.</p>
+  </blockquote>
+
+  <h2>Comparativa de costes</h2>
+  <p>
+    El coste es uno de los principales factores de decisión. KNX requiere una inversión inicial más elevada:
+  </p>
+  <ul>
+    <li>El cableado de bus KNX y los actuadores tienen un precio superior al material convencional.</li>
+    <li>La programación con ETS (Engineering Tool Software) requiere formación certificada.</li>
+    <li>Los dispositivos KNX suelen tener un precio premium respecto a alternativas Zigbee o Wi-Fi.</li>
+  </ul>
+  <p>
+    Home Assistant permite construir una instalación muy capaz con una inversión mucho menor, especialmente combinado con dispositivos Zigbee de bajo coste. Sin embargo, en proyectos grandes, la gestión y mantenimiento de HA puede requerir más horas de trabajo técnico y conocimiento especializado.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Criterio</th>
+        <th>KNX</th>
+        <th>Home Assistant</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Inversión inicial</td>
+        <td>Alta</td>
+        <td>Baja-media</td>
+      </tr>
+      <tr>
+        <td>Fiabilidad</td>
+        <td>Muy alta</td>
+        <td>Alta (con buen hardware)</td>
+      </tr>
+      <tr>
+        <td>Flexibilidad</td>
+        <td>Media</td>
+        <td>Muy alta</td>
+      </tr>
+      <tr>
+        <td>Integraciones</td>
+        <td>Estándar industrial</td>
+        <td>+3.000 dispositivos</td>
+      </tr>
+      <tr>
+        <td>Mantenimiento</td>
+        <td>Muy bajo</td>
+        <td>Medio (requiere updates)</td>
+      </tr>
+      <tr>
+        <td>Depende de Internet</td>
+        <td>No</td>
+        <td>Configurable (local)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Flexibilidad e integración con terceros</h2>
+  <p>
+    Home Assistant gana claramente en número de integraciones. Si quieres conectar el robot aspirador, el coche eléctrico, la alarma, el termostato, las cámaras IP y el altavoz inteligente en un mismo panel de control, HA lo hace de forma natural y sin coste adicional.
+  </p>
+  <p>
+    KNX, por diseño, está enfocado en la infraestructura eléctrica del edificio: iluminación, persianas, climatización, control de acceso y gestión energética. Su integración con dispositivos de consumo existe a través de módulos IP (KNX IP Router, módulos DALI, Modbus) pero es más compleja y costosa que en HA.
+  </p>
+
+  <h2>¿Cuál elegir según tu caso?</h2>
+  <ul>
+    <li>KNX es la opción si priorizas la máxima fiabilidad, el proyecto es de mediana o gran envergadura y el cliente valora funcionar sin Internet.</li>
+    <li>Home Assistant encaja si tienes una vivienda existente sin posibilidad de obra, presupuesto ajustado y quieres integrar muchos dispositivos distintos.</li>
+    <li>Muchas instalaciones profesionales combinan ambos: KNX para la infraestructura eléctrica y Home Assistant como capa de visualización e integración con servicios externos.</li>
+  </ul>
+
+  <h2>Conclusión</h2>
+  <p>
+    KNX y Home Assistant no son tecnologías opuestas sino complementarias. KNX es el estándar industrial, robusto y probado durante décadas, ideal para proyectos donde la fiabilidad es innegociable. Home Assistant es la plataforma flexible que democratiza la domótica, perfecta para quien quiere control y personalización a un coste razonable.
+  </p>
+  <p>
+    En <strong>2SmartHome</strong> trabajamos con ambas tecnologías y elegimos la más adecuada según las necesidades de cada proyecto. Si quieres que te asesoremos sobre la mejor opción para tu caso concreto, no dudes en contactarnos para una visita gratuita y sin compromiso.
+  </p>
+
+</BlogPost>
