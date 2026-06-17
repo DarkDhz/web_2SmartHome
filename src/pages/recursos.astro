@@ -27,11 +27,34 @@ const faqs = [
   { q: '¿Qué pasa si hay un fallo en el sistema?', a: 'Contamos con soporte técnico 24/7. Muchos problemas se resuelven de forma remota en minutos. Para incidencias que requieren intervención presencial, garantizamos respuesta en menos de 24 horas en el área de Barcelona.' },
   { q: '¿Puedo ampliar el sistema en el futuro?', a: 'Absolutamente. Diseñamos todos los sistemas pensando en la escalabilidad. Puedes empezar con un sistema básico e ir añadiendo funcionalidades según tus necesidades y presupuesto.' },
 ];
+
+const SITE_URL = 'https://www.2smarthome.es';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: { '@type': 'Answer', text: faq.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE_URL}/` },
+    { '@type': 'ListItem', position: 2, name: 'Blog y Guías de Domótica', item: `${SITE_URL}/recursos` },
+  ],
+};
 ---
 
 <Layout
   title="Blog y Guías de Domótica en Barcelona"
   description="Artículos, guías prácticas y FAQs sobre domótica y hogar inteligente. Aprende sobre automatización, ahorro energético, smart home y las últimas tendencias en tecnología del hogar en Barcelona."
+  noIndex={false}
+  schemas={[faqSchema, breadcrumbSchema]}
 >
 
   <!-- HERO -->
