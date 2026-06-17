@@ -92,8 +92,8 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE_URL}/` },
-    { '@type': 'ListItem', position: 2, name: 'Recursos', item: `${SITE_URL}/recursos` },
+    { '@type': 'ListItem', position: 1, name: ui.home, item: lang === 'ca' ? `${SITE_URL}/ca` : `${SITE_URL}/` },
+    { '@type': 'ListItem', position: 2, name: ui.resources, item: `${SITE_URL}${resourcesPath}` },
     { '@type': 'ListItem', position: 3, name: title, item: canonical },
   ],
 };
@@ -159,7 +159,7 @@ const ctaHref = (finalCta.tipo || finalCta.mensaje)
   <div class="bg-slate-950 pt-8">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="overflow-hidden rounded-2xl border border-slate-800 h-64 sm:h-80 lg:h-[420px]">
-        {_imgMeta && <Image src={_imgMeta} alt={imgAlt} width={1200} class="w-full h-full object-cover" loading="lazy" />}
+        {_imgMeta && <Image src={_imgMeta} alt={imgAlt} width={1200} class="w-full h-full object-cover" loading="eager" />}
       </div>
     </div>
   </div>
