@@ -17,6 +17,34 @@ const _msgEstudio = `Hola, quiero agendar un estudio de domótica para mi hogar.
 const urlVisita = `/contacto?tipo=hogar-existente&mensaje=${encodeURIComponent(_msgVisita)}#formulario`;
 const urlEstudio = `/contacto?tipo=hogar-existente&mensaje=${encodeURIComponent(_msgEstudio)}#formulario`;
 
+const SITE_URL = 'https://www.2smarthome.es';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Domótica para Hogares en Barcelona',
+  description: 'Automatización del hogar en Barcelona y área metropolitana. Iluminación inteligente, control climático, seguridad y persianas en un único sistema. Instalación sin obras.',
+  provider: { '@type': 'LocalBusiness', name: '2SmartHome', url: SITE_URL },
+  areaServed: [
+    { '@type': 'City', name: 'Barcelona' },
+    { '@type': 'City', name: 'Badalona' },
+    { '@type': 'City', name: 'Hospitalet de Llobregat' },
+    { '@type': 'City', name: 'Sant Cugat del Vallès' },
+  ],
+  serviceType: 'Home Automation',
+  url: `${SITE_URL}/domotica/hogares`,
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE_URL}/` },
+    { '@type': 'ListItem', position: 2, name: 'Domótica', item: `${SITE_URL}/domotica` },
+    { '@type': 'ListItem', position: 3, name: 'Hogares', item: `${SITE_URL}/domotica/hogares` },
+  ],
+};
+
 const features = [
   { icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z', title: 'Iluminación inteligente', desc: 'Crea ambientes perfectos con escenas de luz automáticas. Ahorra hasta un 60% en iluminación con sensores de presencia y horarios.' },
   { icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z', title: 'Climatización inteligente', desc: 'Tu hogar siempre a la temperatura perfecta. El sistema aprende tus rutinas y precalienta o refresca el espacio antes de que llegues.' },
@@ -30,6 +58,7 @@ const features = [
 <Layout
   title="Domótica para Hogares en Barcelona"
   description="Automatización del hogar en Barcelona, Hospitalet, Sant Cugat y área metropolitana. Iluminación inteligente, control climático, seguridad y persianas integradas en un único sistema. Instalación sin obras."
+  schemas={[serviceSchema, breadcrumbSchema]}
 >
 
   <!-- HERO -->

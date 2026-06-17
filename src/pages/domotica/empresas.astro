@@ -22,6 +22,34 @@ const urlAuditoria = `/contacto?tipo=oficina&mensaje=${encodeURIComponent(_msgAu
 const urlAuditoriaEnerg = `/contacto?tipo=oficina&mensaje=${encodeURIComponent(_msgAuditoriaEnerg)}#formulario`;
 const urlAnalisis = `/contacto?tipo=oficina&mensaje=${encodeURIComponent(_msgAnalisis)}#formulario`;
 
+const SITE_URL = 'https://www.2smarthome.es';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Domótica para Empresas en Barcelona',
+  description: 'Automatización inteligente para oficinas, hoteles, locales y naves industriales en Barcelona y área metropolitana. Reduce costes energéticos hasta un 40% y mejora la productividad.',
+  provider: { '@type': 'LocalBusiness', name: '2SmartHome', url: SITE_URL },
+  areaServed: [
+    { '@type': 'City', name: 'Barcelona' },
+    { '@type': 'City', name: 'Hospitalet de Llobregat' },
+    { '@type': 'City', name: 'Cornellà de Llobregat' },
+    { '@type': 'AdministrativeArea', name: 'Área Metropolitana de Barcelona' },
+  ],
+  serviceType: 'Building Automation',
+  url: `${SITE_URL}/domotica/empresas`,
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE_URL}/` },
+    { '@type': 'ListItem', position: 2, name: 'Domótica', item: `${SITE_URL}/domotica` },
+    { '@type': 'ListItem', position: 3, name: 'Empresas', item: `${SITE_URL}/domotica/empresas` },
+  ],
+};
+
 const sectors = [
   { icon: '🏢', title: 'Oficinas y coworkings', desc: 'Gestión inteligente de iluminación, clima y accesos para maximizar la productividad y reducir costes operativos.' },
   { icon: '🏨', title: 'Hoteles y apartamentos', desc: 'Control centralizado por habitación, check-in digital y optimización automática del consumo energético.' },
@@ -39,6 +67,7 @@ const benefits = [
 <Layout
   title="Domótica para Empresas en Barcelona"
   description="Automatización inteligente para oficinas, hoteles, locales y naves industriales en Barcelona, 22@, Hospitalet, Cornellà y área metropolitana. Reduce costes energéticos hasta un 40% y mejora la productividad."
+  schemas={[serviceSchema, breadcrumbSchema]}
 >
 
   <!-- HERO -->

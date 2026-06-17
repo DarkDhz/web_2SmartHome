@@ -17,6 +17,34 @@ const _msgEstudi = `Hola, vull agendar un estudi de domòtica per a la meva llar
 const urlVisita = `/ca/contacto?tipo=hogar-existente&mensaje=${encodeURIComponent(_msgVisita)}#formulario`;
 const urlEstudi = `/ca/contacto?tipo=hogar-existente&mensaje=${encodeURIComponent(_msgEstudi)}#formulario`;
 
+const SITE_URL = 'https://www.2smarthome.es';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Domòtica per a Llars a Barcelona',
+  description: 'Automatització de la llar a Barcelona i àrea metropolitana. Il·luminació intel·ligent, control climàtic, seguretat i persianes en un únic sistema. Instal·lació sense obres.',
+  provider: { '@type': 'LocalBusiness', name: '2SmartHome', url: SITE_URL },
+  areaServed: [
+    { '@type': 'City', name: 'Barcelona' },
+    { '@type': 'City', name: 'Badalona' },
+    { '@type': 'City', name: 'Hospitalet de Llobregat' },
+    { '@type': 'City', name: 'Sant Cugat del Vallès' },
+  ],
+  serviceType: 'Home Automation',
+  url: `${SITE_URL}/ca/domotica/hogares`,
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inici', item: `${SITE_URL}/ca` },
+    { '@type': 'ListItem', position: 2, name: 'Domòtica', item: `${SITE_URL}/ca/domotica` },
+    { '@type': 'ListItem', position: 3, name: 'Llars', item: `${SITE_URL}/ca/domotica/hogares` },
+  ],
+};
+
 const features = [
   { icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z', title: 'Il·luminació intel·ligent', desc: 'Crea ambients perfectes amb escenes de llum automàtiques. Estalvia fins a un 60% en il·luminació amb sensors de presència i horaris.' },
   { icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z', title: 'Climatització intel·ligent', desc: 'La teva llar sempre a la temperatura perfecta. El sistema aprèn les teves rutines i preescalfa o refresca l\'espai abans que arribis.' },
@@ -31,6 +59,7 @@ const features = [
   title="Domòtica per a Llars a Barcelona"
   description="Automatització de la llar a Barcelona, Hospitalet, Sant Cugat i àrea metropolitana. Il·luminació intel·ligent, control climàtic, seguretat i persianes integrades en un únic sistema. Instal·lació sense obres."
   lang="ca"
+  schemas={[serviceSchema, breadcrumbSchema]}
 >
 
   <!-- HERO -->

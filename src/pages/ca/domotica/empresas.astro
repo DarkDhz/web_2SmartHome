@@ -22,6 +22,34 @@ const urlAuditoria = `/ca/contacto?tipo=oficina&mensaje=${encodeURIComponent(_ms
 const urlAuditoriaEnerg = `/ca/contacto?tipo=oficina&mensaje=${encodeURIComponent(_msgAuditoriaEnerg)}#formulario`;
 const urlAnalisi = `/ca/contacto?tipo=oficina&mensaje=${encodeURIComponent(_msgAnalisi)}#formulario`;
 
+const SITE_URL = 'https://www.2smarthome.es';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Domòtica per a Empreses a Barcelona',
+  description: 'Automatització intel·ligent per a oficines, hotels, locals i naus industrials a Barcelona i àrea metropolitana. Redueix costos energètics fins al 40% i millora la productivitat.',
+  provider: { '@type': 'LocalBusiness', name: '2SmartHome', url: SITE_URL },
+  areaServed: [
+    { '@type': 'City', name: 'Barcelona' },
+    { '@type': 'City', name: 'Hospitalet de Llobregat' },
+    { '@type': 'City', name: 'Cornellà de Llobregat' },
+    { '@type': 'AdministrativeArea', name: 'Àrea Metropolitana de Barcelona' },
+  ],
+  serviceType: 'Building Automation',
+  url: `${SITE_URL}/ca/domotica/empresas`,
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inici', item: `${SITE_URL}/ca` },
+    { '@type': 'ListItem', position: 2, name: 'Domòtica', item: `${SITE_URL}/ca/domotica` },
+    { '@type': 'ListItem', position: 3, name: 'Empreses', item: `${SITE_URL}/ca/domotica/empresas` },
+  ],
+};
+
 const sectors = [
   { icon: '🏢', title: 'Oficines i coworkings', desc: 'Gestió intel·ligent d\'il·luminació, clima i accessos per maximitzar la productivitat i reduir costos operatius.' },
   { icon: '🏨', title: 'Hotels i apartaments', desc: 'Control centralitzat per habitació, check-in digital i optimització automàtica del consum energètic.' },
@@ -40,6 +68,7 @@ const benefits = [
   title="Domòtica per a Empreses a Barcelona"
   description="Automatització intel·ligent per a oficines, hotels, locals i naus industrials a Barcelona, 22@, Hospitalet, Cornellà i àrea metropolitana. Redueix costos energètics fins a un 40% i millora la productivitat."
   lang="ca"
+  schemas={[serviceSchema, breadcrumbSchema]}
 >
 
   <!-- HERO -->
