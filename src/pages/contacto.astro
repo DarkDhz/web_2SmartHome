@@ -88,7 +88,11 @@ const googleMapsUrl = 'https://www.google.es/maps/place/2SmartHome/@41.4506426,2
 
         <!-- Form column -->
         <div class="lg:col-span-3 fade-up">
-          <form class="bg-slate-900 border border-slate-800 rounded-3xl p-8 sm:p-10 space-y-6" id="contact-form">
+          <form action="https://api.web3forms.com/submit" method="POST" class="bg-slate-900 border border-slate-800 rounded-3xl p-8 sm:p-10 space-y-6" id="contact-form">
+            <input type="hidden" name="access_key" value="1be34359-f4dc-4924-a45f-a5d79972775e" />
+            <input type="hidden" name="subject" value="Nueva consulta desde 2SmartHome" />
+            <input type="hidden" name="from_name" value="2SmartHome Web" />
+            <input type="checkbox" name="botcheck" class="hidden" />
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <label for="nombre" class="block text-sm font-medium text-slate-300 mb-2">Nombre *</label>
@@ -162,11 +166,21 @@ const googleMapsUrl = 'https://www.google.es/maps/place/2SmartHome/@41.4506426,2
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const success = document.getElementById('form-success');
-  form?.addEventListener('submit', (e) => {
+  const btn = form?.querySelector('button[type="submit"]') as HTMLButtonElement;
+
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    success?.classList.remove('hidden');
-    form.reset();
-    setTimeout(() => success?.classList.add('hidden'), 6000);
+    if (btn) { btn.disabled = true; btn.textContent = 'Enviando...'; }
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: new FormData(form),
+    });
+    if (response.ok) {
+      success?.classList.remove('hidden');
+      form.reset();
+      setTimeout(() => success?.classList.add('hidden'), 6000);
+    }
+    if (btn) { btn.disabled = false; btn.textContent = 'Enviar consulta gratuita'; }
   });
 
   // Pre-fill form from URL params (?tipo=X&mensaje=Y#formulario)
