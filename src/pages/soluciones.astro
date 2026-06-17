@@ -8,7 +8,7 @@ const solutions = [
     title: 'Iluminación inteligente',
     tagline: 'La luz perfecta, siempre automática',
     scenario: 'Llegas a casa. El pasillo se ilumina solo al 40%. Di «modo película» y el salón se oscurece en segundos.',
-    img: '/img/photo-1586023492125-27b2c045efd7.jpg',
+    img: '/img/iluminacion-inteligente-soluciones.jpeg',
     imgAlt: 'Salón moderno con iluminación ambiental inteligente ajustada desde app',
     desc: 'Olvídate de los interruptores. La luz se adapta automáticamente a cada momento del día: detecta tu presencia, responde a la luz natural y crea la atmósfera perfecta sin que tengas que hacer nada.',
     benefits: [
@@ -359,23 +359,25 @@ const timeline = [
         <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Un día con 2SmartHome</h2>
         <p class="text-slate-400 max-w-xl mx-auto">La domótica no interrumpe tu vida. La simplifica. Así luce un día normal cuando todo trabaja junto.</p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:flex lg:items-stretch lg:gap-0">
         {timeline.map((t, i) => (
-          <div class="relative bg-slate-800/50 border border-slate-700 rounded-2xl p-6 fade-up" style={`transition-delay:${i*80}ms`}>
-            <div class="flex items-center gap-3 mb-4">
-              <span class="text-3xl">{t.icon}</span>
-              <div>
-                <div class="text-sky-400 text-sm font-bold">{t.time}</div>
-                <div class="text-white font-semibold text-sm">{t.title}</div>
+          <Fragment>
+            <div class="lg:flex-1 bg-slate-800/50 border border-slate-700 rounded-2xl p-6 fade-up" style={`transition-delay:${i*80}ms`}>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-3xl">{t.icon}</span>
+                <div>
+                  <div class="text-sky-400 text-sm font-bold">{t.time}</div>
+                  <div class="text-white font-semibold text-sm">{t.title}</div>
+                </div>
               </div>
+              <p class="text-slate-400 text-sm leading-relaxed">{t.desc}</p>
             </div>
-            <p class="text-slate-400 text-sm leading-relaxed">{t.desc}</p>
             {i < 3 && (
-              <div class="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-10">
-                <svg class="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              <div class="hidden lg:flex items-center justify-center w-10 flex-shrink-0">
+                <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
               </div>
             )}
-          </div>
+          </Fragment>
         ))}
       </div>
     </div>
