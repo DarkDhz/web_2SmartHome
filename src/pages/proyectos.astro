@@ -8,14 +8,13 @@ const _msg = `Hola, he visto vuestro portfolio y me gustaría hablar sobre un pr
 const urlProyectos = `/contacto?tipo=otro&mensaje=${encodeURIComponent(_msg)}#formulario`;
 
 const projects = [
-  { title: 'Casa en Badalona', cat: 'Residencial', size: '100 m²', year: '2025', desc: 'Automatización completa de una vivienda unifamiliar en el centro de Badalona: iluminación escénica, climatización por zonas, sombreado inteligente, seguridad perimetral, audio multiroom y control de acceso integrado.', img: '/img/photo-1600210492493-0946911123ea.jpg', tags: ['Iluminación', 'Clima', 'Seguridad', 'Audio'] },
-  { title: 'Oficinas corporativas en 22@', cat: 'Corporativo', size: '1.200 m²', year: '2025', desc: 'Sistema de gestión inteligente para tres plantas de oficinas: control de iluminación por presencia, climatización por zonas y horarios, y control de acceso con tarjeta RFID.', img: '/img/photo-1497366216548-37526070297c.jpg', tags: ['Iluminación', 'Clima', 'Acceso'] },
-  { title: 'Hotel Boutique en el Born', cat: 'Hostelería', size: '35 hab.', year: '2025', desc: 'Plataforma centralizada de domótica hotelera con gestión individual de cada habitación, check-in digital, sistema de entretenimiento y optimización energética.', img: '/img/photo-1566073771259-6a8506099945.jpg', tags: ['Gestión hotelera', 'Energía', 'Acceso'] },
-  { title: 'Chalet en la Sierra de Collserola', cat: 'Residencial', size: '280 m²', year: '2025', desc: 'Domótica residencial con especial atención al exterior: riego automatizado, iluminación de jardín, videoportero y sistema de seguridad perimetral con cámaras.', img: '/img/photo-1600585154340-be6161a56a0c.jpg', tags: ['Seguridad', 'Jardín', 'Acceso'] },
+  { title: 'Casa en Badalona', cat: 'Residencial', size: '100 m²', year: '2025', desc: 'Automatización completa de una vivienda unifamiliar en el centro de Badalona: iluminación escénica, climatización por zonas, sombreado inteligente, seguridad perimetral, audio multiroom y control de acceso integrado.', img: '/img/proyectos-casa-en-badalona.jpg', tags: ['Iluminación', 'Clima', 'Seguridad', 'Audio'] },
+  { title: 'Casa en Barcelona', cat: 'Residencial', size: '90 m²', year: '2025', desc: 'Reforma domótica de un piso urbano en Barcelona con escenas de iluminación para salón y dormitorios, control climático eficiente, persianas motorizadas y sensores de presencia integrados para mejorar confort y ahorro energético.', img: '/img/photo-1600210492493-0946911123ea.jpg', tags: ['Iluminación', 'Persianas', 'Clima', 'Eficiencia'] },
   { title: 'Restaurante en el Eixample', cat: 'Hostelería', size: '350 m²', year: '2024', desc: 'Sistema de domótica gastronómica con escenas de iluminación por servicio, música ambiente adaptativa y control climático por zonas de sala y cocina.', img: '/img/photo-1414235077428-338989a2e8c0.jpg', tags: ['Iluminación', 'Audio', 'Clima'] },
+  { title: 'Chalet en la Sierra de Collserola', cat: 'Residencial', size: '280 m²', year: '2024', desc: 'Domótica residencial con especial atención al exterior: riego automatizado, iluminación de jardín, videoportero y sistema de seguridad perimetral con cámaras.', img: '/img/photo-1600585154340-be6161a56a0c.jpg', tags: ['Seguridad', 'Jardín', 'Acceso'] },
 ];
 
-const cats = ['Todos', 'Residencial', 'Corporativo', 'Hostelería', 'Locales'];
+const cats = ['Todos', 'Residencial', 'Hostelería'];
 ---
 
 <Layout
@@ -31,7 +30,7 @@ const cats = ['Todos', 'Residencial', 'Corporativo', 'Hostelería', 'Locales'];
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-4">Nuestro portfolio</p>
-      <h1 class="text-5xl sm:text-6xl font-extrabold text-white mb-6">Proyectos realizados</h1>
+      <h1 class="text-5xl sm:text-6xl font-extrabold text-white mb-6">Proyectos destacados</h1>
       <p class="text-xl text-slate-300 max-w-2xl mx-auto">
         Más de 100 instalaciones completadas. Cada proyecto es único, diseñado y ejecutado a medida para cada cliente.
       </p>

@@ -1,0 +1,196 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { projects } from '../../data/projects';
+
+export function getStaticPaths() {
+  return projects.map(project => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+
+const contactMessage = `Hola, he visto el proyecto "${project.title}" y me gustaría hablar sobre una instalación similar.
+- Tipo de espacio:
+- Ubicación:
+- Qué necesito automatizar:`;
+const contactUrl = `/contacto?tipo=otro&mensaje=${encodeURIComponent(contactMessage)}#formulario`;
+
+const relatedProjects = projects
+  .filter(p => p.slug !== project.slug && p.cat === project.cat)
+  .concat(projects.filter(p => p.slug !== project.slug && p.cat !== project.cat))
+  .slice(0, 3);
+
+const projectSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: project.title,
+  description: project.desc,
+  image: project.img,
+  datePublished: `${project.year}-01-01`,
+  locationCreated: project.location,
+  creator: {
+    '@type': 'Organization',
+    name: '2SmartHome',
+    url: 'https://www.2smarthome.es',
+  },
+};
+---
+
+<Layout
+  title={`${project.title} - Proyecto de domótica`}
+  description={`${project.title}: ${project.desc}`}
+  image={project.img}
+  schemas={[projectSchema]}
+>
+  <section class="relative min-h-[70vh] overflow-hidden bg-slate-900 border-b border-slate-800">
+    <div class="absolute inset-0">
+      <img src={project.img} alt={project.title} class="h-full w-full object-cover" />
+      <div class="absolute inset-0 bg-slate-950/70"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/35 to-transparent"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 min-h-[70vh] flex flex-col justify-end">
+      <a href="/proyectos" class="mb-8 inline-flex w-fit items-center gap-2 text-sm font-semibold text-sky-400 hover:text-sky-300 transition-colors">
+        <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M17 10a.75.75 0 0 1-.75.75H5.56l3.22 3.22a.75.75 0 1 1-1.06 1.06l-4.5-4.5a.75.75 0 0 1 0-1.06l4.5-4.5a.75.75 0 0 1 1.06 1.06L5.56 9.25h10.69A.75.75 0 0 1 17 10Z" clip-rule="evenodd" />
+        </svg>
+        Volver a proyectos
+      </a>
+
+      <div class="max-w-4xl">
+        <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-4">{project.cat}</p>
+        <h1 class="text-4xl sm:text-6xl font-extrabold text-white mb-6">{project.title}</h1>
+        <p class="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-3xl">{project.summary}</p>
+      </div>
+
+      <dl class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        <div class="border border-slate-700 bg-slate-900/70 p-4 backdrop-blur rounded-2xl">
+          <dt class="text-xs uppercase tracking-wider text-slate-500">Tipo</dt>
+          <dd class="mt-1 text-white font-semibold">{project.cat}</dd>
+        </div>
+        <div class="border border-slate-700 bg-slate-900/70 p-4 backdrop-blur rounded-2xl">
+          <dt class="text-xs uppercase tracking-wider text-slate-500">Tamaño</dt>
+          <dd class="mt-1 text-white font-semibold">{project.size}</dd>
+        </div>
+        <div class="border border-slate-700 bg-slate-900/70 p-4 backdrop-blur rounded-2xl">
+          <dt class="text-xs uppercase tracking-wider text-slate-500">Año</dt>
+          <dd class="mt-1 text-white font-semibold">{project.year}</dd>
+        </div>
+        <div class="border border-slate-700 bg-slate-900/70 p-4 backdrop-blur rounded-2xl">
+          <dt class="text-xs uppercase tracking-wider text-slate-500">Zona</dt>
+          <dd class="mt-1 text-white font-semibold">{project.location}</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="py-20 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <figure class="lg:col-span-2 overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 fade-up">
+          <img src={project.gallery[0]} alt={`Vista principal de ${project.title}`} class="h-full min-h-[340px] w-full object-cover" />
+        </figure>
+        <div class="grid grid-cols-1 gap-6">
+          {project.gallery.slice(1).map((image, index) => (
+            <figure class="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 fade-up">
+              <img src={image} alt={`Detalle ${index + 1} de ${project.title}`} class="h-56 w-full object-cover lg:h-full" />
+            </figure>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-slate-900 border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-14 items-start">
+        <div class="fade-up">
+          <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-4">Qué se hizo</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Una instalación pensada para el uso real del espacio</h2>
+          <p class="text-slate-400 leading-relaxed mb-6">{project.challenge}</p>
+          <p class="text-slate-400 leading-relaxed">{project.desc}</p>
+        </div>
+
+        <div class="space-y-4">
+          {project.workDone.map((item, index) => (
+            <div class="flex gap-4 rounded-2xl border border-slate-800 bg-slate-950 p-5 fade-up" style={`transition-delay:${index * 80}ms`}>
+              <div class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-sky-500/10 text-sm font-bold text-sky-400">
+                {index + 1}
+              </div>
+              <p class="text-slate-300 leading-relaxed">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="fade-up">
+          <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-4">Sistemas integrados</p>
+          <h2 class="text-3xl font-bold text-white mb-8">Tecnología instalada</h2>
+          <div class="flex flex-wrap gap-3">
+            {project.systems.map(system => (
+              <span class="rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-sm font-medium text-slate-300">{system}</span>
+            ))}
+          </div>
+        </div>
+
+        <div class="fade-up">
+          <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-4">Resultado</p>
+          <h2 class="text-3xl font-bold text-white mb-8">Mejoras conseguidas</h2>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {project.results.map(result => (
+              <li class="rounded-2xl border border-slate-800 bg-slate-900 p-5 text-slate-300">
+                <svg class="mb-4 h-6 w-6 text-sky-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.25 7.3a1 1 0 0 1-1.42 0l-3.25-3.275a1 1 0 1 1 1.42-1.408l2.54 2.558 6.54-6.583a1 1 0 0 1 1.414-.006Z" clip-rule="evenodd" />
+                </svg>
+                {result}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-slate-900 border-y border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 text-center fade-up">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-5">¿Quieres algo parecido?</h2>
+      <p class="text-slate-400 mb-8">Cuantas más cosas podamos saber del espacio y de tus rutinas, mejor podremos plantear una automatización útil desde el primer día.</p>
+      <a href={contactUrl} class="inline-block px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/25 hover:scale-105">
+        Pedir una propuesta similar
+      </a>
+    </div>
+  </section>
+
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10">
+        <div>
+          <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">Más proyectos</p>
+          <h2 class="text-3xl font-bold text-white">También te puede interesar</h2>
+        </div>
+        <a href="/proyectos" class="text-sm font-semibold text-sky-400 hover:text-sky-300">Ver todos</a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {relatedProjects.map(related => (
+          <a href={`/proyectos/${related.slug}`} class="group overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 transition-all hover:border-sky-500/40 fade-up">
+            <div class="h-44 overflow-hidden">
+              <img src={related.img} alt={related.title} class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+            <div class="p-5">
+              <p class="text-xs font-semibold uppercase tracking-wider text-sky-400 mb-2">{related.cat}</p>
+              <h3 class="text-lg font-semibold text-white group-hover:text-sky-400 transition-colors">{related.title}</h3>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
