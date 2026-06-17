@@ -14,7 +14,7 @@ No test runner or linter is configured. TypeScript errors surface via `npm run b
 
 ## Architecture
 
-**Stack:** Astro 6 (static output) + Tailwind CSS 3 (`tailwind.config.mjs` extends the `sans` font to Inter) + `@astrojs/sitemap`. There is no `@astrojs/tailwind` integration; Tailwind is wired in via `src/styles/global.css` (`@tailwind base/components/utilities`) imported directly by `Layout.astro`.
+**Stack:** Astro 6 (static output) + Tailwind CSS 3 (`tailwind.config.mjs` extends the `sans` font to Inter) + `@astrojs/sitemap`. There is no `@astrojs/tailwind` integration; Tailwind is wired in via `src/styles/global.css` (`@tailwind base/components/utilities`) imported directly by `Layout.astro`. `autoprefixer` (devDependency) is part of the PostCSS pipeline that Tailwind requires.
 
 ### i18n — bilingual ES/CA
 
@@ -134,3 +134,5 @@ Kept minimal and inline via `<script>` tags:
 Hosted on **Vercel** (static output). `vercel.json` at the root contains 301 redirects from the old site's URL structure (e.g. `/que-es` → `/quienes-somos`, `/para-ti` → `/domotica/hogares`). When adding a new route that replaces an old one, add the redirect there.
 
 `public/robots.txt` references `https://www.2smarthome.es/sitemap-index.xml` — the sitemap is generated at build time by `@astrojs/sitemap`.
+
+`public/BingSiteAuth.xml` is the Bing Webmaster Tools verification file — do not delete it.
