@@ -3,83 +3,83 @@ import BlogPost from '../../layouts/BlogPost.astro';
 ---
 
 <BlogPost
-  title="7 errores comunes en domótica que debes evitar"
-  description="Los fallos más habituales al planificar una instalación domótica y cómo evitarlos para conseguir un sistema fiable, escalable y cómodo."
+  title="7 errores comunes al instalar domótica y cómo evitarlos"
+  description="Instalar domótica parece sencillo, pero una mala planificación puede afectar al rendimiento, la seguridad y la experiencia de uso. Repasamos los fallos más habituales y cómo prevenirlos."
   cat="Guía"
   date="Jun 2026"
-  time="6 min"
+  time="5 min"
   img="/blog_imgs/7errorescomunes.png"
 >
 
   <p>
-    Instalar domótica puede ser una de las mejores decisiones que tomes para tu hogar o negocio, pero también puede convertirse en una fuente de frustraciones si no se planifica bien desde el principio. A lo largo de nuestra experiencia en instalaciones en Barcelona y área metropolitana, hemos visto repetirse los mismos errores una y otra vez. Aquí los resumimos para que tú no los cometas.
+    Instalar domótica parece sencillo: eliges unos dispositivos, los conectas a una app y empiezas a automatizar. Pero cuando el sistema crece, muchos usuarios descubren que algunas decisiones iniciales afectan al rendimiento, la seguridad y la experiencia de uso.
+  </p>
+  <p>
+    Aquí te contamos los errores más habituales al instalar domótica y, sobre todo, cómo evitarlos desde el principio para que tu vivienda o negocio tenga una base fiable, cómoda y preparada para crecer.
   </p>
 
-  <h2>Error 1: No planificar la instalación desde el principio</h2>
+  <h2>1. No planificar el sistema</h2>
   <p>
-    El error más frecuente y costoso. Muchas personas compran dispositivos inteligentes de forma impulsiva —una bombilla aquí, un enchufe inteligente allá— sin un plan de conjunto. El resultado suele ser un sistema fragmentado que no comunica bien, con múltiples apps incompatibles y automatizaciones que nunca funcionan del todo bien.
+    Uno de los errores más comunes es instalar dispositivos sueltos sin una estrategia clara. Esto suele generar incompatibilidades entre dispositivos, marcas o protocolos, además de una mala experiencia de usuario: varias apps, controles dispersos y automatizaciones poco útiles.
   </p>
   <p>
-    <strong>La solución:</strong> antes de comprar cualquier dispositivo, define qué quieres conseguir, qué espacios quieres automatizar y qué protocolo o plataforma vas a utilizar como base. Una hora de planificación puede ahorrarte meses de problemas.
-  </p>
-
-  <h2>Error 2: Mezclar protocolos incompatibles sin un hub</h2>
-  <p>
-    Zigbee, Z-Wave, Wi-Fi, Bluetooth, KNX, DALI… cada protocolo tiene sus ventajas y sus ecosistemas de dispositivos. El problema surge cuando se mezclan sin un controlador central que los unifique. Unos dispositivos solo funcionan con su app nativa, otros con Google Home, otros con HomeKit… y nada habla con nada.
-  </p>
-  <p>
-    <strong>La solución:</strong> elige un hub o plataforma central (Home Assistant, KNX con visualización, o un sistema propietario como Control4) que sea capaz de integrar todos los protocolos que vayas a usar. A partir de ahí, todos los dispositivos hablan el mismo idioma.
+    La solución es sencilla: diseñar un plan global desde el inicio. Conviene pensar qué se quiere controlar ahora, qué necesidades reales tiene cada estancia y qué se podrá ampliar más adelante sin rehacer todo el sistema.
   </p>
 
-  <h2>Error 3: Subestimar la importancia del cableado</h2>
+  <h2>2. Mezclar demasiadas marcas</h2>
   <p>
-    En proyectos de obra nueva o reforma integral, muchas personas escatiman en el cableado para ahorrar en el presupuesto inicial. Pasados los años, descubren que quieren ampliar el sistema o añadir nuevas funcionalidades y la infraestructura no lo permite. Tirar cable después de terminar una obra es caro, sucio y, en muchos casos, inviable.
+    No todos los dispositivos son compatibles entre sí. Mezclar muchas marcas sin criterio puede hacer que la instalación sea inestable, difícil de mantener o limitada cuando llegue el momento de ampliarla.
   </p>
   <p>
-    <strong>La solución:</strong> si estás en obra, tiende más cables de los que crees necesitar ahora. Pasatubos vacíos, cables de bus, cable de red en cada estancia. El coste es mínimo en el momento de la obra y te da libertad total en el futuro.
-  </p>
-
-  <h2>Error 4: No pensar en la escalabilidad</h2>
-  <p>
-    Un sistema que funciona perfectamente para lo que necesitas hoy puede quedarse corto en pocos años. Si eliges una plataforma cerrada o con limitaciones de dispositivos, cada ampliación será cara o directamente imposible.
-  </p>
-  <p>
-    <strong>La solución:</strong> elige estándares abiertos (KNX, Zigbee, Z-Wave, Matter) o plataformas con ecosistemas amplios y bien mantenidos. Pregunta siempre: ¿puedo añadir 10 dispositivos más sin cambiar la plataforma? ¿Y 50?
+    Lo ideal es apostar por un ecosistema unificado o contar con asesoramiento profesional para elegir dispositivos que funcionen correctamente dentro de una misma instalación. La variedad puede ser positiva, pero solo cuando existe una arquitectura clara detrás.
   </p>
 
-  <h2>Error 5: Depender al 100% de la nube</h2>
+  <h2>3. Descuidar la red WiFi</h2>
   <p>
-    Muchos sistemas de domótica de consumo masivo funcionan exclusivamente a través de servidores en la nube del fabricante. Si el fabricante cierra, cambia sus condiciones o simplemente hay una caída del servidor, tu sistema deja de funcionar. Esto ha ocurrido ya con múltiples marcas populares.
+    Una mala conexión provoca fallos constantes: dispositivos que no responden, automatizaciones que se ejecutan tarde o sistemas que pierden estabilidad. En domótica inalámbrica, la red no es un detalle técnico secundario; es parte esencial del proyecto.
   </p>
   <p>
-    <strong>La solución:</strong> prioriza sistemas con funcionamiento local. KNX funciona completamente sin Internet. Home Assistant puede configurarse para operar en red local sin depender de ninguna nube. Muchos dispositivos Zigbee y Z-Wave también funcionan sin conexión exterior si tienes el hub adecuado.
-  </p>
-  <blockquote>
-    <p>Tu hogar inteligente debe ser inteligente incluso cuando Internet falla. La dependencia de la nube es el talón de Aquiles de muchos sistemas de consumo.</p>
-  </blockquote>
-
-  <h2>Error 6: Descuidar la ciberseguridad</h2>
-  <p>
-    Un hogar conectado es también un hogar potencialmente vulnerable. Routers con contraseñas por defecto, dispositivos IoT sin actualizar, redes Wi-Fi sin segmentar… son puertas de entrada para atacantes. Un dispositivo inteligente comprometido puede dar acceso a toda tu red doméstica.
-  </p>
-  <p>
-    <strong>La solución:</strong> crea una red Wi-Fi separada (VLAN o red de invitados) exclusiva para los dispositivos IoT. Mantén el firmware de todos los dispositivos actualizado. Usa contraseñas fuertes y únicas. Si usas Home Assistant, activa la autenticación de dos factores para el acceso remoto.
+    Antes de instalar domótica, conviene revisar la infraestructura de red. En muchos casos recomendamos mejorar el router o la configuración de red, usar repetidores de calidad o instalar una red mesh si hay zonas con poca cobertura.
   </p>
 
-  <h2>Error 7: No documentar la instalación</h2>
+  <h2>4. No pensar en el futuro</h2>
   <p>
-    La instalación queda perfecta, todo funciona de maravilla... y nadie recuerda qué hace cada actuador, qué dirección KNX tiene cada dispositivo o cómo se accede al panel de administración. Pasados dos años, cualquier cambio o reparación se convierte en un trabajo de arqueología.
+    Muchos sistemas funcionan bien al principio, pero no permiten crecer cuando cambian las necesidades de la vivienda o del negocio. Lo que hoy parece suficiente puede quedarse corto cuando quieras añadir climatización, seguridad, persianas, control energético o nuevas escenas.
   </p>
   <p>
-    <strong>La solución:</strong> exige a tu instalador un dossier completo de la instalación: esquemas, direcciones de bus, contraseñas, configuraciones guardadas y manual básico de uso. En proyectos KNX, solicita el backup del proyecto ETS. En Home Assistant, configura backups automáticos en la nube o en un NAS.
+    Por eso, lo mejor es instalar soluciones abiertas y escalables. Así como tú evolucionas, tu casa también puede hacerlo contigo.
+  </p>
+
+  <h2>5. Ignorar la seguridad</h2>
+  <p>
+    Una casa inteligente mal configurada puede ser vulnerable. La comodidad nunca debería ir por delante de la seguridad, especialmente cuando hablamos de accesos, cámaras, cerraduras, alarmas o redes domésticas conectadas.
+  </p>
+  <p>
+    En una instalación domótica bien planteada buscamos siempre contraseñas seguras y correctamente gestionadas, redes protegidas con una configuración adecuada y control local siempre que sea posible, reduciendo la dependencia de la nube.
+  </p>
+
+  <h2>6. Automatizar demasiado, o demasiado poco</h2>
+  <p>
+    El equilibrio es clave. Automatizarlo todo sin criterio puede resultar incómodo, porque el sistema empieza a tomar decisiones que no encajan con la vida real. Pero quedarse corto también puede hacer que la instalación no aporte suficiente valor.
+  </p>
+  <p>
+    Lo importante es automatizar lo que realmente mejora el día a día según tus necesidades y las de tu familia. Por eso, los proyectos y diseños integrales son claves para identificar qué funciones pueden ayudarte de verdad.
+  </p>
+
+  <h2>7. No contar con profesionales</h2>
+  <p>
+    La instalación DIY puede ser útil para empezar, probar ideas o automatizar elementos sencillos. Sin embargo, en proyectos completos suele quedarse corta, sobre todo cuando entran en juego seguridad, integración entre sistemas, estabilidad de red y crecimiento futuro.
+  </p>
+  <p>
+    Hoy existen muchas herramientas, pero contar con equipos profesionales como <strong>2SmartHome</strong> garantiza acompañamiento antes, durante y después de terminar el proyecto, siempre con una visión pensada para el uso real y para las ampliaciones posteriores.
   </p>
 
   <h2>Conclusión</h2>
   <p>
-    Evitar estos siete errores no requiere ser un experto técnico, pero sí requiere planificación y elegir bien a los profesionales que te asesoran. Una instalación bien diseñada desde el principio es aquella que crece contigo, funciona sin sorpresas y no te genera dependencias que te aten de manos en el futuro.
+    La domótica funciona mejor cuando se diseña con criterio desde el principio. Planificar, elegir bien los dispositivos, cuidar la red, proteger la instalación y pensar en el futuro marca la diferencia entre un conjunto de gadgets y una casa realmente inteligente.
   </p>
   <p>
-    En <strong>2SmartHome</strong> diseñamos cada proyecto pensando en el largo plazo: estándares abiertos, funcionamiento local, documentación completa y soporte técnico continuado. Si estás planificando tu instalación domótica en Barcelona, cuéntanos tu proyecto y te asesoramos sin compromiso.
+    Si estás pensando en automatizar tu vivienda o negocio, en <strong>2SmartHome</strong> podemos ayudarte a definir una solución fiable, escalable y adaptada a tu forma de vivir o trabajar.
   </p>
 
 </BlogPost>
