@@ -1,0 +1,16 @@
+{
+  "redirects": [
+    { "source": "/que-es", "destination": "/quienes-somos", "permanent": true },
+    { "source": "/para-ti", "destination": "/domotica/hogares", "permanent": true },
+    { "source": "/para-empresas", "destination": "/domotica/empresas", "permanent": true },
+    { "source": "/nuestro-proceso", "destination": "/domotica", "permanent": true },
+    { "source": "/domotica-para-hogares-es.html", "destination": "/domotica/hogares", "permanent": true },
+    { "source": "/domotica-para-empresas-es.html", "destination": "/domotica/empresas", "permanent": true },
+    { "source": "/domotica-asistencial-es.html", "destination": "/domotica", "permanent": true },
+    { "source": "/instalacion-domotica-es.html", "destination": "/domotica", "permanent": true },
+    { "source": "/blog-es.html", "destination": "/recursos", "permanent": true },
+    { "source": "/contacto-es.html", "destination": "/contacto", "permanent": true },
+    { "source": "/index-en.html", "destination": "/", "permanent": true },
+    { "source": "/index-ca.html", "destination": "/ca", "permanent": true }
+  ]
+}
