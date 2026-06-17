@@ -19,7 +19,7 @@ const googleMapsUrl = 'https://www.google.es/maps/place/2SmartHome/@41.4506426,2
   </section>
 
   <!-- CONTACT SECTION -->
-  <section class="py-24 bg-slate-950">
+  <section id="formulario" class="py-24 bg-slate-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-5 gap-16">
 
@@ -168,4 +168,17 @@ const googleMapsUrl = 'https://www.google.es/maps/place/2SmartHome/@41.4506426,2
     form.reset();
     setTimeout(() => success?.classList.add('hidden'), 6000);
   });
+
+  // Pre-fill form from URL params (?tipo=X&mensaje=Y#formulario)
+  const params = new URLSearchParams(window.location.search);
+  const tipoParam = params.get('tipo');
+  const mensajeParam = params.get('mensaje');
+  if (tipoParam) {
+    const select = document.getElementById('tipo') as HTMLSelectElement;
+    if (select) select.value = tipoParam;
+  }
+  if (mensajeParam) {
+    const textarea = document.getElementById('mensaje') as HTMLTextAreaElement;
+    if (textarea) textarea.value = mensajeParam;
+  }
 </script>

@@ -1,6 +1,17 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
+const _msgVisita = `Hola, me gustaría solicitar una visita gratuita para mi vivienda.
+· Tipo: [piso / chalet / apartamento / otro]
+· Superficie: [m²] · Zona: [Barcelona / Badalona / otra]
+· Me interesa: [iluminación / clima / seguridad / persianas / todo]`;
+const _msgEstudio = `Hola, quiero agendar un estudio de domótica para mi hogar.
+· Tipo de vivienda: [piso / chalet] · Superficie: [m²]
+· Zona: [Barcelona / Badalona / Sant Cugat / otra]
+· Sistemas de interés: [iluminación / clima / seguridad / persianas / audio]`;
+const urlVisita = `/contacto?tipo=hogar-existente&mensaje=${encodeURIComponent(_msgVisita)}#formulario`;
+const urlEstudio = `/contacto?tipo=hogar-existente&mensaje=${encodeURIComponent(_msgEstudio)}#formulario`;
+
 const features = [
   { icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z', title: 'Iluminación inteligente', desc: 'Crea ambientes perfectos con escenas de luz automáticas. Ahorra hasta un 60% en iluminación con sensores de presencia y horarios.' },
   { icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z', title: 'Climatización inteligente', desc: 'Tu hogar siempre a la temperatura perfecta. El sistema aprende tus rutinas y precalienta o refresca el espacio antes de que llegues.' },
@@ -36,7 +47,7 @@ const features = [
         <p class="text-xl text-slate-300 leading-relaxed mb-8">
           Transforma tu vivienda en un hogar inteligente que te facilita la vida, recupera tu tiempo y cuida de los tuyos con la máxima seguridad.
         </p>
-        <a href="/contacto" class="inline-block px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/25 hover:scale-105">
+        <a href={urlVisita} class="inline-block px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/25 hover:scale-105">
           Solicitar visita residencial
         </a>
       </div>
@@ -126,7 +137,7 @@ const features = [
       <h2 class="text-3xl font-bold text-white mb-4">Transforma tu hogar hoy</h2>
       <p class="text-slate-400 mb-8">Agenda una visita gratuita y descubre cómo la domótica puede mejorar tu calidad de vida.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contacto" class="px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/25 hover:scale-105">
+        <a href={urlEstudio} class="px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/25 hover:scale-105">
           Agendar estudio del hogar
         </a>
         <a href="/soluciones" class="px-8 py-4 border border-slate-700 hover:border-sky-500/50 text-slate-300 hover:text-white rounded-2xl transition-all">

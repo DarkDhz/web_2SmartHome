@@ -1,6 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const _msgRec = `Hola, tengo algunas dudas sobre domótica antes de decidirme.
+· Tipo de proyecto que tengo en mente: [hogar / negocio]
+· Mis preguntas principales:
+  1.
+  2.`;
+const urlDudas = `/contacto?tipo=otro&mensaje=${encodeURIComponent(_msgRec)}#formulario`;
+
 const articles = [
   { title: 'Hogar inteligente en Barcelona: guía práctica para automatizar tu piso', cat: 'Barcelona', time: '7 min', date: 'Jun 2026', desc: 'Descubre cómo automatizar tu hogar en Barcelona según el tipo de piso y las necesidades del clima mediterráneo. Domótica práctica para viviendas barcelonesas.', img: '/blog_imgs/hogar-inteligente-barcelona.jpg', href: '/blog/hogar-inteligente-barcelona-piso' },
   { title: 'Home Assistant: la plataforma de domótica que instalamos en todos nuestros proyectos', cat: 'Tecnología', time: '8 min', date: 'Jun 2026', desc: 'Descubre por qué elegimos Home Assistant para todas nuestras instalaciones: control local, privacidad total, más de 3.000 integraciones y sin dependencia de ningún proveedor.', img: '/blog_imgs/logo-ha-post.png', href: '/blog/knx-vs-home-assistant' },
@@ -127,7 +134,7 @@ const faqs = [
     <div class="max-w-3xl mx-auto px-4 text-center fade-up">
       <h2 class="text-3xl font-bold text-white mb-4">¿Tienes más preguntas?</h2>
       <p class="text-slate-400 mb-8">Nuestro equipo está disponible para resolver cualquier duda y ayudarte a planificar tu proyecto.</p>
-      <a href="/contacto" class="inline-block px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/25 hover:scale-105">
+      <a href={urlDudas} class="inline-block px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/25 hover:scale-105">
         Resolver dudas con un experto
       </a>
     </div>

@@ -18,6 +18,8 @@ const solutions = [
       'Compatible con cualquier tipo de iluminación',
     ],
     ui: { label: 'Salón · Modo cena', value: '35%', bar: 35, color: 'bg-amber-400' },
+    ctaTipo: 'hogar-existente',
+    ctaMensaje: 'Hola, me interesa presupuesto para iluminación inteligente.\n· Espacio: [hogar / negocio] · Superficie: [m²]\n· Nº de puntos de luz / habitaciones:\n· Objetivo: [ahorro energético / escenas / detección presencia / todo]',
   },
   {
     id: 'clima',
@@ -35,6 +37,8 @@ const solutions = [
       'Control por zonas independientes',
     ],
     ui: { label: 'Dormitorio · Activo', value: '21°C', bar: 70, color: 'bg-sky-400' },
+    ctaTipo: 'hogar-existente',
+    ctaMensaje: 'Hola, me interesa el control climático inteligente.\n· Espacio: [hogar / negocio] · Superficie: [m²]\n· Sistema actual: [calefacción de gas / bomba de calor / aerotermia / otro]\n· Objetivo: [ahorro / confort / control por zonas]',
   },
   {
     id: 'seguridad',
@@ -52,6 +56,8 @@ const solutions = [
       'Historial de entradas con foto y hora',
     ],
     ui: { label: '🔔 Movimiento detectado', value: 'Puerta · Ahora', bar: 100, color: 'bg-red-400' },
+    ctaTipo: 'hogar-existente',
+    ctaMensaje: 'Hola, me interesa presupuesto para seguridad integrada.\n· Espacio: [hogar / negocio] · Superficie: [m²]\n· Me interesa: [cámaras / alarma / cerradura inteligente / videoportero]\n· ¿Tenéis actualmente algún sistema de seguridad? [sí / no]',
   },
   {
     id: 'persianas',
@@ -69,6 +75,8 @@ const solutions = [
       'Sin obras en modelos inalámbricos',
     ],
     ui: { label: 'Salón · Bajando', value: '70%', bar: 70, color: 'bg-slate-300' },
+    ctaTipo: 'hogar-existente',
+    ctaMensaje: 'Hola, me interesan las persianas motorizadas.\n· Espacio: [hogar / negocio] · Nº de ventanas/persianas aprox.:\n· Las persianas actuales: [tienen motor / son manuales / hay que instalar]\n· Objetivo: [automatización solar / ahorro térmico / control por voz]',
   },
   {
     id: 'audio',
@@ -86,6 +94,8 @@ const solutions = [
       'Instalación discreta, empotrada o en superficie',
     ],
     ui: { label: '♪ Toda la casa · 42%', value: 'The Weeknd', bar: 42, color: 'bg-purple-400' },
+    ctaTipo: 'hogar-existente',
+    ctaMensaje: 'Hola, me interesa presupuesto para audio multiroom.\n· Espacio: [hogar / restaurante / local / otro]\n· Nº de zonas/habitaciones:\n· Preferencia de instalación: [empotrado / en superficie / mixto]',
   },
   {
     id: 'energia',
@@ -103,6 +113,8 @@ const solutions = [
       'Informes mensuales de consumo',
     ],
     ui: { label: 'Ahorro hoy', value: '−38%', bar: 62, color: 'bg-green-400' },
+    ctaTipo: 'hogar-existente',
+    ctaMensaje: 'Hola, me interesa la gestión energética inteligente.\n· Espacio: [hogar / empresa] · Superficie: [m²]\n· ¿Tenéis instalación solar? [sí / no / en proyecto]\n· Objetivo: [reducir factura / monitorización / integrar solar]',
   },
   {
     id: 'acceso',
@@ -120,6 +132,8 @@ const solutions = [
       'Historial de accesos con foto y hora',
     ],
     ui: { label: 'Puerta principal', value: '🔓 Abierta', bar: 100, color: 'bg-green-400' },
+    ctaTipo: 'hogar-existente',
+    ctaMensaje: 'Hola, me interesa presupuesto para control de acceso.\n· Espacio: [hogar / empresa]\n· Me interesa: [apertura por móvil / videoportero / códigos temporales / todo]\n· Nº de accesos a controlar:',
   },
   {
     id: 'jardin',
@@ -137,8 +151,22 @@ const solutions = [
       'Control remoto desde la app',
     ],
     ui: { label: '💧 Riego cancelado', value: 'Lluvia prevista', bar: 0, color: 'bg-sky-400' },
+    ctaTipo: 'hogar-existente',
+    ctaMensaje: 'Hola, me interesa automatizar mi jardín.\n· Superficie del jardín: [m²]\n· Sistema de riego actual: [tengo / no tengo / hay que instalar]\n· Me interesa también: [iluminación jardín / seguridad exterior]',
   },
 ];
+
+const _msgHeroSol = `Hola, me gustaría recibir un presupuesto para instalar domótica.
+· Tipo de espacio: [hogar / empresa]
+· Superficie: [m²]
+· Soluciones de interés: [iluminación / clima / seguridad / persianas / audio / energía]`;
+const urlHeroSol = `/contacto?tipo=hogar-existente&mensaje=${encodeURIComponent(_msgHeroSol)}#formulario`;
+
+const _msgCtaSol = `Hola, no sé muy bien por dónde empezar con la domótica.
+· Tipo de espacio: [hogar / negocio] · Superficie: [m²]
+· ¿Qué te gustaría mejorar en tu día a día?
+· ¿Cuál es tu presupuesto aproximado?`;
+const urlCtaSol = `/contacto?tipo=hogar-existente&mensaje=${encodeURIComponent(_msgCtaSol)}#formulario`;
 
 const controls = [
   {
@@ -201,7 +229,7 @@ const timeline = [
           No tienes que aprender nada nuevo. Solo disfrutar de un hogar que entiende lo que necesitas antes de que lo pidas.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="/contacto" class="inline-flex items-center justify-center gap-2 px-7 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/30 hover:scale-105">
+          <a href={urlHeroSol} class="inline-flex items-center justify-center gap-2 px-7 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/30 hover:scale-105">
             Solicitar presupuesto gratis
           </a>
           <a href="#iluminacion" class="inline-flex items-center justify-center gap-2 px-7 py-4 bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold rounded-2xl transition-all">
@@ -280,7 +308,7 @@ const timeline = [
               ))}
             </ul>
 
-            <a href="/contacto" class="inline-flex items-center gap-2 px-6 py-3 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-xl transition-all shadow-lg shadow-sky-500/25">
+            <a href={`/contacto?tipo=${sol.ctaTipo}&mensaje=${encodeURIComponent(sol.ctaMensaje)}#formulario`} class="inline-flex items-center gap-2 px-6 py-3 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-xl transition-all shadow-lg shadow-sky-500/25">
               Presupuesto para {sol.title}
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </a>
@@ -362,7 +390,7 @@ const timeline = [
           Cuéntanos tu espacio y tus hábitos. En 30 minutos te diseñamos un sistema a medida y te decimos cuánto cuesta.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/contacto" class="inline-block px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/25 hover:scale-105">
+          <a href={urlCtaSol} class="inline-block px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/25 hover:scale-105">
             Consulta gratuita sin compromiso
           </a>
           <a href="/proyectos" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold rounded-2xl transition-all">
