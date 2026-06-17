@@ -1,0 +1,1 @@
+import"./hoisted.CvziPPPy.js";const o=document.getElementById("reading-progress");if(o){const c=()=>{const t=document.documentElement,n=t.scrollTop||document.body.scrollTop,e=t.scrollHeight-t.clientHeight;o.style.width=(e>0?n/e*100:0)+"%"};window.addEventListener("scroll",c,{passive:!0})}
