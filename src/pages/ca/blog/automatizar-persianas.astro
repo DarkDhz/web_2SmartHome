@@ -1,0 +1,134 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+
+<BlogPost
+  title="Com automatitzar les persianes de casa teva: guia completa"
+  description="Descobreix com automatitzar les persianes de la teva llar: tipus de motors, protocols compatibles, integració amb Home Assistant i automatitzacions que estalvien energia i milloren el confort."
+  cat="Guia"
+  date="Jun 2026"
+  time="6 min"
+  img="/blog_imgs/automatizar-persianas.jpg"
+  lang="ca"
+  cta={{
+    eyebrow: 'Automatitza les persianes de la teva llar',
+    title: "T'ajudem a triar el motor i la integració adequats",
+    text: "Analitzem la teva instal·lació actual i et proposem la solució més senzilla i eficient per automatitzar les persianes sense obres innecessàries.",
+    button: 'Consultar el meu projecte',
+    tipo: 'persianes',
+    mensaje: "Hola, vull automatitzar les persianes de la meva llar.\n· Tipus de persianes: [enrotllables / venecianes / de lames / altra]\n· Nombre aproximat de persianes:\n· Situació: [nova construcció / reforma / habitatge ja construït]\n· Pressupost aproximat:",
+  }}
+>
+
+  <p>
+    Les persianes són un dels elements més repetitius del dia a dia en qualsevol llar: pujar-les en llevar-te, baixar-les quan hi ha massa sol, tancar-les en sortir de viatge... Automatitzar-les no només elimina aquesta fricció, sinó que també millora el confort tèrmic i redueix el consum energètic de l'habitatge.
+  </p>
+  <p>
+    En aquesta guia expliquem com funciona l'automatització de persianes, quines opcions existeixen segons la teva situació i com integrar-les en un sistema domòtic complet.
+  </p>
+
+  <h2>Què cal per automatitzar una persiana?</h2>
+  <p>
+    El component principal és un <strong>motor per a persiana</strong>. Aquests motors substitueixen —o complementen— el mecanisme manual d'enrotllament i es controlen de forma inalàmbrica des d'una app, un assistent de veu o mitjançant automatitzacions programades.
+  </p>
+  <p>
+    La instal·lació és menys invasiva del que sembla: en la majoria de casos no requereix obra. Els motors de tuberia s'insereixen directament a l'eix de la persiana existent, i els adaptadors intel·ligents es poden connectar a un motor ja instal·lat per afegir-hi connectivitat.
+  </p>
+
+  <h2>Tipus de motors per a persianes intel·ligents</h2>
+
+  <h3>Motors de tuberia</h3>
+  <p>
+    Són la solució més habitual per a persianes enrotllables. El motor s'instal·la dins l'eix tubular de la persiana i substitueix completament el mecanisme de corda o cadena. Marques com <strong>Somfy</strong>, <strong>Zemismart</strong> o <strong>Rollease Acmeda</strong> ofereixen motors amb connectivitat Zigbee, Z-Wave o WiFi que s'integren directament amb Home Assistant.
+  </p>
+  <p>
+    La instal·lació sol requerir accés al calaix de la persiana, cosa que en pisos amb calaix accessible és senzilla. En molts casos, els nostres tècnics poden completar-la en menys d'una hora per persiana.
+  </p>
+
+  <h3>Adaptadors intel·ligents per a motor existent</h3>
+  <p>
+    Si ja tens motors elèctrics instal·lats, existeixen mòduls com el <strong>Shelly 2PM</strong> o el <strong>Qubino Flush Shutter</strong> que es connecten al cablejat del motor i afegeixen control intel·ligent sense canviar res mecànicament. Són ideals per a habitatges on ja hi ha motorització convencional però es vol integrar tot en un únic sistema.
+  </p>
+
+  <h3>Dispositius per a persianes de cadena o corda</h3>
+  <p>
+    Per a persianes venecianes o amb cadena existeix una tercera opció: motors externs que s'enganxen a la cadena existent. Tenen una instal·lació especialment senzilla i no requereixen tocar el calaix, tot i que són més visibles i poden generar més soroll.
+  </p>
+
+  <h2>Protocols de comunicació</h2>
+  <p>
+    El protocol que faci servir el motor determinarà com s'integra amb el teu sistema domòtic. Els més habituals són:
+  </p>
+
+  <h3>Zigbee</h3>
+  <p>
+    Baix consum, comunicació local sense dependre d'internet i molt estable en instal·lacions amb diversos dispositius. És el que recomanem en la majoria de projectes.
+  </p>
+
+  <h3>Z-Wave</h3>
+  <p>
+    Similar a Zigbee en concepte, amb excel·lent cobertura i compatibilitat àmplia. Bona opció per a habitatges grans.
+  </p>
+
+  <h3>WiFi</h3>
+  <p>
+    Fàcil de configurar, però depèn de l'estabilitat de la xarxa domèstica. Funciona bé si el router té bona cobertura a tota l'habitatge.
+  </p>
+
+  <h3>RTS (Somfy)</h3>
+  <p>
+    Protocol propietari de Somfy unidireccional. Es pot integrar a Home Assistant mitjançant un hub RTS compatible.
+  </p>
+
+  <h2>Integració amb Home Assistant</h2>
+  <p>
+    <strong>Home Assistant</strong> és la plataforma que fem servir en tots els nostres projectes i la que millor suporta el control de persianes. Un cop integrat el motor, cada persiana apareix com una entitat de tipus <em>cover</em> que permet pujar, baixar o posicionar la persiana en un percentatge exacte, ajustar la inclinació de les lames en persianes venecianes, incloure les persianes en escenes i rutines juntament amb il·luminació, climatització o música, i controlar-les per veu amb Google Assistant, Alexa o Apple HomeKit.
+  </p>
+
+  <h2>Automatitzacions útils per al dia a dia</h2>
+  <p>
+    El veritable valor de les persianes intel·ligents no és el control manual des del mòbil, sinó les automatitzacions que fan que tot funcioni sol. Alguns exemples:
+  </p>
+
+  <h3>Pujar en despertar-se</h3>
+  <p>
+    La persiana del dormitori puja gradualment a l'hora que tinguis configurada, o sincronitzada amb l'alarma del mòbil. Una entrada de llum natural suau és molt millor despertador que qualsevol so.
+  </p>
+
+  <h3>Protecció solar i estalvi energètic</h3>
+  <p>
+    Quan la temperatura interior puja per sobre d'un llindar, les persianes de les façanes més exposades al sol baixen automàticament. A l'estiu, això pot reduir significativament la càrrega sobre l'aire condicionat i suposar un estalvi real a la factura elèctrica.
+  </p>
+
+  <h3>Simulació de presència</h3>
+  <p>
+    Les persianes es mouen de forma aleatòria quan ets de viatge, donant la impressió que hi ha algú a casa. Una funció senzilla que millora la seguretat de la llar sense necessitat de càmeres ni alarmes addicionals.
+  </p>
+
+  <h3>Tancament automàtic en sortir</h3>
+  <p>
+    Quan el sistema detecta que tots els mòbils de casa han sortit de la xarxa local, les persianes baixen automàticament. Mai més hauràs de tornar a casa a tancar el que t'havies oblidat.
+  </p>
+
+  <h3>Protecció davant el vent</h3>
+  <p>
+    Si s'integra un sensor meteorològic exterior, les persianes poden pujar automàticament quan es detecten ratxes de vent fortes, protegint tant la persiana com el que hi hagi a sota.
+  </p>
+
+  <h2>Necessito fer obres?</h2>
+  <p>
+    En la majoria de casos, no. Els motors de tuberia Zigbee o Z-Wave funcionen amb una bateria recarregable o amb alimentació per cablejat ja existent. Per a habitatges en construcció o reforma, sí que té sentit preveure el cablejat des de l'inici per a una instal·lació més neta i eficient.
+  </p>
+  <p>
+    El que sí que cal és una visita tècnica prèvia per avaluar el tipus de persiana, l'accés al calaix i la solució més adequada. Cada instal·lació és diferent, i l'elecció del motor correcte marca la diferència entre un sistema fiable i un que dóna problemes als sis mesos.
+  </p>
+
+  <h2>Conclusió</h2>
+  <p>
+    Automatitzar les persianes és una de les millores més pràctiques que es poden fer en una llar intel·ligent. Amb la tecnologia actual, la instal·lació és accessible, no invasiva i el dia a dia millora de forma immediata.
+  </p>
+  <p>
+    A <strong>2SmartHome</strong> portem aquestes solucions integrades dins de projectes domòtics complets, on les persianes treballen conjuntament amb la il·luminació, la climatització i la seguretat de la llar. Si t'interessa saber què és possible en el teu cas concret, podem fer una valoració sense compromís.
+  </p>
+
+</BlogPost>

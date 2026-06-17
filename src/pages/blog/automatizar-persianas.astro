@@ -1,0 +1,133 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+
+<BlogPost
+  title="Cómo automatizar las persianas de tu casa: guía completa"
+  description="Descubre cómo automatizar las persianas de tu hogar: tipos de motores, protocolos compatibles, integración con Home Assistant y automatizaciones que ahorran energía y mejoran el confort."
+  cat="Guía"
+  date="Jun 2026"
+  time="6 min"
+  img="/blog_imgs/automatizar-persianas.jpg"
+  cta={{
+    eyebrow: 'Automatiza las persianas de tu hogar',
+    title: 'Te ayudamos a elegir el motor y la integración adecuados',
+    text: 'Analizamos tu instalación actual y te proponemos la solución más sencilla y eficiente para automatizar las persianas sin obras innecesarias.',
+    button: 'Consultar mi proyecto',
+    tipo: 'persianas',
+    mensaje: 'Hola, quiero automatizar las persianas de mi hogar.\n· Tipo de persianas: [enrollables / venecianas / de lamas / otra]\n· Número aproximado de persianas:\n· Situación: [nueva construcción / reforma / vivienda ya construida]\n· Presupuesto aproximado:',
+  }}
+>
+
+  <p>
+    Las persianas son uno de los elementos más repetitivos del día a día en cualquier hogar: subirlas al levantarte, bajarlas cuando hay demasiado sol, cerrarlas al salir de viaje... Automatizarlas no solo elimina esa fricción, sino que también mejora el confort térmico y reduce el consumo energético de la vivienda.
+  </p>
+  <p>
+    En esta guía explicamos cómo funciona la automatización de persianas, qué opciones existen según tu situación y cómo integrarlas en un sistema domótico completo.
+  </p>
+
+  <h2>¿Qué se necesita para automatizar una persiana?</h2>
+  <p>
+    El componente principal es un <strong>motor para persiana</strong>. Estos motores reemplazan —o complementan— el mecanismo manual de enrollado y se controlan de forma inalámbrica desde una app, un asistente de voz o mediante automatizaciones programadas.
+  </p>
+  <p>
+    La instalación es menos invasiva de lo que parece: en la mayoría de casos no requiere obra. Los motores de tubería se insertan directamente en el eje de la persiana existente, y los adaptadores inteligentes pueden conectarse a un motor ya instalado para añadirle conectividad.
+  </p>
+
+  <h2>Tipos de motores para persianas inteligentes</h2>
+
+  <h3>Motores de tubería</h3>
+  <p>
+    Son la solución más habitual para persianas enrollables. El motor se instala dentro del eje tubular de la persiana y sustituye completamente el mecanismo de cuerda o cadena. Marcas como <strong>Somfy</strong>, <strong>Zemismart</strong> o <strong>Rollease Acmeda</strong> ofrecen motores con conectividad Zigbee, Z-Wave o WiFi que se integran directamente con Home Assistant.
+  </p>
+  <p>
+    La instalación suele requerir acceso al cajón de la persiana, algo que en pisos con cajón accesible es sencillo. En muchos casos, nuestros técnicos pueden completarla en menos de una hora por persiana.
+  </p>
+
+  <h3>Adaptadores inteligentes para motor existente</h3>
+  <p>
+    Si ya tienes motores eléctricos instalados, existen módulos como el <strong>Shelly 2PM</strong> o el <strong>Qubino Flush Shutter</strong> que se conectan al cableado del motor y añaden control inteligente sin cambiar nada mecánicamente. Son ideales para viviendas donde ya hay motorización convencional pero se quiere integrar todo en un único sistema.
+  </p>
+
+  <h3>Dispositivos para persianas de cadena o cuerda</h3>
+  <p>
+    Para persianas venecianas o con cadena existe una tercera opción: motores externos que se enganchan a la cadena existente. Tienen una instalación especialmente sencilla y no requieren tocar el cajón, aunque son más visibles y pueden generar más ruido.
+  </p>
+
+  <h2>Protocolos de comunicación</h2>
+  <p>
+    El protocolo que use el motor determinará cómo se integra con tu sistema domótico. Los más habituales son:
+  </p>
+
+  <h3>Zigbee</h3>
+  <p>
+    Bajo consumo, comunicación local sin depender de internet y muy estable en instalaciones con varios dispositivos. Es el que recomendamos en la mayoría de proyectos.
+  </p>
+
+  <h3>Z-Wave</h3>
+  <p>
+    Similar a Zigbee en concepto, con excelente cobertura y compatibilidad amplia. Buena opción para viviendas grandes.
+  </p>
+
+  <h3>WiFi</h3>
+  <p>
+    Fácil de configurar, pero depende de la estabilidad de la red doméstica. Funciona bien si el router tiene buena cobertura en toda la vivienda.
+  </p>
+
+  <h3>RTS (Somfy)</h3>
+  <p>
+    Protocolo propietario de Somfy unidireccional. Se puede integrar en Home Assistant mediante un hub RTS compatible.
+  </p>
+
+  <h2>Integración con Home Assistant</h2>
+  <p>
+    <strong>Home Assistant</strong> es la plataforma que utilizamos en todos nuestros proyectos y la que mejor soporta el control de persianas. Una vez integrado el motor, cada persiana aparece como una entidad de tipo <em>cover</em> que permite subir, bajar o posicionar la persiana en un porcentaje exacto, ajustar la inclinación de las lamas en persianas venecianas, incluir las persianas en escenas y rutinas junto con iluminación, climatización o música, y controlarlas por voz con Google Assistant, Alexa o Apple HomeKit.
+  </p>
+
+  <h2>Automatizaciones útiles para el día a día</h2>
+  <p>
+    El verdadero valor de las persianas inteligentes no está en el control manual desde el móvil, sino en las automatizaciones que hacen que todo funcione solo. Algunos ejemplos:
+  </p>
+
+  <h3>Subir al despertar</h3>
+  <p>
+    La persiana del dormitorio sube gradualmente a la hora que tengas configurada, o sincronizada con la alarma del móvil. Una entrada de luz natural suave es mucho mejor despertador que cualquier sonido.
+  </p>
+
+  <h3>Protección solar y ahorro energético</h3>
+  <p>
+    Cuando la temperatura interior sube por encima de un umbral, las persianas de las fachadas más expuestas al sol bajan automáticamente. En verano, esto puede reducir significativamente la carga sobre el aire acondicionado y suponer un ahorro real en la factura eléctrica.
+  </p>
+
+  <h3>Simulación de presencia</h3>
+  <p>
+    Las persianas se mueven de forma aleatoria cuando estás de viaje, dando la impresión de que hay alguien en casa. Una función sencilla que mejora la seguridad del hogar sin necesidad de cámaras ni alarmas adicionales.
+  </p>
+
+  <h3>Cierre automático al salir</h3>
+  <p>
+    Cuando el sistema detecta que todos los móviles de casa han salido de la red local, las persianas bajan automáticamente. Nunca más tendrás que volver a casa a cerrar lo que se te olvidó.
+  </p>
+
+  <h3>Protección ante el viento</h3>
+  <p>
+    Si se integra un sensor meteorológico exterior, las persianas pueden subir automáticamente cuando se detectan rachas de viento fuertes, protegiendo tanto la persiana como lo que haya debajo.
+  </p>
+
+  <h2>¿Necesito hacer obras?</h2>
+  <p>
+    En la mayoría de casos, no. Los motores de tubería Zigbee o Z-Wave funcionan con una batería recargable o con alimentación por cableado ya existente. Para viviendas en construcción o reforma, sí tiene sentido prever el cableado desde el inicio para una instalación más limpia y eficiente.
+  </p>
+  <p>
+    Lo que sí se necesita es una visita técnica previa para evaluar el tipo de persiana, el acceso al cajón y la solución más adecuada. Cada instalación es diferente, y la elección del motor correcto marca la diferencia entre un sistema fiable y uno que da problemas a los seis meses.
+  </p>
+
+  <h2>Conclusión</h2>
+  <p>
+    Automatizar las persianas es una de las mejoras más prácticas que se pueden hacer en un hogar inteligente. Con la tecnología actual, la instalación es accesible, no invasiva y el día a día mejora de forma inmediata.
+  </p>
+  <p>
+    En <strong>2SmartHome</strong> llevamos estas soluciones integradas dentro de proyectos domóticos completos, donde las persianas trabajan en conjunto con la iluminación, la climatización y la seguridad del hogar. Si te interesa saber qué es posible en tu caso concreto, podemos hacer una valoración sin compromiso.
+  </p>
+
+</BlogPost>
