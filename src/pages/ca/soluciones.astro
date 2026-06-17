@@ -1,0 +1,381 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const solutions = [
+  {
+    id: 'iluminacion',
+    num: '01',
+    title: 'Il·luminació intel·ligent',
+    tagline: 'La llum perfecta, sempre automàtica',
+    scenario: 'Arribes a casa. El passadís s\'il·lumina sol al 40%. Di «mode pel·lícula» i el saló s\'enfosqueix en segons.',
+    img: '/img/iluminacion-inteligente-soluciones.jpeg',
+    imgAlt: 'Saló modern amb il·luminació ambiental intel·ligent ajustada des d\'app',
+    desc: 'Oblida\'t dels interruptors. La llum s\'adapta automàticament a cada moment del dia: detecta la teva presència, respon a la llum natural i crea l\'atmosfera perfecta sense que hagis de fer res.',
+    benefits: [
+      'Fins a 60% d\'estalvi en il·luminació',
+      'Escenes automàtiques per hora del dia',
+      'S\'apaga sola quan no hi ha ningú',
+      'Compatible amb qualsevol tipus d\'il·luminació',
+    ],
+    ui: { label: 'Saló · Mode sopar', value: '35%', bar: 35, color: 'bg-amber-400' },
+    ctaTipo: 'hogar-existente',
+    ctaMensaje: 'Hola, m\'interessa pressupost per a il·luminació intel·ligent.\n· Espai: [llar / negoci] · Superfície: [m²]\n· Nº de punts de llum / habitacions:\n· Objectiu: [estalvi energètic / escenes / detecció presència / tot]',
+  },
+  {
+    id: 'clima',
+    num: '02',
+    title: 'Control climàtic',
+    tagline: 'El confort que s\'avança a tu',
+    scenario: 'Abans que soni el despertador, la calefacció ja ha portat el saló a 21°C. Sense que hagis fet res.',
+    img: '/img/photo-1600607687939-ce8a6c25118c.jpg',
+    imgAlt: 'Termostato intel·ligent en paret de llar moderna amb control remot',
+    desc: 'El termòstat aprèn els teus horaris i s\'ajusta sol. La casa ja és a la temperatura perfecta quan arribes, i s\'apaga tan bon punt te\'n vas. Sense que ho hagis de recordar mai.',
+    benefits: [
+      'Fins a 30% d\'estalvi en calefacció i refrigeració',
+      'Preescalfament automàtic abans d\'arribar',
+      'Apagat total en sortir de casa',
+      'Control per zones independents',
+    ],
+    ui: { label: 'Dormitori · Actiu', value: '21°C', bar: 70, color: 'bg-sky-400' },
+    ctaTipo: 'hogar-existente',
+    ctaMensaje: 'Hola, m\'interessa el control climàtic intel·ligent.\n· Espai: [llar / negoci] · Superfície: [m²]\n· Sistema actual: [calefacció de gas / bomba de calor / aerotèrmia / altre]\n· Objectiu: [estalvi / confort / control per zones]',
+  },
+  {
+    id: 'seguridad',
+    num: '03',
+    title: 'Seguretat i videovigilància',
+    tagline: 'La teva llar vigilada, siguis on siguis',
+    scenario: 'Reps una notificació al mòbil. Obres l\'app i veus en vídeo qui truca a la teva porta. Obres amb un toc.',
+    img: 'https://images.pexels.com/photos/6667681/pexels-photo-6667681.jpeg?auto=compress&cs=tinysrgb&w=900',
+    imgAlt: 'Missatger amb paquet trucant al videoporter d\'un habitatge',
+    desc: 'Siguis a l\'oficina, de viatge o de vacances, la teva llar està sota control. Càmeres, detectors i panys integrats en una sola app per veure, parlar i obrir des de qualsevol lloc.',
+    benefits: [
+      'Alertes en temps real al teu mòbil',
+      'Vídeo HD amb visió nocturna',
+      'Obre la porta des de qualsevol lloc',
+      'Historial d\'entrades amb foto i hora',
+    ],
+    ui: { label: '🔔 Moviment detectat', value: 'Porta · Ara', bar: 100, color: 'bg-red-400' },
+    ctaTipo: 'hogar-existente',
+    ctaMensaje: 'Hola, m\'interessa pressupost per a seguretat integrada.\n· Espai: [llar / negoci] · Superfície: [m²]\n· M\'interessa: [càmeres / alarma / pany intel·ligent / videoporter]\n· Teniu algun sistema de seguretat? [sí / no]',
+  },
+  {
+    id: 'persianas',
+    num: '04',
+    title: 'Persianes i cortines',
+    tagline: 'La llum natural, al teu ritme',
+    scenario: 'Cada matí a les 8h les persianes pugen soles. A la tarda, es tanquen un 60% per evitar la calor sense enfosquir.',
+    img: '/img/photo-1580587771525-78b9dba3b914.jpg',
+    imgAlt: 'Dormitori lluminós amb persianes motoritzades que s\'obren amb llum natural',
+    desc: 'Les persianes treballen soles: pugen a l\'alba, s\'ajusten segons la posició del sol i es tanquen al vespre. O amb un simple toc. O dient-ho en veu alta.',
+    benefits: [
+      'Automatització segons la posició del sol',
+      'Millora l\'aïllament tèrmic fins a un 15%',
+      'Control per veu, app o programació',
+      'Sense obres en models sense fils',
+    ],
+    ui: { label: 'Saló · Baixant', value: '70%', bar: 70, color: 'bg-slate-300' },
+    ctaTipo: 'hogar-existente',
+    ctaMensaje: 'Hola, m\'interessen les persianes motoritzades.\n· Espai: [llar / negoci] · Nº de finestres/persianes aprox.:\n· Les persianes actuals: [tenen motor / són manuals / cal instal·lar]\n· Objectiu: [automatització solar / estalvi tèrmic / control per veu]',
+  },
+  {
+    id: 'audio',
+    num: '05',
+    title: 'Àudio i vídeo multiroom',
+    tagline: 'La música et segueix per casa',
+    scenario: 'Comences una cançó a la cuina. En entrar al saló, la música ja sona allà. Sense tocar res.',
+    img: '/img/photo-1545671913-b89ac1b4ac10.jpg',
+    imgAlt: 'Altaveu intel·ligent en saló modern amb control de música per veu',
+    desc: 'La música que t\'agrada, a l\'habitació on ets, al volum que vols. Sense interrupcions, sense apps complicades, sense cables visibles. Simplement gaudeix.',
+    benefits: [
+      'Música sincronitzada a totes les estances',
+      'Compatible amb Spotify, Apple Music i més',
+      'Control per veu amb Google Home i Alexa',
+      'Instal·lació discreta, encastada o en superfície',
+    ],
+    ui: { label: '♪ Tota la casa · 42%', value: 'The Weeknd', bar: 42, color: 'bg-purple-400' },
+    ctaTipo: 'hogar-existente',
+    ctaMensaje: 'Hola, m\'interessa pressupost per àudio multiroom.\n· Espai: [llar / restaurant / local / altre]\n· Nº de zones/habitacions:\n· Preferència d\'instal·lació: [encastat / en superfície / mixt]',
+  },
+  {
+    id: 'energia',
+    num: '06',
+    title: 'Gestió energètica',
+    tagline: 'Estalvia sense pensar-hi',
+    scenario: 'El sistema detecta que el preu de la llum és baix. Arrenca el rentavaixelles i carrega el cotxe automàticament.',
+    img: '/img/photo-1473341304170-971dccb5ac1e.jpg',
+    imgAlt: 'Monitorització del consum energètic de la llar en temps real',
+    desc: 'La gestió energètica treballa en silenci: activa els electrodomèstics en hores barates, maximitza l\'autoconsum si tens plaques solars i et mostra exactament on es va la llum.',
+    benefits: [
+      'Activació automàtica en hores vall',
+      'Monitorització en temps real per circuit',
+      'Integració amb instal·lació solar fotovoltaica',
+      'Informes mensuals de consum',
+    ],
+    ui: { label: 'Estalvi avui', value: '−38%', bar: 62, color: 'bg-green-400' },
+    ctaTipo: 'hogar-existente',
+    ctaMensaje: 'Hola, m\'interessa la gestió energètica intel·ligent.\n· Espai: [llar / empresa] · Superfície: [m²]\n· Teniu instal·lació solar? [sí / no / en projecte]\n· Objectiu: [reduir factura / monitorització / integrar solar]',
+  },
+  {
+    id: 'acceso',
+    num: '07',
+    title: 'Control d\'accés',
+    tagline: 'Sense claus. Només el teu mòbil',
+    scenario: 'El teu fill arriba de l\'escola. Et ve la notificació, li obres des de la feina. Sense claus que perdre.',
+    img: '/img/photo-1558002038-1055907df827.jpg',
+    imgAlt: 'Smartphone obrint pany intel·ligent Nuki a porta d\'entrada',
+    desc: 'El teu mòbil és la clau. Obre el portal del garatge abans d\'arribar, deixa entrar algú quan no ets, crea codis temporals per a la neteja o les visites. Tot amb un toc.',
+    benefits: [
+      'Obertura per app, empremta digital o codi',
+      'Videoporter amb imatge al mòbil',
+      'Codis temporals per a visites i personal',
+      'Historial d\'accessos amb foto i hora',
+    ],
+    ui: { label: 'Porta principal', value: '🔓 Oberta', bar: 100, color: 'bg-green-400' },
+    ctaTipo: 'hogar-existente',
+    ctaMensaje: 'Hola, m\'interessa pressupost per control d\'accés.\n· Espai: [llar / empresa]\n· M\'interessa: [obertura per mòbil / videoporter / codis temporals / tot]\n· Nº d\'accessos a controlar:',
+  },
+  {
+    id: 'jardin',
+    num: '08',
+    title: 'Automatització de jardí',
+    tagline: 'El jardí perfecte, sense esforç',
+    scenario: 'Plourà aquesta tarda. El sistema ho detecta i cancel·la el reg automàticament. Tu ni t\'hi fixes.',
+    img: '/img/photo-1416879595882-3373a0480b5b.jpg',
+    imgAlt: 'Jardí ben cuidat amb sistema de reg automàtic intel·ligent',
+    desc: 'El reg consulta la previsió del temps i els sensors d\'humitat del sòl abans d\'activar-se. El teu jardí sempre és al punt sense que hagis de recordar res.',
+    benefits: [
+      'Fins a 50% d\'estalvi en aigua',
+      'Es cancel·la sol si plourà',
+      'Programació per zones i tipus de planta',
+      'Control remot des de l\'app',
+    ],
+    ui: { label: '💧 Reg cancel·lat', value: 'Pluja prevista', bar: 0, color: 'bg-sky-400' },
+    ctaTipo: 'hogar-existente',
+    ctaMensaje: 'Hola, m\'interessa automatitzar el meu jardí.\n· Superfície del jardí: [m²]\n· Sistema de reg actual: [tinc / no tinc / cal instal·lar]\n· M\'interessa també: [il·luminació jardí / seguretat exterior]',
+  },
+];
+
+const _msgHeroSol = `Hola, m'agradaria rebre un pressupost per instal·lar domòtica.
+· Tipus d'espai: [llar / empresa]
+· Superfície: [m²]
+· Solucions d'interès: [il·luminació / clima / seguretat / persianes / àudio / energia]`;
+const urlHeroSol = `/ca/contacto?tipo=hogar-existente&mensaje=${encodeURIComponent(_msgHeroSol)}#formulario`;
+
+const _msgCtaSol = `Hola, no sé gaire bé per on començar amb la domòtica.
+· Tipus d'espai: [llar / negoci] · Superfície: [m²]
+· Què t'agradaria millorar en el teu dia a dia?
+· Quin és el teu pressupost aproximat?`;
+const urlCtaSol = `/ca/contacto?tipo=hogar-existente&mensaje=${encodeURIComponent(_msgCtaSol)}#formulario`;
+
+const controls = [
+  {
+    icon: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z',
+    label: 'Des de l\'app',
+    desc: 'Un toc al mòbil controla qualsevol sistema de la casa, des de qualsevol lloc del món.',
+    img: '/img/photo-1512941937669-90a1b58e7e9c.jpg',
+    imgAlt: 'Persona controlant la llar des del seu smartphone',
+  },
+  {
+    icon: 'M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z',
+    label: 'Amb la veu',
+    desc: 'Compatible amb Google Home, Amazon Alexa i Siri. Di el que vols i llestos.',
+    img: '/img/photo-1512446816042-444d641267d4.jpg',
+    imgAlt: 'Altaveu intel·ligent responent a ordres de veu a la llar',
+  },
+  {
+    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+    label: 'Automàticament',
+    desc: 'Programes i rutines que treballen soles les 24h. Sense que hagis d\'intervenir mai.',
+    img: '/img/imagen-automatizacion-soluciones.jpeg',
+    imgAlt: 'Llar intel·ligent amb automatització funcionant sense intervenció humana',
+  },
+];
+
+const timeline = [
+  { time: '07:00', icon: '🌅', title: 'Bon dia', desc: 'Les persianes pugen suaument. Les llums s\'encenen al 20%. La calefacció porta ja 30 min a 21°C.' },
+  { time: '08:15', icon: '🚪', title: 'Surts de casa', desc: 'Detecta que tothom s\'ha anat. Apaga llums, baixa termostats, activa alarma. Un toc, zero preocupacions.' },
+  { time: '18:30', icon: '🏠', title: 'Arribada', desc: 'El sistema ja sap que ets a 5 min. La temperatura ideal t\'espera. Les llums de benvinguda, enceses.' },
+  { time: '22:00', icon: '🌙', title: 'Mode nit', desc: 'Amb un «bona nit» o un toc: persianes avall, llums apagades, temperatura reduïda, alarma activa.' },
+];
+---
+
+<Layout
+  title="Solucions de Domòtica a Barcelona"
+  description="Catàleg complet de solucions de domòtica a Barcelona: il·luminació intel·ligent, control climàtic, seguretat 360°, persianes motoritzades, àudio multiroom i gestió energètica."
+  lang="ca"
+>
+
+  <!-- HERO -->
+  <section class="relative min-h-[75vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/img/photo-1556742049-0cfed4f6a45d.jpg" alt="Persona controlant la seva llar intel·ligent des del sofà amb un smartphone" class="w-full h-full object-cover" loading="eager"/>
+      <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/40"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <div class="max-w-2xl">
+        <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-4">Tot sota control</p>
+        <h1 class="text-5xl sm:text-6xl font-extrabold text-white leading-tight mb-6">
+          La tecnologia que treballa
+          <span class="text-sky-400">per a tu</span>
+        </h1>
+        <p class="text-xl text-slate-300 leading-relaxed mb-10">
+          No has d'aprendre res nou. Simplement gaudir d'una llar que entén el que necessites abans que ho demanis.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href={urlHeroSol} class="inline-flex items-center justify-center gap-2 px-7 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/30 hover:scale-105">
+            Sol·licitar pressupost gratis
+          </a>
+          <a href="#iluminacion" class="inline-flex items-center justify-center gap-2 px-7 py-4 bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold rounded-2xl transition-all">
+            Explorar solucions
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTROL METHODS -->
+  <section class="py-20 bg-slate-900 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 fade-up">
+        <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">Facilitat d'ús</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Tres formes de controlar-ho tot</h2>
+        <p class="text-slate-400 max-w-xl mx-auto">Com prefereixi cada persona. Tot funciona amb els tres mètodes alhora.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {controls.map((c, i) => (
+          <div class="group relative rounded-3xl overflow-hidden fade-up" style={`transition-delay:${i*100}ms`}>
+            <div class="h-56 overflow-hidden">
+              <img src={c.img} alt={c.imgAlt} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-9 h-9 rounded-xl bg-sky-500/20 border border-sky-500/30 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d={c.icon}/>
+                  </svg>
+                </div>
+                <h3 class="text-white font-bold text-lg">{c.label}</h3>
+              </div>
+              <p class="text-slate-300 text-sm leading-relaxed">{c.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS LIST -->
+  {solutions.map((sol, i) => (
+    <section id={sol.id} class={`py-24 ${i % 2 === 0 ? 'bg-slate-950' : 'bg-slate-900'} border-t border-slate-800`}>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class={`grid grid-cols-1 lg:grid-cols-2 gap-14 items-center ${i % 2 !== 0 ? 'lg:grid-flow-dense' : ''}`}>
+          <div class={`fade-up ${i % 2 !== 0 ? 'lg:col-start-2' : ''}`}>
+            <p class="text-sky-500 font-bold text-xs uppercase tracking-widest mb-2">{sol.num}</p>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-2">{sol.title}</h2>
+            <p class="text-sky-400 font-medium mb-6">{sol.tagline}</p>
+            <div class="flex items-start gap-3 bg-sky-500/8 border border-sky-500/20 rounded-2xl p-5 mb-7">
+              <div class="w-8 h-8 rounded-full bg-sky-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-sky-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                </svg>
+              </div>
+              <p class="text-slate-200 text-sm leading-relaxed italic">"{sol.scenario}"</p>
+            </div>
+            <p class="text-slate-400 leading-relaxed mb-7">{sol.desc}</p>
+            <ul class="space-y-3 mb-9">
+              {sol.benefits.map(b => (
+                <li class="flex items-center gap-3 text-sm text-slate-300">
+                  <svg class="w-4 h-4 text-sky-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  {b}
+                </li>
+              ))}
+            </ul>
+            <a href={`/ca/contacto?tipo=${sol.ctaTipo}&mensaje=${encodeURIComponent(sol.ctaMensaje)}#formulario`} class="inline-flex items-center gap-2 px-6 py-3 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-xl transition-all shadow-lg shadow-sky-500/25">
+              Pressupost per a {sol.title}
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div class={`relative rounded-3xl overflow-hidden shadow-2xl fade-up ${i % 2 !== 0 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
+            <img src={sol.img} alt={sol.imgAlt} class="w-full h-80 lg:h-[460px] object-cover"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-5 left-5 right-5 sm:right-auto sm:w-56">
+              <div class="bg-slate-900/90 backdrop-blur-md border border-white/10 rounded-2xl p-4 shadow-2xl">
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0"></span>
+                    <span class="text-slate-400 text-xs truncate">{sol.ui.label}</span>
+                  </div>
+                </div>
+                <div class="text-white font-bold text-xl mb-3">{sol.ui.value}</div>
+                <div class="h-1.5 bg-slate-700 rounded-full overflow-hidden">
+                  <div class={`h-full rounded-full transition-all duration-1000 ${sol.ui.color}`} style={`width: ${sol.ui.bar}%`}></div>
+                </div>
+              </div>
+            </div>
+            <div class="absolute top-5 right-5 w-12 h-12 rounded-2xl bg-sky-500/90 backdrop-blur flex items-center justify-center">
+              <span class="text-white font-bold text-sm">{sol.num}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- DAY IN THE LIFE -->
+  <section class="py-24 bg-slate-900 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">Així funciona</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Un dia amb 2SmartHome</h2>
+        <p class="text-slate-400 max-w-xl mx-auto">La domòtica no interromp la teva vida. La simplifica. Així sembla un dia normal quan tot treballa conjuntament.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:flex lg:items-stretch lg:gap-0">
+        {timeline.map((t, i) => (
+          <Fragment>
+            <div class="lg:flex-1 bg-slate-800/50 border border-slate-700 rounded-2xl p-6 fade-up" style={`transition-delay:${i*80}ms`}>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-3xl">{t.icon}</span>
+                <div>
+                  <div class="text-sky-400 text-sm font-bold">{t.time}</div>
+                  <div class="text-white font-semibold text-sm">{t.title}</div>
+                </div>
+              </div>
+              <p class="text-slate-400 text-sm leading-relaxed">{t.desc}</p>
+            </div>
+            {i < 3 && (
+              <div class="hidden lg:flex items-center justify-center w-10 flex-shrink-0">
+                <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </div>
+            )}
+          </Fragment>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-slate-950 border-t border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 text-center fade-up">
+      <div class="p-12 bg-gradient-to-br from-sky-500/10 via-slate-900 to-slate-900 border border-sky-500/20 rounded-3xl">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">No saps per on començar?</h2>
+        <p class="text-slate-400 mb-8 max-w-xl mx-auto">
+          Explica'ns el teu espai i els teus hàbits. En 30 minuts et dissenyem un sistema a mida i et diem quant costa.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href={urlCtaSol} class="inline-block px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/25 hover:scale-105">
+            Consulta gratuïta sense compromís
+          </a>
+          <a href="/ca/proyectos" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold rounded-2xl transition-all">
+            Veure projectes reals
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>

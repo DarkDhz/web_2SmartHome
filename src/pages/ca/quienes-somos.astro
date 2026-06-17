@@ -1,0 +1,104 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const _msgQS = `Hola, m'agradaria posar-me en contacte amb el vostre equip.
+· El meu projecte: [descriu breument]
+· Tipus d'espai: [llar / empresa] · Superfície: [m²]
+· Zona: [Barcelona / àrea metropolitana]`;
+const urlEquipo = `/ca/contacto?tipo=otro&mensaje=${encodeURIComponent(_msgQS)}#formulario`;
+
+const values = [
+  { icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z', title: 'Qualitat sense compromís', desc: 'Només treballem amb fabricants líders: Shelly, Aqara, Sonoff, SMLight, Somfy, Ajax, etc.' },
+  { icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z', title: 'Orientats al client', desc: 'Acompanyem cada client des del primer contacte fins anys després de la instal·lació.' },
+  { icon: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z', title: 'Privacitat i seguretat', desc: 'Sistemes locals que no depenen de servidors externs. Les teves dades es queden a casa teva.' },
+  { icon: 'M13 10V3L4 14h7v7l9-11h-7z', title: 'Eficiència energètica', desc: 'Cada instal·lació està dissenyada per reduir el consum i minimitzar l\'impacte ambiental.' },
+];
+---
+
+<Layout
+  title="Qui Som – 2SmartHome Barcelona"
+  description="Coneix l'equip de 2SmartHome, empresa de domòtica amb més de 2 anys d'experiència a Barcelona i àrea metropolitana. Enginyers especialitzats en automatització residencial i empresarial."
+  lang="ca"
+>
+
+  <!-- HERO -->
+  <section class="relative py-36 overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/img/photo-1522071820081-009f0129c71c.jpg" alt="Equip 2SmartHome" class="w-full h-full object-cover"/>
+      <div class="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/70 to-slate-950"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-4">L'equip</p>
+      <h1 class="text-5xl sm:text-6xl font-extrabold text-white mb-6">Qui som</h1>
+      <p class="text-xl text-slate-300 max-w-2xl mx-auto">
+        Som un equip d'enginyers i tècnics apassionats per la tecnologia i compromesos a millorar la vida dels nostres clients.
+      </p>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="fade-up">
+          <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">La nostra història</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Nascuts a Barcelona per transformar llars</h2>
+          <div class="space-y-4 text-slate-400 leading-relaxed">
+            <p>2SmartHome va néixer a Barcelona el 2024 amb una missió clara: fer que la tecnologia d'automatització de la llar fos accessible i útil per a qualsevol persona, no només per als més tecnològics.</p>
+            <p>En poc més de dos anys hem completat més de 100 instal·lacions en llars, oficines, hotels i espais comercials de Barcelona i l'àrea metropolitana. Cada projecte ens ha ensenyat alguna cosa nova i ens ha permès perfeccionar la nostra metodologia.</p>
+            <p>El nostre objectiu no és només instal·lar tecnologia, sinó acompanyar-te: entendre com vius, com treballes i com volem que el teu espai et faciliti la vida. Això és el que ens diferencia.</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4 fade-up">
+          <div class="rounded-2xl overflow-hidden">
+            <img src="/img/photo-1600585154340-be6161a56a0c.jpg" alt="Habitatge modern preparat per a automatització domòtica" class="w-full h-52 object-cover"/>
+          </div>
+          <div class="rounded-2xl overflow-hidden mt-8">
+            <img src="/img/photo-1556909114-f6e7ad7d3136.jpg" alt="Cuina intel·ligent integrada en una llar connectada" class="w-full h-52 object-cover"/>
+          </div>
+          <div class="rounded-2xl overflow-hidden -mt-8">
+            <img src="/img/photo-1565814329452-e1efa11c5b89.jpg" alt="Espai residencial amb solucions de confort automatitzat" class="w-full h-52 object-cover"/>
+          </div>
+          <div class="rounded-2xl overflow-hidden">
+            <img src="/img/photo-1497366216548-37526070297c.jpg" alt="Oficina amb sistemes intel·ligents d\'il·luminació i climatització" class="w-full h-52 object-cover"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="py-24 bg-slate-900 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">El que ens guia</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white">Els nostres valors</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {values.map((v, i) => (
+          <div class="p-7 bg-slate-800/50 border border-slate-700 rounded-2xl fade-up" style={`transition-delay:${i*80}ms`}>
+            <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d={v.icon}/>
+              </svg>
+            </div>
+            <h3 class="text-white font-semibold mb-2">{v.title}</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-slate-950 border-t border-slate-800">
+    <div class="max-w-3xl mx-auto px-4 text-center fade-up">
+      <h2 class="text-3xl font-bold text-white mb-4">Parlem?</h2>
+      <p class="text-slate-400 mb-8">Ens encantaria conèixer el teu projecte i ajudar-te a fer-lo realitat.</p>
+      <a href={urlEquipo} class="inline-block px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/25 hover:scale-105">
+        Contactar amb l'equip
+      </a>
+    </div>
+  </section>
+
+</Layout>

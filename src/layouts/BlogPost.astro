@@ -9,6 +9,7 @@ interface Props {
   time: string;
   img: string;
   imgAlt?: string;
+  lang?: 'es' | 'ca';
   cta?: {
     eyebrow?: string;
     title?: string;
@@ -28,8 +29,29 @@ const {
   time,
   img,
   imgAlt = title,
+  lang = 'es',
   cta = {},
 } = Astro.props;
+
+const ui = lang === 'ca' ? {
+  home: 'Inici',
+  resources: 'Recursos',
+  readTime: 'de lectura',
+  backToBlog: 'Tornar al blog de recursos',
+  defaultCtaEyebrow: 'Llest per fer el salt?',
+  defaultCtaTitle: 'Parlem del teu projecte',
+  defaultCtaText: 'Visita gratuïta i pressupost sense compromís. Els nostres experts t\'assessoren sobre la millor solució per a la teva llar o empresa.',
+  defaultCtaButton: 'Sol·licitar assessorament gratuït',
+} : {
+  home: 'Inicio',
+  resources: 'Recursos',
+  readTime: 'de lectura',
+  backToBlog: 'Volver al blog de recursos',
+  defaultCtaEyebrow: '¿Listo para dar el salto?',
+  defaultCtaTitle: 'Hablemos de tu proyecto',
+  defaultCtaText: 'Visita gratuita y presupuesto sin compromiso. Nuestros expertos te asesoran sobre la mejor solución para tu hogar o empresa.',
+  defaultCtaButton: 'Solicitar asesoramiento gratuito',
+};
 
 const SITE_URL = 'https://www.2smarthome.es';
 const monthMap: Record<string, string> = {
@@ -69,26 +91,29 @@ const breadcrumbSchema = {
   ],
 };
 
+const contactPath = lang === 'ca' ? '/ca/contacto' : '/contacto';
+const resourcesPath = lang === 'ca' ? '/ca/recursos' : '/recursos';
+
 const finalCta = {
-  eyebrow: '¿Listo para dar el salto?',
-  title: 'Hablemos de tu proyecto',
-  text: 'Visita gratuita y presupuesto sin compromiso. Nuestros expertos te asesoran sobre la mejor solución para tu hogar o empresa.',
-  button: 'Solicitar asesoramiento gratuito',
-  href: '/contacto#formulario',
+  eyebrow: ui.defaultCtaEyebrow,
+  title: ui.defaultCtaTitle,
+  text: ui.defaultCtaText,
+  button: ui.defaultCtaButton,
+  href: `${contactPath}#formulario`,
   tipo: undefined as string | undefined,
   mensaje: undefined as string | undefined,
   ...cta,
 };
 
 const ctaHref = (finalCta.tipo || finalCta.mensaje)
-  ? `/contacto?${new URLSearchParams({
+  ? `${contactPath}?${new URLSearchParams({
       ...(finalCta.tipo ? { tipo: finalCta.tipo } : {}),
       ...(finalCta.mensaje ? { mensaje: finalCta.mensaje } : {}),
     }).toString()}#formulario`
   : finalCta.href;
 ---
 
-<Layout title={title} description={description} noIndex={false} schemas={[articleSchema, breadcrumbSchema]}>
+<Layout title={title} description={description} noIndex={false} schemas={[articleSchema, breadcrumbSchema]} lang={lang}>
 
   <!-- Reading progress bar -->
   <div class="fixed top-20 left-0 right-0 z-40 h-0.5 bg-slate-800">
@@ -99,9 +124,9 @@ const ctaHref = (finalCta.tipo || finalCta.mensaje)
   <section class="bg-slate-900 border-b border-slate-800">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16">
       <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-sm text-slate-500 mb-10">
-        <a href="/" class="hover:text-sky-400 transition-colors">Inicio</a>
+        <a href={lang === 'ca' ? '/ca' : '/'} class="hover:text-sky-400 transition-colors">{ui.home}</a>
         <svg class="w-3 h-3 text-slate-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        <a href="/recursos" class="hover:text-sky-400 transition-colors">Recursos</a>
+        <a href={resourcesPath} class="hover:text-sky-400 transition-colors">{ui.resources}</a>
         <svg class="w-3 h-3 text-slate-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         <span class="text-slate-400 truncate">{title}</span>
       </nav>
@@ -114,7 +139,7 @@ const ctaHref = (finalCta.tipo || finalCta.mensaje)
           <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
           </svg>
-          {time} de lectura
+          {time} {ui.readTime}
         </span>
       </div>
 
@@ -150,11 +175,11 @@ const ctaHref = (finalCta.tipo || finalCta.mensaje)
       </div>
       <!-- Back to blog -->
       <div class="mt-10 text-center">
-        <a href="/recursos" class="inline-flex items-center gap-2 text-sky-400 hover:text-sky-300 transition-colors font-medium text-sm">
+        <a href={resourcesPath} class="inline-flex items-center gap-2 text-sky-400 hover:text-sky-300 transition-colors font-medium text-sm">
           <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
           </svg>
-          Volver al blog de recursos
+          {ui.backToBlog}
         </a>
       </div>
     </div>

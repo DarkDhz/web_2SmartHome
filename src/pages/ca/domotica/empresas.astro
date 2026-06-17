@@ -1,0 +1,155 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const _msgAuditoria = `Hola, voldríem sol·licitar una auditoria de domòtica per al nostre negoci.
+· Tipus d'espai: [oficines / hotel / local comercial / nau industrial]
+· Superfície: [m²] · Nº de treballadors/habitacions:
+· Objectiu principal: [estalvi energètic / productivitat / seguretat]`;
+const _msgAuditoriaEnerg = `Hola, ens interessa una auditoria energètica per a la nostra empresa.
+· Tipus: [oficines / hotel / local / nau industrial]
+· Superfície: [m²] · Consum elèctric mensual aprox.: [€/mes]
+· Objectiu: reduir costos i millorar l\'eficiència operativa.`;
+const _msgAnalisi = `Hola, voldríem l'anàlisi gratuïta per al nostre negoci.
+· Sector: [hostaleria / oficines / comerç / industrial]
+· Espai: [m²] a [ciutat]
+· Què voleu millorar? [Il·luminació / Clima / Accessos / Energia]`;
+const urlAuditoria = `/ca/contacto?tipo=oficina&mensaje=${encodeURIComponent(_msgAuditoria)}#formulario`;
+const urlAuditoriaEnerg = `/ca/contacto?tipo=oficina&mensaje=${encodeURIComponent(_msgAuditoriaEnerg)}#formulario`;
+const urlAnalisi = `/ca/contacto?tipo=oficina&mensaje=${encodeURIComponent(_msgAnalisi)}#formulario`;
+
+const sectors = [
+  { icon: '🏢', title: 'Oficines i coworkings', desc: 'Gestió intel·ligent d\'il·luminació, clima i accessos per maximitzar la productivitat i reduir costos operatius.' },
+  { icon: '🏨', title: 'Hotels i apartaments', desc: 'Control centralitzat per habitació, check-in digital i optimització automàtica del consum energètic.' },
+  { icon: '🏬', title: 'Locals comercials', desc: 'Sistemes de control d\'aforament, il·luminació d\'aparador programada i gestió remota des de qualsevol lloc.' },
+];
+
+const benefits = [
+  { value: 'Fins al 40%', label: 'Reducció factura elèctrica' },
+  { value: 'Gestió remota', label: 'Des de qualsevol dispositiu' },
+  { value: 'Escalable', label: 'Creix amb la teva empresa' },
+  { value: 'ROI positiu', label: 'En menys de 3 anys' },
+];
+---
+
+<Layout
+  title="Domòtica per a Empreses a Barcelona"
+  description="Automatització intel·ligent per a oficines, hotels, locals i naus industrials a Barcelona, 22@, Hospitalet, Cornellà i àrea metropolitana. Redueix costos energètics fins a un 40% i millora la productivitat."
+  lang="ca"
+>
+
+  <!-- HERO -->
+  <section class="relative py-36 flex items-center overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/img/photo-1497366811353-6870744d04b2.jpg" alt="Domòtica per a oficines i empreses a l'àrea metropolitana de Barcelona: estalvi energètic i control intel·ligent" class="w-full h-full object-cover"/>
+      <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-950/30"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <nav class="flex items-center gap-2 text-sm text-slate-500 mb-6">
+          <a href="/ca/domotica" class="hover:text-slate-300 transition-colors">Inici domòtica</a>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <span class="text-slate-400">Empreses</span>
+        </nav>
+        <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-4">Solucions corporatives</p>
+        <h1 class="text-5xl sm:text-6xl font-extrabold text-white leading-tight mb-6">
+          Edificis que<br/><span class="text-sky-400">treballen millor</span>
+        </h1>
+        <p class="text-xl text-slate-300 leading-relaxed mb-8">
+          Sistemes d'automatització per a empreses que redueixen costos, milloren la productivitat i ofereixen una experiència superior a empleats i clients.
+        </p>
+        <div class="flex gap-4">
+          <a href={urlAuditoria} class="px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/25 hover:scale-105">
+            Sol·licitar auditoria
+          </a>
+          <a href="/ca/proyectos" class="px-8 py-4 border border-slate-600 hover:border-sky-500 text-white rounded-2xl transition-all">
+            Veure projectes empresarials
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFICIS -->
+  <section class="py-16 bg-slate-900 border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+        {benefits.map((b, i) => (
+          <div class="fade-up" style={`transition-delay:${i*80}ms`}>
+            <div class="text-2xl font-extrabold text-sky-400 mb-1">{b.value}</div>
+            <div class="text-slate-400 text-sm">{b.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTORS -->
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">Sectors</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Solucions per a cada sector</h2>
+        <p class="text-slate-400 max-w-2xl mx-auto">Cada tipus de negoci té necessitats específiques. Dissenyem sistemes a mida per a cada sector.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sectors.map((s, i) => (
+          <div class="p-7 bg-slate-900 border border-slate-800 hover:border-sky-500/40 rounded-2xl transition-all duration-300 fade-up" style={`transition-delay:${i*70}ms`}>
+            <div class="text-4xl mb-4">{s.icon}</div>
+            <h3 class="text-white font-semibold text-lg mb-2">{s.title}</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PER QUÈ PER A EMPRESES -->
+  <section class="py-24 bg-slate-900 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="rounded-3xl overflow-hidden shadow-2xl fade-up">
+          <img src="/img/photo-1522071820081-009f0129c71c.jpg" alt="Equip treballant en una oficina intel·ligent" class="w-full h-[480px] object-cover"/>
+        </div>
+        <div class="fade-up">
+          <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">Avantatges competitius</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Inverteix una vegada,<br/>estalvia cada mes</h2>
+          <p class="text-slate-400 leading-relaxed mb-8">
+            La domòtica empresarial no és una despesa, és una inversió amb retorn mesurable. Els nostres clients recuperen la inversió en menys de 3 anys gràcies a l'estalvi energètic i la millora en eficiència operativa.
+          </p>
+          <div class="space-y-4">
+            {[
+              'Reducció de fins al 40% en consum elèctric',
+              'Gestió centralitzada de múltiples localitzacions',
+              'Informes detallats de consum i eficiència',
+              'Integració amb sistemes ERP i BMS existents',
+              'Manteniment predictiu per evitar avaries',
+              'Escalabilitat per al creixement del teu negoci',
+            ].map(item => (
+              <div class="flex items-center gap-3">
+                <div class="w-5 h-5 rounded-full bg-sky-500/20 border border-sky-500/40 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-3 h-3 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <span class="text-slate-300 text-sm">{item}</span>
+              </div>
+            ))}
+          </div>
+          <a href={urlAuditoriaEnerg} class="inline-block mt-10 px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-lg shadow-sky-500/25">
+            Sol·licitar auditoria energètica
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-slate-950 border-t border-slate-800">
+    <div class="max-w-3xl mx-auto px-4 text-center fade-up">
+      <h2 class="text-3xl font-bold text-white mb-4">La teva empresa, llesta per al futur?</h2>
+      <p class="text-slate-400 mb-8">Analitzem gratuïtament el teu negoci i et mostrem quant pots estalviar amb domòtica.</p>
+      <a href={urlAnalisi} class="inline-block px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/25 hover:scale-105">
+        Demanar anàlisi gratuïta
+      </a>
+    </div>
+  </section>
+
+</Layout>

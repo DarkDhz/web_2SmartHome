@@ -1,0 +1,198 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const _msgRec = `Hola, tinc alguns dubtes sobre domòtica abans de decidir-me.
+· Tipus de projecte que tinc en ment: [llar / negoci]
+· Les meves preguntes principals:
+  1.
+  2.`;
+const urlDudas = `/ca/contacto?tipo=otro&mensaje=${encodeURIComponent(_msgRec)}#formulario`;
+
+const articles = [
+  { title: 'Llar intel·ligent a Barcelona: guia pràctica per automatitzar el teu pis', cat: 'Barcelona', time: '7 min', date: 'Jun 2026', desc: 'Descobreix com automatitzar la teva llar a Barcelona segons el tipus de pis i les necessitats del clima mediterrani.', img: '/blog_imgs/hogar-inteligente-barcelona.jpg', href: '/ca/blog/hogar-inteligente-barcelona-piso' },
+  { title: 'Home Assistant: la plataforma de domòtica que instal·lem a tots els nostres projectes', cat: 'Tecnologia', time: '8 min', date: 'Jun 2026', desc: 'Descobreix per què triem Home Assistant per a totes les nostres instal·lacions: control local, privacitat total i més de 3.000 integracions.', img: '/blog_imgs/logo-ha-post.png', href: '/ca/blog/knx-vs-home-assistant' },
+  { title: 'Domòtica per a empreses: redueix costos i optimitza el teu negoci', cat: 'Empreses', time: '5 min', date: 'Jun 2026', desc: 'Controla il·luminació, climatització, seguretat i processos des d\'una única plataforma per estalviar energia i millorar l\'eficiència.', img: '/blog_imgs/domotica_para_empresas.jpg', href: '/ca/blog/domotica-para-empresas' },
+  { title: '7 errors comuns en instal·lar domòtica i com evitar-los', cat: 'Guia', time: '5 min', date: 'Jun 2026', desc: 'Instal·lar domòtica sembla senzill, però una mala planificació pot afectar el rendiment, la seguretat i l\'experiència d\'ús.', img: '/blog_imgs/7errorescomunes.png', href: '/ca/blog/7-errores-comunes-domotica' },
+  { title: 'Val la pena invertir en una casa intel·ligent? ROI i beneficis reals', cat: 'Inversió', time: '7 min', date: 'Jun 2026', desc: 'Analitzem el retorn de la inversió en una smart home: estalvi energètic, confort, seguretat i valor afegit per a l\'habitatge.', img: '/blog_imgs/valelapenaladomotica.png', href: '/ca/blog/vale-la-pena-invertir-casa-inteligente' },
+  { title: 'Domòtica a Barcelona: més control, més privacitat, més tranquil·litat', cat: 'Barcelona', time: '5 min', date: 'Mai 2026', desc: 'Claus per instal·lar domòtica en habitatges de Barcelona amb control local, privacitat i solucions adaptades al dia a dia urbà.', img: '/blog_imgs/domoticaenbarcelonamascontrol.jpg', href: '/ca/blog/domotica-en-barcelona' },
+  { title: 'Com crear l\'ambient perfecte al teu restaurant amb il·luminació intel·ligent?', cat: 'Il·luminació', time: '6 min', date: 'Mai 2026', desc: 'Escenes, horaris i regulació de llum per transformar l\'experiència del client i optimitzar el consum en restaurants.', img: '/blog_imgs/comocrearelambienteperfectoenturestaurante.jpg', href: '/ca/blog/ambiente-perfecto-restaurante-iluminacion' },
+  { title: 'Domòtica: la tecnologia que converteix la teva llar en un aliat per al teu dia a dia', cat: 'Llar', time: '5 min', date: 'Mai 2026', desc: 'Automatitzacions pràctiques perquè l\'habitatge s\'adapti a les teves rutines: clima, il·luminació, persianes, seguretat i eficiència.', img: '/blog_imgs/latecnologiaqueconviertetuhogar.jpg', href: '/ca/blog/domotica-tecnologia-aliada-dia-a-dia' },
+];
+
+const faqs = [
+  { q: 'Necessito fer obres per instal·lar domòtica?', a: 'No necessàriament. Instal·lem sistemes sense fils (Zigbee, Z-Wave, Matter) amb Home Assistant que no requereixen cablejat i són ideals per a habitatges ja construïts. Per a obres noves o reformes integrals, dissenyem instal·lacions més completes amb cablejat estructurat i major cobertura.' },
+  { q: 'Quant costa instal·lar domòtica en una llar?', a: 'El preu varia segons la mida de la llar i els sistemes a integrar. Una instal·lació bàsica per a un pis de 80 m² amb il·luminació, clima i seguretat pot partir des de 2.500€. Realitzem visites gratuïtes i pressupostos sense compromís.' },
+  { q: 'Funciona si no tinc connexió a Internet?', a: 'Sí. Els nostres sistemes funcionen en xarxa local (sense dependre del núvol), de manera que si falla la connexió a Internet, la domòtica continua funcionant perfectament dins de la llar.' },
+  { q: 'És compatible amb Alexa, Google Home i Apple HomeKit?', a: 'Sí. Tots els nostres sistemes són compatibles amb els principals assistents de veu i plataformes de llar intel·ligent. També oferim integració amb plataformes pròpies per a major privacitat.' },
+  { q: 'Què passa si hi ha un error en el sistema?', a: 'Comptem amb suport tècnic 24/7. Molts problemes es resolen de forma remota en minuts. Per a incidències que requereixen intervenció presencial, garantim resposta en menys de 24 hores a l\'àrea de Barcelona.' },
+  { q: 'Puc ampliar el sistema en el futur?', a: 'Absolutament. Dissenyem tots els sistemes pensant en l\'escalabilitat. Pots començar amb un sistema bàsic i anar afegint funcionalitats segons les teves necessitats i pressupost.' },
+];
+
+const SITE_URL = 'https://www.2smarthome.es';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: { '@type': 'Answer', text: faq.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inici', item: `${SITE_URL}/ca` },
+    { '@type': 'ListItem', position: 2, name: 'Blog i Guies de Domòtica', item: `${SITE_URL}/ca/recursos` },
+  ],
+};
+---
+
+<Layout
+  title="Blog i Guies de Domòtica a Barcelona"
+  description="Articles, guies pràctiques i FAQs sobre domòtica i llar intel·ligent. Aprèn sobre automatització, estalvi energètic, smart home i les últimes tendències en tecnologia de la llar a Barcelona."
+  noIndex={false}
+  schemas={[faqSchema, breadcrumbSchema]}
+  lang="ca"
+>
+
+  <!-- HERO -->
+  <section class="py-32 bg-slate-900 border-b border-slate-800 text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-4">Centre de recursos</p>
+      <h1 class="text-5xl sm:text-6xl font-extrabold text-white mb-6">Blog i guies</h1>
+      <p class="text-xl text-slate-300">Tot el que necessites saber sobre domòtica, automatització i llars intel·ligents.</p>
+    </div>
+  </section>
+
+  <!-- ARTICLES -->
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-14 fade-up">
+        <div>
+          <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-2">Últims articles</p>
+          <h2 class="text-3xl font-bold text-white">Aprèn sobre domòtica</h2>
+        </div>
+      </div>
+      <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {articles.map((a, i) => (
+          <article
+            class={`article-card group bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-sky-500/40 transition-all duration-300 fade-up ${i >= 6 ? 'hidden' : ''}`}
+            style={`transition-delay:${(i % 6)*70}ms`}
+            data-article-index={i}
+          >
+            <div class="relative h-44 overflow-hidden">
+              <img src={a.img} alt={a.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+              <span class="absolute top-3 left-3 px-2.5 py-1 bg-sky-500/90 text-white text-xs font-semibold rounded-lg">{a.cat}</span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+                <span>{a.date}</span>
+                <span>·</span>
+                <span>{a.time} lectura</span>
+              </div>
+              <h3 class="text-white font-semibold text-lg leading-snug mb-3 group-hover:text-sky-400 transition-colors">{a.title}</h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-4">{a.desc}</p>
+              {a.href ? (
+                <a href={a.href} class="flex items-center gap-2 text-sky-500 text-sm font-medium">
+                  <span>Llegir article</span>
+                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </a>
+              ) : (
+                <div class="flex items-center gap-2 text-sky-500 text-sm font-medium">
+                  <span>Llegir article</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </div>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+      {articles.length > 6 && (
+        <div class="mt-12 text-center fade-up">
+          <button
+            id="load-more-articles"
+            type="button"
+            class="inline-flex items-center gap-2 px-7 py-3 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-xl transition-all shadow-lg shadow-sky-500/25 hover:scale-105"
+            data-step="6"
+          >
+            <span>Veure més articles</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="py-24 bg-slate-900 border-t border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">Preguntes freqüents</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white">Resolem els teus dubtes</h2>
+      </div>
+      <div class="space-y-4" id="faq-list">
+        {faqs.map((faq, i) => (
+          <div class="faq-item border border-slate-700 rounded-2xl overflow-hidden fade-up" style={`transition-delay:${i*60}ms`}>
+            <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left bg-slate-800/50 hover:bg-slate-800 transition-colors">
+              <span class="text-white font-semibold pr-4">{faq.q}</span>
+              <svg class="faq-icon w-5 h-5 text-sky-400 flex-shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-answer hidden px-6 py-5 bg-slate-900 border-t border-slate-800">
+              <p class="text-slate-400 leading-relaxed">{faq.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-slate-950 border-t border-slate-800">
+    <div class="max-w-3xl mx-auto px-4 text-center fade-up">
+      <h2 class="text-3xl font-bold text-white mb-4">Tens més preguntes?</h2>
+      <p class="text-slate-400 mb-8">El nostre equip està disponible per resoldre qualsevol dubte i ajudar-te a planificar el teu projecte.</p>
+      <a href={urlDudas} class="inline-block px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/25 hover:scale-105">
+        Resoldre dubtes amb un expert
+      </a>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  const loadMoreArticles = document.getElementById('load-more-articles');
+  const articleCards = Array.from(document.querySelectorAll('.article-card'));
+  loadMoreArticles?.addEventListener('click', () => {
+    const step = Number(loadMoreArticles.dataset.step || 6);
+    const visibleCount = articleCards.filter(card => !card.classList.contains('hidden')).length;
+    articleCards.slice(visibleCount, visibleCount + step).forEach(card => {
+      card.classList.remove('hidden');
+      card.classList.add('visible');
+    });
+    if (visibleCount + step >= articleCards.length) {
+      loadMoreArticles.closest('div')?.classList.add('hidden');
+    }
+  });
+
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const answer = item?.querySelector('.faq-answer');
+      const icon = btn.querySelector('.faq-icon');
+      const isOpen = !answer?.classList.contains('hidden');
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
+      document.querySelectorAll('.faq-icon').forEach(ic => ic.classList.remove('rotate-180'));
+      if (!isOpen) {
+        answer?.classList.remove('hidden');
+        icon?.classList.add('rotate-180');
+      }
+    });
+  });
+</script>

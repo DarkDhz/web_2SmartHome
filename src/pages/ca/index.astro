@@ -1,0 +1,221 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const _msgHero = `Hola, m'agradaria rebre un pressupost inicial.
+· Tipus de projecte: [llar / empresa]
+· Espai: [m²] · Zona: [Barcelona / àrea metropolitana]
+· Sistemes d'interès: [il·luminació / clima / seguretat / tot]`;
+const urlHero = `/ca/contacto?tipo=hogar-existente&mensaje=${encodeURIComponent(_msgHero)}#formulario`;
+
+const _msgPropuesta = `Hola, m'agradaria una proposta a mida per al meu projecte.
+· Tipus d'espai: [llar / oficina / local / hotel]
+· Superfície: [m²] · Zona: [ciutat]
+· Objectius: [comoditat / estalvi energètic / seguretat / tot]`;
+const urlPropuesta = `/ca/contacto?tipo=hogar-existente&mensaje=${encodeURIComponent(_msgPropuesta)}#formulario`;
+
+const solutions = [
+  { icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z', label: 'Il·luminació intel·ligent', desc: 'Escenes, horaris i detecció de presència per al control total de la teva il·luminació.', href: '/ca/soluciones#iluminacion' },
+  { icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z', label: 'Control climàtic', desc: 'Termostats intel·ligents que aprenen els teus hàbits i optimitzen el confort i la despesa.', href: '/ca/soluciones#clima' },
+  { icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', label: 'Seguretat 360°', desc: 'Càmeres, alarmes i panys intel·ligents integrats en un sol sistema.', href: '/ca/soluciones#seguridad' },
+  { icon: 'M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L13 13.414V19a1 1 0 01-.553.894l-4 2A1 1 0 017 21v-7.586L3.293 6.707A1 1 0 013 6V4z', label: 'Persianes i cortines', desc: 'Motorització per controlar la llum natural de forma automàtica o des del mòbil.', href: '/ca/soluciones#persianas' },
+  { icon: 'M13 10V3L4 14h7v7l9-11h-7z', label: 'Gestió energètica', desc: 'Monitorització en temps real del consum per reduir la teva factura fins a un 40%.', href: '/ca/soluciones#energia' },
+  { icon: 'M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z', label: 'Control d\'accés', desc: 'Portes, garatges i intercomunicadors connectats i controlables des de qualsevol lloc.', href: '/ca/soluciones#acceso' },
+];
+
+const projects = [
+  { title: 'Casa a Badalona', cat: 'Residencial', desc: 'Automatització completa de 100 m² amb il·luminació, estorat, clima, seguretat i entreteniment multiroom.', img: '/img/proyectos-casa-en-badalona.jpg' },
+  { title: 'Restaurant a l\'Eixample', cat: 'Hostaleria', size: '350 m²', year: '2024', desc: 'Sistema de domòtica gastronòmica amb escenes d\'il·luminació per servei, música ambient adaptativa i control climàtic per zones de sala i cuina.', img: '/img/photo-1414235077428-338989a2e8c0.jpg'},
+  { title: 'Pis a Barcelona', cat: 'Residencial', desc: 'Reforma domòtica d\'un pis urbà a Barcelona amb escenes d\'il·luminació per saló i dormitoris, control climàtic eficient, persianes motoritzades i estalvi energètic.', img: '/img/proyectos-piso-barcelona.jpeg' },
+];
+
+const stats = [
+  { value: '+100', label: 'Instal·lacions', sub: 'completades' },
+  { value: '2+', label: 'Anys', sub: 'd\'experiència' },
+  { value: '24/7', label: 'Suport', sub: 'tècnic' },
+  { value: '100%', label: 'Clients', sub: 'satisfets' },
+];
+---
+
+<Layout
+  title="Empresa de Domòtica a Barcelona"
+  description="Domòtica a Barcelona per a llars i empreses. Automatitza il·luminació, climatització, seguretat i energia amb solucions a mida."
+  lang="ca"
+>
+
+  <!-- HERO -->
+  <section class="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/img/principal-hero-img.jpeg" alt="Sistema de domòtica 2SmartHome en un saló intel·ligent" class="w-full h-full object-cover" loading="eager"/>
+      <div class="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-950/70 to-slate-950"></div>
+    </div>
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center -translate-y-10 sm:-translate-y-14">
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.18] mb-8 sm:mb-10">
+        La teva llar,
+        <span class="block pb-2 text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-cyan-300">intel·ligent</span>
+      </h1>
+      <p class="text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Automatitzem llars i empreses a Barcelona per crear espais més còmodes, segurs i eficients. Control total des del teu smartphone.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/ca/soluciones" class="px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all duration-200 shadow-2xl shadow-sky-500/30 hover:scale-105">
+          Explorar solucions
+        </a>
+        <a href={urlHero} class="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold rounded-2xl transition-all duration-200">
+          Demanar pressupost inicial
+        </a>
+      </div>
+    </div>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500 text-xs uppercase tracking-widest">
+      <span>Descobrir</span>
+      <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="py-14 bg-slate-900 border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:divide-x lg:divide-slate-800">
+        {stats.map(s => (
+          <div class="text-center lg:px-8 fade-up">
+            <div class="text-4xl font-extrabold text-white mb-1">{s.value}</div>
+            <div class="text-sky-400 font-semibold text-sm">{s.label}</div>
+            <div class="text-slate-500 text-xs">{s.sub}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">El que fem</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Solucions completes de domòtica</h2>
+        <p class="text-slate-400 max-w-2xl mx-auto">Integrem tecnologia d'última generació per transformar qualsevol espai en un entorn intel·ligent, eficient i segur.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {solutions.map((s, i) => (
+          <article class="group p-7 bg-slate-900 border border-slate-800 rounded-2xl hover:border-sky-500/50 hover:bg-slate-800/60 transition-all duration-300 fade-up" style={`transition-delay:${i*70}ms`}>
+            <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d={s.label === 'Persianes i cortines' ? 'M4 5h16M6 8h12M6 11h12M6 14h12M6 17h12M12 5v15m-3 0h6' : s.icon}/>
+              </svg>
+            </div>
+            <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-sky-400 transition-colors">{s.label}</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-5">{s.desc}</p>
+            <a href={s.href} class="inline-flex items-center gap-2 text-sky-500 text-sm font-medium">
+              <span>Veure {s.label}</span>
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+        ))}
+      </div>
+      <div class="text-center mt-12 fade-up">
+        <a href="/ca/soluciones" class="inline-flex items-center gap-2 px-6 py-3 border border-slate-700 hover:border-sky-500/60 text-slate-300 hover:text-sky-400 rounded-xl transition-all duration-200 text-sm font-medium">
+          Veure totes les solucions
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="py-24 bg-gradient-to-b from-slate-900 to-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-14 gap-4 fade-up">
+        <div>
+          <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">La nostra feina</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white">Projectes destacats</h2>
+        </div>
+        <a href="/ca/proyectos" class="flex-shrink-0 inline-flex items-center gap-2 text-slate-400 hover:text-sky-400 transition-colors text-sm font-medium">
+          Veure projectes destacats
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {projects.map((p, i) => (
+          <article class="group rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 fade-up" style={`transition-delay:${i*100}ms`}>
+            <div class="relative h-52 overflow-hidden">
+              <img src={p.img} alt={p.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+              <span class="absolute top-4 left-4 px-3 py-1 bg-sky-500/90 text-white text-xs font-semibold rounded-full">{p.cat}</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-sky-400 transition-colors">{p.title}</h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-4">{p.desc}</p>
+              <a href="/ca/proyectos" class="inline-flex items-center gap-2 text-sky-500 text-sm font-medium">
+                Veure projecte {p.cat.toLowerCase()}
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="fade-up">
+          <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">Per què triar-nos?</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6 leading-snug">
+            No només instal·lem tecnologia,<br/>
+            <span class="text-sky-400">t'acompanyem</span>
+          </h2>
+          <p class="text-slate-400 leading-relaxed mb-8">
+            A 2SmartHome dissenyem solucions a mida per a cada client. No existeix un projecte igual perquè cada llar i empresa té necessitats úniques.
+          </p>
+          <ul class="space-y-5">
+            {[
+              { t: 'Sistemes locals, sense núvol', d: 'Les teves dades es queden a la teva llar, amb màxima privacitat i sense dependències externes.' },
+              { t: 'Instal·lació no intrusiva', d: 'Sistemes sense fils que no requereixen obres a habitatges ja construïts.' },
+              { t: 'Estalvi energètic real', d: 'Els nostres clients redueixen el seu consum elèctric fins a un 40%.' },
+              { t: 'Suport tècnic 24/7', d: 'Assistència remota i presencial sempre disponible per a qualsevol incidència.' },
+            ].map(item => (
+              <li class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-6 h-6 rounded-full bg-sky-500/20 border border-sky-500/40 flex items-center justify-center mt-0.5">
+                  <svg class="w-3.5 h-3.5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <div>
+                  <div class="text-white font-semibold">{item.t}</div>
+                  <div class="text-slate-400 text-sm leading-relaxed">{item.d}</div>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-10 flex gap-4">
+            <a href="/ca/quienes-somos" class="px-6 py-3 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-xl transition-colors shadow-lg shadow-sky-500/25">Conèixer l'equip</a>
+            <a href="/ca/proyectos" class="px-6 py-3 border border-slate-700 hover:border-sky-500/50 text-slate-300 hover:text-white rounded-xl transition-all">Veure casos reals</a>
+          </div>
+        </div>
+        <div class="relative fade-up">
+          <div class="rounded-3xl overflow-hidden shadow-2xl bg-slate-950">
+            <img src="/img/why-us-smart-panel.jpg" alt="Panell tàctil de domòtica integrat en cuina moderna" class="w-full h-[480px] object-cover object-center"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="py-24 bg-slate-900 border-t border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-up">
+      <div class="p-12 bg-gradient-to-br from-sky-500/10 via-slate-900 to-slate-900 border border-sky-500/20 rounded-3xl">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Llest per transformar el teu espai?</h2>
+        <p class="text-slate-400 mb-8 max-w-xl mx-auto">Contacta amb els nostres experts per a un assessorament personalitzat i un pressupost sense compromís.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href={urlPropuesta} class="px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all shadow-2xl shadow-sky-500/30 hover:scale-105">
+            Sol·licitar proposta a mida
+          </a>
+          <a href="tel:+34660877744" class="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold rounded-2xl transition-all">
+            Trucar ara
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
