@@ -9,6 +9,13 @@ interface Props {
   time: string;
   img: string;
   imgAlt?: string;
+  cta?: {
+    eyebrow?: string;
+    title?: string;
+    text?: string;
+    button?: string;
+    href?: string;
+  };
 }
 
 const {
@@ -19,7 +26,17 @@ const {
   time,
   img,
   imgAlt = title,
+  cta = {},
 } = Astro.props;
+
+const finalCta = {
+  eyebrow: '¿Listo para dar el salto?',
+  title: 'Hablemos de tu proyecto',
+  text: 'Visita gratuita y presupuesto sin compromiso. Nuestros expertos te asesoran sobre la mejor solución para tu hogar o empresa.',
+  button: 'Solicitar asesoramiento gratuito',
+  href: '/contacto',
+  ...cta,
+};
 ---
 
 <Layout title={title} description={description} noIndex={false}>
@@ -75,14 +92,13 @@ const {
 
       <!-- Bottom CTA -->
       <div class="mt-16 p-8 bg-slate-900 border border-sky-500/20 rounded-2xl text-center">
-        <p class="text-sky-400 text-xs font-semibold uppercase tracking-wider mb-3">¿Listo para dar el salto?</p>
-        <h3 class="text-2xl font-bold text-white mb-3">Hablemos de tu proyecto</h3>
-        <p class="text-slate-400 mb-6 max-w-sm mx-auto text-sm leading-relaxed">Visita gratuita y presupuesto sin compromiso. Nuestros expertos te asesoran sobre la mejor solución para tu hogar o empresa.</p>
-        <a href="/contacto" class="inline-block px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-xl transition-all shadow-lg shadow-sky-500/25 hover:scale-105">
-          Solicitar asesoramiento gratuito
+        <p class="text-sky-400 text-xs font-semibold uppercase tracking-wider mb-3">{finalCta.eyebrow}</p>
+        <h3 class="text-2xl font-bold text-white mb-3">{finalCta.title}</h3>
+        <p class="text-slate-400 mb-6 max-w-sm mx-auto text-sm leading-relaxed">{finalCta.text}</p>
+        <a href={finalCta.href} class="inline-block px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-xl transition-all shadow-lg shadow-sky-500/25 hover:scale-105">
+          {finalCta.button}
         </a>
       </div>
-
       <!-- Back to blog -->
       <div class="mt-10 text-center">
         <a href="/recursos" class="inline-flex items-center gap-2 text-sky-400 hover:text-sky-300 transition-colors font-medium text-sm">
