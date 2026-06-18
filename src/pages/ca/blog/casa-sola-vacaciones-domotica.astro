@@ -1,0 +1,119 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+
+<BlogPost
+  title="Casa sola a l'estiu: com la domòtica protegeix la teva llar en vacances"
+  description="Descobreix com el mode vacances de la domòtica manté la teva llar segura a Barcelona: simulació de presència, alertes en temps real i tancament automàtic en sortir."
+  cat="Llar"
+  date="Jun 2026"
+  time="6 min"
+  img="/blog_imgs/casa-sola-vacaciones-domotica.jpg"
+  lang="ca"
+  cta={{
+    eyebrow: 'Protegeix la teva llar aquest estiu',
+    title: 'Instal·la el mode vacances a casa teva',
+    text: "Et configurem el mode vacances a la teva llar intel·ligent de Barcelona: simulació de presència, alertes i tancament automàtic, tot integrat a Home Assistant.",
+    button: 'Consultar el meu projecte',
+    tipo: 'seguridad',
+    mensaje: "Hola, m'interessa instal·lar la funció mode vacances a la meva llar.\n· Tipus d'habitatge: [pis / casa / àtic]\n· Ja tens algun sistema de domòtica instal·lat? [sí / no]\n· Zona: [Barcelona / altra]\n· Pressupost aproximat:",
+  }}
+>
+
+  <p>
+    Cada mes de juny, milions de famílies a tot Espanya planifiquen les vacances d'estiu i es troben davant la mateixa pregunta: qui vigila la casa mentre som fora? A Barcelona, una ciutat amb alta densitat de pisos buits a l'agost, aquesta preocupació és especialment habitual. La resposta que cada vegada més propietaris troben en la domòtica és l'anomenat <strong>mode vacances</strong>: un conjunt d'automatitzacions dissenyades perquè la teva llar sembli habitada, rebi alertes si alguna cosa va malament i tot quedi correctament apagat i assegurat quan surts.
+  </p>
+  <p>
+    En aquest article expliquem com funciona aquest mode a la pràctica, quins elements necessites i què pots esperar en termes de tranquil·litat real.
+  </p>
+
+  <h2>Què és el mode vacances en domòtica?</h2>
+  <p>
+    El mode vacances és una sèrie d'automatitzacions que s'activen quan el sistema detecta —o tu li indiques— que l'habitatge estarà buit durant diversos dies. No es tracta d'un únic botó, sinó de la coordinació de diversos sistemes de la llar: il·luminació, persianes, sensors de moviment i notificacions al mòbil.
+  </p>
+  <p>
+    La idea central és senzilla: una casa que sembla buida és més atractiva per a un intrús que una que sembla habitada. Amb la domòtica ben configurada, els llums s'encenen i s'apaguen seguint un patró aleatori, les persianes pugen i baixen en horaris variables i qualsevol moviment detectat a l'interior t'arriba al mòbil en temps real, siguis on siguis.
+  </p>
+
+  <h2>Simulació de presència: llums i persianes que es mouen soles</h2>
+  <p>
+    La simulació de presència és la funció més valorada per les famílies que se'n van de vacances. Funciona així: en lloc de deixar totes les persianes abaixades i els llums apagats —que és el que fa qualsevol llar buida—, el sistema executa un programa aleatori basat en els hàbits reals dels habitants.
+  </p>
+  <p>
+    Pels matins, les persianes del saló pugen a una hora lleugerament diferent cada dia. Per les tardes, el llum de la cuina s'encén durant una hora. Per la nit, el llum del saló i del dormitori s'alternen seguint un patró que simula que algú està veient la televisió o llegint abans de dormir. Res d'això és fix ni previsible: el sistema introdueix variacions aleatòries perquè el patró no sigui repetitiu i, per tant, identificable.
+  </p>
+  <p>
+    Amb <strong>Home Assistant</strong>, aquesta automatització es configura en pocs minuts i es pot personalitzar completament: els horaris, les habitacions que es simulen, la intensitat del llum i la posició de les persianes. Tot sense quotes ni serveis externs.
+  </p>
+
+  <h2>Alertes en temps real: saber què passa sense ser-hi</h2>
+  <p>
+    Simular presència dissuadeix, però no és suficient. La segona pota del mode vacances és la detecció de moviment i les notificacions al mòbil. En una llar intel·ligent ben configurada, els sensors de moviment —col·locats als passadissos, al saló i als accessos principals— envien una alerta instantània al telèfon si detecten activitat mentre el sistema sap que la casa està buida.
+  </p>
+  <p>
+    Aquesta alerta no només arriba al propietari: es pot configurar per avisar també un familiar de confiança, el veí que té una còpia de les claus o directament a una central d'alarma. A Barcelona i l'àrea metropolitana, on els pisos d'estiu són un objectiu freqüent a l'agost, aquesta funció ha evitat més d'un disgust als nostres clients.
+  </p>
+  <p>
+    Els sensors de portes i finestres complementen el sistema: si s'obre una entrada que hauria d'estar tancada, l'avís és immediat. Tot això sense necessitat de contractar un servei d'alarma amb quota mensual, ja que el sistema funciona en local, sense intermediaris.
+  </p>
+
+  <h2>Tancament automàtic en sortir: el dia que t'oblides de tot</h2>
+  <p>
+    Sortir de viatge amb el cap ple de maletes, nens i llistes de coses pendents té un risc clar: oblidar-se d'apagar alguna cosa, tancar una persiana o verificar que la porta està ben tancada. La domòtica resol això amb una única acció: activar el mode vacances.
+  </p>
+  <p>
+    En activar-lo —des de l'app, amb un botó físic a la porta o automàticament quan el sistema detecta que els mòbils de tots els habitants han sortit de la xarxa WiFi de la llar— passa el següent en qüestió de segons:
+  </p>
+  <ul>
+    <li>S'apaguen tots els llums encesos.</li>
+    <li>El termòstat passa a un mode d'estalvi energètic (entre 26 i 28 °C a l'estiu).</li>
+    <li>Les persianes tanquen fins a la posició configurada.</li>
+    <li>Els endolls dels dispositius que no han de quedar-se en standby es tallen.</li>
+    <li>El sistema activa la detecció de presència interior.</li>
+  </ul>
+  <p>
+    Pots comprovar-ho tot des del mòbil en temps real, amb una vista de l'estat de l'habitatge, fins i tot abans d'arribar a l'aeroport o a l'autopista.
+  </p>
+
+  <h2>Integració amb Home Assistant: el cervell de la llar segura</h2>
+  <p>
+    Totes aquestes funcions es centralitzen a <strong>Home Assistant</strong>, la plataforma de domòtica open-source que fem servir a tots els nostres projectes a Barcelona i que funciona de forma completament local: no depèn de servidors externs, no envia dades a cap núvol i continua funcionant encara que hi hagi una tall d'internet.
+  </p>
+  <p>
+    Això és especialment rellevant en el context de vacances: si el router de casa té algun problema puntual de connexió, el sistema continua operatiu. Les alertes al mòbil s'envien quan hi ha connexió disponible, i les automatitzacions internes —simulació de presència, detecció de moviment— no s'interrompen.
+  </p>
+  <p>
+    Des de l'app oficial de Home Assistant, disponible per a iOS i Android, pots veure en temps real l'estat de cada element de la teva llar, rebre les notificacions push i activar o desactivar el mode vacances amb un toc, des de qualsevol part del món.
+  </p>
+
+  <h2>Quant costa implementar el mode vacances?</h2>
+  <p>
+    No cal una llar completament automatitzada per gaudir del mode vacances. Amb una instal·lació bàsica que inclogui sensors de moviment Zigbee, un parell de bombetes intel·ligents i un hub amb Home Assistant, el cost de partida pot situar-se entre 500 i 800 € en un pis tipus de Barcelona.
+  </p>
+  <p>
+    Si ja tens persianes amb motor o algun sistema d'il·luminació intel·ligent instal·lat, el cost es redueix considerablement: n'hi ha prou amb configurar les automatitzacions sobre el que ja existeix. En qualsevol cas, fem sempre una valoració gratuïta abans de pressupostar res.
+  </p>
+  <p>
+    Comparat amb el cost d'una alarma gestionada —amb quotes mensuals que van de 30 a 60 € al mes— un sistema de domòtica ben configurat suposa un estalvi real a partir del segon o tercer any, sense renunciar a cap funció de seguretat.
+  </p>
+
+  <h2>Casa segura en vacances: el que marca la diferència</h2>
+  <p>
+    Una casa que sembla habitada té moltes menys probabilitats de ser objectiu d'un robatori. Estudis del sector de la seguretat privada coincideixen que la simulació de presència és un dels factors dissuasoris més eficaços, especialment en zones urbanes denses com les de Barcelona o la seva àrea metropolitana.
+  </p>
+  <p>
+    Però la domòtica de vacances va més enllà de la dissuasió: també dóna informació. Saber que al teu pis tot està bé, que les persianes han baixat a l'hora de sempre i que no hi ha hagut cap alerta en els últims dies és el tipus de tranquil·litat que cap veí vigilant pot garantir completament.
+  </p>
+  <p>
+    A més, en tornar de vacances, el sistema pot activar automàticament el mode "benvinguda": les persianes pugen, la temperatura torna a valors confortables i els llums de l'accés s'encenen. La teva llar et rep com si sabés que arribes.
+  </p>
+
+  <h2>Conclusió</h2>
+  <p>
+    Anar de vacances hauria de ser sinònim de desconnectar, no de preocupació. Amb el <strong>mode vacances</strong> activat a la teva llar intel·ligent, pots estar a la platja o a la muntanya amb la certesa que les persianes es mouen soles, els llums simulen presència i rebràs un avís immediat si alguna cosa canvia a la teva vivenda.
+  </p>
+  <p>
+    A <strong>2SmartHome</strong> configurem aquest tipus de solucions a llars de Barcelona i la seva àrea metropolitana, adaptant-nos al que ja tens instal·lat i ampliant el sistema només on té sentit. Si te'n vas de viatge aquest estiu i vols marxar tranquil, podem fer una valoració sense compromís.
+  </p>
+
+</BlogPost>
