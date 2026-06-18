@@ -1,0 +1,116 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+
+<BlogPost
+  title="Cómo la iluminación inteligente puede mejorar tu sueño y tus mañanas"
+  description="Descubre cómo la iluminación inteligente sueño puede transformar tu descanso: luz circadiana, amanecer simulado y rutinas automatizadas con Home Assistant en Barcelona."
+  cat="Hogar"
+  date="Jun 2026"
+  time="6 min"
+  img="/blog_imgs/iluminacion-inteligente-sueno-mananas.jpg"
+  cta={{
+    eyebrow: 'Iluminación inteligente para tu hogar',
+    title: 'Mejora tu descanso con luz circadiana automatizada',
+    text: 'En 2SmartHome diseñamos sistemas de iluminación inteligente que se adaptan a tus rutinas, mejoran el sueño y hacen que cada mañana empiece de forma natural.',
+    button: 'Consultar mi proyecto',
+    tipo: 'iluminación',
+    mensaje: 'Hola, me interesa instalar iluminación inteligente en mi hogar para mejorar mi descanso y rutinas.\n· Número de habitaciones a iluminar:\n· Situación: [nueva construcción / reforma / vivienda ya construida]\n· Presupuesto aproximado:',
+  }}
+>
+
+  <p>
+    La <strong>iluminación inteligente</strong> ha dejado de ser un capricho tecnológico para convertirse en una herramienta real de bienestar. Uno de sus efectos más poderosos —y menos conocidos— es su impacto directo sobre el sueño y la calidad de las mañanas. La ciencia lo lleva documentando décadas: la luz es el principal sincronizador del ritmo circadiano humano, y controlarla con precisión puede marcar la diferencia entre despertarse descansado o arrastrar el cansancio durante todo el día.
+  </p>
+  <p>
+    En este artículo explicamos cómo funciona la relación entre la luz y el cuerpo, qué automatizaciones concretas puedes configurar y cómo hacerlo con Home Assistant, la plataforma que utilizamos en todos nuestros proyectos en Barcelona.
+  </p>
+
+  <h2>Cómo afecta la luz al ritmo circadiano</h2>
+  <p>
+    El ritmo circadiano es el reloj interno del cuerpo que regula el ciclo de vigilia y sueño en ciclos de aproximadamente 24 horas. Este reloj se sincroniza principalmente con la luz ambiental: la luz brillante y azulada activa el sistema nervioso y frena la producción de melatonina (la hormona del sueño), mientras que la luz tenue y cálida hace lo contrario.
+  </p>
+  <p>
+    El problema es que la mayoría de hogares modernos no adaptan la luz a lo largo del día. Seguimos expuestos a luz fría y brillante de pantallas y techos a las 22:00 h, y nos despertamos con alarmas sonoras en la oscuridad. Ambas situaciones van en contra de la fisiología del sueño y contribuyen a la fatiga crónica que afecta a millones de personas en grandes ciudades como Barcelona.
+  </p>
+  <p>
+    La <strong>iluminación circadiana</strong> o <em>human-centric lighting</em> es la respuesta tecnológica a este problema: ajustar automáticamente la temperatura de color e intensidad de la luz en función del momento del día.
+  </p>
+
+  <h2>El amanecer simulado: la mejor alarma que existe</h2>
+  <p>
+    La función más valorada por quienes ya tienen <strong>iluminación inteligente sueño</strong> en el dormitorio es el <strong>amanecer simulado</strong> (<em>wake-up light</em>). En lugar de ser arrancado del sueño por un sonido brusco, la habitación va iluminándose gradualmente durante los 20-30 minutos anteriores a la hora configurada, imitando el proceso natural del amanecer.
+  </p>
+  <p>
+    El efecto fisiológico es notable: el cuerpo interpreta el aumento progresivo de luz como una señal de que ha llegado el momento de despertar, y activa de forma suave los mecanismos de alerta. Las personas que utilizan esta función habitualmente describen despertar de forma más natural, sin la sensación de aturdimiento que deja la alarma sonora.
+  </p>
+
+  <h3>Cómo configurarlo en Home Assistant</h3>
+  <p>
+    En <strong>Home Assistant</strong>, esta automatización es sencilla de implementar con bombillas inteligentes que admiten ajuste de temperatura de color (como Philips Hue, IKEA Tradfri o Zigbee genéricas). La automatización puede dispararse a una hora fija o integrarse con tu alarma del móvil mediante la integración <em>Mobile App</em>. El resultado es un sistema que se adapta dinámicamente a tus horarios sin que tengas que tocar nada.
+  </p>
+  <p>
+    Una configuración típica empieza a las 6:45 h con una intensidad del 1 % y temperatura de 2.700 K (muy cálida), y llega al 80 % de intensidad y 4.000 K (luz blanca neutra) a las 7:15 h. Al incorporar esto a una rutina matutina completa, la luz del baño puede activarse en paralelo con música suave, facilitando la transición del dormitorio al día.
+  </p>
+
+  <h2>La escena de "buenas noches": preparar el cuerpo para dormir</h2>
+  <p>
+    Si el amanecer simulado es la herramienta para mejorar el despertar, la <strong>escena de buenas noches</strong> es su equivalente para la noche. A partir de cierta hora, la iluminación del hogar puede cambiar automáticamente para preparar el cuerpo al sueño:
+  </p>
+  <ul>
+    <li>Las luces del salón y la cocina se dimerizan progresivamente a partir de las 21:00 h.</li>
+    <li>La temperatura de color vira desde el blanco neutro (4.000–5.000 K) hacia tonos muy cálidos (2.200–2.700 K).</li>
+    <li>Al llegar al dormitorio, una escena específica activa luz de lectura tenue en la mesita de noche.</li>
+    <li>Si el sistema detecta que te has quedado dormido (sin movimiento durante un tiempo configurable), apaga la luz automáticamente.</li>
+  </ul>
+  <p>
+    Esta progresión de luz cálida y tenue en las horas previas al sueño favorece la producción natural de melatonina, reduce la sobreactivación provocada por pantallas brillantes y ayuda a acortar el tiempo que se tarda en conciliar el sueño.
+  </p>
+
+  <h2>Luz circadiana a lo largo del día</h2>
+  <p>
+    Más allá del amanecer y la noche, una instalación de iluminación bien diseñada adapta la temperatura de color durante todo el día:
+  </p>
+  <ul>
+    <li><strong>Mañana (7:00–10:00 h):</strong> luz blanca fría y brillante (5.000–6.500 K) para activar el estado de alerta.</li>
+    <li><strong>Mediodía (10:00–17:00 h):</strong> luz neutra para mantener la concentración y el rendimiento.</li>
+    <li><strong>Tarde-noche (17:00–21:00 h):</strong> transición progresiva hacia tonos más cálidos.</li>
+    <li><strong>Noche (21:00 h en adelante):</strong> luz muy cálida y tenue para la fase de relajación previa al sueño.</li>
+  </ul>
+  <p>
+    En Home Assistant, este ciclo completo se puede implementar con automatizaciones nativas o con el componente <em>Adaptive Lighting</em>, que calcula automáticamente la temperatura e intensidad adecuadas en cada momento del día según la posición del sol. Una vez configurado, el sistema funciona sin intervención.
+  </p>
+
+  <h2>Casos de uso reales en hogares de Barcelona</h2>
+  <p>
+    En los proyectos que realizamos en Barcelona, la iluminación circadiana es cada vez más demandada, especialmente en pisos interiores o con orientación norte donde la luz natural es limitada. La automatización de la temperatura de color compensa en parte la falta de exposición solar directa, manteniendo los ritmos circadianos más alineados durante el invierno o en meses con menos horas de luz.
+  </p>
+  <p>
+    También es una solución muy valorada por personas con trabajo en remoto que pasan muchas horas en casa: poder ajustar la iluminación del espacio de trabajo durante el día y notar una transición clara hacia el modo "descanso" al terminar la jornada mejora sensiblemente la desconexión.
+  </p>
+  <p>
+    Otro caso frecuente son familias con niños. Una rutina de iluminación que empieza a oscurecer el hogar a las 20:00 h facilita el proceso del baño y la cena antes de dormir, sin tensiones para apagar pantallas: la luz hace parte del trabajo sola.
+  </p>
+
+  <h2>Qué se necesita para empezar</h2>
+  <p>
+    Para implementar un sistema de iluminación circadiana en tu hogar se necesitan tres elementos básicos:
+  </p>
+  <ol>
+    <li><strong>Bombillas o focos inteligentes con ajuste de temperatura de color</strong> (no todas las bombillas inteligentes lo permiten; hay que verificar que admitan <em>color temperature</em> y no solo encendido/apagado o regulación de intensidad).</li>
+    <li><strong>Un hub domótico</strong> (en nuestro caso, Home Assistant) que permita crear automatizaciones basadas en hora del día, posición del sol o presencia detectada.</li>
+    <li><strong>Una planificación de zonas</strong>: dormitorio, salón, baño y cocina tienen necesidades distintas. Un diseño bien hecho no instala las mismas bombillas en todos los espacios.</li>
+  </ol>
+  <p>
+    En <strong>2SmartHome</strong> llevamos a cabo el diseño completo de la instalación, la selección de dispositivos y la configuración de todas las automatizaciones. El objetivo es que, una vez instalado, el sistema funcione sin que tengas que pensar en él: la luz cambia sola, adaptándose a ti.
+  </p>
+
+  <h2>Conclusión</h2>
+  <p>
+    La <strong>iluminación inteligente sueño</strong> es una de las inversiones con mayor retorno en términos de bienestar que se pueden hacer en un hogar. No se trata de tecnología por la tecnología, sino de replicar mediante automatizaciones lo que la naturaleza hacía gratis antes de que viviéramos bajo luz artificial todo el día.
+  </p>
+  <p>
+    Un amanecer suave que te saca del sueño de forma gradual, una mañana con luz activa para arrancar el día, y una noche con luz cálida que prepara el cuerpo para descansar: son cambios pequeños con impacto real y medible en la calidad del sueño y el estado de ánimo. Si quieres explorar cómo implementarlo en tu hogar en Barcelona, podemos hacer una valoración sin compromiso.
+  </p>
+
+</BlogPost>
