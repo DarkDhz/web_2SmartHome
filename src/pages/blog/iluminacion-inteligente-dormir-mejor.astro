@@ -1,0 +1,119 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+
+<BlogPost
+  title="Duerme mejor con iluminación inteligente: automatiza la luz de tu dormitorio"
+  description="Aprende cómo la iluminación inteligente en el dormitorio mejora el sueño: luz circadiana, apagado automático y amanecer simulado. Guía con costes para Barcelona."
+  cat="Iluminación"
+  date="Jun 2026"
+  time="6 min"
+  img="/blog_imgs/iluminacion-inteligente-dormir-mejor.jpg"
+  cta={{
+    eyebrow: 'Iluminación inteligente para tu hogar',
+    title: 'Automatiza la luz de tu dormitorio con Home Assistant',
+    text: 'Diseñamos y configuramos sistemas de iluminación inteligente que mejoran tu descanso: luz circadiana, rutinas de sueño y amanecer simulado integrados en tu hogar.',
+    button: 'Consultar mi proyecto',
+    tipo: 'iluminación dormitorio',
+    mensaje: 'Hola, quiero automatizar la iluminación de mi dormitorio para dormir mejor.\n· Tipo de vivienda: [piso / casa]\n· Superficie del dormitorio aproximada:\n· Iluminación actual: [bombillas estándar / ya tengo regulables / otra]\n· Presupuesto aproximado:',
+  }}
+>
+
+  <p>
+    La <strong>iluminación inteligente dormitorio</strong> es uno de los cambios con mayor impacto en la calidad del sueño que se puede hacer en un hogar moderno. No se trata solo de poder apagar la luz desde el móvil sin levantarte: se trata de que la propia luz de tu habitación trabaje a favor de tu ritmo biológico, de forma automática y sin que tengas que pensar en ello.
+  </p>
+  <p>
+    En este artículo explicamos por qué la luz afecta tanto al sueño, qué automatizaciones son más efectivas y cuánto cuesta implementarlas en un piso de Barcelona.
+  </p>
+
+  <h2>Por qué la luz afecta al sueño</h2>
+  <p>
+    El ojo humano tiene células fotorreceptoras —las células ganglionares de la retina— que son especialmente sensibles a la luz azul-blanca (longitudes de onda cortas, alrededor de 480 nm). Estas células envían señales directas al núcleo supraquiasmático, el "reloj biológico" del cerebro, que regula la producción de melatonina.
+  </p>
+  <p>
+    En términos prácticos: cuando tu entorno tiene luz brillante y azulada por la noche, tu cerebro interpreta que todavía es de día y suprime la producción de melatonina, la hormona que induce el sueño. Esto es exactamente lo que hacen las pantallas del móvil, el ordenador y también muchas bombillas LED convencionales instaladas en dormitorios.
+  </p>
+  <p>
+    La solución no es quedarse a oscuras a partir de las ocho: es cambiar el <strong>tipo de luz</strong> según la hora del día. La luz cálida (tonos ámbar, 2700-3000 K) no activa las células fotosensibles de la misma manera y permite que tu cuerpo prepare el sueño de forma natural.
+  </p>
+
+  <h2>Qué es la iluminación circadiana</h2>
+  <p>
+    La iluminación circadiana —también llamada "Human Centric Lighting" o HCL— es el sistema que adapta automáticamente el color y la intensidad de la luz al ciclo natural del día. Durante las mañanas y mediodía, la luz es más fría y brillante para favorecer la concentración y el estado de alerta. A medida que avanza la tarde, va virando hacia tonos más cálidos y tenues para preparar el cuerpo para el descanso.
+  </p>
+  <p>
+    Con <strong>Home Assistant</strong>, configurar un sistema de iluminación circadiana en el dormitorio es una automatización estándar que no requiere hardware especial: funciona con cualquier bombilla de color regulable compatible con Zigbee, Z-Wave o WiFi. El sistema simplemente programa transiciones graduales de temperatura de color y brillo a lo largo del día.
+  </p>
+
+  <h2>Las 4 automatizaciones que más mejoran el sueño</h2>
+
+  <h3>1. Transición suave a luz cálida por la noche</h3>
+  <p>
+    A partir de las 20:00 (o la hora que prefieras), las luces del dormitorio transicionan automáticamente hacia tonos ámbar cálidos al 30-40% de intensidad. Si ya tienes las luces encendidas cuando empieza la transición, el cambio es tan gradual que apenas lo percibes, pero el efecto en tu ritmo biológico es significativo.
+  </p>
+
+  <h3>2. Apagado automático al dormirse</h3>
+  <p>
+    Una de las automatizaciones más prácticas: la luz se apaga automáticamente a los 20-30 minutos de que las luces hayan bajado a mínimos o de que se detecte que no hay movimiento en la habitación. Nunca más quedarás dormido con la luz encendida ni tendrás que levantarte para apagarla.
+  </p>
+  <p>
+    Si tienes un sensor de movimiento en el dormitorio, la precisión aumenta: el sistema puede detectar si estás en la cama e inmóvil y acelerar el apagado.
+  </p>
+
+  <h3>3. Amanecer simulado</h3>
+  <p>
+    Esta es posiblemente la automatización con mayor impacto en el bienestar matutino. En lugar de que te despierte un pitido brusco, las luces empiezan a encenderse gradualmente 20-30 minutos antes de la hora configurada, simulando la salida del sol. El resultado es un despertar más natural y menos agresivo para el sistema nervioso.
+  </p>
+  <p>
+    Estudios de la Universidad de Surrey (UK) han mostrado que el amanecer simulado mejora el estado de ánimo por la mañana y reduce la inercia del sueño (esa sensación de pesadez al despertar). Con Home Assistant, el amanecer puede sincronizarse con la alarma del móvil o configurarse de forma independiente.
+  </p>
+
+  <h3>4. Modo "no molestar" con luz de orientación</h3>
+  <p>
+    Por la noche, si necesitas levantarte (al baño, a por agua), las luces del pasillo o del baño se encienden al mínimo con luz muy tenue y ámbar, suficiente para orientarte sin despertar completamente al cerebro. Cuando vuelves a la cama y no hay movimiento durante unos minutos, se apagan solas.
+  </p>
+
+  <h2>¿Qué hardware necesito?</h2>
+  <p>
+    Para implementar estas cuatro automatizaciones en un dormitorio no necesitas un sistema complejo. Lo básico es:
+  </p>
+  <ul>
+    <li><strong>Bombillas de color regulable:</strong> cualquier bombilla LED compatible con Zigbee (Ikea TRÅDFRI, Aqara, Philips Hue, Gledopto...) que permita ajustar temperatura de color y brillo. Precio aproximado: 10-25€ por bombilla.</li>
+    <li><strong>Hub Zigbee o coordinador Matter:</strong> para integrar las bombillas con Home Assistant. Si ya tienes Home Assistant instalado, solo necesitas añadir un coordinador Zigbee (SMLight SLZB-06, Sonoff Zigbee Dongle). Precio: 20-40€.</li>
+    <li><strong>Sensor de movimiento (opcional):</strong> mejora el apagado automático y el modo nocturno. Aqara o Sonoff ofrecen sensores Zigbee fiables por 15-25€.</li>
+  </ul>
+  <p>
+    En total, equipar un dormitorio con un sistema básico de iluminación circadiana puede costar entre <strong>60 y 120€ en hardware</strong>, más la configuración. En instalaciones profesionales en Barcelona, este sistema suele incluirse como parte de un proyecto domótico mayor.
+  </p>
+
+  <h2>Más allá del dormitorio: el baño y el pasillo</h2>
+  <p>
+    Los mismos principios se aplican al baño y al pasillo, con un matiz importante: en estos espacios la automatización más útil no es la luz circadiana sino el <strong>control por presencia</strong>. La luz se enciende cuando entras, se apaga cuando sales y, si es de noche, lo hace con brillo mínimo y temperatura cálida para no interferir con el sueño.
+  </p>
+  <p>
+    En pisos barceloneses donde el pasillo suele ser oscuro y estrecho, esta automatización también resuelve el problema de llegar a casa y no tener que buscar el interruptor a oscuras.
+  </p>
+
+  <h2>Coste de una instalación básica en Barcelona</h2>
+  <p>
+    Para un dormitorio principal en un piso barcelonés con 2-3 puntos de luz, un sistema básico de iluminación circadiana con Home Assistant tiene un coste aproximado de:
+  </p>
+  <ul>
+    <li>3 bombillas Zigbee regulables: 45-75€</li>
+    <li>Coordinador Zigbee (si no se tiene): 25-40€</li>
+    <li>Sensor de movimiento: 15-25€</li>
+    <li>Instalación y configuración: 80-120€</li>
+  </ul>
+  <p>
+    Total estimado: <strong>165-260€</strong> para un dormitorio completo. Si el hogar ya dispone de Home Assistant instalado, el coste se reduce considerablemente.
+  </p>
+
+  <h2>Conclusión</h2>
+  <p>
+    La iluminación inteligente para el dormitorio no es un lujo: es una de las mejoras con mejor relación coste-beneficio que se pueden hacer en un hogar. Con una inversión modesta y sin obras, es posible instalar un sistema que mejora de forma medible la calidad del sueño y del despertar, reduce el consumo eléctrico y elimina pequeñas fricciones del día a día.
+  </p>
+  <p>
+    En <strong>2SmartHome</strong> diseñamos e instalamos sistemas de iluminación inteligente integrados en proyectos domóticos completos, donde el dormitorio forma parte de un ecosistema coherente. Si quieres saber qué es posible en tu hogar, podemos hacer una valoración sin compromiso.
+  </p>
+
+</BlogPost>

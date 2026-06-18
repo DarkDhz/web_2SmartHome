@@ -1,0 +1,120 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+
+<BlogPost
+  title="Dorm millor amb il·luminació intel·ligent: automatitza la llum del dormitori"
+  description="Aprèn com la il·luminació intel·ligent al dormitori millora el son: llum circadiana, apagat automàtic i alba simulada. Guia amb costos per a Barcelona."
+  cat="Il·luminació"
+  date="Jun 2026"
+  time="6 min"
+  img="/blog_imgs/iluminacion-inteligente-dormir-mejor.jpg"
+  lang="ca"
+  cta={{
+    eyebrow: "Il·luminació intel·ligent per a la teva llar",
+    title: "Automatitza la llum del teu dormitori amb Home Assistant",
+    text: "Dissenyem i configurem sistemes d'il·luminació intel·ligent que milloren el teu descans: llum circadiana, rutines de son i alba simulada integrades a la teva llar.",
+    button: 'Consultar el meu projecte',
+    tipo: "il·luminació dormitori",
+    mensaje: "Hola, vull automatitzar la il·luminació del meu dormitori per dormir millor.\n· Tipus d'habitatge: [pis / casa]\n· Superfície aproximada del dormitori:\n· Il·luminació actual: [bombetes estàndard / ja en tinc de regulables / altra]\n· Pressupost aproximat:",
+  }}
+>
+
+  <p>
+    La <strong>il·luminació intel·ligent dormitori</strong> és un dels canvis amb major impacte en la qualitat del son que es pot fer en una llar moderna. No es tracta només de poder apagar la llum des del mòbil sense llevar-te: es tracta que la pròpia llum de la teva habitació treballi a favor del teu ritme biològic, de forma automàtica i sense que hagis de pensar-hi.
+  </p>
+  <p>
+    En aquest article expliquem per què la llum afecta tant el son, quines automatitzacions són més efectives i quant costa implementar-les en un pis de Barcelona.
+  </p>
+
+  <h2>Per què la llum afecta el son</h2>
+  <p>
+    L'ull humà té cèl·lules fotoreceptores —les cèl·lules ganglionars de la retina— que són especialment sensibles a la llum blava-blanca (longituds d'ona curtes, al voltant de 480 nm). Aquestes cèl·lules envien senyals directes al nucli supraquiasmàtic, el "rellotge biològic" del cervell, que regula la producció de melatonina.
+  </p>
+  <p>
+    En termes pràctics: quan el teu entorn té llum brillant i blavosa a la nit, el teu cervell interpreta que encara és de dia i suprimeix la producció de melatonina, l'hormona que indueix el son. Això és exactament el que fan les pantalles del mòbil, l'ordinador i també moltes bombetes LED convencionals instal·lades en dormitoris.
+  </p>
+  <p>
+    La solució no és quedar-se a les fosques a partir de les vuit: és canviar el <strong>tipus de llum</strong> segons l'hora del dia. La llum càlida (tons ambre, 2700-3000 K) no activa les cèl·lules fotosensibles de la mateixa manera i permet que el teu cos prepari el son de forma natural.
+  </p>
+
+  <h2>Què és la il·luminació circadiana</h2>
+  <p>
+    La il·luminació circadiana —també anomenada "Human Centric Lighting" o HCL— és el sistema que adapta automàticament el color i la intensitat de la llum al cicle natural del dia. Durant els matins i el migdia, la llum és més freda i brillant per afavorir la concentració i l'estat d'alerta. A mesura que avança la tarda, va virant cap a tons més càlids i tènues per preparar el cos per al descans.
+  </p>
+  <p>
+    Amb <strong>Home Assistant</strong>, configurar un sistema d'il·luminació circadiana en el dormitori és una automatització estàndard que no requereix maquinari especial: funciona amb qualsevol bombeta de color regulable compatible amb Zigbee, Z-Wave o WiFi. El sistema simplement programa transicions graduals de temperatura de color i brillantor al llarg del dia.
+  </p>
+
+  <h2>Les 4 automatitzacions que més milloren el son</h2>
+
+  <h3>1. Transició suau a llum càlida a la nit</h3>
+  <p>
+    A partir de les 20:00 (o l'hora que prefereixis), els llums del dormitori transicionen automàticament cap a tons ambre càlids al 30-40% d'intensitat. Si ja tens els llums encesos quan comença la transició, el canvi és tan gradual que gairebé no el notes, però l'efecte en el teu ritme biològic és significatiu.
+  </p>
+
+  <h3>2. Apagat automàtic en adormir-se</h3>
+  <p>
+    Una de les automatitzacions més pràctiques: la llum s'apaga automàticament als 20-30 minuts que els llums hagin baixat al mínim o de que es detecti que no hi ha moviment a l'habitació. Mai més et quedis adormit amb la llum encesa ni hagis de llevar-te per apagar-la.
+  </p>
+  <p>
+    Si tens un sensor de moviment al dormitori, la precisió augmenta: el sistema pot detectar si ets al llit i immòbil i accelerar l'apagat.
+  </p>
+
+  <h3>3. Alba simulada</h3>
+  <p>
+    Aquesta és possiblement l'automatització amb major impacte en el benestar matutí. En lloc que et desperti un so brusc, els llums comencen a encendre's gradualment 20-30 minuts abans de l'hora configurada, simulant la sortida del sol. El resultat és un despertar més natural i menys agressiu per al sistema nerviós.
+  </p>
+  <p>
+    Estudis de la Universitat de Surrey (UK) han mostrat que l'alba simulada millora l'estat d'ànim pel matí i redueix la inèrcia del son (aquella sensació de pesadesa en despertar-se). Amb Home Assistant, l'alba pot sincronitzar-se amb l'alarma del mòbil o configurar-se de forma independent.
+  </p>
+
+  <h3>4. Mode "no molestar" amb llum d'orientació</h3>
+  <p>
+    A la nit, si necessites llevar-te (al bany, a per aigua), els llums del passadís o del bany s'encenen al mínim amb llum molt tènue i ambre, suficient per orientar-te sense despertar completament el cervell. Quan tornes al llit i no hi ha moviment durant uns minuts, s'apaguen sols.
+  </p>
+
+  <h2>Quin maquinari necessito?</h2>
+  <p>
+    Per implementar aquestes quatre automatitzacions en un dormitori no necessites un sistema complex. El bàsic és:
+  </p>
+  <ul>
+    <li><strong>Bombetes de color regulable:</strong> qualsevol bombeta LED compatible amb Zigbee (Ikea TRÅDFRI, Aqara, Philips Hue, Gledopto...) que permeti ajustar temperatura de color i brillantor. Preu aproximat: 10-25€ per bombeta.</li>
+    <li><strong>Hub Zigbee o coordinador Matter:</strong> per integrar les bombetes amb Home Assistant. Si ja tens Home Assistant instal·lat, només cal afegir un coordinador Zigbee (SMLight SLZB-06, Sonoff Zigbee Dongle). Preu: 20-40€.</li>
+    <li><strong>Sensor de moviment (opcional):</strong> millora l'apagat automàtic i el mode nocturn. Aqara o Sonoff ofereixen sensors Zigbee fiables per 15-25€.</li>
+  </ul>
+  <p>
+    En total, equipar un dormitori amb un sistema bàsic d'il·luminació circadiana pot costar entre <strong>60 i 120€ en maquinari</strong>, més la configuració. En instal·lacions professionals a Barcelona, aquest sistema sol incloure's com a part d'un projecte domòtic major.
+  </p>
+
+  <h2>Més enllà del dormitori: el bany i el passadís</h2>
+  <p>
+    Els mateixos principis s'apliquen al bany i al passadís, amb un matís important: en aquests espais l'automatització més útil no és la llum circadiana sinó el <strong>control per presència</strong>. La llum s'encén quan entres, s'apaga quan surts i, si és de nit, ho fa amb brillantor mínima i temperatura càlida per no interferir amb el son.
+  </p>
+  <p>
+    En pisos barcelonins on el passadís sol ser fosc i estret, aquesta automatització també resol el problema d'arribar a casa i no haver de buscar l'interruptor a les fosques.
+  </p>
+
+  <h2>Cost d'una instal·lació bàsica a Barcelona</h2>
+  <p>
+    Per a un dormitori principal en un pis barceloní amb 2-3 punts de llum, un sistema bàsic d'il·luminació circadiana amb Home Assistant té un cost aproximat de:
+  </p>
+  <ul>
+    <li>3 bombetes Zigbee regulables: 45-75€</li>
+    <li>Coordinador Zigbee (si no es té): 25-40€</li>
+    <li>Sensor de moviment: 15-25€</li>
+    <li>Instal·lació i configuració: 80-120€</li>
+  </ul>
+  <p>
+    Total estimat: <strong>165-260€</strong> per a un dormitori complet. Si la llar ja disposa de Home Assistant instal·lat, el cost es redueix considerablement.
+  </p>
+
+  <h2>Conclusió</h2>
+  <p>
+    La il·luminació intel·ligent per al dormitori no és un luxe: és una de les millores amb millor relació cost-benefici que es poden fer en una llar. Amb una inversió modesta i sense obres, és possible instal·lar un sistema que millora de forma mesurable la qualitat del son i del despertar, redueix el consum elèctric i elimina petites friccions del dia a dia.
+  </p>
+  <p>
+    A <strong>2SmartHome</strong> dissenyem i instal·lem sistemes d'il·luminació intel·ligent integrats en projectes domòtics complets, on el dormitori forma part d'un ecosistema coherent. Si vols saber què és possible a la teva llar, podem fer una valoració sense compromís.
+  </p>
+
+</BlogPost>
