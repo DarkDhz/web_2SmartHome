@@ -4,114 +4,110 @@ import BlogPost from '../../../layouts/BlogPost.astro';
 
 <BlogPost
   title="Com la il·luminació intel·ligent pot millorar el teu son i els teus matins"
-  description="Descobreix com la il·luminació intel·ligent son pot transformar el teu descans: llum circadiana, alba simulada i rutines automatitzades amb Home Assistant a Barcelona."
-  cat="Llar"
-  date="Jun 2026"
+  description="Descobreix com la il·luminació intel·ligent millora el son amb llum circadiana, alba simulada i rutines de Home Assistant per dormir millor a Barcelona."
+  cat="Il·luminació"
+  date="Juny 2026"
   time="6 min"
   img="/blog_imgs/iluminacion-inteligente-sueno-mananas.jpg"
   lang="ca"
   cta={{
-    eyebrow: "Il·luminació intel·ligent per a la teva llar",
-    title: 'Millora el teu descans amb llum circadiana automatitzada',
-    text: "A 2SmartHome dissenyem sistemes d'il·luminació intel·ligent que s'adapten a les teves rutines, milloren el son i fan que cada matí comenci de forma natural.",
+    eyebrow: "Il·luminació que treballa pel teu benestar",
+    title: "Dissenyem la il·luminació circadiana de la teva llar",
+    text: "Seleccionem els dispositius adequats i configurem rutines d'il·luminació a Home Assistant per millorar el teu descans i els teus matins.",
     button: 'Consultar el meu projecte',
-    tipo: "il·luminació",
-    mensaje: "Hola, m'interessa instal·lar il·luminació intel·ligent a la meva llar per millorar el meu descans i les meves rutines.\n· Nombre d'habitacions a il·luminar:\n· Situació: [nova construcció / reforma / habitatge ja construït]\n· Pressupost aproximat:",
+    tipo: 'il·luminació',
+    mensaje: "Hola, m'interessa la il·luminació circadiana per a la meva llar.\n· Tipus d'habitatge: [pis / casa / àtic]\n· Habitacions a il·luminar: [dormitori / sala d'estar / tota la casa]\n· Sistema actual: [sense domòtica / amb domòtica bàsica / amb Home Assistant]\n· Pressupost aproximat:",
   }}
 >
 
   <p>
-    La <strong>il·luminació intel·ligent</strong> ha deixat de ser un caprici tecnològic per convertir-se en una eina real de benestar. Un dels seus efectes més poderosos —i menys coneguts— és el seu impacte directe sobre el son i la qualitat dels matins. La ciència ho documenta des de fa dècades: la llum és el principal sincronitzador del ritme circadià humà, i controlar-la amb precisió pot marcar la diferència entre despertar-se descansat o arrossegar el cansament durant tot el dia.
+    Hi ha una cosa que saps quan ho vius: llevar-te amb una alarma sonora brutal i fer-ho amb una llum que creix lentament, imitant l'alba, són dues experiències completament diferents. La primera t'arrenca del son; la segona te'n treu. La <strong>il·luminació intel·ligent</strong>, ben configurada, pot transformar com comences i com acabes cada dia.
   </p>
   <p>
-    En aquest article expliquem com funciona la relació entre la llum i el cos, quines automatitzacions concretes pots configurar i com fer-ho amb Home Assistant, la plataforma que fem servir en tots els nostres projectes a Barcelona.
-  </p>
-
-  <h2>Com afecta la llum al ritme circadià</h2>
-  <p>
-    El ritme circadià és el rellotge intern del cos que regula el cicle de vigília i son en cicles d'aproximadament 24 hores. Aquest rellotge se sincronitza principalment amb la llum ambiental: la llum brillant i blavosa activa el sistema nerviós i frena la producció de melatonina (l'hormona del son), mentre que la llum tènue i càlida fa el contrari.
-  </p>
-  <p>
-    El problema és que la majoria de llars modernes no adapten la llum al llarg del dia. Continuem exposats a llum freda i brillant de pantalles i sostres a les 22:00 h, i ens despertem amb alarmes sonores en la foscor. Totes dues situacions van en contra de la fisiologia del son i contribueixen a la fatiga crònica que afecta milions de persones a grans ciutats com Barcelona.
-  </p>
-  <p>
-    La <strong>il·luminació circadiana</strong> o <em>human-centric lighting</em> és la resposta tecnològica a aquest problema: ajustar automàticament la temperatura de color i la intensitat de la llum en funció del moment del dia.
+    En aquest article expliquem per què la llum importa més del que sembla per al descans, què fa exactament la il·luminació intel·ligent aplicada al son, i com configurar rutines reals a Home Assistant per millorar tant els matins com les nits.
   </p>
 
-  <h2>L'alba simulada: el millor despertador que existeix</h2>
+  <h2>La llum i el ritme circadià: el que la ciència porta anys confirmant</h2>
   <p>
-    La funció més valorada per qui ja té <strong>il·luminació intel·ligent son</strong> al dormitori és l'<strong>alba simulada</strong> (<em>wake-up light</em>). En lloc de ser arrencat del son per un so brusc, l'habitació s'il·lumina gradualment durant els 20-30 minuts anteriors a l'hora configurada, imitant el procés natural de l'alba.
+    L'ésser humà està programat per relacionar la llum amb l'estat d'activació. Quan els fotoreceptors de l'ull detecten llum blava —la de longitud d'ona curta que domina en les pantalles i en la llum de dia—, el cervell inhibeix la producció de melatonina, l'hormona del son, i activa el cortisol, que ens posa en mode alerta. Quan cau la foscor i la llum vira cap al vermell i el taronja (com en un capvespre), el procés s'inverteix: la melatonina puja i el cos es prepara per dormir.
   </p>
   <p>
-    L'efecte fisiològic és notable: el cos interpreta l'augment progressiu de llum com un senyal que ha arribat el moment de despertar, i activa de forma suau els mecanismes d'alerta. Les persones que fan servir aquesta funció habitualment descriuen despertar-se de forma més natural, sense la sensació d'embotament que deixa l'alarma sonora.
-  </p>
-
-  <h3>Com configurar-ho a Home Assistant</h3>
-  <p>
-    A <strong>Home Assistant</strong>, aquesta automatització és senzilla d'implementar amb bombetes intel·ligents que admeten ajust de temperatura de color (com Philips Hue, IKEA Tradfri o Zigbee genèriques). L'automatització pot disparar-se a una hora fixa o integrar-se amb la teva alarma del mòbil mitjançant la integració <em>Mobile App</em>. El resultat és un sistema que s'adapta dinàmicament als teus horaris sense que hagis de tocar res.
-  </p>
-  <p>
-    Una configuració típica comença a les 6:45 h amb una intensitat de l'1 % i una temperatura de 2.700 K (molt càlida), i arriba al 80 % d'intensitat i 4.000 K (llum blanca neutra) a les 7:15 h. En incorporar-ho a una rutina matutina completa, la llum del bany pot activar-se en paral·lel amb música suau, facilitant la transició del dormitori al dia.
+    El problema és que les llars modernes interrompen aquest cicle. Les llums LED de sostre, les pantalles de mòbils i televisions emeten llum blava fins a mitjanit, confonen el cervell amb senyals que indiquen que és migdia. El resultat és una dificultat per conciliar el son que moltes persones a Barcelona atribueixen a l'estrès o al ritme urbà, quan sovint té molt a veure amb la il·luminació de l'última hora del dia.
   </p>
 
-  <h2>L'escena de "bona nit": preparar el cos per dormir</h2>
+  <h2>Il·luminació intel·ligent i son: com ho resol la domòtica</h2>
   <p>
-    Si l'alba simulada és l'eina per millorar el despertar, l'<strong>escena de bona nit</strong> és l'equivalent per a la nit. A partir d'una certa hora, la il·luminació de la llar pot canviar automàticament per preparar el cos al son:
+    Amb un sistema d'<strong>il·luminació intel·ligent</strong> integrat a <strong>Home Assistant</strong>, pots automatitzar la temperatura de color i la intensitat de la llum en funció de l'hora del dia, replicant de forma artificial el cicle natural de la llum solar. Això és el que es coneix com a <strong>llum circadiana</strong>.
+  </p>
+
+  <h3>A la tarda-nit: preparar el cos per dormir</h3>
+  <p>
+    Des del migdia, les llums de casa emeten llum blanca freda (5.000–6.500 K), que afavoreix la concentració i el rendiment. A partir de les 20:00, la temperatura de color baixa automàticament cap als 2.700–3.000 K: tons càlids, ataronjats, similars a la llum d'un llum de sal o d'una espelma. La intensitat també baixa progressivament.
+  </p>
+  <p>
+    L'escena de «bona nit» es pot activar automàticament a una hora fixa o quan el sistema detecta que ets al dormitori. Quan arribes al llit i apagues la llum, el cos ja porta hores rebent el senyal correcte: és hora de dormir.
+  </p>
+
+  <h3>Al matí: l'alba simulada</h3>
+  <p>
+    En lloc d'una alarma que t'arrenca del son, la persiana del dormitori puja a poc a poc mentre la llum de la tauleta de nit augmenta gradualment des del 0% fins al 40% en 20–30 minuts, començant amb tons molt càlids (1.800 K) i pujant cap als 3.500 K quan ja és hora de llevar-se.
+  </p>
+  <p>
+    Aquest procés imita el que fa el sol de forma natural, i el seu efecte sobre el cos és molt diferent al de qualsevol alarma sonora. Els estudis sobre simuladors d'alba mostren que faciliten el despertar en les fases de son lleuger, redueixen el grogginess matutí —aquella sensació de no haver descansat bé— i milloren l'estat d'ànim durant les primeres hores del dia.
+  </p>
+  <p>
+    A Home Assistant, aquesta automatització es configura amb la integració <strong>Adaptive Lighting</strong> o amb automatitzacions natives que llegeixen l'hora de l'alba segons la ubicació geogràfica (Barcelona, en aquest cas) i ajusten els valors dia a dia segons l'estació de l'any.
+  </p>
+
+  <h2>Quines bombetes i dispositius necessites</h2>
+  <p>
+    No totes les bombetes intel·ligents permeten controlar la temperatura de color. Perquè les rutines circadianes funcionin, necessites:
   </p>
   <ul>
-    <li>Les llums del saló i la cuina es van dimerant progressivament a partir de les 21:00 h.</li>
-    <li>La temperatura de color vira des del blanc neutre (4.000–5.000 K) cap a tons molt càlids (2.200–2.700 K).</li>
-    <li>En arribar al dormitori, una escena específica activa llum de lectura tènue a la tauleta de nit.</li>
-    <li>Si el sistema detecta que t'has quedat adormit (sense moviment durant un temps configurable), apaga la llum automàticament.</li>
+    <li><strong>Bombetes RGBWW o CCT</strong> (Color Correlated Temperature): permeten ajustar tant el color com la temperatura de blanc. N'hi ha disponibles en Zigbee (Philips Hue, Ikea Tradfri, Sonoff, Lidl Livarno) i en WiFi (Govee, Tuya).</li>
+    <li><strong>Tires LED regulables</strong> en temperatura de color per a zones de relaxació com la sala d'estar o el dormitori.</li>
+    <li><strong>Un hub Zigbee</strong> si optes per dispositius Zigbee —que és el que recomanem a 2SmartHome per la seva estabilitat i funcionament 100% local, sense dependre de servidors al núvol—.</li>
   </ul>
   <p>
-    Aquesta progressió de llum càlida i tènue en les hores prèvies al son afavoreix la producció natural de melatonina, redueix la sobreactivació provocada per pantalles brillants i ajuda a escurçar el temps que es tarda a conciliar el son.
+    Les bombetes que només encenen i apaguen sense regular ni canviar de color no són suficients per a aquestes rutines, tot i que sí que serveixen per a automatitzacions bàsiques de presència o encesa programada.
   </p>
 
-  <h2>Llum circadiana al llarg del dia</h2>
+  <h2>Rutines pràctiques d'il·luminació per al dia a dia</h2>
+
+  <h3>Escena «Nit de pel·lícula»</h3>
   <p>
-    Més enllà de l'alba i la nit, una instal·lació d'il·luminació ben dissenyada adapta la temperatura de color durant tot el dia:
-  </p>
-  <ul>
-    <li><strong>Matí (7:00–10:00 h):</strong> llum blanca freda i brillant (5.000–6.500 K) per activar l'estat d'alerta.</li>
-    <li><strong>Migdia (10:00–17:00 h):</strong> llum neutra per mantenir la concentració i el rendiment.</li>
-    <li><strong>Tarda-vespre (17:00–21:00 h):</strong> transició progressiva cap a tons més càlids.</li>
-    <li><strong>Nit (21:00 h en endavant):</strong> llum molt càlida i tènue per a la fase de relaxació prèvia al son.</li>
-  </ul>
-  <p>
-    A Home Assistant, aquest cicle complet es pot implementar amb automatitzacions natives o amb el component <em>Adaptive Lighting</em>, que calcula automàticament la temperatura i la intensitat adequades a cada moment del dia segons la posició del sol. Un cop configurat, el sistema funciona sense intervenció.
+    Quan actives aquesta escena des del mòbil o per veu, la sala d'estar passa a llum molt tènue i càlida (10%, 2.200 K) mentre la televisió s'encén. No cal tocar res més. Pots configurar que es desfaci automàticament quan la tele s'apagui o a una hora fixa.
   </p>
 
-  <h2>Casos d'ús reals en llars de Barcelona</h2>
+  <h3>Rutina de despertar progressiu</h3>
   <p>
-    En els projectes que realitzem a Barcelona, la il·luminació circadiana és cada vegada més demandada, especialment en pisos interiors o amb orientació nord on la llum natural és limitada. L'automatització de la temperatura de color compensa en part la manca d'exposició solar directa, mantenint els ritmes circadians més alineats durant l'hivern o en mesos amb menys hores de llum.
-  </p>
-  <p>
-    També és una solució molt valorada per persones amb treball en remot que passen moltes hores a casa: poder ajustar la il·luminació de l'espai de treball durant el dia i notar una transició clara cap al mode "descans" en acabar la jornada millora sensiblement la desconnexió.
-  </p>
-  <p>
-    Un altre cas freqüent són famílies amb nens. Una rutina d'il·luminació que comença a enfosquir la llar a les 20:00 h facilita el procés del bany i el sopar abans de dormir, sense tensions per apagar pantalles: la llum fa part de la feina sola.
+    30 minuts abans de l'hora de llevar-te —configurable per dia de la setmana—, la tauleta de nit i les persianes inicien el cicle d'alba. Els dilluns es poden configurar per a les 7:00; els dissabtes, per a les 9:00. El sistema sap quin dia és i actua en conseqüència.
   </p>
 
-  <h2>Què cal per començar</h2>
+  <h3>Apagat automàtic en sortir</h3>
   <p>
-    Per implementar un sistema d'il·luminació circadiana a la teva llar calen tres elements bàsics:
-  </p>
-  <ol>
-    <li><strong>Bombetes o focus intel·ligents amb ajust de temperatura de color</strong> (no totes les bombetes intel·ligents ho permeten; cal verificar que admetin <em>color temperature</em> i no només encès/apagat o regulació d'intensitat).</li>
-    <li><strong>Un hub domòtic</strong> (en el nostre cas, Home Assistant) que permeti crear automatitzacions basades en hora del dia, posició del sol o presència detectada.</li>
-    <li><strong>Una planificació de zones</strong>: dormitori, saló, bany i cuina tenen necessitats diferents. Un disseny ben fet no instal·la les mateixes bombetes a tots els espais.</li>
-  </ol>
-  <p>
-    A <strong>2SmartHome</strong> duem a terme el disseny complet de la instal·lació, la selecció de dispositius i la configuració de totes les automatitzacions. L'objectiu és que, un cop instal·lat, el sistema funcioni sense que hagis de pensar-hi: la llum canvia sola, adaptant-se a tu.
+    Quan el sistema detecta que no queda ningú a casa, totes les llums s'apaguen. Sense excepcions, sense el dubte «vaig apagar la llum del bany?».
   </p>
 
-  <h2>Conclusió</h2>
+  <h3>Sensor de presència al dormitori</h3>
   <p>
-    La <strong>il·luminació intel·ligent son</strong> és una de les inversions amb major retorn en termes de benestar que es poden fer en una llar. No es tracta de tecnologia per la tecnologia, sinó de replicar mitjançant automatitzacions el que la natura feia gratuïtament abans que visquéssim sota llum artificial tot el dia.
+    Un sensor de presència mmWave pot detectar si continues al llit i mantenir la llum apagada tot i que sigui de dia. Només activa l'alba simulada si detecta que portes una estona immòbil, evitant activacions errònies quan simplement passes per l'habitació.
+  </p>
+
+  <h2>Adaptive Lighting: la integració de Home Assistant que ho fa automàtic</h2>
+  <p>
+    Una de les integracions més populars de l'ecosistema de Home Assistant és <strong>Adaptive Lighting</strong>. Un cop configurada, ajusta automàticament la temperatura de color i la lluminositat de totes les llums de la casa al llarg del dia seguint la posició del sol a la teva ubicació exacta —en aquest cas, Barcelona o qualsevol municipi de l'àrea metropolitana—.
   </p>
   <p>
-    Una alba suau que et treu del son de forma gradual, un matí amb llum activa per engegar el dia, i una nit amb llum càlida que prepara el cos per descansar: són canvis petits amb un impacte real i mesurable en la qualitat del son i l'estat d'ànim. Si vols explorar com implementar-ho a la teva llar a Barcelona, podem fer una valoració sense compromís.
+    No necessites crear desenes d'automatitzacions manuals: Adaptive Lighting fa la feina per tu, i pots sobreescriure qualsevol llum quan ho necessitis (per exemple, per llegir o treballar amb més intensitat) sense que afecti el comportament general del sistema.
+  </p>
+
+  <h2>Per què val la pena configurar-ho bé des del principi</h2>
+  <p>
+    Una mala il·luminació intel·ligent és pitjor que cap: llums que s'activen soles quan no haurien de fer-ho, temperatures de color que no canvien, o sistemes que depenen d'una app al núvol que un dia deixa de funcionar. Per això a <strong>2SmartHome</strong> configurem totes aquestes rutines amb Home Assistant corrent en local, sense dependència de servidors externs, amb automatitzacions robustes que funcionen igual si hi ha internet o no.
+  </p>
+  <p>
+    Si vius a Barcelona o a l'àrea metropolitana i vols millorar el teu descans amb <strong>il·luminació circadiana</strong>, podem fer una valoració de la teva llar i proposar-te els dispositius i la configuració més adequats per al teu cas concret.
   </p>
 
 </BlogPost>
