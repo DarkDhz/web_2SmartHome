@@ -223,6 +223,15 @@ const localBusinessSchema = {
     <Analytics />
     <SpeedInsights />
 
+    <!-- Google Analytics 4 -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-GS31FY434F"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GS31FY434F');
+    </script>
+
     <style>
       html { scroll-behavior: smooth; }
       ::-webkit-scrollbar { width: 6px; }
@@ -266,6 +275,7 @@ const localBusinessSchema = {
 
       document.getElementById('whatsapp-btn')?.addEventListener('click', () => {
         track('whatsapp_click', { page: window.location.pathname });
+        gtag('event', 'whatsapp_click', { page: window.location.pathname });
       });
     </script>
   </body>

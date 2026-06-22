@@ -134,6 +134,22 @@ Kept minimal and inline via `<script>` tags:
 - **Recursos:** FAQ accordion + "load more" articles button
 - **Contacto:** async form submission with success/error states; reads `tipo`/`mensaje` query params on load
 
+### Analytics
+
+Two analytics providers run in parallel — both are loaded via `Layout.astro` and therefore cover every page automatically.
+
+- **Vercel Analytics + SpeedInsights** — imported as Astro components (`@vercel/analytics/astro`, `@vercel/speed-insights/astro`). Custom events use `import { track } from '@vercel/analytics'`.
+- **Google Analytics 4** (`G-GS31FY434F`) — loaded via two inline `<script is:inline>` tags in the `<head>`. Custom events call the global `gtag('event', name, params)`.
+
+When adding a new trackable interaction, fire **both** `track(...)` and `gtag('event', ...)` so both platforms receive it.
+
+Currently instrumented events:
+
+| Event name | Where | Trigger |
+|---|---|---|
+| `whatsapp_click` | `Layout.astro` inline script | Click on the floating WhatsApp button |
+| `contact_form_submitted` | `contacto.astro` + `ca/contacto.astro` | Successful Web3Forms submission |
+
 ### GEO (Generative Engine Optimization)
 
 `public/llms.txt` — structured Markdown file for AI crawlers (ChatGPT, Perplexity, etc.), following the [llms.txt spec](https://llmstxt.org/). Keep it in sync when adding new pages or blog posts: update the pages list and append a new entry to the Blog section.
