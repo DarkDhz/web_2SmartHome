@@ -59,20 +59,30 @@ const t = lang === 'ca' ? {
 <script>
   const STORAGE_KEY = 'cookie_consent';
   const banner = document.getElementById('cookie-banner');
-  const g = (window as any).gtag as ((...args: any[]) => void) | undefined;
 
-  function grantConsent() {
-    g?.('consent', 'update', {
+  function gtag(...args: any[]) {
+    (window as any).gtag?.(...args);
+  }
+
+  function grantConsent(sendPageView = false) {
+    gtag('consent', 'update', {
       analytics_storage: 'granted',
       ad_storage: 'granted',
       ad_user_data: 'granted',
       ad_personalization: 'granted',
     });
+    if (sendPageView) {
+      // Re-fire page_view since the initial one fired while consent was denied
+      gtag('event', 'page_view', {
+        page_title: document.title,
+        page_location: window.location.href,
+      });
+    }
   }
 
   // Restore consent for returning visitors who already accepted
   if (localStorage.getItem(STORAGE_KEY) === 'accepted') {
-    grantConsent();
+    grantConsent(false);
   } else if (!localStorage.getItem(STORAGE_KEY)) {
     banner?.classList.remove('hidden');
   }
@@ -83,7 +93,7 @@ const t = lang === 'ca' ? {
   }
 
   document.getElementById('cookie-accept')?.addEventListener('click', () => {
-    grantConsent();
+    grantConsent(true);
     dismiss('accepted');
   });
   document.getElementById('cookie-reject')?.addEventListener('click', () => dismiss('rejected'));
