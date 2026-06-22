@@ -51,6 +51,7 @@
 ## Blog — artículos
 
 - [Duerme mejor con iluminación inteligente](https://www.2smarthome.es/blog/iluminacion-inteligente-dormir-mejor) — Cómo automatizar la luz del dormitorio para mejorar el sueño: luz circadiana, amanecer simulado y apagado automático.
+- [Ahorro en aire acondicionado con domótica en Barcelona](https://www.2smarthome.es/blog/ahorro-aire-acondicionado-domotica-barcelona) — Cálculo de ahorro real en climatización con datos del ICAEN y automatizaciones de Home Assistant para el verano barcelonés.
 - [Cómo automatizar persianas sin cambiar el motor](https://www.2smarthome.es/blog/automatizar-persianas) — Guía práctica para motorizar persianas existentes con adaptadores inteligentes Shelly/Somfy. Sin obras.
 - [Domótica en un piso de Barcelona: guía completa](https://www.2smarthome.es/blog/hogar-inteligente-barcelona-piso) — Cómo instalar domótica en un piso de Barcelona sin obras ni permisos de comunidad.
 - [KNX vs Home Assistant: ¿cuál elegir?](https://www.2smarthome.es/blog/knx-vs-home-assistant) — Comparativa entre sistemas profesionales KNX y plataformas open-source como Home Assistant.
