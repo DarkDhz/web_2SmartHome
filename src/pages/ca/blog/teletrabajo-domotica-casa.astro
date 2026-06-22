@@ -1,0 +1,124 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+
+<BlogPost
+  title="Teletreball i domòtica: crea la teva oficina intel·ligent a casa"
+  description="Com automatitzar el teu espai de teletreball a Barcelona amb escenes d'il·luminació, control de persianes i mode concentració que s'activen sols quan encens l'ordinador."
+  cat="Llar"
+  date="Jun 2026"
+  time="6 min"
+  img="/blog_imgs/teletrabajo-domotica-casa.jpg"
+  lang="ca"
+  cta={{
+    eyebrow: 'La teva oficina a casa, automatitzada',
+    title: "Dissenya un espai de teletreball que funciona sol",
+    text: "Creem escenes domòtiques personalitzades per a la teva zona de treball a casa: il·luminació, persianes, clima i concentració amb un sol toc o de forma completament automàtica.",
+    button: 'Consultar el meu projecte',
+    tipo: 'teletreball domòtica',
+    mensaje: "Hola, treballo des de casa i m'interessa automatitzar el meu espai de teletreball.\n· Tipus d'estança que faig servir com a oficina: [habitació / saló / estudi / altra]\n· Què vull automatitzar: [il·luminació / persianes / clima / tot]\n· Tipus d'habitatge: [pis / casa]\n· Barri o ciutat:\n· Ja teniu algun sistema domòtic instal·lat? [sí / no]",
+  }}
+>
+
+  <p>
+    El teletreball ha transformat la relació dels barcelonins amb la seva llar. El que abans era el saló, ara també és l'oficina. El que abans era l'habitació de convidats, ara és el despatx permanent. I el que abans podia ser un espai genèric, ara necessita adaptar-se a dues funcions completament diferents segons l'hora del dia.
+  </p>
+  <p>
+    La domòtica orientada al teletreball ofereix exactament això: automatitzacions que converteixen el teu espai de treball a casa en un entorn preparat per concentrar-te, i que el tornen a mode descans quan acabes la jornada. Sense aixecar-te. Sense complicacions.
+  </p>
+
+  <h2>El problema del teletreball en pisos barcelonins</h2>
+  <p>
+    A Barcelona, la majoria de pisos no van ser dissenyats pensant en el teletreball. Els espais són polivalents per necessitat, i això crea fricció constant: la mateixa taula serveix per treballar i per sopar, la mateixa habitació allotja el despatx i el llit, la mateixa il·luminació ha de funcionar per a una videotrucada al matí i per a una pel·lícula a la nit.
+  </p>
+  <p>
+    Canviar d'un mode a l'altre requereix petites però repetitives accions: ajustar les persianes perquè no hi hagi contrallum a la pantalla, encendre el llum de l'escriptori, pujar el termòstat, posar el timbre en silenci. Són detalls que, sumats, creen una barrera mental entre "estic a casa" i "estic treballant". La domòtica pot eliminar aquesta fricció completament.
+  </p>
+
+  <h2>L'escena de teletreball: què és i com funciona</h2>
+  <p>
+    Una <strong>escena domòtica</strong> és un conjunt d'accions que s'executen simultàniament amb una sola ordre. En el context del teletreball, l'escena de "mode treball" pot incloure:
+  </p>
+  <ul>
+    <li><strong>Il·luminació blanca freda</strong> a la zona de l'escriptori, a la intensitat adequada per al treball prolongat sense fatiga visual.</li>
+    <li><strong>Persianes ajustades</strong> per evitar el contrallum directe a la pantalla, especialment en pisos amb orientació sud o est a les hores del matí.</li>
+    <li><strong>Temperatura ajustada</strong> a un nivell de confort actiu (generalment 21-22°C a l'hivern), diferent del mode descans.</li>
+    <li><strong>Mode "no molestar"</strong> al timbre de la porta, o redireccionat a vibració silenciosa al mòbil.</li>
+  </ul>
+  <p>
+    Quan acabes la jornada, l'escena de "mode tarda" o "mode descans" fa el canvi invers: llum càlida i tènue, persianes pujades, temperatura de confort passiu, timbre normal.
+  </p>
+
+  <h2>Com activar l'escena automàticament</h2>
+
+  <h3>Per horari fix</h3>
+  <p>
+    La forma més senzilla: de dilluns a divendres, a les 9:00, el sistema activa automàticament el mode treball. A les 18:30, el desactiva. Sense tocar res. Sense recordar-ho. Especialment útil si tens un horari estable.
+  </p>
+
+  <h3>En encendre l'ordinador</h3>
+  <p>
+    Amb <strong>Home Assistant</strong> és possible detectar quan s'encén l'ordinador —a través del consum de l'endoll intel·ligent on està connectat, o mitjançant l'app de Home Assistant al propi equip— i usar aquest esdeveniment com a disparador de l'escena de treball. L'ordinador s'encén, i automàticament la il·luminació canvia, les persianes s'ajusten i el termòstat puja al nivell de treball.
+  </p>
+
+  <h3>Per presència a l'habitació</h3>
+  <p>
+    Els sensors de presència més avançats (com els radar mmWave) poden detectar si estàs assegut a l'escriptori de forma estable, no simplement passant per l'habitació. Això permet que el sistema distingeixi entre estar assegut treballant i estar a l'habitació de forma casual, ajustant l'entorn en conseqüència.
+  </p>
+
+  <h2>Il·luminació intel·ligent per a videotrucades</h2>
+  <p>
+    La il·luminació per a videotrucades té requisits específics: llum frontal neutra, sense ombres dures sota els ulls, sense contrallum de la finestra. Configurar-ho manualment cada vegada que tens una reunió és tediós. Amb domòtica, pots crear una escena específica de "videotrucada" que ajusta temperatura de color i intensitat de cada punt de llum del teu espai de treball.
+  </p>
+  <p>
+    Les bombetes intel·ligents compatibles amb Zigbee (com les d'Aqara o IKEA TRÅDFRI) permeten ajustar tant la intensitat com la temperatura de color: més freda i brillant per treballar i fer videotrucades, més càlida i tènue per a les tardes o el descans.
+  </p>
+
+  <h2>Persianes i concentració: el detall que més agrairàs</h2>
+  <p>
+    Als mesos d'estiu, els pisos de Barcelona amb orientació est o sud reben llum directa durant les hores del matí. Aquell sol a la pantalla no només dificulta el treball, sinó que genera calor i obliga a encendre l'aire condicionat abans. Les persianes motoritzades poden gestionar això de forma completament automàtica: quan el sol arriba a un angle que genera contrallum directe a l'escriptori, les persianes baixen a la meitat, filtrant la llum sense enfosquir del tot l'habitació.
+  </p>
+  <p>
+    Aquest tipus d'automatització redueix també el consum de l'aire condicionat, ja que es mitiga l'entrada de calor solar sense necessitat de baixar més la temperatura. En el balanç anual d'un pis barceloní orientat al sud, l'estalvi pot ser significatiu.
+  </p>
+
+  <h2>El mode concentració: silenci intel·ligent</h2>
+  <p>
+    Un dels beneficis menys evidents de la domòtica per a teletreballadors és el control de l'ambient sonor. Quan estàs en un bloc de treball profund —programant, escrivint, dissenyant—, una interrupció inesperada pot costar 20 minuts de concentració recuperada.
+  </p>
+  <p>
+    Amb <strong>Home Assistant</strong> es pot configurar un "mode concentració" que silencia el timbre de la porta durant un període definit, envia les trucades al bústia de veu o al mòbil en silenci, i avisa només en casos d'urgència (com la detecció de fum o l'obertura de portes quan s'espera que la casa estigui buida).
+  </p>
+
+  <h2>Separar la feina del descans: el benefici real</h2>
+  <p>
+    Més enllà de les automatitzacions concretes, el benefici més important que reporta qui teletreballa amb domòtica a casa és psicològic: la capacitat de fer una transició clara entre el mode feina i el mode descans sense que l'espai físic sigui exactament el mateix.
+  </p>
+  <p>
+    Quan l'ambient de la llar canvia visiblement —la llum es torna més càlida, les persianes pugen del tot, el timbre torna a sonar—, el cervell rep un senyal clar que la jornada laboral ha acabat. Aquesta separació, que en una oficina es produeix de forma natural amb el desplaçament, es pot recrear a casa amb una ordre de veu o una automatització per horari.
+  </p>
+
+  <h2>Quant costa muntar un espai de teletreball domòtic?</h2>
+  <p>
+    Per a una instal·lació bàsica orientada al teletreball en un espai concret de l'habitatge, els components habituals són:
+  </p>
+  <ul>
+    <li><strong>Bombetes intel·ligents Zigbee (2-3 punts de llum):</strong> 30-60€</li>
+    <li><strong>Motor de persiana Zigbee:</strong> des de 80€</li>
+    <li><strong>Endoll intel·ligent per a l'ordinador:</strong> des de 20€</li>
+    <li><strong>Termòstat intel·ligent:</strong> des de 50€</li>
+    <li><strong>Hub Home Assistant:</strong> des de 120€ (si no es té ja)</li>
+  </ul>
+  <p>
+    La configuració d'escenes, horaris i automatitzacions forma part de la instal·lació. A <strong>2SmartHome</strong>, quan instal·lem un sistema domòtic complet en una llar barcelonina, la configuració de l'espai de teletreball és habitualment una de les primeres sol·licituds que rebem.
+  </p>
+
+  <h2>Conclusió</h2>
+  <p>
+    El teletreball i la domòtica són una combinació natural: tots dos busquen fer més eficient el temps a casa i reduir la fricció del dia a dia. Una escena ben configurada pot transformar el teu saló o la teva habitació en una oficina preparada en segons, i tornar-te l'espai al mode descans amb la mateixa facilitat.
+  </p>
+  <p>
+    Si treballes des de casa a Barcelona i vols que el teu entorn s'adapti a la teva jornada, a <strong>2SmartHome</strong> dissenyem la instal·lació a mida del teu espai i els teus hàbits. La visita inicial és gratuïta i sense compromís.
+  </p>
+
+</BlogPost>

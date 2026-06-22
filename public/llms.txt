@@ -50,6 +50,7 @@
 
 ## Blog — artículos
 
+- [Teletrabajo y domótica: tu oficina inteligente en casa](https://www.2smarthome.es/blog/teletrabajo-domotica-casa) — Cómo crear un espacio de teletrabajo automatizado en Barcelona con escenas de luz, persianas y modo concentración.
 - [Ahorro en aire acondicionado con domótica en Barcelona](https://www.2smarthome.es/blog/ahorro-aire-acondicionado-domotica-barcelona) — Cálculo de ahorro real en climatización con datos del ICAEN y automatizaciones de Home Assistant para el verano barcelonés.
 - [Cómo automatizar persianas sin cambiar el motor](https://www.2smarthome.es/blog/automatizar-persianas) — Guía práctica para motorizar persianas existentes con adaptadores inteligentes Shelly/Somfy. Sin obras.
 - [Domótica en un piso de Barcelona: guía completa](https://www.2smarthome.es/blog/hogar-inteligente-barcelona-piso) — Cómo instalar domótica en un piso de Barcelona sin obras ni permisos de comunidad.

@@ -1,0 +1,123 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+
+<BlogPost
+  title="Teletrabajo y domótica: crea tu oficina inteligente en casa"
+  description="Cómo automatizar tu espacio de teletrabajo en Barcelona con escenas de iluminación, control de persianas y modo concentración que se activan solos cuando enciendes el ordenador."
+  cat="Hogar"
+  date="Jun 2026"
+  time="6 min"
+  img="/blog_imgs/teletrabajo-domotica-casa.jpg"
+  cta={{
+    eyebrow: 'Tu oficina en casa, automatizada',
+    title: 'Diseña un espacio de teletrabajo que funciona solo',
+    text: 'Creamos escenas domóticas personalizadas para tu zona de trabajo en casa: iluminación, persianas, clima y concentración con un solo toque o de forma completamente automática.',
+    button: 'Consultar mi proyecto',
+    tipo: 'teletrabajo domótica',
+    mensaje: 'Hola, trabajo desde casa y me interesa automatizar mi espacio de teletrabajo.\n· Tipo de estancia que uso como oficina: [habitación / salón / estudio / otro]\n· Qué quiero automatizar: [iluminación / persianas / clima / todo]\n· Tipo de vivienda: [piso / casa]\n· Barrio o ciudad:\n· ¿Ya tenéis algún sistema domótico instalado? [sí / no]',
+  }}
+>
+
+  <p>
+    El teletrabajo ha transformado la relación de los barceloneses con su hogar. Lo que antes era el salón, ahora también es la oficina. Lo que antes era la habitación de invitados, ahora es el despacho permanente. Y lo que antes podía ser un espacio genérico, ahora necesita adaptarse a dos funciones completamente distintas según la hora del día.
+  </p>
+  <p>
+    La domótica orientada al teletrabajo ofrece exactamente eso: automatizaciones que convierten tu espacio de trabajo en casa en un entorno preparado para concentrarte, y que lo devuelven a modo descanso cuando terminas la jornada. Sin levantarte. Sin complicaciones.
+  </p>
+
+  <h2>El problema del teletrabajo en pisos barceloneses</h2>
+  <p>
+    En Barcelona, la mayoría de pisos no fueron diseñados pensando en el teletrabajo. Los espacios son polivalentes por necesidad, y eso crea fricción constante: la misma mesa sirve para trabajar y para cenar, la misma habitación alberga el despacho y la cama, la misma iluminación tiene que funcionar para una videollamada por la mañana y para una película por la noche.
+  </p>
+  <p>
+    Cambiar de un modo al otro requiere pequeñas pero repetitivas acciones: ajustar las persianas para que no haya contraluz en la pantalla, encender la lámpara del escritorio, subir el termostato, poner el timbre en silencio. Son detalles que, sumados, crean una barrera mental entre "estoy en casa" y "estoy trabajando". La domótica puede eliminar esa fricción completamente.
+  </p>
+
+  <h2>La escena de teletrabajo: qué es y cómo funciona</h2>
+  <p>
+    Una <strong>escena domótica</strong> es un conjunto de acciones que se ejecutan simultáneamente con un solo comando. En el contexto del teletrabajo, la escena de "modo trabajo" puede incluir:
+  </p>
+  <ul>
+    <li><strong>Iluminación blanca fría</strong> en la zona del escritorio, a la intensidad adecuada para trabajo prolongado sin fatiga visual.</li>
+    <li><strong>Persianas ajustadas</strong> para evitar el contraluz directo en la pantalla, especialmente en pisos con orientación sur o este en las horas de mañana.</li>
+    <li><strong>Temperatura ajustada</strong> a un nivel de confort activo (generalmente 21-22°C en invierno), diferente al modo descanso.</li>
+    <li><strong>Modo "no molestar"</strong> en el timbre de la puerta, o redireccionado a vibración silenciosa en el móvil.</li>
+  </ul>
+  <p>
+    Cuando terminas la jornada, la escena de "modo tarde" o "modo descanso" hace el cambio inverso: luz cálida y tenue, persianas subidas, temperatura de confort pasivo, timbre normal.
+  </p>
+
+  <h2>Cómo activar la escena automáticamente</h2>
+
+  <h3>Por horario fijo</h3>
+  <p>
+    La forma más sencilla: de lunes a viernes, a las 9:00, el sistema activa automáticamente el modo trabajo. A las 18:30, lo desactiva. Sin tocar nada. Sin recordarlo. Especialmente útil si tienes un horario estable.
+  </p>
+
+  <h3>Al encender el ordenador</h3>
+  <p>
+    Con <strong>Home Assistant</strong> es posible detectar cuándo se enciende el ordenador —a través del consumo del enchufe inteligente donde está conectado, o mediante la app de Home Assistant en el propio equipo— y usar ese evento como disparador de la escena de trabajo. El ordenador se enciende, y automáticamente la iluminación cambia, las persianas se ajustan y el termostato sube al nivel de trabajo.
+  </p>
+
+  <h3>Por presencia en la habitación</h3>
+  <p>
+    Los sensores de presencia más avanzados (como los radar mmWave) pueden detectar si estás sentado en el escritorio de forma estable, no simplemente pasando por la habitación. Esto permite que el sistema distinga entre estar sentado trabajando y estar en la habitación de forma casual, ajustando el entorno en consecuencia.
+  </p>
+
+  <h2>Iluminación inteligente para videollamadas</h2>
+  <p>
+    La iluminación para videollamadas tiene requisitos específicos: luz frontal neutra, sin sombras duras bajo los ojos, sin contraluz desde la ventana. Configurar esto manualmente cada vez que tienes una reunión es tedioso. Con domótica, puedes crear una escena específica de "videollamada" que ajusta temperatura de color e intensidad de cada punto de luz de tu espacio de trabajo.
+  </p>
+  <p>
+    Las bombillas inteligentes compatibles con Zigbee (como las de Aqara o IKEA TRÅDFRI) permiten ajustar tanto la intensidad como la temperatura de color: más fría y brillante para trabajar y hacer videollamadas, más cálida y tenue para las tardes o el descanso.
+  </p>
+
+  <h2>Persianas y concentración: el detalle que más agradecerás</h2>
+  <p>
+    En los meses de verano, los pisos de Barcelona con orientación este o sur reciben luz directa durante las horas de la mañana. Ese sol en la pantalla no solo dificulta el trabajo, sino que genera calor y obliga a encender el aire acondicionado antes. Las persianas motorizadas pueden gestionar esto de forma completamente automática: cuando el sol alcanza un ángulo que genera contraluz directo en el escritorio, las persianas bajan a la mitad, filtrando la luz sin oscurecer del todo la habitación.
+  </p>
+  <p>
+    Este tipo de automatización reduce también el consumo del aire acondicionado, ya que se mitiga la entrada de calor solar sin necesidad de bajar más la temperatura. En el balance anual de un piso barcelonés orientado al sur, el ahorro puede ser significativo.
+  </p>
+
+  <h2>El modo concentración: silencio inteligente</h2>
+  <p>
+    Uno de los beneficios menos evidentes de la domótica para teletrabajadores es el control del ambiente sonoro. Cuando estás en un bloque de trabajo profundo —programando, escribiendo, diseñando—, una interrupción inesperada puede costar 20 minutos de concentración recuperada.
+  </p>
+  <p>
+    Con <strong>Home Assistant</strong> se puede configurar un "modo concentración" que silencia el timbre de la puerta durante un período definido, envía las llamadas al buzón de voz o al móvil en silencio, y avisa solo en casos de urgencia (como la detección de humo o la apertura de puertas cuando se espera que la casa esté vacía).
+  </p>
+
+  <h2>Separar el trabajo del descanso: el beneficio real</h2>
+  <p>
+    Más allá de las automatizaciones concretas, el beneficio más importante que reportan quienes teletrabajan con domótica en casa es psicológico: la capacidad de hacer una transición clara entre el modo trabajo y el modo descanso sin que el espacio físico sea exactamente el mismo.
+  </p>
+  <p>
+    Cuando el ambiente del hogar cambia visiblemente —la luz se vuelve más cálida, las persianas suben completamente, el timbre vuelve a sonar—, el cerebro recibe una señal clara de que la jornada laboral ha terminado. Esta separación, que en una oficina ocurre de forma natural con el desplazamiento, se puede recrear en casa con un comando de voz o una automatización por horario.
+  </p>
+
+  <h2>¿Cuánto cuesta montar un espacio de teletrabajo domótico?</h2>
+  <p>
+    Para una instalación básica orientada al teletrabajo en un espacio concreto de la vivienda, los componentes habituales son:
+  </p>
+  <ul>
+    <li><strong>Bombillas inteligentes Zigbee (2-3 puntos de luz):</strong> 30-60€</li>
+    <li><strong>Motor de persiana Zigbee:</strong> desde 80€</li>
+    <li><strong>Enchufe inteligente para el ordenador:</strong> desde 20€</li>
+    <li><strong>Termostato inteligente:</strong> desde 50€</li>
+    <li><strong>Hub Home Assistant:</strong> desde 120€ (si no se tiene ya)</li>
+  </ul>
+  <p>
+    La configuración de escenas, horarios y automatizaciones forma parte de la instalación. En <strong>2SmartHome</strong>, cuando instalamos un sistema domótico completo en un hogar barcelonés, la configuración del espacio de teletrabajo es habitualmente una de las primeras solicitudes que recibimos.
+  </p>
+
+  <h2>Conclusión</h2>
+  <p>
+    El teletrabajo y la domótica son una combinación natural: ambos buscan hacer más eficiente el tiempo en casa y reducir la fricción del día a día. Una escena bien configurada puede transformar tu salón o tu habitación en una oficina preparada en segundos, y devolverte el espacio al modo descanso con la misma facilidad.
+  </p>
+  <p>
+    Si trabajas desde casa en Barcelona y quieres que tu entorno se adapte a tu jornada, en <strong>2SmartHome</strong> diseñamos la instalación a medida de tu espacio y tus hábitos. La visita inicial es gratuita y sin compromiso.
+  </p>
+
+</BlogPost>
