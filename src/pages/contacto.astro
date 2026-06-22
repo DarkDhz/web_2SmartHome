@@ -180,8 +180,6 @@ const googleMapsUrl = 'https://www.google.es/maps/place/2SmartHome/@41.4506426,2
 
 <script>
   import { track } from '@vercel/analytics';
-  const gtag = (window as any).gtag as (...args: any[]) => void;
-
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const success = document.getElementById('form-success');
   const btn = form?.querySelector('button[type="submit"]') as HTMLButtonElement;
@@ -201,7 +199,7 @@ const googleMapsUrl = 'https://www.google.es/maps/place/2SmartHome/@41.4506426,2
       const data = await response.json();
       if (response.ok && data.success) {
         track('contact_form_submitted', { lang: 'es' });
-        gtag('event', 'contact_form_submitted', { lang: 'es' });
+        (window as any).gtag?.('event', 'contact_form_submitted', { lang: 'es' });
         success?.classList.remove('hidden');
         form.reset();
         setTimeout(() => success?.classList.add('hidden'), 6000);
