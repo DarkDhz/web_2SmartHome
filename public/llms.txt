@@ -49,8 +49,8 @@
 ---
 
 ## Blog — artículos
-
 - [Hogares inteligentes en 2026: las 5 tendencias](https://www.2smarthome.es/blog/tendencias-hogar-inteligente-2026) — Tendencias del smart home 2026 en Barcelona: Matter, control local, domótica para la salud y eficiencia energética.
+- [Ahorro en aire acondicionado con domótica en Barcelona](https://www.2smarthome.es/blog/ahorro-aire-acondicionado-domotica-barcelona) — Cálculo de ahorro real en climatización con datos del ICAEN y automatizaciones de Home Assistant para el verano barcelonés.
 - [Cómo automatizar persianas sin cambiar el motor](https://www.2smarthome.es/blog/automatizar-persianas) — Guía práctica para motorizar persianas existentes con adaptadores inteligentes Shelly/Somfy. Sin obras.
 - [Domótica en un piso de Barcelona: guía completa](https://www.2smarthome.es/blog/hogar-inteligente-barcelona-piso) — Cómo instalar domótica en un piso de Barcelona sin obras ni permisos de comunidad.
 - [KNX vs Home Assistant: ¿cuál elegir?](https://www.2smarthome.es/blog/knx-vs-home-assistant) — Comparativa entre sistemas profesionales KNX y plataformas open-source como Home Assistant.
