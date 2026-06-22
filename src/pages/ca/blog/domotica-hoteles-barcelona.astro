@@ -1,0 +1,123 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+
+<BlogPost
+  title="Domòtica per a hotels: més confort i menys consum a Barcelona"
+  description="Com els hotels boutique de Barcelona redueixen fins a un 35% la seva factura energètica automatitzant habitacions: clima per presència, il·luminació intel·ligent i control centralitzat des de recepció."
+  cat="Empreses"
+  date="Jun 2026"
+  time="6 min"
+  img="/blog_imgs/domotica-hoteles-barcelona.jpg"
+  lang="ca"
+  cta={{
+    eyebrow: 'Domòtica per al sector hoteler',
+    title: "Optimitza el teu hotel amb automatització intel·ligent",
+    text: "Dissenyem i instal·lem sistemes domòtics per a hotels boutique a Barcelona: control d'habitacions, eficiència energètica i experiència d'hoste millorada sense grans obres.",
+    button: 'Consultar el meu projecte',
+    tipo: 'hotel domòtica',
+    mensaje: "Hola, gestiono un hotel a Barcelona i m'interessa automatitzar les habitacions.\n· Nombre d'habitacions aproximat:\n· Tipus d'hotel: [boutique / aparthotel / hostal / altre]\n· Barri o adreça aproximada:\n· Objectiu principal: [estalvi energètic / confort hoste / control remot / tot]\n· Teniu algun sistema instal·lat actualment?",
+  }}
+>
+
+  <p>
+    Els hotels boutique de Barcelona s'enfronten cada any al mateix repte: mantenir estàndards de confort alts mentre els costos d'energia pugen i la competència creix. La domòtica per a hotels ofereix una resposta concreta: habitacions que adapten el clima i la il·luminació al comportament de l'hoste, reduint el consum quan no hi ha ningú i oferint una experiència més acurada quan sí que n'hi ha.
+  </p>
+  <p>
+    En aquest article expliquem quines solucions domòtiques s'estan instal·lant en hotels del Born, Gràcia i l'Eixample, i què pot esperar un gestor hoteler en termes d'estalvi i retorn de la inversió.
+  </p>
+
+  <h2>El problema que resol la domòtica hotelera</h2>
+  <p>
+    En un hotel convencional, l'aire condicionat continua funcionant encara que l'hoste hagi sortit a esmorzar. Els llums del bany queden encesos tota la tarda. La calefacció manté la temperatura en habitacions que fa hores que estan buides. Res d'això és culpa del client: simplement no existeixen els mecanismes per gestionar-ho de forma eficient.
+  </p>
+  <p>
+    Amb un sistema domòtic ben dissenyat, aquesta gestió passa sola: el sensor de presència detecta que l'habitació és buida, el clima baixa a mode eco i els llums s'apaguen. Quan l'hoste torna, tot es reactiva en segons. L'estalvi energètic mitjà en hotels amb aquestes instal·lacions ronda el <strong>25-35%</strong> en climatització i il·luminació.
+  </p>
+
+  <h2>Automatitzacions clau per a habitacions d'hotel</h2>
+
+  <h3>Control de clima per ocupació</h3>
+  <p>
+    L'element més rendible és la integració entre el <strong>sensor de porta</strong> o el <strong>lector de targeta de clau</strong> i el sistema de climatització. Quan l'hoste introdueix la targeta per entrar, el clima puja al nivell preestablert. En treure la targeta en sortir, el sistema ho detecta i redueix la temperatura a un nivell de manteniment.
+  </p>
+  <p>
+    En hotels de Barcelona, on l'estiu pot mantenir temperatures exteriors per sobre dels 30°C durant setmanes, aquest mecanisme pot suposar entre 800€ i 1.500€ d'estalvi anual per habitació en electricitat.
+  </p>
+
+  <h3>Il·luminació per presència i escenes</h3>
+  <p>
+    Els llums del bany, el passadís interior i la zona de treball són els que més hores acumulen encesos innecessàriament. Amb sensors de moviment a cada zona, s'apaguen automàticament quan no hi ha ningú. A més, es poden crear <strong>escenes d'il·luminació</strong> que el propi hoste pot activar:
+  </p>
+  <ul>
+    <li><strong>Escena "Benvinguda":</strong> llum càlida i tènue en entrar, temperatura agradable.</li>
+    <li><strong>Escena "Treball":</strong> il·luminació blanca a màxima intensitat a l'escriptori.</li>
+    <li><strong>Escena "Nit":</strong> llum molt baixa al passadís interior, sense molestar el descans.</li>
+    <li><strong>Escena "Sortida":</strong> apagat complet de tota l'habitació amb un sol botó.</li>
+  </ul>
+
+  <h3>Persianes motoritzades amb protecció solar</h3>
+  <p>
+    En façanes orientades al sud o a l'oest —habituals a l'Eixample— les habitacions acumulen calor durant les hores centrals del dia. Les persianes motoritzades amb sensor solar poden baixar automàticament quan la irradiància supera un llindar, reduint la càrrega tèrmica i alleugerint la feina de l'aire condicionat. El resultat és confort per a l'hoste i menys consum per a l'hotel.
+  </p>
+
+  <h3>Control centralitzat des de recepció</h3>
+  <p>
+    Un dels avantatges més valorats pels gestors hotelers és el tauler de control centralitzat. Des de recepció o des de l'ordinador de gerència, és possible veure en temps real quines habitacions estan ocupades, quina temperatura té cadascuna, si alguna porta porta massa temps oberta o si hi ha algun llum encès en una habitació que hauria d'estar buida.
+  </p>
+  <p>
+    Aquest accés permet també preparar l'habitació abans que arribi l'hoste: 30 minuts abans del check-in, el sistema pot encendre el clima i ajustar la temperatura automàticament, perquè el client entri a una habitació ja confortable.
+  </p>
+
+  <h2>Quina plataforma es fa servir en hotels?</h2>
+  <p>
+    En tots els nostres projectes de domòtica hotelera a Barcelona fem servir <strong>Home Assistant</strong> com a plataforma d'automatització central. La raó és senzilla: és l'única plataforma que combina compatibilitat amb milers de dispositius, funcionament completament local (sense dependència de servidors externs) i capacitat de personalització a mida per als fluxos de treball d'un hotel.
+  </p>
+  <p>
+    A diferència de solucions propietàries que requereixen contractes de manteniment amb el fabricant, Home Assistant és programari lliure i l'hotel no queda lligat a cap proveïdor. Les dades d'ocupació i consum queden als servidors del propi hotel.
+  </p>
+
+  <h2>Cas típic: hotel boutique de 20 habitacions al Born</h2>
+  <p>
+    Un hotel boutique de 20 habitacions al barri del Born, amb una ocupació mitjana del 75%, pot recuperar la inversió d'una instal·lació domòtica completa en <strong>18 a 24 mesos</strong>, segons les dades de projectes similars que hem completat.
+  </p>
+  <p>
+    El desglossament habitual d'estalvi anual en aquest tipus d'instal·lacions:
+  </p>
+  <ul>
+    <li><strong>Climatització (20 unitats):</strong> estalvi estimat de 6.000-9.000€/any</li>
+    <li><strong>Il·luminació (zones comunes + habitacions):</strong> estalvi estimat de 1.500-2.500€/any</li>
+    <li><strong>Reducció d'incidències per control remot:</strong> 500-800€/any en temps de personal</li>
+  </ul>
+  <p>
+    La inversió inicial per a aquesta escala oscil·la entre 15.000€ i 25.000€ depenent de l'estat del cablejat existent i els dispositius triats.
+  </p>
+
+  <h2>Instal·lació sense obres majors</h2>
+  <p>
+    Una de les preguntes més freqüents dels gestors hotelers és si la instal·lació requereix tancar habitacions durant setmanes. La resposta, en la majoria de casos, és no.
+  </p>
+  <p>
+    Els termòstats intel·ligents s'instal·len en minuts substituint els convencionals. Els sensors de presència i obertura de porta són sense fils i es fixen amb adhesiu o cargols petits. Els interruptors intel·ligents Zigbee es munten a la mateixa caixa d'encastar existent. En hotels amb aire condicionat individual per split, la integració pot completar-se sense tocar les unitats: els mòduls de control es connecten al cablejat existent.
+  </p>
+  <p>
+    L'habitual és treballar habitació per habitació, sense interrompre el funcionament de l'hotel. Una habitació tipus triga entre 2 i 4 hores a quedar completament instal·lada i configurada.
+  </p>
+
+  <h2>Diferenciació davant la competència</h2>
+  <p>
+    Més enllà de l'estalvi econòmic, la domòtica hotelera ofereix un element de diferenciació que els hostes cada vegada valoren més. Els viatgers que s'allotgen en hotels boutique de Barcelona solen buscar experiències acurades: una habitació que s'adapta a la seva arribada, un tauler tàctil elegant en comptes d'interruptors desquadrats, la possibilitat de controlar l'ambient des del mòbil.
+  </p>
+  <p>
+    Aquests detalls apareixen a les ressenyes de Google i Booking, i tenen un impacte directe en la valoració mitjana de l'hotel. Diversos dels establiments amb els quals hem treballat a l'Eixample i a Gràcia han vist millores en les seves puntuacions després de la instal·lació.
+  </p>
+
+  <h2>Conclusió</h2>
+  <p>
+    La domòtica per a hotels a Barcelona ha deixat de ser un luxe reservat a grans cadenes. Els sistemes actuals, basats en protocols sense fils i plataformes open-source, fan que fins i tot un hotel boutique de 10 habitacions pugui tenir un sistema d'automatització professional amb un ROI clar en menys de dos anys.
+  </p>
+  <p>
+    A <strong>2SmartHome</strong> ens especialitzem en instal·lacions per al sector hoteler a Barcelona i àrea metropolitana. Si gestiones un hotel i vols analitzar què és possible en el teu cas, podem fer una valoració inicial sense compromís.
+  </p>
+
+</BlogPost>
