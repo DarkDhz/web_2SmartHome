@@ -242,6 +242,7 @@ const localBusinessSchema = {
       <slot />
     </main>
     <a
+      id="whatsapp-btn"
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
@@ -255,11 +256,17 @@ const localBusinessSchema = {
     <Footer />
     <CookieBanner lang={lang} />
     <script>
+      import { track } from '@vercel/analytics';
+
       const obs = new IntersectionObserver(
         entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
         { threshold: 0.1 }
       );
       document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+      document.getElementById('whatsapp-btn')?.addEventListener('click', () => {
+        track('whatsapp_click', { page: window.location.pathname });
+      });
     </script>
   </body>
 </html>
