@@ -227,12 +227,14 @@ const localBusinessSchema = {
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      var _cs = 'denied';
+      try { if (localStorage.getItem('cookie_consent') === 'accepted') _cs = 'granted'; } catch(e) {}
       gtag('consent', 'default', {
-        analytics_storage: 'denied',
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        wait_for_update: 500,
+        analytics_storage: _cs,
+        ad_storage: _cs,
+        ad_user_data: _cs,
+        ad_personalization: _cs,
+        wait_for_update: _cs === 'denied' ? 500 : 0,
       });
       gtag('js', new Date());
       gtag('config', 'G-GS31FY434F');
