@@ -199,6 +199,7 @@ const googleMapsUrl = 'https://www.google.es/maps/place/2SmartHome/@41.4506426,2
       const data = await response.json();
       if (response.ok && data.success) {
         track('contact_form_submitted', { lang: 'ca' });
+        gtag('event', 'contact_form_submitted', { lang: 'ca' });
         success?.classList.remove('hidden');
         form.reset();
         setTimeout(() => success?.classList.add('hidden'), 6000);

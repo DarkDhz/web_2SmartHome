@@ -275,6 +275,7 @@ const localBusinessSchema = {
 
       document.getElementById('whatsapp-btn')?.addEventListener('click', () => {
         track('whatsapp_click', { page: window.location.pathname });
+        gtag('event', 'whatsapp_click', { page: window.location.pathname });
       });
     </script>
   </body>
