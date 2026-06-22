@@ -1,0 +1,121 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+
+<BlogPost
+  title="Tu hijo en casa solo: la domótica que te avisa en tiempo real"
+  description="Cómo el hogar inteligente avisa a los padres cuando su hijo llega solo del colegio en Barcelona: notificación de apertura de puerta, luces automáticas y seguridad local sin tecnicismos."
+  cat="Hogar"
+  date="Jun 2026"
+  time="7 min"
+  img="/blog_imgs/hijo-llega-solo-casa-domotica.jpg"
+  cta={{
+    eyebrow: 'Tranquilidad para tu familia',
+    title: 'Avísate cuando tus hijos lleguen a casa',
+    text: 'Instalamos sensores de apertura y automatizaciones en tu vivienda de Barcelona para que recibas una notificación en el momento en que tus hijos entran por la puerta.',
+    button: 'Consultar mi proyecto',
+    tipo: 'seguridad familiar',
+    mensaje: 'Hola, me interesa un sistema de aviso para cuando mis hijos llegan solos a casa.\n· Número de niños y edades aproximadas:\n· Tipo de vivienda: [piso / casa]\n· Barrio o ciudad:\n· ¿Ya tenéis algún sistema domótico instalado? [sí / no]',
+  }}
+>
+
+  <p>
+    Son las 17:15. Estás en una reunión en la oficina y recibes una notificación en el móvil: "Puerta principal abierta — 17:14:52". Tu hijo de 10 años acaba de llegar del colegio. Sabes que está en casa, sano y salvo. Puedes volver a la reunión.
+  </p>
+  <p>
+    Esta es la realidad de cientos de familias barcelonesas que han instalado domótica en su hogar. No se trata de tecnología complicada ni de gadgets caros: es una forma concreta de saber que tu hijo llega solo a casa sin depender de que recuerde mandar un WhatsApp.
+  </p>
+
+  <h2>El momento que más preocupa: la llegada del colegio</h2>
+  <p>
+    Para muchos padres y madres en Barcelona, las horas entre las 17:00 y las 19:00 son las más estresantes de la jornada. Los niños se desplazan solos desde el colegio, entran en casa y se quedan sin adultos hasta que uno de los progenitores termina el trabajo.
+  </p>
+  <p>
+    WhatsApp funciona cuando el niño recuerda escribir. Con la domótica, el sistema avisa aunque el menor olvide el móvil en la mochila, no tenga cobertura en el ascensor o simplemente se distraiga nada más llegar. El aviso de que tu hijo llegó solo a casa llega sin que él tenga que hacer nada.
+  </p>
+
+  <h2>Cómo funciona: del sensor de puerta a la notificación</h2>
+
+  <h3>El sensor de apertura</h3>
+  <p>
+    El elemento central es un pequeño sensor magnético que se instala en el marco de la puerta principal. Cuando la puerta se abre, el sensor lo detecta al instante y envía la información a <strong>Home Assistant</strong>, la plataforma de automatización que usamos en todos nuestros proyectos.
+  </p>
+  <p>
+    En su forma más básica, recibes una notificación push en el móvil en menos de un segundo. Sin servidores externos ni dependencia de la nube: todo funciona en la red local de tu casa, incluso si falla internet.
+  </p>
+
+  <h3>Qué más puede ocurrir al abrirse la puerta</h3>
+  <p>
+    Además de la notificación a los padres, el sistema puede ejecutar varias acciones automáticas para recibir bien al niño:
+  </p>
+  <ul>
+    <li><strong>Luces de bienvenida:</strong> el recibidor y el pasillo se iluminan solos al abrirse la puerta, para que no entre a una casa a oscuras.</li>
+    <li><strong>Activación del clima:</strong> si en casa hace calor o frío, el sistema ajusta la temperatura automáticamente para que esté cómodo desde el primer momento.</li>
+    <li><strong>Mensaje de audio personalizado:</strong> un altavoz inteligente puede reproducir una nota de bienvenida, como "Bienvenido a casa, Martí. Recuerda merendar antes de los deberes."</li>
+    <li><strong>Bloqueo de enchufes peligrosos:</strong> mediante enchufes inteligentes, se puede limitar el acceso a electrodomésticos que no deben usarse sin supervisión adulta.</li>
+  </ul>
+
+  <h3>Confirmación de que todo está bien</h3>
+  <p>
+    Más allá del momento de llegada, el sistema puede monitorizar que el niño sigue en casa. Si pasan más de 30 minutos desde que entró y no hay movimiento detectado en ninguna habitación, el sistema te envía un segundo aviso.
+  </p>
+  <p>
+    También funciona a la inversa: si la puerta no se ha abierto en el margen horario esperado —el niño debería llegar entre las 17:00 y las 17:30 y ya son las 17:45—, el sistema te alerta automáticamente sin que tengas que estar pendiente del reloj.
+  </p>
+
+  <h2>Seguridad integral para niños en casa solos</h2>
+
+  <h3>Sensores en ventanas y balcones</h3>
+  <p>
+    En pisos con balcón o ventanas accesibles, se pueden instalar sensores de apertura en todos esos puntos. Si una ventana del tercer piso se abre de forma inesperada mientras el niño está solo en casa, recibirás la notificación de inmediato.
+  </p>
+
+  <h3>Cámaras de interior con almacenamiento local</h3>
+  <p>
+    Para familias que lo necesitan, es posible integrar una cámara de interior en el salón o en el área de estudio. La cámara solo graba cuando el sistema detecta movimiento, y las imágenes se almacenan localmente en tu casa: ningún proveedor externo tiene acceso a ellas. Esto es especialmente importante cuando se trata de menores.
+  </p>
+
+  <h3>Detección de humo e inundaciones</h3>
+  <p>
+    Los sensores de humo y los detectores de inundación son elementos básicos en cualquier instalación domótica familiar. Si el niño está en la cocina y hay humo, recibirás la alerta al instante y podrás llamarle de inmediato. También puedes configurar que el sistema apague la vitrocerámica de forma remota si fuera necesario.
+  </p>
+
+  <h2>Privacidad garantizada: sin datos en la nube</h2>
+  <p>
+    Una de las preguntas más frecuentes cuando se instala un sistema de supervisión doméstica es: ¿quién tiene acceso a estos datos?
+  </p>
+  <p>
+    En <strong>2SmartHome</strong>, todos nuestros sistemas funcionan con Home Assistant en local. Esto significa que ningún dato sale de tu red doméstica: las notificaciones viajan directamente desde el servidor de tu casa al móvil, sin pasar por ningún servicio externo. Los registros de apertura de puertas, los movimientos detectados y las grabaciones se almacenan en un disco local en tu hogar. Nadie más tiene acceso a la información sobre los movimientos de tus hijos en Barcelona.
+  </p>
+
+  <h2>Lo que necesitas y cuánto cuesta</h2>
+  <p>
+    Para una instalación básica orientada a la supervisión de llegada de niños, los componentes principales son:
+  </p>
+  <ul>
+    <li><strong>Sensor de apertura de puerta Zigbee:</strong> desde 15€</li>
+    <li><strong>Servidor Home Assistant + hub Zigbee:</strong> desde 120€</li>
+    <li><strong>Sensores de movimiento adicionales:</strong> desde 12€ por unidad</li>
+    <li><strong>Enchufes inteligentes:</strong> desde 20€ por unidad</li>
+  </ul>
+  <p>
+    La instalación completa, incluyendo la configuración de automatizaciones y notificaciones personalizadas, suele completarse en una tarde. No requiere obras ni cableado adicional en la mayoría de pisos de Barcelona.
+  </p>
+
+  <h2>Familias barcelonesas que ya lo usan</h2>
+  <p>
+    En los últimos dos años hemos instalado este tipo de sistemas en familias del Eixample, Gràcia, Sarrià-Sant Gervasi y Sant Martí. Las situaciones son variadas: padres que terminan tarde en la oficina, familias monoparentales, niños que empiezan a tener más autonomía a partir de los 8-9 años, abuelos que viven cerca pero no siempre están disponibles.
+  </p>
+  <p>
+    El denominador común es siempre el mismo: no se trata de controlar al niño, sino de eliminar la angustia de no saber si llegó bien. Con la domótica, el primer aviso llega solo. A partir de ahí, los padres pueden trabajar con mucha más tranquilidad.
+  </p>
+
+  <h2>Conclusión</h2>
+  <p>
+    La domótica no reemplaza la confianza ni la autonomía que construimos con nuestros hijos. Pero sí puede ser una red de seguridad silenciosa que funciona en segundo plano: avisa cuando llegan, alerta si algo no cuadra, y mantiene el hogar preparado para recibirles.
+  </p>
+  <p>
+    Si quieres explorar cómo adaptar un sistema así a tu vivienda en Barcelona, en <strong>2SmartHome</strong> hacemos una valoración inicial sin compromiso. Cada familia tiene sus propias necesidades, y la instalación debe adaptarse a vosotros, no al revés.
+  </p>
+
+</BlogPost>

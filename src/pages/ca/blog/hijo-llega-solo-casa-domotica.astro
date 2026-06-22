@@ -1,0 +1,122 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+
+<BlogPost
+  title="El teu fill arriba sol a casa: com la domòtica t'avisa en temps real"
+  description="Com la llar intel·ligent avisa els pares quan el fill arriba sol de l'escola a Barcelona: notificació d'obertura de porta, llums automàtiques i seguretat local sense tecnicismes."
+  cat="Llar"
+  date="Jun 2026"
+  time="7 min"
+  img="/blog_imgs/hijo-llega-solo-casa-domotica.jpg"
+  lang="ca"
+  cta={{
+    eyebrow: 'Tranquil·litat per a la teva família',
+    title: "Avisa't quan els teus fills arribin a casa",
+    text: "Instal·lem sensors d'obertura i automatitzacions a la teva llar de Barcelona perquè rebis una notificació en el moment que els teus fills entren per la porta.",
+    button: 'Consultar el meu projecte',
+    tipo: 'seguretat familiar',
+    mensaje: "Hola, m'interessa un sistema d'avís per quan els meus fills arriben sols a casa.\n· Nombre de nens i edats aproximades:\n· Tipus d'habitatge: [pis / casa]\n· Barri o ciutat:\n· Ja teniu algun sistema domòtic instal·lat? [sí / no]",
+  }}
+>
+
+  <p>
+    Són les 17:15. Estàs en una reunió a l'oficina i reps una notificació al mòbil: "Porta principal oberta — 17:14:52". El teu fill de 10 anys acaba d'arribar de l'escola. Saps que és a casa, sa i estalvi. Pots tornar a la reunió.
+  </p>
+  <p>
+    Aquesta és la realitat de centenars de famílies barcelonines que han instal·lat domòtica a la seva llar. No es tracta de tecnologia complicada ni de gadgets cars: és una manera concreta de saber que el teu fill arriba sol a casa sense dependre que recordi enviar un WhatsApp.
+  </p>
+
+  <h2>El moment que més preocupa: l'arribada de l'escola</h2>
+  <p>
+    Per a molts pares i mares a Barcelona, les hores entre les 17:00 i les 19:00 són les més estressants de la jornada. Els nens es desplacen sols des de l'escola, entren a casa i es queden sense adults fins que un dels progenitors acaba la feina.
+  </p>
+  <p>
+    WhatsApp funciona quan el nen recorda escriure. Amb la domòtica, el sistema avisa encara que el menor oblidi el mòbil a la motxilla, no tingui cobertura a l'ascensor o simplement es distregui tot just arribar. L'avís que el teu fill ha arribat sol a casa arriba sense que ell hagi de fer res.
+  </p>
+
+  <h2>Com funciona: del sensor de porta a la notificació</h2>
+
+  <h3>El sensor d'obertura</h3>
+  <p>
+    L'element central és un petit sensor magnètic que s'instal·la al marc de la porta principal. Quan la porta s'obre, el sensor ho detecta a l'instant i envia la informació a <strong>Home Assistant</strong>, la plataforma d'automatització que fem servir a tots els nostres projectes.
+  </p>
+  <p>
+    En la seva forma més bàsica, reps una notificació push al mòbil en menys d'un segon. Sense servidors externs ni dependència del núvol: tot funciona a la xarxa local de casa, fins i tot si falla internet.
+  </p>
+
+  <h3>Què més pot passar quan s'obre la porta</h3>
+  <p>
+    A més de la notificació als pares, el sistema pot executar diverses accions automàtiques per rebre bé el nen:
+  </p>
+  <ul>
+    <li><strong>Llums de benvinguda:</strong> el rebedor i el passadís s'il·luminen sols quan s'obre la porta, perquè no entri a una casa a les fosques.</li>
+    <li><strong>Activació del clima:</strong> si a casa fa calor o fred, el sistema ajusta la temperatura automàticament perquè estigui còmode des del primer moment.</li>
+    <li><strong>Missatge d'àudio personalitzat:</strong> un altaveu intel·ligent pot reproduir una nota de benvinguda, com ara "Benvingut a casa, Martí. Recorda berenar abans dels deures."</li>
+    <li><strong>Bloqueig d'endolls perillosos:</strong> amb endolls intel·ligents, es pot limitar l'accés a electrodomèstics que no s'han d'usar sense supervisió adulta.</li>
+  </ul>
+
+  <h3>Confirmació que tot va bé</h3>
+  <p>
+    Més enllà del moment d'arribada, el sistema pot monitoritzar que el nen continua a casa. Si passen més de 30 minuts des que va entrar i no es detecta cap moviment a cap habitació, el sistema t'envia un segon avís.
+  </p>
+  <p>
+    També funciona al revés: si la porta no s'ha obert en el marge horari esperat —el nen hauria d'arribar entre les 17:00 i les 17:30 i ja són les 17:45—, el sistema t'alerta automàticament sense que hagis d'estar pendent del rellotge.
+  </p>
+
+  <h2>Seguretat integral per a nens a casa sols</h2>
+
+  <h3>Sensors a finestres i balcons</h3>
+  <p>
+    En pisos amb balcó o finestres accessibles, es poden instal·lar sensors d'obertura en tots aquests punts. Si una finestra del tercer pis s'obre de manera inesperada mentre el nen és sol a casa, rebràs la notificació de seguida.
+  </p>
+
+  <h3>Càmeres d'interior amb emmagatzematge local</h3>
+  <p>
+    Per a les famílies que ho necessitin, és possible integrar una càmera d'interior al saló o a la zona d'estudi. La càmera només grava quan el sistema detecta moviment, i les imatges s'emmagatzemen localment a casa: cap proveïdor extern hi té accés. Això és especialment important quan es tracta de menors.
+  </p>
+
+  <h3>Detecció de fum i inundacions</h3>
+  <p>
+    Els sensors de fum i els detectors d'inundació són elements bàsics en qualsevol instal·lació domòtica familiar. Si el nen és a la cuina i hi ha fum, rebràs l'alerta a l'instant i podràs trucar-li de seguida. També pots configurar que el sistema apagui la vitroceràmica de forma remota si fos necessari.
+  </p>
+
+  <h2>Privacitat garantida: sense dades al núvol</h2>
+  <p>
+    Una de les preguntes més freqüents quan s'instal·la un sistema de supervisió domèstica és: qui té accés a aquestes dades?
+  </p>
+  <p>
+    A <strong>2SmartHome</strong>, tots els nostres sistemes funcionen amb Home Assistant en local. Això significa que cap dada surt de la teva xarxa domèstica: les notificacions viatgen directament des del servidor de casa al mòbil, sense passar per cap servei extern. Els registres d'obertura de portes, els moviments detectats i les gravacions s'emmagatzemen en un disc local a casa. Ningú més té accés a la informació sobre els moviments dels teus fills a Barcelona.
+  </p>
+
+  <h2>Què necessites i quant costa</h2>
+  <p>
+    Per a una instal·lació bàsica orientada a la supervisió d'arribada de nens, els components principals són:
+  </p>
+  <ul>
+    <li><strong>Sensor d'obertura de porta Zigbee:</strong> des de 15€</li>
+    <li><strong>Servidor Home Assistant + hub Zigbee:</strong> des de 120€</li>
+    <li><strong>Sensors de moviment addicionals:</strong> des de 12€ per unitat</li>
+    <li><strong>Endolls intel·ligents:</strong> des de 20€ per unitat</li>
+  </ul>
+  <p>
+    La instal·lació completa, incloent-hi la configuració d'automatitzacions i notificacions personalitzades, sol completar-se en una tarda. No requereix obres ni cablejat addicional en la majoria de pisos de Barcelona.
+  </p>
+
+  <h2>Famílies barcelonines que ja ho fan servir</h2>
+  <p>
+    En els últims dos anys hem instal·lat aquest tipus de sistemes en famílies de l'Eixample, Gràcia, Sarrià-Sant Gervasi i Sant Martí. Les situacions són variades: pares que acaben tard a l'oficina, famílies monoparentals, nens que comencen a tenir més autonomia a partir dels 8-9 anys, avis que viuen a prop però no sempre estan disponibles.
+  </p>
+  <p>
+    El denominador comú és sempre el mateix: no es tracta de controlar el nen, sinó d'eliminar l'angoixa de no saber si ha arribat bé. Amb la domòtica, el primer avís arriba sol. A partir d'aquí, els pares poden treballar amb molta més tranquil·litat.
+  </p>
+
+  <h2>Conclusió</h2>
+  <p>
+    La domòtica no substitueix la confiança ni l'autonomia que construïm amb els nostres fills. Però sí que pot ser una xarxa de seguretat silenciosa que funciona en segon pla: avisa quan arriben, alerta si alguna cosa no quadra, i manté la llar preparada per rebre'ls.
+  </p>
+  <p>
+    Si vols explorar com adaptar un sistema com aquest a la teva llar a Barcelona, a <strong>2SmartHome</strong> fem una valoració inicial sense compromís. Cada família té les seves pròpies necessitats, i la instal·lació s'ha d'adaptar a vosaltres, no al revés.
+  </p>
+
+</BlogPost>
