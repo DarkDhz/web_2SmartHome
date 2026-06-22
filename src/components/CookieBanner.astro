@@ -59,8 +59,21 @@ const t = lang === 'ca' ? {
 <script>
   const STORAGE_KEY = 'cookie_consent';
   const banner = document.getElementById('cookie-banner');
+  const g = (window as any).gtag as ((...args: any[]) => void) | undefined;
 
-  if (!localStorage.getItem(STORAGE_KEY)) {
+  function grantConsent() {
+    g?.('consent', 'update', {
+      analytics_storage: 'granted',
+      ad_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+    });
+  }
+
+  // Restore consent for returning visitors who already accepted
+  if (localStorage.getItem(STORAGE_KEY) === 'accepted') {
+    grantConsent();
+  } else if (!localStorage.getItem(STORAGE_KEY)) {
     banner?.classList.remove('hidden');
   }
 
@@ -69,6 +82,9 @@ const t = lang === 'ca' ? {
     banner?.classList.add('hidden');
   }
 
-  document.getElementById('cookie-accept')?.addEventListener('click', () => dismiss('accepted'));
+  document.getElementById('cookie-accept')?.addEventListener('click', () => {
+    grantConsent();
+    dismiss('accepted');
+  });
   document.getElementById('cookie-reject')?.addEventListener('click', () => dismiss('rejected'));
 </script>
