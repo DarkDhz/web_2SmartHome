@@ -1,4 +1,4 @@
-# AGENTS.md
+# CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
@@ -30,14 +30,15 @@ No test runner or linter is configured. TypeScript errors surface via `npm run b
 **`src/layouts/Layout.astro`** — base layout used by every page:
 - Props: `title`, `description?`, `image?`, `canonical?`, `noIndex?`, `schemas?` (JSON-LD array), `lang?: 'es' | 'ca'`.
 - Injects `<html lang={lang}>`, Google Fonts (Inter), `src/styles/global.css`, Vercel Analytics/SpeedInsights, and `<CookieBanner>`.
-- Computes `esAlternate` / `caAlternate` URLs and emits `<link rel="alternate" hreflang>` tags.
-- Emits a `LocalBusiness` JSON-LD schema plus any extra `schemas[]` passed by the page.
+- Computes `esAlternate` / `caAlternate` URLs and emits `<link rel="alternate" hreflang="es-ES">` / `hreflang="ca-ES"` / `hreflang="x-default"` tags (full locale codes, matching the sitemap i18n config).
+- Emits a `LocalBusiness` JSON-LD schema plus any extra `schemas[]` passed by the page. All main pages (domotica, soluciones, proyectos, quienes-somos and their `/ca/` equivalents) pass a `BreadcrumbList` schema via this prop. New main pages should do the same.
 - A floating WhatsApp button is rendered, with per-path message text hardcoded in `whatsappMessages`. This map contains **both ES and CA paths** (e.g. `/domotica` and `/ca/domotica`). When adding a new route, add both paths with appropriate language text.
 - The `.fade-up` animation class is defined here: an IntersectionObserver in an inline `<script>` adds `.visible` when elements scroll into view (opacity 0→1, translateY 28px→0).
 
 **`src/layouts/BlogPost.astro`** — wraps `<Layout>` for blog articles:
 - Props: `title`, `description`, `cat`, `date`, `time`, `img`, `imgAlt?`, `lang?`, `cta?` (object with `eyebrow`, `title`, `text`, `button`, `tipo`, `mensaje`).
-- Contains a `ui` object that switches breadcrumb labels, CTA defaults, and "back to blog" text between ES and CA.
+- Contains a `ui` object that switches breadcrumb labels, CTA defaults, and "back to blog" text between ES and CA. The `BreadcrumbList` JSON-LD schema uses `ui.home` / `ui.resources` and locale-correct URLs — keep this in sync when editing.
+- The featured article image uses `loading="eager"` (it is the LCP element for blog posts).
 - The `cta.tipo` and `cta.mensaje` values are passed as query params to `/contacto` (or `/ca/contacto`) via a pre-filled form URL.
 
 ### Components
@@ -91,7 +92,7 @@ Reusable patterns:
 
 ### Images
 
-Images live in `src/assets/img/` (hero, project photos) and `src/assets/blog_imgs/` (blog thumbnails). All pages use Astro's `<Image>` component from `astro:assets` for automatic WebP conversion and lazy loading.
+Images live in `src/assets/img/` (hero, project photos) and `src/assets/blog_imgs/` (blog thumbnails). All pages use Astro's `<Image>` component from `astro:assets` for automatic WebP conversion.
 
 Pages that need images use an eager glob map at the top of the frontmatter:
 ```typescript
@@ -101,6 +102,8 @@ const imgs = import.meta.glob<{ default: ImageMetadata }>('/src/assets/img/**', 
 const getImg = (src: string) => imgs[src.replace('/img/', '/src/assets/img/')]!.default;
 ```
 Then use `<Image src={getImg('/img/filename.jpg')} alt="..." width={800} />` in templates.
+
+**Loading strategy:** Hero images (first visible on load) must always have `loading="eager"`. All images below the fold must have `loading="lazy"`. Both attributes are always explicit — never rely on browser defaults.
 
 `BlogPost.astro` uses the same pattern with `/src/assets/blog_imgs/**`.
 
@@ -115,6 +118,8 @@ Then use `<Image src={getImg('/img/filename.jpg')} alt="..." width={800} />` in 
 - A skip link (`<a href="#main-content">`) is the first element in `<body>` in Layout.astro; the `<main>` tag carries `id="main-content"`.
 - The mobile menu button in Header.astro uses `aria-expanded` (toggled by the inline script) and `aria-controls="mobile-menu"`.
 - All new pages must pass `lang="ca"` to `<Layout>` — this drives `<html lang>`, hreflang alternates, the CookieBanner language, and the skip link text.
+- Repeated links with the same visible text (e.g. "Leer artículo" across a list of cards) must include `aria-label` with the item title so screen readers can distinguish them.
+- Decorative SVGs inside `<a>` tags that already carry `aria-label` must have `aria-hidden="true"` on the SVG itself (see social icons in `Footer.astro`).
 
 ### Contact form
 
@@ -128,6 +133,10 @@ Kept minimal and inline via `<script>` tags:
 - **Proyectos:** category filter (show/hide cards by `data-cat`)
 - **Recursos:** FAQ accordion + "load more" articles button
 - **Contacto:** async form submission with success/error states; reads `tipo`/`mensaje` query params on load
+
+### GEO (Generative Engine Optimization)
+
+`public/llms.txt` — structured Markdown file for AI crawlers (ChatGPT, Perplexity, etc.), following the [llms.txt spec](https://llmstxt.org/). Keep it in sync when adding new pages or blog posts: update the pages list and append a new entry to the Blog section.
 
 ### Deployment
 
