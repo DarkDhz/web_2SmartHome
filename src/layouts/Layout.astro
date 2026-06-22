@@ -224,22 +224,30 @@ const localBusinessSchema = {
     <SpeedInsights />
 
     <!-- Google Analytics 4 with Consent Mode v2 (RGPD/EEA) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-GS31FY434F"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      var _cs = 'denied';
-      try { if (localStorage.getItem('cookie_consent') === 'accepted') _cs = 'granted'; } catch(e) {}
       gtag('consent', 'default', {
-        analytics_storage: _cs,
-        ad_storage: _cs,
-        ad_user_data: _cs,
-        ad_personalization: _cs,
-        wait_for_update: _cs === 'denied' ? 500 : 0,
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500,
       });
+      try {
+        if (localStorage.getItem('cookie_consent') === 'accepted') {
+          gtag('consent', 'update', {
+            analytics_storage: 'granted',
+            ad_storage: 'granted',
+            ad_user_data: 'granted',
+            ad_personalization: 'granted',
+          });
+        }
+      } catch(e) {}
       gtag('js', new Date());
       gtag('config', 'G-GS31FY434F');
     </script>
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-GS31FY434F"></script>
 
     <style>
       html { scroll-behavior: smooth; }
