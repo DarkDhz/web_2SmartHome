@@ -8,6 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 npm run dev        # Start dev server at localhost:4321
 npm run build      # Build to dist/
 npm run preview    # Preview the production build
+npm run notify     # Notify IndexNow (run manually after production deploy)
 ```
 
 No test runner or linter is configured. TypeScript errors surface via `npm run build`.
@@ -161,3 +162,9 @@ Hosted on **Vercel** (static output). `vercel.json` at the root contains 301 red
 `public/robots.txt` references `https://www.2smarthome.es/sitemap-index.xml` — the sitemap is generated at build time by `@astrojs/sitemap`.
 
 `public/BingSiteAuth.xml` is the Bing Webmaster Tools verification file — do not delete it.
+
+### IndexNow
+
+`scripts/notify-indexnow.mjs` fetches the live sitemap from `https://www.2smarthome.es/sitemap-0.xml` and POSTs all URLs to `api.indexnow.org`. Run manually with `npm run notify` after confirming the production deploy is live.
+
+The API key is `42499e3e7e81483bafad2a5581c06000`, verified by `public/42499e3e7e81483bafad2a5581c06000.txt`. Do not delete either file.
