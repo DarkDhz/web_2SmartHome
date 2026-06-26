@@ -148,10 +148,15 @@ When adding a new trackable interaction, fire **both** `track(...)` and `gtag('e
 
 Currently instrumented events:
 
-| Event name | Where | Trigger |
-|---|---|---|
-| `whatsapp_click` | `Layout.astro` inline script | Click on the floating WhatsApp button |
-| `contact_form_submitted` | `contacto.astro` + `ca/contacto.astro` | Successful Web3Forms submission |
+| Event name | Properties | Where | Trigger |
+|---|---|---|---|
+| `whatsapp_click` | `page` | `Layout.astro` script | Click on the floating WhatsApp button |
+| `contact_form_submitted` | `lang` | `contacto.astro` + `ca/contacto.astro` | Successful Web3Forms submission |
+| `phone_click` | `page` | `Layout.astro` delegated listener | Click on any `tel:` link (hero CTA, contact page, legal) |
+| `email_click` | `page` | `Layout.astro` delegated listener | Click on any `mailto:` link |
+| `contact_cta_clicked` | `page`, `text` | `Layout.astro` delegated listener | Click on any link to `/contacto` from a non-contact page |
+
+The delegated `click` listener in `Layout.astro` covers every page (ES + CA) automatically — `tel:`, `mailto:`, and `/contacto` CTA links do **not** need per-page instrumentation. Add per-page `track()`+`gtag()` calls only for events the delegated listener can't infer from an anchor (e.g. the form-submit success in `contacto.astro`).
 
 ### GEO (Generative Engine Optimization)
 
