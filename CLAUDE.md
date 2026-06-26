@@ -77,6 +77,8 @@ Each blog post is a **static `.astro` file** (no dynamic route). Adding a new po
 
 Blog images go in `src/assets/blog_imgs/`. The `img` prop on `<BlogPost>` is a string path like `/blog_imgs/filename.jpg` resolved at runtime by the eager glob in `BlogPost.astro`.
 
+**Internal linking (required for SEO):** Every blog post body must include **2–4 contextual `<a>` links** woven into existing prose with descriptive anchor text (never "click here"). Mix related blog posts (build topic clusters) with a relevant money page (`/domotica/hogares`, `/domotica/empresas`, `/soluciones#<section-id>`, `/proyectos`). CA posts must use `/ca/...` paths. The `#<section-id>` fragments on `/soluciones` come from the `id` field of the `solutions` data array (`iluminacion`, `clima`, `seguridad`, `persianas`, `energia`, `acceso`, `audio`, `jardin`) — match an existing id. In-body links are styled by the `.article-body a` rule in `BlogPost.astro`; the bottom CTA link is intentionally `rel="nofollow"` and is not part of this count.
+
 ### Design System
 
 Colors (Tailwind slate + sky):

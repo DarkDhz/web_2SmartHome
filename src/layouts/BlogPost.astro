@@ -270,6 +270,18 @@ const ctaHref = (finalCta.tipo || finalCta.mensaje)
     flex-shrink: 0;
     margin-top: 0.1rem;
   }
+  .article-body :global(a) {
+    color: #38bdf8;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: rgba(56, 189, 248, 0.4);
+    transition: color 0.15s ease, text-decoration-color 0.15s ease;
+  }
+  .article-body :global(a:hover) {
+    color: #7dd3fc;
+    text-decoration-color: #7dd3fc;
+  }
   .article-body :global(strong) {
     color: #f8fafc;
     font-weight: 700;
