@@ -284,6 +284,12 @@ const localBusinessSchema = {
     <script>
       import { track } from '@vercel/analytics';
 
+      // Fire a custom event to both Vercel Analytics and GA4.
+      const fire = (name: string, props: Record<string, string>) => {
+        track(name, props);
+        (window as any).gtag?.('event', name, props);
+      };
+
       const obs = new IntersectionObserver(
         entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
         { threshold: 0.1 }
@@ -291,8 +297,23 @@ const localBusinessSchema = {
       document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
       document.getElementById('whatsapp-btn')?.addEventListener('click', () => {
-        track('whatsapp_click', { page: window.location.pathname });
-        (window as any).gtag?.('event', 'whatsapp_click', { page: window.location.pathname });
+        fire('whatsapp_click', { page: window.location.pathname });
+      });
+
+      // Delegated tracking for conversion links across every page (ES + CA):
+      // phone calls, email clicks, and contact-page CTAs.
+      document.addEventListener('click', (e) => {
+        const link = (e.target as HTMLElement)?.closest?.('a');
+        if (!link) return;
+        const href = link.getAttribute('href') || '';
+        const page = window.location.pathname;
+        if (href.startsWith('tel:')) {
+          fire('phone_click', { page });
+        } else if (href.startsWith('mailto:')) {
+          fire('email_click', { page });
+        } else if (href.includes('/contacto') && !page.includes('/contacto')) {
+          fire('contact_cta_clicked', { page, text: (link.textContent || '').trim().slice(0, 60) });
+        }
       });
     </script>
   </body>
