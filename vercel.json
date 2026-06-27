@@ -38,6 +38,8 @@
     { "source": "/blog-es.html", "destination": "/recursos", "permanent": true },
     { "source": "/contacto-es.html", "destination": "/contacto", "permanent": true },
     { "source": "/index-en.html", "destination": "/", "permanent": true },
-    { "source": "/index-ca.html", "destination": "/ca", "permanent": true }
+    { "source": "/index-ca.html", "destination": "/ca", "permanent": true },
+    { "source": "/blog/knx-vs-home-assistant", "destination": "/blog/home-assistant", "permanent": true },
+    { "source": "/ca/blog/knx-vs-home-assistant", "destination": "/ca/blog/home-assistant", "permanent": true }
   ]
 }
