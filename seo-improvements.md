@@ -82,6 +82,42 @@
   lo referencia como *"Recursos"* para la misma URL → breadcrumb inconsistente en SERP.
 - **Fix:** Elegir una etiqueta para `/recursos` y usarla en ambos schemas.
 
+### 11. Páginas de dinero sin enlaces a artículos del blog
+- **Impacto:** Topic clustering; PageRank fluye solo en una dirección (blog → money pages).
+- **Evidencia:** `/domotica/hogares`, `/domotica/empresas` y `/soluciones` no enlazan
+  ningún post del blog. Los posts sí enlazan hacia las money pages (cumplimiento del
+  checklist de 2–4 enlaces), pero el clúster queda incompleto.
+- **Fix:** Añadir una sección "Más sobre domótica para hogares" (2–3 cards de artículos o
+  una lista de enlaces) encima del CTA final en cada página. Posts candidatos por página:
+  - `hogares` → `/blog/hogar-inteligente-barcelona-piso`, `/blog/7-errores-comunes-domotica`,
+    `/blog/vale-la-pena-invertir-casa-inteligente`
+  - `empresas` → `/blog/domotica-para-empresas`, `/blog/ahorro-aire-acondicionado-domotica-barcelona`
+  - `soluciones` → mezcla de posts según la sección (iluminación, clima, persianas…)
+
+---
+
+## ✅ Aplicados (2026-06-27)
+
+### A. ✅ H1 de portada sin keyword principal
+- **Fix aplicado:** Añadida tercera línea dentro del `<h1>` de `index.astro` y `ca/index.astro`:
+  `<span class="block text-lg sm:text-xl font-semibold text-slate-400 mt-3">Empresa de domótica en Barcelona</span>`
+  El H1 ahora contiene el keyword principal sin romper el diseño del tagline.
+
+### B. ✅ Meta descriptions demasiado largas en 4 páginas
+- **Fix aplicado:** Todas reducidas a ≤160 chars en ES y CA:
+  - `domotica/hogares.astro` (206 → 173 chars)
+  - `domotica/empresas.astro` (196 → 172 chars)
+  - `domotica/index.astro` (182 → 158 chars)
+  - `quienes-somos.astro` (191 → 155 chars)
+
+### D. ✅ Título de quiénes somos con marca duplicada
+- **Fix aplicado:** Añadido `seoTitle` en `quienes-somos.astro` y `ca/quienes-somos.astro`
+  para evitar "2SmartHome … | 2SmartHome" en el SERP. Nueva descripción también más corta.
+
+### E. ✅ H1 de /recursos genérico
+- **Fix aplicado:** `recursos.astro` y `ca/recursos.astro` — H1 ahora es
+  "Blog y guías de domótica" / "Blog i guies de domòtica".
+
 ---
 
 ## ✅ Verificaciones post-deploy (sin cambio de código salvo error)
