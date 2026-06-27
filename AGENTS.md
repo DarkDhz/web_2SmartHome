@@ -8,6 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 npm run dev        # Start dev server at localhost:4321
 npm run build      # Build to dist/
 npm run preview    # Preview the production build
+npm run notify     # Notify IndexNow (run manually after production deploy)
 ```
 
 No test runner or linter is configured. TypeScript errors surface via `npm run build`.
@@ -76,6 +77,8 @@ Each blog post is a **static `.astro` file** (no dynamic route). Adding a new po
 
 Blog images go in `src/assets/blog_imgs/`. The `img` prop on `<BlogPost>` is a string path like `/blog_imgs/filename.jpg` resolved at runtime by the eager glob in `BlogPost.astro`.
 
+**Internal linking (required for SEO):** Every blog post body must include **2–4 contextual `<a>` links** woven into existing prose with descriptive anchor text (never "click here"). Mix related blog posts (build topic clusters) with a relevant money page (`/domotica/hogares`, `/domotica/empresas`, `/soluciones#<section-id>`, `/proyectos`). CA posts must use `/ca/...` paths. The `#<section-id>` fragments on `/soluciones` come from the `id` field of the `solutions` data array (`iluminacion`, `clima`, `seguridad`, `persianas`, `energia`, `acceso`, `audio`, `jardin`) — match an existing id. In-body links are styled by the `.article-body a` rule in `BlogPost.astro`; the bottom CTA link is intentionally `rel="nofollow"` and is not part of this count.
+
 ### Design System
 
 Colors (Tailwind slate + sky):
@@ -136,7 +139,7 @@ Kept minimal and inline via `<script>` tags:
 
 ### Analytics
 
-Two analytics providers run in parallel — both are loaded via `Layout.astro` and therefore cover every page automatically.
+Two analytics providers run in parallel — both are loaded via `Layout.astro` and therefore cover every page automatically. The canonical tracking plan — which events count as conversions and the one-time GA4 setup (marking Key Events, registering custom dimensions, Google Ads linking) — lives in [TRACKING.md](TRACKING.md); update it whenever the event table below changes.
 
 - **Vercel Analytics + SpeedInsights** — imported as Astro components (`@vercel/analytics/astro`, `@vercel/speed-insights/astro`). Custom events use `import { track } from '@vercel/analytics'`.
 - **Google Analytics 4** (`G-GS31FY434F`) — loaded in `Layout.astro` `<head>` with **Consent Mode v2** (RGPD/EEA). The first inline script sets all consent signals to `'denied'` by default via `gtag('consent', 'default', {...})`, then `CookieBanner.astro` calls `gtag('consent', 'update', {...granted...})` when the user accepts. Returning visitors who already accepted are restored on page load. In page scripts, access `gtag` as `const gtag = (window as any).gtag as (...args: any[]) => void` — it is a runtime global, not an import.
@@ -145,10 +148,15 @@ When adding a new trackable interaction, fire **both** `track(...)` and `gtag('e
 
 Currently instrumented events:
 
-| Event name | Where | Trigger |
-|---|---|---|
-| `whatsapp_click` | `Layout.astro` inline script | Click on the floating WhatsApp button |
-| `contact_form_submitted` | `contacto.astro` + `ca/contacto.astro` | Successful Web3Forms submission |
+| Event name | Properties | Where | Trigger |
+|---|---|---|---|
+| `whatsapp_click` | `page` | `Layout.astro` script | Click on the floating WhatsApp button |
+| `contact_form_submitted` | `lang` | `contacto.astro` + `ca/contacto.astro` | Successful Web3Forms submission |
+| `phone_click` | `page` | `Layout.astro` delegated listener | Click on any `tel:` link (hero CTA, contact page, legal) |
+| `email_click` | `page` | `Layout.astro` delegated listener | Click on any `mailto:` link |
+| `contact_cta_clicked` | `page`, `text` | `Layout.astro` delegated listener | Click on any link to `/contacto` from a non-contact page |
+
+The delegated `click` listener in `Layout.astro` covers every page (ES + CA) automatically — `tel:`, `mailto:`, and `/contacto` CTA links do **not** need per-page instrumentation. Add per-page `track()`+`gtag()` calls only for events the delegated listener can't infer from an anchor (e.g. the form-submit success in `contacto.astro`).
 
 ### GEO (Generative Engine Optimization)
 
@@ -161,3 +169,9 @@ Hosted on **Vercel** (static output). `vercel.json` at the root contains 301 red
 `public/robots.txt` references `https://www.2smarthome.es/sitemap-index.xml` — the sitemap is generated at build time by `@astrojs/sitemap`.
 
 `public/BingSiteAuth.xml` is the Bing Webmaster Tools verification file — do not delete it.
+
+### IndexNow
+
+`scripts/notify-indexnow.mjs` fetches the live sitemap from `https://www.2smarthome.es/sitemap-0.xml` and POSTs all URLs to `api.indexnow.org`. Run manually with `npm run notify` after confirming the production deploy is live.
+
+The API key is `42499e3e7e81483bafad2a5581c06000`, verified by `public/42499e3e7e81483bafad2a5581c06000.txt`. Do not delete either file.

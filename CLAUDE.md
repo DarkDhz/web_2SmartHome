@@ -139,7 +139,7 @@ Kept minimal and inline via `<script>` tags:
 
 ### Analytics
 
-Two analytics providers run in parallel — both are loaded via `Layout.astro` and therefore cover every page automatically.
+Two analytics providers run in parallel — both are loaded via `Layout.astro` and therefore cover every page automatically. The canonical tracking plan — which events count as conversions and the one-time GA4 setup (marking Key Events, registering custom dimensions, Google Ads linking) — lives in [TRACKING.md](TRACKING.md); update it whenever the event table below changes.
 
 - **Vercel Analytics + SpeedInsights** — imported as Astro components (`@vercel/analytics/astro`, `@vercel/speed-insights/astro`). Custom events use `import { track } from '@vercel/analytics'`.
 - **Google Analytics 4** (`G-GS31FY434F`) — loaded in `Layout.astro` `<head>` with **Consent Mode v2** (RGPD/EEA). The first inline script sets all consent signals to `'denied'` by default via `gtag('consent', 'default', {...})`, then `CookieBanner.astro` calls `gtag('consent', 'update', {...granted...})` when the user accepts. Returning visitors who already accepted are restored on page load. In page scripts, access `gtag` as `const gtag = (window as any).gtag as (...args: any[]) => void` — it is a runtime global, not an import.
