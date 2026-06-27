@@ -71,7 +71,7 @@
 
 ## 🟢 Quick wins (minutos)
 
-### 7. Eliminar el meta `keywords`
+### 7. ✅ Eliminar el meta `keywords`
 - **Evidencia:** `Layout.astro:185` envía la misma lista de keywords en **todas** las
   páginas (incluidas CA y blog). Google lo ignora desde 2009; Bing penaliza ligeramente el
   stuffing. Cero upside.
