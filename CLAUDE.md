@@ -162,6 +162,10 @@ The delegated `click` listener in `Layout.astro` covers every page (ES + CA) aut
 
 `public/llms.txt` — structured Markdown file for AI crawlers (ChatGPT, Perplexity, etc.), following the [llms.txt spec](https://llmstxt.org/). Keep it in sync when adding new pages or blog posts: update the pages list and append a new entry to the Blog section.
 
+### SEO backlog
+
+[seo-improvements.md](seo-improvements.md) is the **living, prioritized SEO action list** (from the 2026-06-27 audit). Consult it before SEO work and mark items done with ✅ as they ship — each entry cites the exact file/line to change (e.g. `Layout.astro:48` for blog `<title>` length, `BlogPost.astro` schema/author tweaks). The site is technically sound; remaining items are mostly on-page polish and off-site authority.
+
 ### Deployment
 
 Hosted on **Vercel** (static output). `vercel.json` at the root contains 301 redirects from the old site's URL structure (e.g. `/que-es` → `/quienes-somos`, `/para-ti` → `/domotica/hogares`). When adding a new route that replaces an old one, add the redirect there.
