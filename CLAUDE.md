@@ -17,6 +17,8 @@ No test runner or linter is configured. TypeScript errors surface via `npm run b
 
 **Stack:** Astro 6 (static output) + Tailwind CSS 3 (`tailwind.config.mjs` extends the `sans` font to Inter) + `@astrojs/sitemap`. There is no `@astrojs/tailwind` integration; Tailwind is wired in via `src/styles/global.css` (`@tailwind base/components/utilities`) imported directly by `Layout.astro`. `autoprefixer` (devDependency) is part of the PostCSS pipeline that Tailwind requires.
 
+**Performance (mobile-first):** the **Inter** font is self-hosted via `@fontsource/inter` — `Layout.astro`'s frontmatter imports the four weights in use (`@fontsource/inter/400.css`, `/600.css`, `/700.css`, `/800.css`); there is **no** `fonts.googleapis.com` link (do not re-add one). `astro.config.mjs` sets `build: { inlineStylesheets: 'always' }`, so all bundled CSS (including the `@font-face` rules) ships inline in each page's `<head>` rather than as a render-blocking external stylesheet. These settings target the PageSpeed "render-blocking requests" audit — keep them when touching fonts/CSS.
+
 ### i18n — bilingual ES/CA
 
 `astro.config.mjs` declares `i18n: { defaultLocale: 'es', locales: ['es', 'ca'], routing: { prefixDefaultLocale: false } }`.
@@ -31,7 +33,7 @@ No test runner or linter is configured. TypeScript errors surface via `npm run b
 **`src/layouts/Layout.astro`** — base layout used by every page:
 - Props: `title`, `seoTitle?`, `description?`, `image?`, `canonical?`, `noIndex?`, `schemas?` (JSON-LD array), `lang?: 'es' | 'ca'`.
 - **Title vs `seoTitle`:** by default the `<title>` (and `og:`/`twitter:`/`DC.title`) is `` `${title} | 2SmartHome` ``. Passing `seoTitle` overrides that **verbatim** (no brand suffix, no fallback) — use it whenever the auto-generated title would be too long (>60 chars) or contain a redundant brand mention (e.g. `title` already contains "2SmartHome Barcelona"). Blog posts set this via `BlogPost.astro`; money/about pages should also set it when needed (e.g. `quienes-somos.astro` uses `seoTitle="Quiénes Somos — Equipo de Domótica Barcelona"` to avoid "2SmartHome … | 2SmartHome").
-- Injects `<html lang={lang}>`, Google Fonts (Inter), `src/styles/global.css`, Vercel Analytics/SpeedInsights, and `<CookieBanner>`.
+- Injects `<html lang={lang}>`, the self-hosted Inter font (`@fontsource/inter` imports — see Performance below), `src/styles/global.css`, Vercel Analytics/SpeedInsights, and `<CookieBanner>`.
 - Computes `esAlternate` / `caAlternate` URLs and emits `<link rel="alternate" hreflang="es-ES">` / `hreflang="ca-ES"` / `hreflang="x-default"` tags (full locale codes, matching the sitemap i18n config).
 - Emits a `LocalBusiness` JSON-LD schema plus any extra `schemas[]` passed by the page. All main pages (domotica, soluciones, proyectos, quienes-somos and their `/ca/` equivalents) pass a `BreadcrumbList` schema via this prop. New main pages should do the same.
 - A floating WhatsApp button is rendered, with per-path message text hardcoded in `whatsappMessages`. This map contains **both ES and CA paths** (e.g. `/domotica` and `/ca/domotica`). When adding a new route, add both paths with appropriate language text.
@@ -112,6 +114,8 @@ const getImg = (src: string) => imgs[src.replace('/img/', '/src/assets/img/')]!.
 Then use `<Image src={getImg('/img/filename.jpg')} alt="..." width={800} />` in templates.
 
 **Loading strategy:** Hero images (first visible on load) must always have `loading="eager"`. All images below the fold must have `loading="lazy"`. Both attributes are always explicit — never rely on browser defaults.
+
+**Hero/LCP image convention:** every `loading="eager"` hero `<Image>` also carries `fetchpriority="high"` and `quality={70}` (overriding Sharp's ~80 default) to satisfy the PageSpeed LCP/image-delivery audits. The two homepage heroes (`index.astro`, `ca/index.astro`) additionally use `widths={[640, 960, 1280, 1600]}` + `sizes="100vw"` so mobile downloads a small variant instead of the full-width image; their `width` is `1600` to match the source (`principal-hero-img.jpeg` is 1600×1067 — don't set a larger `width` or Astro can't upscale). Match this pattern on any new hero.
 
 `BlogPost.astro` uses the same pattern with `/src/assets/blog_imgs/**`.
 
