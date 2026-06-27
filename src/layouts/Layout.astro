@@ -11,6 +11,7 @@ import logoSrc from '../assets/img/logo-navbar.png';
 
 interface Props {
   title: string;
+  seoTitle?: string;
   description?: string;
   image?: string;
   canonical?: string;
@@ -29,6 +30,7 @@ const GOOGLE_MAPS_URL = 'https://www.google.es/maps/place/2SmartHome/@41.4506426
 
 const {
   title,
+  seoTitle,
   description = 'Empresa de domótica en Barcelona. Automatizamos hogares y empresas en Barcelona, Hospitalet, Sant Cugat, Badalona y toda el área metropolitana. Presupuesto gratuito.',
   image = DEFAULT_IMAGE,
   canonical = new URL(Astro.url.pathname, SITE_URL).href,
@@ -45,7 +47,7 @@ const caAlternate = lang === 'ca'
   ? canonical
   : new URL(`/ca${pathname === '/' ? '' : pathname}`, SITE_URL).href;
 
-const fullTitle = `${title} | ${SITE_NAME}`;
+const fullTitle = seoTitle ?? `${title} | ${SITE_NAME}`;
 const whatsappPhone = '34660877744';
 const whatsappMessages: Record<string, string> = {
   '/': 'Hola 2SmartHome, vengo de la página principal y quiero información sobre domótica.',

@@ -27,7 +27,7 @@
   - Páginas de instaladores de marcas partner (Shelly, Aqara, Somfy).
   - Link building en catalán (`.cat`, prensa/blogs catalanes) — baja competencia.
 
-### 3. Títulos `<title>` de blog demasiado largos
+### 3. ✅ Títulos `<title>` de blog demasiado largos
 - **Impacto:** CTR en SERP (truncado a ~60 caracteres).
 - **Evidencia:** `Layout.astro:48` añade `${title} | 2SmartHome` a todas las páginas.
   Ej.: *"Domótica en Barcelona: más control, más privacidad, más tranquilidad | 2SmartHome"* ≈ 80 caracteres.
@@ -77,7 +77,7 @@
   stuffing. Cero upside.
 - **Fix:** Borrar la línea `<meta name="keywords">`.
 
-### 8. Unificar la etiqueta de breadcrumb de `/recursos`
+### 8. ✅ Unificar la etiqueta de breadcrumb de `/recursos`
 - **Evidencia:** `recursos.astro:55` lo llama *"Blog y Guías de Domótica"*; `BlogPost.astro:98`
   lo referencia como *"Recursos"* para la misma URL → breadcrumb inconsistente en SERP.
 - **Fix:** Elegir una etiqueta para `/recursos` y usarla en ambos schemas.

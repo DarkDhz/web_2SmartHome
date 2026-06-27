@@ -8,6 +8,7 @@ const getBlogImg = (src: string) => blogImgs[src.replace('/blog_imgs/', '/src/as
 
 interface Props {
   title: string;
+  seoTitle?: string;
   description: string;
   cat: string;
   date: string;
@@ -28,6 +29,7 @@ interface Props {
 
 const {
   title,
+  seoTitle,
   description,
   cat,
   date,
@@ -119,7 +121,7 @@ const ctaHref = (finalCta.tipo || finalCta.mensaje)
   : finalCta.href;
 ---
 
-<Layout title={title} description={description} noIndex={false} schemas={[articleSchema, breadcrumbSchema]} lang={lang}>
+<Layout title={title} seoTitle={seoTitle} description={description} noIndex={false} schemas={[articleSchema, breadcrumbSchema]} lang={lang}>
 
   <!-- Reading progress bar -->
   <div class="fixed top-20 left-0 right-0 z-40 h-0.5 bg-slate-800">
