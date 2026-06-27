@@ -29,7 +29,8 @@ No test runner or linter is configured. TypeScript errors surface via `npm run b
 ### Layouts
 
 **`src/layouts/Layout.astro`** — base layout used by every page:
-- Props: `title`, `description?`, `image?`, `canonical?`, `noIndex?`, `schemas?` (JSON-LD array), `lang?: 'es' | 'ca'`.
+- Props: `title`, `seoTitle?`, `description?`, `image?`, `canonical?`, `noIndex?`, `schemas?` (JSON-LD array), `lang?: 'es' | 'ca'`.
+- **Title vs `seoTitle`:** by default the `<title>` (and `og:`/`twitter:`/`DC.title`) is `` `${title} | 2SmartHome` ``. Passing `seoTitle` overrides that **verbatim** (no brand suffix, no fallback) — use it to keep a SERP title ≤60 chars when the on-page `title`/H1 is longer. Blog posts use this; see `BlogPost.astro`.
 - Injects `<html lang={lang}>`, Google Fonts (Inter), `src/styles/global.css`, Vercel Analytics/SpeedInsights, and `<CookieBanner>`.
 - Computes `esAlternate` / `caAlternate` URLs and emits `<link rel="alternate" hreflang="es-ES">` / `hreflang="ca-ES"` / `hreflang="x-default"` tags (full locale codes, matching the sitemap i18n config).
 - Emits a `LocalBusiness` JSON-LD schema plus any extra `schemas[]` passed by the page. All main pages (domotica, soluciones, proyectos, quienes-somos and their `/ca/` equivalents) pass a `BreadcrumbList` schema via this prop. New main pages should do the same.
@@ -37,7 +38,7 @@ No test runner or linter is configured. TypeScript errors surface via `npm run b
 - The `.fade-up` animation class is defined here: an IntersectionObserver in an inline `<script>` adds `.visible` when elements scroll into view (opacity 0→1, translateY 28px→0).
 
 **`src/layouts/BlogPost.astro`** — wraps `<Layout>` for blog articles:
-- Props: `title`, `description`, `cat`, `date`, `time`, `img`, `imgAlt?`, `lang?`, `cta?` (object with `eyebrow`, `title`, `text`, `button`, `tipo`, `mensaje`).
+- Props: `title`, `seoTitle?`, `description`, `cat`, `date`, `time`, `img`, `imgAlt?`, `lang?`, `cta?` (object with `eyebrow`, `title`, `text`, `button`, `tipo`, `mensaje`). `seoTitle` is forwarded to `<Layout>` (see above); each post sets a ≤60-char `seoTitle` while the long `title` stays as the H1.
 - Contains a `ui` object that switches breadcrumb labels, CTA defaults, and "back to blog" text between ES and CA. The `BreadcrumbList` JSON-LD schema uses `ui.home` / `ui.resources` and locale-correct URLs — keep this in sync when editing.
 - The featured article image uses `loading="eager"` (it is the LCP element for blog posts).
 - The `cta.tipo` and `cta.mensaje` values are passed as query params to `/contacto` (or `/ca/contacto`) via a pre-filled form URL.
@@ -75,7 +76,11 @@ Each blog post is a **static `.astro` file** (no dynamic route). Adding a new po
 3. `src/pages/recursos.astro` — prepend an entry to the `articles` array (ES title/desc, `href: '/blog/[post-slug]'`).
 4. `src/pages/ca/recursos.astro` — prepend an entry to the `articles` array (CA title/desc, `href: '/ca/blog/[post-slug]'`).
 
+Both article files should set a **`seoTitle`** prop (≤60 chars, no brand suffix) on `<BlogPost>` so the SERP `<title>` isn't truncated; the longer `title` stays as the on-page H1. See the Layouts section.
+
 Blog images go in `src/assets/blog_imgs/`. The `img` prop on `<BlogPost>` is a string path like `/blog_imgs/filename.jpg` resolved at runtime by the eager glob in `BlogPost.astro`.
+
+**Renaming or removing a post slug** (the route comes from the filename) is a cross-cutting edit — grep the whole repo for the old slug and fix every hit: rename both `.astro` files, the `href` in `recursos.astro` + `ca/recursos.astro`, every inbound in-body link from other posts (ES and CA), and the `public/llms.txt` entry. Then add a 301 in `vercel.json` (`/blog/<old>` → `/blog/<new>` and the `/ca/` pair) so the indexed URL isn't lost.
 
 **Internal linking (required for SEO):** Every blog post body must include **2–4 contextual `<a>` links** woven into existing prose with descriptive anchor text (never "click here"). Mix related blog posts (build topic clusters) with a relevant money page (`/domotica/hogares`, `/domotica/empresas`, `/soluciones#<section-id>`, `/proyectos`). CA posts must use `/ca/...` paths. The `#<section-id>` fragments on `/soluciones` come from the `id` field of the `solutions` data array (`iluminacion`, `clima`, `seguridad`, `persianas`, `energia`, `acceso`, `audio`, `jardin`) — match an existing id. In-body links are styled by the `.article-body a` rule in `BlogPost.astro`; the bottom CTA link is intentionally `rel="nofollow"` and is not part of this count.
 
@@ -161,6 +166,10 @@ The delegated `click` listener in `Layout.astro` covers every page (ES + CA) aut
 ### GEO (Generative Engine Optimization)
 
 `public/llms.txt` — structured Markdown file for AI crawlers (ChatGPT, Perplexity, etc.), following the [llms.txt spec](https://llmstxt.org/). Keep it in sync when adding new pages or blog posts: update the pages list and append a new entry to the Blog section.
+
+### SEO backlog
+
+[seo-improvements.md](seo-improvements.md) is the **living, prioritized SEO action list** (from the 2026-06-27 audit). Consult it before SEO work and mark items done with ✅ as they ship — each entry cites the exact file/line to change (e.g. `Layout.astro:48` for blog `<title>` length, `BlogPost.astro` schema/author tweaks). The site is technically sound; remaining items are mostly on-page polish and off-site authority.
 
 ### Deployment
 

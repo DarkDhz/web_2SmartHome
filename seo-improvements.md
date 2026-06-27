@@ -39,9 +39,13 @@
 ### 4. E-E-A-T: autor con nombre + schema de reseñas
 - **Por qué:** Es el espacio en blanco del sector — ningún competidor muestra proof real.
 - **Qué hacer:**
-  - Si hay reseñas reales de Google, añadir `aggregateRating` al schema `LocalBusiness`
-    (`Layout.astro:74-168`). La valoración debe ser **genuina y visible en la página**
-    (no solo en el schema) → puede ganar estrellas en SERP.
+  - ✅ `aggregateRating` + `review[]` añadidos al schema `LocalBusiness` (`Layout.astro`),
+    alimentados desde `src/data/reviews.ts`. Bloque de 6 reseñas **visible** en
+    `/quienes-somos` y `/ca/quienes-somos`. **Pendiente:** rellenar los placeholders de
+    `src/data/reviews.ts` con las reseñas reales y la nota media/recuento reales **antes de
+    publicar** (publicar valoraciones inventadas viola las directrices de Google). Nota:
+    para `LocalBusiness` Google considera las reseñas propias *self-serving* → no garantiza
+    estrellas en SERP; el valor es confianza on-page + E-E-A-T + AI/GEO.
   - Dar a los posts un autor con nombre (ingeniero/fundador) + bio + schema `Person`
     (ahora `BlogPost.astro:83` usa `Organization`). La experiencia de instalador es justo
     la señal E-E-A-T que Google premia.
