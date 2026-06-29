@@ -176,6 +176,8 @@ The delegated `click` listener in `Layout.astro` covers every page (ES + CA) aut
 
 [seo-improvements.md](seo-improvements.md) is the **living, prioritized SEO action list** (from the 2026-06-27 audit). Consult it before SEO work and mark items done with ✅ as they ship — each entry cites the exact file/line to change (e.g. `Layout.astro:48` for blog `<title>` length, `BlogPost.astro` schema/author tweaks). The site is technically sound; remaining items are mostly on-page polish and off-site authority.
 
+[keyword-plan.md](keyword-plan.md) is the **keyword ownership map** — one target keyword per page. Before creating a new page or blog post, check it to avoid cannibalization: if the target keyword is already owned by a service page, the blog post must use a long-tail or informational variant instead. Service pages own commercial-local keywords; blog posts own informational/long-tail variants. Also check that the `seoTitle` of a new blog post does not repeat the keyword of a money page. Update this file when pages are added or removed.
+
 ### Deployment
 
 Hosted on **Vercel** (static output). `vercel.json` at the root contains 301 redirects from the old site's URL structure (e.g. `/que-es` → `/quienes-somos`, `/para-ti` → `/domotica/hogares`). When adding a new route that replaces an old one, add the redirect there.

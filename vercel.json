@@ -40,6 +40,8 @@
     { "source": "/index-en.html", "destination": "/", "permanent": true },
     { "source": "/index-ca.html", "destination": "/ca", "permanent": true },
     { "source": "/blog/knx-vs-home-assistant", "destination": "/blog/home-assistant", "permanent": true },
-    { "source": "/ca/blog/knx-vs-home-assistant", "destination": "/ca/blog/home-assistant", "permanent": true }
+    { "source": "/ca/blog/knx-vs-home-assistant", "destination": "/ca/blog/home-assistant", "permanent": true },
+    { "source": "/blog/domotica-en-barcelona", "destination": "/", "permanent": true },
+    { "source": "/ca/blog/domotica-en-barcelona", "destination": "/", "permanent": true }
   ]
 }
