@@ -39,12 +39,31 @@ const stats = [
   { value: '24/7', label: 'Suport', sub: 'tècnic' },
   { value: '100%', label: 'Clients', sub: 'satisfets' },
 ];
+
+const homeFaqs = [
+  { q: 'Quant costa instal·lar domòtica a Barcelona?', a: 'El preu depèn de la mida de l\'espai i els sistemes a integrar. Una instal·lació bàsica per a un pis de 80 m² pot partir des de 2.500 €. Oferim pressupostos sense compromís i visita gratuïta a Barcelona i àrea metropolitana.' },
+  { q: 'Sou instal·ladors de domòtica a Barcelona?', a: 'Sí. Som una empresa de domòtica amb base a Barcelona, especialitzada en la instal·lació de sistemes intel·ligents per a llars i empreses. Els nostres instal·ladors estan certificats i realitzen projectes a tota l\'àrea metropolitana.' },
+  { q: 'La instal·lació requereix obres?', a: 'En la majoria de casos, no. Utilitzem tecnologia sense fils (Zigbee, Z-Wave, Matter) amb Home Assistant que no requereix cablejat addicional. És ideal per a pisos i habitatges ja construïts: sense obres, sense pols, sense molèsties.' },
+  { q: 'En quines zones de Barcelona treballeu?', a: 'Realitzem instal·lacions a Barcelona ciutat i a tota l\'àrea metropolitana: Badalona, L\'Hospitalet, Sant Cugat, Cornellà, El Prat, Castelldefels, Viladecans i molts més municipis. Contacta\'ns i confirmem la teva zona.' },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: homeFaqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: { '@type': 'Answer', text: faq.a },
+  })),
+};
 ---
 
 <Layout
   title="Empresa de Domòtica a Barcelona"
-  description="Domòtica a Barcelona per a llars i empreses. Automatitza il·luminació, climatització, seguretat i energia amb solucions a mida."
+  seoTitle="Instal·lació de Domòtica a Barcelona | 2SmartHome"
+  description="Instal·lació de domòtica a Barcelona i àrea metropolitana. Instal·ladors per a llars i empreses: il·luminació, clima, seguretat i energia. Pressupost sense compromís."
   lang="ca"
+  schemas={[faqSchema]}
 >
 
   <!-- HERO -->
@@ -54,12 +73,12 @@ const stats = [
       <div class="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-950/70 to-slate-950"></div>
     </div>
     <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center -translate-y-10 sm:-translate-y-14">
-      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.18] mb-8 sm:mb-10">
-        La teva llar,
-        <span class="block pb-2 text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-cyan-300">intel·ligent</span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.18] mb-8 sm:mb-10">
+        Instal·lació de domòtica a Barcelona
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-cyan-300">per a la teva llar i la teva empresa</span>
       </h1>
       <p class="text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
-        Automatitzem llars i empreses a Barcelona per crear espais més còmodes, segurs i eficients. Control total des del teu smartphone.
+        Som instal·ladors de domòtica a Barcelona i àrea metropolitana. Automatitzem llars i empreses amb solucions a mida, sense obres i amb pressupost sense compromís.
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a href="/ca/soluciones" class="px-8 py-4 bg-sky-500 hover:bg-sky-400 text-white font-semibold rounded-2xl transition-all duration-200 shadow-2xl shadow-sky-500/30 hover:scale-105">
@@ -167,11 +186,11 @@ const stats = [
         <div class="fade-up">
           <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">Per què triar-nos?</p>
           <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6 leading-snug">
-            No només instal·lem tecnologia,<br/>
-            <span class="text-sky-400">t'acompanyem</span>
+            Instal·ladors de domòtica a Barcelona
+            <span class="text-sky-400">que t'acompanyen</span>
           </h2>
           <p class="text-slate-400 leading-relaxed mb-8">
-            A 2SmartHome dissenyem solucions a mida per a cada client. No existeix un projecte igual perquè cada llar i empresa té necessitats úniques.
+            A 2SmartHome dissenyem cada instal·lació de domòtica des de zero segons l'espai, els hàbits i el pressupost del client. Treballem amb tecnologia de control local —sense núvol— per garantir privacitat i fiabilitat a qualsevol llar o empresa de Barcelona i àrea metropolitana.
           </p>
           <ul class="space-y-5">
             {[
@@ -205,6 +224,31 @@ const stats = [
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="py-24 bg-slate-900 border-t border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <p class="text-sky-400 font-medium text-sm uppercase tracking-wider mb-3">Preguntes freqüents</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white">Tot sobre la instal·lació de domòtica a Barcelona</h2>
+      </div>
+      <div class="space-y-4" id="faq-home-list">
+        {homeFaqs.map((faq, i) => (
+          <div class="faq-home-item border border-slate-700 rounded-2xl overflow-hidden fade-up" style={`transition-delay:${i*60}ms`}>
+            <button class="faq-home-btn w-full flex items-center justify-between px-6 py-5 text-left bg-slate-800/50 hover:bg-slate-800 transition-colors">
+              <span class="text-white font-semibold pr-4">{faq.q}</span>
+              <svg class="faq-home-icon w-5 h-5 text-sky-400 flex-shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-home-answer hidden px-6 py-5 bg-slate-900 border-t border-slate-800">
+              <p class="text-slate-400 leading-relaxed">{faq.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- CTA FINAL -->
   <section class="py-24 bg-slate-900 border-t border-slate-800">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-up">
@@ -223,4 +267,20 @@ const stats = [
     </div>
   </section>
 
+<script>
+  document.querySelectorAll('.faq-home-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-home-item');
+      const answer = item?.querySelector('.faq-home-answer');
+      const icon = btn.querySelector('.faq-home-icon');
+      const isOpen = !answer?.classList.contains('hidden');
+      document.querySelectorAll('.faq-home-answer').forEach(a => a.classList.add('hidden'));
+      document.querySelectorAll('.faq-home-icon').forEach(ic => ic.classList.remove('rotate-180'));
+      if (!isOpen) {
+        answer?.classList.remove('hidden');
+        icon?.classList.add('rotate-180');
+      }
+    });
+  });
+</script>
 </Layout>
