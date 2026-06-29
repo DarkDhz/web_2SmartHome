@@ -32,7 +32,7 @@ Una keyword principal por página para evitar canibalización.
 | Página | Keyword principal | Secundarias | Dificultad | Prioridad |
 |---|---|---|---|---|
 | `/` (home) | empresa de domótica Barcelona | instaladores domótica Barcelona, domótica Barcelona | Media-Alta | 🔴 Alta |
-| `/domotica` (hub) | domótica (Barcelona) | sistemas de domótica, instalación domótica | Alta | 🟡 Media |
+| `/domotica` (hub) | sistemas de domótica | qué es la domótica, instalación domótica | Alta | 🟡 Media |
 | `/domotica/hogares` | domótica para el hogar | domótica casa, hogar inteligente Barcelona, casa inteligente | Media | 🔴 Alta |
 | `/domotica/empresas` | domótica para empresas | domótica oficinas, automatización edificios | Media | 🔴 Alta |
 | `/soluciones` | soluciones de domótica | iluminación/climatización/seguridad inteligente | Media | 🟡 Media |
@@ -62,7 +62,7 @@ Varias páginas compiten por la misma keyword. Hay que diferenciarlas (o consoli
 1. **"domótica para empresas"** → la tiene `/domotica/empresas` (servicio, comercial) **y** `/blog/domotica-para-empresas` (blog).
    - **Acción:** la página de servicio se queda con la keyword comercial; el blog debe re-enfocarse a un ángulo informacional específico (p. ej. "ROI de la domótica en oficinas" o "ahorro energético para empresas").
 2. **"domótica Barcelona / en Barcelona"** → la disputan `/`, `/domotica` y `/blog/domotica-en-barcelona`.
-   - **Acción:** la home lidera "empresa de domótica Barcelona"; el blog debe ir a una variante long-tail ("domótica en Barcelona: guía / barrios / precios").
+   - **Acción:** la home lidera "empresa de domótica Barcelona"; el blog debe ir a una variante long-tail ("domótica en Barcelona: guía / barrios / precios"). **`/domotica` no compite por Barcelona — es hub informacional con keyword `sistemas de domótica` (genérico). Su description no debe incluir mención local.** ✅
 3. **"hogar inteligente Barcelona"** → `/domotica/hogares` y `/blog/hogar-inteligente-barcelona-piso`.
    - **Acción:** la página de servicio lidera el término comercial; el blog se queda con el caso concreto "piso" (más específico).
 
