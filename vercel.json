@@ -42,6 +42,10 @@
     { "source": "/blog/knx-vs-home-assistant", "destination": "/blog/home-assistant", "permanent": true },
     { "source": "/ca/blog/knx-vs-home-assistant", "destination": "/ca/blog/home-assistant", "permanent": true },
     { "source": "/blog/domotica-en-barcelona", "destination": "/", "permanent": true },
-    { "source": "/ca/blog/domotica-en-barcelona", "destination": "/", "permanent": true }
+    { "source": "/ca/blog/domotica-en-barcelona", "destination": "/", "permanent": true },
+    { "source": "/blog/hogar-inteligente-barcelona-piso", "destination": "/domotica/hogares", "permanent": true },
+    { "source": "/ca/blog/hogar-inteligente-barcelona-piso", "destination": "/ca/domotica/hogares", "permanent": true },
+    { "source": "/blog/domotica-para-empresas", "destination": "/domotica/empresas", "permanent": true },
+    { "source": "/ca/blog/domotica-para-empresas", "destination": "/ca/domotica/empresas", "permanent": true }
   ]
 }

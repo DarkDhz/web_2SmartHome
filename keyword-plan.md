@@ -49,9 +49,7 @@ Una keyword principal por página para evitar canibalización.
 | `automatizar-persianas` | automatizar persianas / persianas inteligentes | Baja-Media | Producto + how-to |
 | `ahorro-aire-acondicionado-domotica-barcelona` | ahorro aire acondicionado con domótica | Baja | Long-tail local, ganable |
 | `domotica-en-barcelona` | domótica en Barcelona | Media-Alta | ⚠️ Ver canibalización |
-| `hogar-inteligente-barcelona-piso` | hogar inteligente Barcelona piso | Media | ⚠️ Ver canibalización |
 | `ambiente-perfecto-restaurante-iluminacion` | iluminación para restaurantes | Baja | Vertical B2B (hostelería) |
-| `domotica-para-empresas` (blog) | domótica para empresas (ángulo informacional) | Media | ⚠️ Ver canibalización |
 
 ---
 
@@ -59,12 +57,8 @@ Una keyword principal por página para evitar canibalización.
 
 Varias páginas compiten por la misma keyword. Hay que diferenciarlas (o consolidarlas):
 
-1. **"domótica para empresas"** → la tiene `/domotica/empresas` (servicio, comercial) **y** `/blog/domotica-para-empresas` (blog).
-   - **Acción:** la página de servicio se queda con la keyword comercial; el blog debe re-enfocarse a un ángulo informacional específico (p. ej. "ROI de la domótica en oficinas" o "ahorro energético para empresas").
-2. **"domótica Barcelona / en Barcelona"** → la disputan `/`, `/domotica` y `/blog/domotica-en-barcelona`.
+1. **"domótica Barcelona / en Barcelona"** → la disputan `/`, `/domotica` y `/blog/domotica-en-barcelona`.
    - **Acción:** la home lidera "empresa de domótica Barcelona"; el blog debe ir a una variante long-tail ("domótica en Barcelona: guía / barrios / precios"). **`/domotica` no compite por Barcelona — es hub informacional con keyword `sistemas de domótica` (genérico). Su description no debe incluir mención local.** ✅
-3. **"hogar inteligente Barcelona"** → `/domotica/hogares` y `/blog/hogar-inteligente-barcelona-piso`.
-   - **Acción:** la página de servicio lidera el término comercial; el blog se queda con el caso concreto "piso" (más específico).
 
 > Regla: **páginas de servicio = keyword comercial-local; blog = variante long-tail o informacional.** Enlazar siempre el blog → la página de servicio correspondiente (2–4 enlaces internos, regla del proyecto).
 
