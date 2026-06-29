@@ -142,8 +142,9 @@ Then use `<Image src={getImg('/img/filename.jpg')} alt="..." width={800} />` in 
 Kept minimal and inline via `<script>` tags:
 - **Header:** mobile menu toggle
 - **Layout:** WhatsApp button, `.fade-up` IntersectionObserver, CookieBanner logic
+- **index.astro / ca/index.astro:** home-page FAQ accordion — uses class prefix `faq-home-*` (`faq-home-item`, `faq-home-btn`, `faq-home-answer`, `faq-home-icon`). **Different from** the `faq-*` prefix used in `recursos.astro`; both patterns coexist and must not share selectors.
 - **Proyectos:** category filter (show/hide cards by `data-cat`)
-- **Recursos:** FAQ accordion + "load more" articles button
+- **Recursos:** FAQ accordion (`faq-item`, `faq-btn`, `faq-answer`, `faq-icon`) + "load more" articles button
 - **Contacto:** async form submission with success/error states; reads `tipo`/`mensaje` query params on load
 
 ### Analytics
