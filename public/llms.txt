@@ -52,9 +52,7 @@
 
 - [Ahorro en aire acondicionado con domótica en Barcelona](https://www.2smarthome.es/blog/ahorro-aire-acondicionado-domotica-barcelona) — Cálculo de ahorro real en climatización con datos del ICAEN y automatizaciones de Home Assistant para el verano barcelonés.
 - [Cómo automatizar persianas sin cambiar el motor](https://www.2smarthome.es/blog/automatizar-persianas) — Guía práctica para motorizar persianas existentes con adaptadores inteligentes Shelly/Somfy. Sin obras.
-- [Domótica en un piso de Barcelona: guía completa](https://www.2smarthome.es/blog/hogar-inteligente-barcelona-piso) — Cómo instalar domótica en un piso de Barcelona sin obras ni permisos de comunidad.
 - [Home Assistant: la plataforma de domótica que usamos](https://www.2smarthome.es/blog/home-assistant) — Por qué 2SmartHome instala Home Assistant en todos sus proyectos: control local, privacidad y más de 3.000 integraciones.
-- [¿Cuánto ahorra una empresa con domótica? ROI y datos reales](https://www.2smarthome.es/blog/domotica-para-empresas) — Cálculo del retorno de inversión en domótica empresarial: ahorro en iluminación, climatización y energía con datos y plazos de amortización.
 - [7 errores comunes al instalar domótica](https://www.2smarthome.es/blog/7-errores-comunes-domotica) — Errores frecuentes en instalaciones DIY y cómo evitarlos con una instalación profesional.
 - [¿Vale la pena invertir en una casa inteligente?](https://www.2smarthome.es/blog/vale-la-pena-invertir-casa-inteligente) — Análisis de ROI: ahorro energético, revalorización del inmueble y calidad de vida.
 - [Iluminación perfecta en restaurantes](https://www.2smarthome.es/blog/ambiente-perfecto-restaurante-iluminacion) — Cómo diseñar la iluminación de un restaurante con escenas automáticas por franja horaria.
