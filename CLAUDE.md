@@ -49,7 +49,7 @@ No test runner or linter is configured. TypeScript errors surface via `npm run b
 
 - **`Header.astro`** — locale-aware. Reads `Astro.url.pathname`; if it starts with `/ca`, sets `isCA=true` and `prefix='/ca'`. All nav links are `${prefix}/path`. Contains a language switcher pill (ES/CA). Mobile hamburger toggle via inline `<script>`.
 - **`Footer.astro`** — locale-aware with a bilingual `t` object. Footer links use `${prefix}/...`. Copyright year via `new Date().getFullYear()`.
-- **`CookieBanner.astro`** — GDPR cookie consent banner. Accepts `lang?: 'es' | 'ca'` prop (passed from Layout) and renders bilingual text. Shown/hidden via inline script that reads/writes `localStorage` under key `cookie_consent`.
+- **`CookieBanner.astro`** — GDPR cookie consent banner. Accepts `lang?: 'es' | 'ca'` prop (passed from Layout) and renders bilingual text. Shown/hidden via inline script that reads/writes `localStorage` under key `cookie_consent`. **Mobile height budget:** the banner is deliberately compact on mobile (~105px at 375×812 — hidden title, one-sentence body, `m-1`/`p-2.5`, 44px side-by-side buttons) so it clears the homepage hero CTA on both ES and CA. Don't add copy, padding, or stacked buttons back on mobile without re-checking that "Pedir presupuesto inicial" / "Demanar pressupost inicial" stays fully visible above it at 375×812.
 
 ### Routing table
 
