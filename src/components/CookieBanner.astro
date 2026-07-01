@@ -6,7 +6,7 @@ const { lang = 'es' } = Astro.props;
 
 const t = lang === 'ca' ? {
   title: 'Utilitzem galetes',
-  body: "Usem galetes pròpies i de tercers per analitzar l'ús del lloc i millorar la teva experiència. Pots acceptar-les totes o només les necessàries per al funcionament bàsic.",
+  body: "Usem galetes pròpies i de tercers per analitzar l'ús del lloc i millorar la teva experiència.",
   moreInfo: 'Més informació',
   moreInfoHref: '/ca/cookies',
   reject: 'Només necessàries',
@@ -14,7 +14,7 @@ const t = lang === 'ca' ? {
   ariaLabel: 'Avís de galetes',
 } : {
   title: 'Utilizamos cookies',
-  body: 'Usamos cookies propias y de terceros para analizar el uso del sitio y mejorar tu experiencia. Puedes aceptar todas o solo las necesarias para el funcionamiento básico.',
+  body: 'Usamos cookies propias y de terceros para analizar el uso del sitio y mejorar tu experiencia.',
   moreInfo: 'Más info',
   moreInfoHref: '/cookies',
   reject: 'Solo necesarias',
@@ -29,25 +29,25 @@ const t = lang === 'ca' ? {
   role="dialog"
   aria-label={t.ariaLabel}
 >
-  <div class="m-4 sm:m-6 rounded-2xl bg-slate-900 border border-slate-700 shadow-2xl shadow-black/60 p-5 sm:p-6 max-w-2xl sm:mx-auto">
-    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+  <div class="m-1 rounded-xl sm:m-6 sm:rounded-2xl bg-slate-900 border border-slate-700 shadow-2xl shadow-black/60 p-2.5 sm:p-6 max-w-2xl sm:mx-auto">
+    <div class="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-6">
       <div class="flex-1 min-w-0">
-        <p class="text-white font-semibold text-sm mb-1">{t.title}</p>
-        <p class="text-slate-400 text-sm leading-relaxed">
+        <p class="hidden sm:block text-white font-semibold text-sm mb-1">{t.title}</p>
+        <p class="text-slate-400 text-xs sm:text-sm leading-snug sm:leading-relaxed">
           {t.body}
           <a href={t.moreInfoHref} class="text-sky-400 hover:text-sky-300 underline underline-offset-2 ml-1 whitespace-nowrap">{t.moreInfo}</a>
         </p>
       </div>
-      <div class="flex gap-3 shrink-0">
+      <div class="grid grid-cols-2 gap-2 sm:flex sm:gap-3 shrink-0">
         <button
           id="cookie-reject"
-          class="px-4 py-2 text-sm font-medium text-slate-300 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-xl transition-colors whitespace-nowrap"
+          class="px-4 py-2 min-h-[44px] text-sm font-medium text-slate-300 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-xl transition-colors whitespace-nowrap"
         >
           {t.reject}
         </button>
         <button
           id="cookie-accept"
-          class="px-4 py-2 text-sm font-semibold text-white bg-sky-500 hover:bg-sky-400 rounded-xl shadow-lg shadow-sky-500/25 transition-colors whitespace-nowrap"
+          class="px-4 py-2 min-h-[44px] text-sm font-semibold text-white bg-sky-500 hover:bg-sky-400 rounded-xl shadow-lg shadow-sky-500/25 transition-colors whitespace-nowrap"
         >
           {t.accept}
         </button>

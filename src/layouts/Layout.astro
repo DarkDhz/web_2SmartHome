@@ -46,7 +46,7 @@ const esAlternate = lang === 'ca'
   : canonical;
 const caAlternate = lang === 'ca'
   ? canonical
-  : new URL(`/ca${pathname === '/' ? '' : pathname}`, SITE_URL).href;
+  : new URL(`/ca${pathname === '/' ? '/' : pathname}`, SITE_URL).href;
 
 const fullTitle = seoTitle ?? `${title} | ${SITE_NAME}`;
 const whatsappPhone = '34660877744';

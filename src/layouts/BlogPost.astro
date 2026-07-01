@@ -61,12 +61,29 @@ const ui = lang === 'ca' ? {
 };
 
 const SITE_URL = 'https://www.2smarthome.es';
+// The `date` prop is display text ("Jun 2026" ES / "Mai 2026" CA), so the map must
+// cover English, Spanish, and Catalan month names. An unknown month fails the build
+// on purpose — a silent fallback would publish wrong datePublished in the schema.
 const monthMap: Record<string, string> = {
-  Jan: '01', Feb: '02', Mar: '03', Apr: '04', May: '05', Jun: '06',
-  Jul: '07', Aug: '08', Sep: '09', Oct: '10', Nov: '11', Dec: '12',
+  jan: '01', ene: '01', gen: '01',
+  feb: '02',
+  mar: '03', març: '03',
+  apr: '04', abr: '04',
+  may: '05', mai: '05', maig: '05',
+  jun: '06', juny: '06',
+  jul: '07', juliol: '07',
+  aug: '08', ago: '08', ag: '08', agost: '08',
+  sep: '09', set: '09', sept: '09',
+  oct: '10',
+  nov: '11',
+  dec: '12', dic: '12', des: '12',
 };
 const [mon, yr] = date.split(' ');
-const dateISO = `${yr}-${monthMap[mon] ?? '01'}-01`;
+const monthNum = monthMap[mon?.toLowerCase()];
+if (!monthNum || !/^\d{4}$/.test(yr ?? '')) {
+  throw new Error(`BlogPost: unrecognized date "${date}" (expected "<Month> <YYYY>", e.g. "Jun 2026" / "Mai 2026")`);
+}
+const dateISO = `${yr}-${monthNum}-01`;
 const canonical = new URL(Astro.url.pathname, SITE_URL).href;
 const contactPath = lang === 'ca' ? '/ca/contacto' : '/contacto';
 const resourcesPath = lang === 'ca' ? '/ca/recursos' : '/recursos';
@@ -74,20 +91,27 @@ const _imgMeta = getBlogImg(img);
 const _imgOpt = _imgMeta ? await getImage({ src: _imgMeta, format: 'jpeg', width: 1200 }) : null;
 const imageUrl = _imgOpt ? `${SITE_URL}${_imgOpt.src}` : `${SITE_URL}${img}`;
 
+// Author/publisher reference the LocalBusiness #organization node that Layout.astro
+// emits on every page (its logo is the Astro-optimized asset — never hardcode a
+// /img/... URL here; those files don't exist in the build output).
+const organizationRef = {
+  '@type': 'Organization',
+  '@id': `${SITE_URL}/#organization`,
+  name: '2SmartHome',
+  url: SITE_URL,
+};
+
 const articleSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Article',
+  '@type': 'BlogPosting',
   headline: title,
   description,
   image: imageUrl,
+  inLanguage: lang === 'ca' ? 'ca-ES' : 'es-ES',
   datePublished: dateISO,
   dateModified: dateISO,
-  author: { '@type': 'Organization', name: '2SmartHome', url: SITE_URL },
-  publisher: {
-    '@type': 'Organization',
-    name: '2SmartHome',
-    logo: { '@type': 'ImageObject', url: `${SITE_URL}/img/logo-navbar.png` },
-  },
+  author: organizationRef,
+  publisher: organizationRef,
   url: canonical,
   mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
 };
@@ -95,6 +119,7 @@ const articleSchema = {
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
+  inLanguage: lang === 'ca' ? 'ca-ES' : 'es-ES',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: ui.home, item: lang === 'ca' ? `${SITE_URL}/ca` : `${SITE_URL}/` },
     { '@type': 'ListItem', position: 2, name: ui.resources, item: `${SITE_URL}${resourcesPath}` },
